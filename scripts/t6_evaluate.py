@@ -1,0 +1,175 @@
+"""T6: coherence vs null model, stability (perturbation + cross-snapshot),
+label faithfulness (NLI over-claim rate), extrinsic drill-down vs flat
+baseline. Writes outputs/metrics.json.
+"""
+import csv
+import json
+import sys
+import time
+from pathlib import Path
+
+import numpy as np
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "src"))
+
+from tkh.io import load_tkh, build_snapshot, SNAPSHOT_CUTOFFS  # noqa: E402
+from tkh.embeddings import encode_semantic  # noqa: E402
+from tkh.eval.coherence import fit_tfidf, coherence_vs_null  # noqa: E402
+from tkh.eval.stability import perturbation_stability, cross_snapshot_stability  # noqa: E402
+from tkh.eval.faithfulness import check_hierarchy_faithfulness  # noqa: E402
+from tkh.eval.extrinsic import (  # noqa: E402
+    METHOD_LIKE_TYPES, match_ground_truth_methods, flat_baseline,
+    hierarchy_drilldown, score_retrieval, build_retrieval_texts,
+)
+
+DATA_PATH = ROOT / "data" / "tkh_collection10.json"
+OUT_DIR = ROOT / "outputs"
+LEVEL_TARGETS = [12, 50, 200]
+EXTRINSIC_K = 20
+# b0=3,b1=3 was tried first and cut recall roughly in half vs the flat
+# baseline. Swept wider (scripts/t6_extrinsic_sweep.py): b0=5,b1=5 matches
+# flat's recall and precision exactly while scoring ~16% of the candidate
+# pool (497 vs 3104). Going wider than that doesn't help further, recall
+# saturates at the flat baseline's level once branching is wide enough to
+# not exclude the answer up front. See DESIGN_NOTES.md section 14.
+DRILL_B0, DRILL_B1 = 5, 5
+
+
+def log(msg):
+    print(f"[{time.time()-T0:6.1f}s] {msg}", flush=True)
+
+
+def run_coherence(snapshots, hierarchies):
+    out = {}
+    for year, snap in snapshots.items():
+        X, ids, id_to_row = fit_tfidf(snap)
+        out[year] = {
+            level: coherence_vs_null(hierarchies[year], level, X, id_to_row, n_trials=30, seed=0)
+            for level in range(len(LEVEL_TARGETS))
+        }
+        log(f"coherence {year} done")
+    return out
+
+
+def run_stability(snapshots, hierarchies):
+    hierarchies_common = {y: hierarchies[y] for y in hierarchies}
+    cross = cross_snapshot_stability(hierarchies_common, len(LEVEL_TARGETS))
+    log("cross-snapshot stability done")
+
+    year = max(snapshots)  # perturbation run on the largest/latest snapshot
+    snap = snapshots[year]
+    ids = sorted(snap.concept_ids)
+    texts = [snap.nodes[nid]["surface_form"] or "" for nid in ids]
+    vecs = encode_semantic(texts, show_progress_bar=True)
+    cache = dict(zip(ids, vecs))
+    log(f"perturbation embeddings ({year}) done")
+
+    pert = perturbation_stability(snap, cache, LEVEL_TARGETS, alpha=0.5,
+                                   original_hierarchy=hierarchies[year],
+                                   n_seeds=5, remove_frac=0.10)
+    log("perturbation stability done")
+    return {"cross_snapshot": cross, "perturbation": {"year": year, **pert}}
+
+
+def run_faithfulness(snapshots, hierarchies):
+    out = {}
+    for year, snap in snapshots.items():
+        out[year] = check_hierarchy_faithfulness(hierarchies[year], snap, levels=(0, 1), seed=0)
+        log(f"faithfulness {year} done "
+            f"(real_contradiction_rate={out[year]['real_contradiction_rate']:.3f}, "
+            f"control={out[year]['control_contradiction_rate']:.3f})")
+    return out
+
+
+def load_questions():
+    with open(ROOT / "data" / "questions.csv", encoding="utf-8") as f:
+        return list(csv.DictReader(f, delimiter=";"))
+
+
+def run_extrinsic(snap, hierarchy):
+    questions = load_questions()
+    ground_truth = json.loads((ROOT / "data" / "ground_truth.json").read_text(encoding="utf-8"))
+
+    method_ids = sorted(nid for nid in snap.concept_ids if snap.nodes[nid]["type"] in METHOD_LIKE_TYPES)
+    texts, thin_ids = build_retrieval_texts(snap, method_ids, thin_threshold=20, max_context_terms=10)
+    node_emb_matrix = encode_semantic(texts, batch_size=32, max_seq_length=64, show_progress_bar=True)
+    node_emb_by_id = dict(zip(method_ids, node_emb_matrix))
+    log(f"extrinsic candidate-pool embeddings done (n={len(method_ids)}, n_enriched={len(thin_ids)})")
+
+    lg_nodes = [sn for sn in hierarchy["super_nodes"] if sn["level"] in (0, 1) and sn.get("gloss")]
+    lg_ids = [sn["id"] for sn in lg_nodes]
+    lg_texts = [f"{sn['label']}. {sn['gloss']}" for sn in lg_nodes]
+    lg_matrix = encode_semantic(lg_texts, show_progress_bar=False)
+
+    results = []
+    match_coverage = []
+    for q in questions:
+        qid = q["question_id"]
+        gt = ground_truth.get(qid)
+        if gt is None or gt.get("type") != "A":
+            continue
+        expected = gt["expected_methods"]
+        matched = match_ground_truth_methods(snap, expected)
+        gt_ids = sorted({nid for m in matched.values() for nid in m["node_ids"]})
+        match_coverage.append({
+            "question_id": qid, "n_expected": len(expected),
+            "n_matched_terms": sum(1 for m in matched.values() if m["match_type"] != "none"),
+            "match_types": {k: v["match_type"] for k, v in matched.items()},
+        })
+        if not gt_ids:
+            continue
+
+        qvec = encode_semantic([q["question"]])[0]
+        flat_retrieved, flat_n = flat_baseline(qvec, method_ids, node_emb_matrix, k=EXTRINSIC_K)
+        drill_retrieved, drill_n, drill_detail = hierarchy_drilldown(
+            qvec, hierarchy, lg_ids, lg_matrix, node_emb_by_id,
+            b0=DRILL_B0, b1=DRILL_B1, k=EXTRINSIC_K)
+
+        results.append({
+            "question_id": qid, "n_gt_node_ids": len(gt_ids),
+            "flat": {**score_retrieval(flat_retrieved, gt_ids, EXTRINSIC_K), "n_candidates_scored": flat_n},
+            "drilldown": {**score_retrieval(drill_retrieved, gt_ids, EXTRINSIC_K),
+                          "n_candidates_scored": drill_n, **drill_detail},
+        })
+    log("extrinsic eval done")
+
+    def avg(rows, path):
+        vals = [r[path[0]][path[1]] for r in rows if r[path[0]].get(path[1]) is not None]
+        return float(np.mean(vals)) if vals else None
+
+    summary = {
+        "n_questions_scored": len(results),
+        "k": EXTRINSIC_K, "branching": {"b0": DRILL_B0, "b1": DRILL_B1},
+        "flat_mean_recall": avg(results, ("flat", "recall_at_k")),
+        "flat_mean_precision": avg(results, ("flat", "precision_at_k")),
+        "flat_mean_candidates_scored": avg(results, ("flat", "n_candidates_scored")),
+        "drilldown_mean_recall": avg(results, ("drilldown", "recall_at_k")),
+        "drilldown_mean_precision": avg(results, ("drilldown", "precision_at_k")),
+        "drilldown_mean_candidates_scored": avg(results, ("drilldown", "n_candidates_scored")),
+    }
+    return {"summary": summary, "per_question": results, "ground_truth_match_coverage": match_coverage}
+
+
+def main():
+    global T0
+    T0 = time.time()
+
+    data = load_tkh(DATA_PATH)
+    snapshots = {y: build_snapshot(data, y) for y in SNAPSHOT_CUTOFFS}
+    hierarchies = {y: json.loads((OUT_DIR / "snapshots" / str(y) / "hierarchy.json").read_text(encoding="utf-8"))
+                   for y in SNAPSHOT_CUTOFFS}
+    log("loaded snapshots and hierarchies")
+
+    metrics = {}
+    metrics["coherence"] = run_coherence(snapshots, hierarchies)
+    metrics["stability"] = run_stability(snapshots, hierarchies)
+    metrics["faithfulness"] = run_faithfulness(snapshots, hierarchies)
+    metrics["extrinsic"] = run_extrinsic(snapshots[2026], hierarchies[2026])
+
+    (OUT_DIR / "metrics.json").write_text(json.dumps(metrics, indent=2), encoding="utf-8")
+    log(f"wrote {OUT_DIR / 'metrics.json'}")
+
+
+if __name__ == "__main__":
+    main()

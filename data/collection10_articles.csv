@@ -1,0 +1,53 @@
+id,year,arxiv_id,status,title
+5402,2013,,COMPLETED,Materials Design and Discovery with High-Throughput Density Functional Theory: The Open Quantum Materials Database (OQMD)
+5403,2013,1308.5715,COMPLETED,AFLOW: an automatic framework for high-throughput materials discovery
+5408,2013,,COMPLETED,Commentary: The Materials Project: A materials genome approach to accelerating materials innovation
+5452,2015,1506.00303,COMPLETED,The AFLOW Standard for High-Throughput Materials Science Calculations
+5451,2016,1611.03277,COMPLETED,Machine-learning based interatomic potential for amorphous carbon
+4166,2017,1704.01212,COMPLETED,Neural Message Passing for Quantum Chemistry
+4167,2017,1706.08566,COMPLETED,SchNet: A continuous-filter convolutional neural network for modeling quantum interactions
+5392,2017,1707.09571,COMPLETED,Deep Potential Molecular Dynamics: a scalable model with the accuracy of quantum mechanics
+5396,2018,1710.10324,COMPLETED,Crystal Graph Convolutional Neural Networks for an Accurate and Interpretable Prediction of Material Properties
+5404,2018,1805.01568,COMPLETED,Machine learning a general purpose interatomic potential for silicon
+5397,2019,1812.05055,COMPLETED,Graph Networks as a Universal Machine Learning Framework for Molecules and Crystals
+5435,2019,1910.10090,COMPLETED,Simulating diffusion properties of solid-state electrolytes via a neural network potential: Performance and training scheme
+5398,2020,2003.00221,COMPLETED,"Atomic cluster expansion of scalar, vectorial and tensorial properties and including magnetism and charge transfer"
+5400,2020,2007.01831,COMPLETED,The Joint Automated Repository for Various Integrated Simulations (JARVIS) for data-driven materials design
+5406,2020,,COMPLETED,Using Deep Learning to Predict Fracture Patterns in Crystalline Solids
+5445,2020,2005.00707,COMPLETED,Benchmarking Materials Property Prediction Methods: The Matbench Test Set and Automatminer Reference Algorithm
+5388,2021,,COMPLETED,E(3)-Equivariant Graph Neural Networks for Data-Efficient and Accurate Interatomic Potentials
+5381,2022,,COMPLETED,General framework for E(3)-equivariant neural network representation of density functional theory Hamiltonian
+5390,2022,2202.02450,COMPLETED,A Universal Graph Deep Learning Interatomic Potential for the Periodic Table
+5393,2022,2104.03786,COMPLETED,Deep-Learning Density Functional Theory Hamiltonian for Efficient ab initio Electronic-Structure Calculation
+5399,2022,,COMPLETED,Linking atomic structural defects to mesoscale properties in crystalline solids using graph neural networks
+5449,2022,2210.00579,COMPLETED,Large-scale machine-learning-assisted exploration of the whole materials space
+5380,2023,,COMPLETED,MACE: Higher Order Equivariant Message Passing Neural Networks for Fast and Accurate Force Fields
+5383,2023,,COMPLETED,GNN-Assisted Phase Space Integration with Application to Atomistics
+5386,2023,,COMPLETED,Bridging scales with Machine Learning: From first principles statistical mechanics to continuum phase field computations to study order-disorder transitions in LixCoO2
+5391,2023,2302.14231,COMPLETED,CHGNet: Pretrained universal neural network potential for charge-informed atomistic modeling
+5394,2023,2211.10604,COMPLETED,Deep-learning electronic-structure calculation of magnetic superstructures
+5395,2023,2303.00399,COMPLETED,D4FT: A DEEP LEARNING APPROACH TO KOHN-SHAM DENSITY FUNCTIONAL THEORY
+5446,2023,2301.02197,COMPLETED,Virtual Node Graph Neural Network for Full Phonon Prediction
+5448,2023,2304.09409,COMPLETED,DeePMD-kit v2: A software package for Deep Potential models
+5450,2023,2303.12261,COMPLETED,Challenges and opportunities for machine learning in multiscale computational modeling
+5455,2023,,COMPLETED,Scaling deep learning for materials discovery
+5382,2024,,COMPLETED,Phonon predictions with E(3)-equivariant graph neural networks
+5387,2024,,COMPLETED,Matbench Discovery: A framework to evaluate machine learning crystal stability predictions
+5405,2024,2402.09251,COMPLETED,Universal Machine Learning Kohn-Sham Hamiltonian for Materials
+5439,2024,2402.03789,COMPLETED,Scalable Parallel Algorithm for Graph Neural Network Interatomic Potentials in Molecular Dynamics Simulations
+5444,2024,2306.12059,COMPLETED,EQUIFORMERV2: IMPROVED EQUIVARIANT TRANSFORMER FOR SCALING TO HIGHER-DEGREE REPRESENTATIONS
+5454,2024,2403.03092,COMPLETED,Discovering Melting Temperature Prediction Models of Inorganic Solids by Combining Supervised and Unsupervised Learning
+5384,2025,,COMPLETED,Predicting ionic conductivity in solids from the machine-learned potential energy landscape
+5385,2025,,COMPLETED,Machine Learning-Guided Discovery of Temperature-Induced Solid-Solid Phase Transitions in Inorganic Materials
+5389,2025,,COMPLETED,"A SURVEY OF AI FOR MATERIALS SCIENCE: FOUNDATION MODELS, LLM AGENTS, DATASETS, AND TOOLS"
+5401,2025,2503.04070,COMPLETED,A Foundational Potential Energy Surface Dataset for Materials
+5407,2025,2410.01464,COMPLETED,Flow Matching for Accelerated Simulation of Atomic Transport in Crystalline Materials
+5441,2025,2504.06231,COMPLETED,Orb-v3: atomistic simulation at scale
+5447,2025,2512.03642,COMPLETED,Evaluation of Foundational Machine Learned Interatomic Potentials for Migration Barrier Predictions
+5453,2025,2503.09814,COMPLETED,Machine Learning Interatomic Potentials: A Review and Framework for Understanding MLIPs
+5379,2026,,COMPLETED,Artificial Intelligence for Multiscale Modeling in Solid-State Physics and Chemistry: A Comprehensive Review
+5437,2026,2510.00027,COMPLETED,LEARNING INTER-ATOMIC POTENTIALS WITHOUT EXPLICIT EQUIVARIANCE
+5438,2026,2512.10989,COMPLETED,Generalization of Long-Range Machine Learning Potentials in Complex Chemical Spaces
+5440,2026,2601.16195,COMPLETED,Pushing the limits of unconstrained machine-learned interatomic potentials
+5442,2026,2410.12771,COMPLETED,Open Materials 2024 (OMat24) Inorganic Materials Dataset and Models
+5443,2026,2506.23971,COMPLETED,UMA: A Family of Universal Models for Atoms

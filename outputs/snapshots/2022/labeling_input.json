@@ -1,0 +1,1043 @@
+[
+  {
+    "super_node_id": "L0_S00001",
+    "level": 0,
+    "total_members": 159,
+    "type_breakdown": {
+      "cited_work": 92,
+      "claim": 3,
+      "component": 19,
+      "dataset": 8,
+      "future_topic": 2,
+      "method": 31,
+      "metric": 2,
+      "technique": 2
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 159 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - cited_work: ConvLSTM\n  - cited_work: PredRNN\n  - cited_work: WaveNet\n  - cited_work: SchNet\n  - cited_work: PAW method\n  - cited_work: VASP\n  - cited_work: ReaxFF\n  - cited_work: EAM\n  - cited_work: LAMMPS\n  - cited_work: Wang et al.\n  - cited_work: GemNet\n  - cited_work: DTNN\n  - cited_work: sGDML\n  - cited_work: DimeNet\n  - cited_work: Cormorant\n  - cited_work: ChebNet\n  - cited_work: GRU\n  - cited_work: BAML\n  - cited_work: ECFP4\n  - cited_work: HDAD\n  - cited_work: GG\u2011NN\n  - cited_work: ResNet\n  - cited_work: GELU\n  - cited_work: ANI-1\n  - cited_work: PhysNet\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L0_S00004",
+    "level": 0,
+    "total_members": 199,
+    "type_breakdown": {
+      "cited_work": 39,
+      "claim": 15,
+      "component": 57,
+      "future_topic": 5,
+      "method": 39,
+      "problem": 4,
+      "task": 1,
+      "technique": 39
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 199 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - cited_work: TensorFlow\n  - cited_work: Equivariant message passing\n  - cited_work: Graph Networks\n  - cited_work: Directional Message Passing\n  - cited_work: Tensor Field Networks\n  - cited_work: Steerable CNN\n  - cited_work: E(3)-equivariant GNN\n  - cited_work: Gated Graph Neural Network\n  - cited_work: Interaction Network\n  - cited_work: Molecular Graph Convolution\n  - cited_work: Deep Tensor Neural Network\n  - cited_work: Graph Convolutional Network\n  - cited_work: Spectral Graph Convolution\n  - cited_work: Message Passing Neural Network\n  - cited_work: Molecular Graph Convolutions (GC)\n  - cited_work: Kipf & Welling Graph Convolutional Networks\n  - cited_work: Duvenaud et al. Graph Convolutional Networks\n  - cited_work: Tensor-Field Networks\n  - cited_work: Neural Message Passing\n  - cited_work: SE(3)-Equivariant Graph Neural Networks\n  - cited_work: 3D Steerable CNNs\n  - cited_work: N-body Networks\n  - cited_work: Deep Tensor Neural Networks\n  - cited_work: Message Passing Neural Network (MPNN)\n  - cited_work: Crystal Graph Convolutional Neural Networks\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L0_S00002",
+    "level": 0,
+    "total_members": 360,
+    "type_breakdown": {
+      "cited_work": 9,
+      "claim": 61,
+      "component": 34,
+      "dataset": 23,
+      "future_topic": 23,
+      "method": 14,
+      "metric": 5,
+      "problem": 46,
+      "task": 109,
+      "technique": 36
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 360 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - cited_work: Materials Project\n  - cited_work: pymatgen\n  - cited_work: GAP\n  - cited_work: SOAP\n  - cited_work: Monkhorst-Pack\n  - cited_work: Pauling File\n  - cited_work: FireWorks\n  - cited_work: SNAP\n  - cited_work: Order\u2011N electronic structure theory\n  - claim: CGCNN classifies metals versus semiconductors with an area under the ROC curve of 0.95 and an overall accuracy of 0.90.\n  - claim: By extracting per\u2011atom site energies in perovskites, the model reveals that large\u2011radius elements stabilize the A site and group\u202f4\u20116 elements stabilize the B site, and using these insights the high\u2011throughput search space for stable perovskites is reduced by a factor of seven (from 18,928 to 228 candidates).\n  - claim: Representing crystals as graphs of atoms and bonds provides a universal, size\u2011invariant input format applicable to any periodic crystal system.\n  - claim: The Materials Project database contains computed structural, electronic, and energetic data for over 33,000 inorganic compounds, generated using more than 15\u202fmillion CPU\u2011hours of computation.\n  - claim: The Materials Project provides an open RESTful API and a high\u2011level Python library (pymatgen) that enable programmatic querying and analysis of the full dataset.\n  - claim: Visual warnings are displayed on the Materials Project website for compounds whose calculated oxidation states, cell volumes, or bond lengths deviate significantly from experimental norms, helping users assess data reliability.\n  - claim: Automated validation checks compare calculated oxidation states, cell volumes, and bond lengths against experimental data and flag outliers for user review.\n  - claim: The distribution of chromium coordination environments in oxides derived from the database matches known chemical principles: Cr\u2076\u207a prefers tetrahedral (4\u2011fold) coordination, while Cr\u00b3\u207a prefers octahedral (6\u2011fold) coordination.\n  - claim: The Materials Project website receives several hundred unique page views per day and has registered over 4,000 users from academia, government, and industry.\n  - claim: The open\u2011source software infrastructure of the Materials Project, including pymatgen, has attracted more than 100 active collaborators worldwide and incorporates community contributions such as FEFF and ABINIT support.\n  - claim: Future development plans include adding calculations of surface energies, elastic constants, point defects, finite\u2011temperature properties, and implementing a two\u2011way \u2018calculations\u2011on\u2011demand\u2019 feature for user\u2011submitted compounds.\n  - claim: The integrated JARVIS workflow (DFT \u2192 FF \u2192 ML) enables rapid screening of materials for high solar\u2011cell efficiency (SLME) with predictions validated against experimental data.\n  - claim: JARVIS\u2011ML provides around 25 machine\u2011learning models for predicting material properties.\n  - claim: Interpretability analyses of JARVIS\u2011ML models reveal physical insights that go beyond conventional materials\u2011science intuition.\n  - claim: A curated dataset of 476 binary ionic compound melting temperatures spanning 0-4,000\u00b0C was compiled for machine learning model development.\n  - claim: The best one-step gradient-boosted tree regression model achieves 165\u00b14 K MAE and 0.89 R\u00b2 on the test set for melting temperature prediction.\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L0_S00009",
+    "level": 0,
+    "total_members": 431,
+    "type_breakdown": {
+      "cited_work": 32,
+      "claim": 91,
+      "component": 31,
+      "dataset": 21,
+      "future_topic": 21,
+      "method": 58,
+      "metric": 9,
+      "problem": 49,
+      "task": 87,
+      "technique": 32
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 431 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - cited_work: PBE functional\n  - cited_work: Neural Fingerprints\n  - cited_work: Behler\u2011Parrinello Neural Network\n  - cited_work: BOB\n  - cited_work: Deep Potential\n  - cited_work: Deep Potential Molecular Dynamics\n  - cited_work: Atomic Simulation Environment (ASE)\n  - cited_work: Deep Potential MD (water)\n  - cited_work: Gradient-Enhanced ML for Molecular Energies\n  - cited_work: Symmetry-Preserving Inter-Atomic Potential\n  - cited_work: Ab initio thermodynamics of water\n  - cited_work: Gaussian Approximation Potentials\n  - cited_work: Moment Tensor Potentials\n  - cited_work: PBE\n  - cited_work: GW approximation\n  - cited_work: AMBER\n  - cited_work: Density Functional Theory (DFT)\n  - cited_work: Behler-Parrinello neural network potential\n  - cited_work: PBEsol\n  - cited_work: atomate\n  - cited_work: Leaky ReLU\n  - cited_work: Behler\u2011Parrinello\n  - cited_work: Behler-Parrinello neural network\n  - cited_work: Neural fingerprint\n  - cited_work: Graph Neural Network Force Field\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L0_S00013",
+    "level": 0,
+    "total_members": 77,
+    "type_breakdown": {
+      "cited_work": 8,
+      "claim": 2,
+      "component": 19,
+      "method": 5,
+      "metric": 1,
+      "problem": 6,
+      "task": 3,
+      "technique": 33
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 77 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - cited_work: Adam\n  - cited_work: Adam optimizer\n  - cited_work: AdamW (decoupled weight decay)\n  - cited_work: Adam convergence analysis\n  - cited_work: Conjugate gradients\n  - cited_work: TPOT\n  - cited_work: Bayesian optimization with symmetry relaxation\n  - cited_work: Franzblau algorithm\n  - claim: Compositional models cannot differentiate between polymorphs with the same chemical composition.\n  - claim: All fitting coefficients in the GAP model enter linearly, allowing solution via simple linear algebra rather than difficult nonlinear parameter optimization required for traditional potentials and neural networks.\n  - component: Readout module\n  - component: Non\u2011linear activation g\n  - component: Arrhenius analysis module\n  - component: Regularized least\u2011squares solution for expansion coefficients\n  - component: Input representation D_ij\n  - component: Multi\u2011term loss function\n  - component: Progressive loss\u2011weight schedule\n  - component: C++ gradient module for descriptor derivatives\n  - component: Adaptive loss\u2011prefactor schedule\n  - component: Genetic\u2011algorithm\u2011driven inverse design\n  - component: GA optimizer\n  - component: Dropout regularization layers\n  - component: Genetic Algorithm design optimizer\n  - component: Linear correction of heuristic\n  - component: Apennsy analysis module\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L0_S00005",
+    "level": 0,
+    "total_members": 275,
+    "type_breakdown": {
+      "cited_work": 10,
+      "claim": 13,
+      "component": 68,
+      "dataset": 10,
+      "future_topic": 2,
+      "method": 18,
+      "metric": 7,
+      "problem": 35,
+      "task": 16,
+      "technique": 96
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 275 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - cited_work: Set2Set\n  - cited_work: Kernel Ridge Regression\n  - cited_work: Deep Learning Scaling\n  - cited_work: Matminer\n  - cited_work: scikit-learn\n  - cited_work: Random Forests\n  - cited_work: Matbench\n  - cited_work: Pseudodojo\n  - cited_work: Voigt-Reuss-Hill averaging\n  - cited_work: Quickstep\n  - claim: The workflow software FireWorks together with the custodian job\u2011management tool automatically manages high\u2011throughput DFT calculations, self\u2011heals failed runs, and applies material\u2011type\u2011specific workflows.\n  - claim: A REST\u2011API is provided for programmatic download and upload of JARVIS data, supporting community contributions and interoperability.\n  - claim: A two-step approach combining unsupervised clustering with supervised regression achieves 156\u00b14 K MAE and 0.92 R\u00b2, outperforming direct one-step supervised learning.\n  - claim: Tree ensemble methods (gradient-boosted trees and random forest regression) substantially outperform linear models, which achieve MAE >240 K and RMSE >340 K, at least 100 K worse than non-linear approaches.\n  - claim: Symbolic regression results corroborate that cohesive energy and elastic moduli are the most important features, consistent with feature importance and SHAP analysis from tree ensemble models.\n  - claim: The AFLOWLIB data is accessible through a REST-API for standardized data exchange.\n  - claim: Automatminer is a fully-automated machine learning pipeline consisting of four stages (autofeaturization, cleaning, dimensionality reduction, and AutoML search) that requires no user intervention or hyperparameter tuning.\n  - claim: Automatminer Express preset achieves the best performance on 8 of 13 tasks in the Matbench benchmark.\n  - claim: Descriptor-based Automatminer and RF models have lower errors on small datasets but their improvement rates are shallower, with AutoML's advantage over conventional techniques narrowing as sample count increases and essentially lost near 10^5 samples.\n  - claim: All algorithms exhibit a universal trend of decreasing relative errors as dataset size increases.\n  - claim: For small datasets (<10^4 samples), inexpensive Automatminer presets (~1-5 minute training) retain the bulk of performance compared to expensive presets (24h+ training), with Express retaining 95% or more of the accuracy of more expensive presets at less than 50% of the computational cost on data-scarce tasks.\n  - claim: Matbench provides a consistent evaluation framework using five-fold nested cross-validation on identical folds across all algorithms to minimize comparison bias, with datasets pre-cleaned to remove unphysical computed data and task-irrelevant experimental data.\n  - claim: Automatminer source code and pre-processed Matbench tasks are open source and available online.\n  - component: Hyperparameters\n  - component: Set2Set readout\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L0_S00006",
+    "level": 0,
+    "total_members": 176,
+    "type_breakdown": {
+      "cited_work": 13,
+      "claim": 13,
+      "component": 59,
+      "dataset": 2,
+      "method": 12,
+      "problem": 13,
+      "task": 6,
+      "technique": 58
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 176 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - cited_work: Coulomb Matrix\n  - cited_work: Geometric Prediction\n  - cited_work: Clebsch\u2013Gordan Nets\n  - cited_work: Atomic Cluster Expansion\n  - cited_work: Linear Atomic Cluster Expansion\n  - cited_work: Formate on Cu study\n  - cited_work: Formate synthesis on copper\n  - cited_work: PyTorch\n  - cited_work: PyTorch Geometric\n  - cited_work: Spectral Neighbor Analysis Method\n  - cited_work: SineCoulombMatrix\n  - cited_work: Sine Coulomb Matrix\n  - cited_work: CUR\n  - claim: Using higher-order E(3)-equivariant representations (increasing rotation order from l=0 to l=1 and up to l=3) consistently reduces prediction error and improves accuracy across all evaluated tasks.\n  - claim: The first RELAX calculation is performed in collinear spin-polarized fashion with initial magnetic moments set to 1.0 \u00b5B per atom, and spin polarization is turned off in subsequent calculations if magnetization is below 0.025 \u00b5B/atom.\n  - claim: The use of a local\u2011coordinate message\u2011passing (LCMP) layer is critical for achieving high prediction accuracy of rotation\u2011covariant Hamiltonian blocks.\n  - claim: For LLZO, results are quite insensitive to the choice of cell volume (NPT equilibrated vs experimental cif-file values) for producing the initial training set.\n  - claim: The atomic cluster expansion (ACE) is generalized to model scalar, vectorial and tensorial atomic properties and to include additional atomic degrees of freedom\u2014species, magnetic moments, and charges\u2014on equal footing with atomic positions.\n  - claim: The derived ACE formulas enable efficient evaluation of forces and magnetic torques.\n  - claim: At the lowest order, the magnetic ACE reproduces a distance\u2011dependent Heisenberg interaction.\n  - claim: Representing tensors with spherical harmonics yields a dramatically sparser basis, where a rank\u2011N Cartesian tensor with 3^N components can be represented by (N+1)^2 spherical harmonics (e.g., a 10th\u2011order tensor requires 121 harmonics instead of 59\u202f049 Cartesian components).\n  - claim: Neglecting spin\u2011orbit coupling forces all magnetic angular momenta to be zero, greatly reducing the number of ACE expansion coefficients, since the magnetic contribution to the cohesive energy is only about 10\u202f% of the total.\n  - claim: The ACE formulation is invariant under translation, rotation, inversion and permutation of identical atoms.\n  - claim: Although the full magnetic and charge\u2011transfer ACE contains many parameters, hierarchical ordering of interactions allows robust and systematic fitting to reference data.\n  - claim: Implementing the extended ACE for vectorial, tensorial, magnetic and charge degrees of freedom requires no significantly greater effort than the original scalar ACE implementation.\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L0_S00007",
+    "level": 0,
+    "total_members": 59,
+    "type_breakdown": {
+      "cited_work": 4,
+      "claim": 8,
+      "component": 4,
+      "dataset": 9,
+      "future_topic": 3,
+      "method": 5,
+      "metric": 1,
+      "problem": 4,
+      "task": 19,
+      "technique": 2
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 59 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - cited_work: Lithium Phosphorus Oxynitride electrolyte\n  - cited_work: Plasma synthesis of electrolyte nanopowders\n  - cited_work: Li diffusion with NN potential\n  - cited_work: PW91\n  - claim: Using Materials Project tools, researchers designed a new class of sodium\u2011based carbonophosphate compounds, predicted them to be thermodynamically stable, synthesized them hydrothermally, and experimentally confirmed their Li\u2011ion battery performance after ion exchange.\n  - claim: High\u2011throughput computational screening through the Materials Project has screened tens of thousands of compounds and identified promising candidates for solar water splitting, photovoltaics, topological insulators, scintillators, CO\u2082 capture, piezoelectrics, thermoelectrics, catalysis, hydrogen storage, and Li\u2011ion batteries, with experimental hits reported in several areas.\n  - claim: The Materials Project aims to reduce the typical 10\u201320\u202fyear timeline for advanced material development by providing large\u2011scale accurate information, thereby accelerating discovery for clean energy, electronics, and other sectors.\n  - claim: The DeePMD model successfully reproduces the superionic behavior of solid-state electrolytes with linear Lithium/Sodium mean squared displacement over time and diffusion coefficient uncertainty of about 20% or smaller, which is precise enough for battery applications.\n  - claim: The DeePMD model is a promising candidate for developing a universal potential for solid-state electrolytes, though care must be taken when selecting training configurations.\n  - claim: M3GNet molecular\u2011dynamics simulations of Li\u2083YCl\u2086 reproduce ionic conductivity (14.3\u202fmS\u202fcm\u207b\u00b9) and activation energy (0.22\u202feV) consistent with ab\u2011initio MD, and short\u2011time MD correctly identifies known lithium superionic conductors by their high mean\u2011squared displacements at elevated temperatures.\n  - claim: High\u2011throughput screening identified TiP, LiSiNi\u2082, and CoSi\u2082 as the most promising Li\u2011ion battery anode conversion reactions, offering high capacity, moderate voltage, and low volume expansion.\n  - claim: Among binary metal\u2011oxide candidates, Al\u2082O\u2083 provides the optimal balance of HF\u2011scavenging tendency, lithiation voltage, gravimetric and volumetric capacities, outperforming other oxides in the four\u2011dimensional design space.\n  - component: Thermodynamic screening pipeline for battery anodes\n  - component: HF\u2011scavenging coating screen\n  - component: Nanoparticle generator\n  - component: Diffusion coefficient convergence criterion\n  - dataset: Li4P2O7\n  - dataset: Li10GeP2S12\n  - dataset: Li7La3Zr2O12\n  - dataset: Na3Zr2Si2PO12\n  - dataset: LGPS\n  - dataset: Wiggle150\n  - dataset: Li10GeP2S12 (LGPS)\n  - dataset: Li7La3Zr2O12 (LLZO)\n  - dataset: Na3Zr2Si2PO12 (NASICON)\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L0_S00003",
+    "level": 0,
+    "total_members": 104,
+    "type_breakdown": {
+      "cited_work": 3,
+      "claim": 12,
+      "component": 10,
+      "future_topic": 3,
+      "method": 5,
+      "metric": 5,
+      "problem": 27,
+      "task": 3,
+      "technique": 36
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 104 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - cited_work: DFT+U\n  - cited_work: Dudarev DFT+U\n  - cited_work: Liechtenstein DFT+U\n  - claim: JARVIS\u2011Tools implements automatic k\u2011point convergence protocols that improve the precision of DFT calculations.\n  - claim: The AFLOW standard enables reproducible high-throughput DFT calculations through standardized parameter sets for k-point density, energy cut-offs, exchange-correlation functionals, pseudopotentials, DFT+U parameters, and convergence criteria.\n  - claim: Default NKPPRA values for non-BANDS calculations vary by database: Binary Alloy uses 6000 for RELAX, Heusler uses 10000 for STATIC and 6000 for RELAX, and ICSD uses 10000 for STATIC and 8000 for RELAX.\n  - claim: The applied plane-wave kinetic energy cut-off (Ecut) is the largest recommended value among all species in the calculation, increased by a factor of 1.4.\n  - claim: DFT+U corrections are applied to the entire ICSD database and certain Heusler database entries containing O, S, Se, and F elements, but not to the Binary Alloy database.\n  - claim: Specific Ueff parameters are defined for d-block elements (Table 4) and U, J parameters for f-block elements (Table 5) to correct self-interaction error in DFT+U calculations, with values ranging from 1.9 eV (In) to 7.5 eV (Zn).\n  - claim: Electronic convergence criteria are \u03b4Eelec = 10\u207b\u2075 eV and ionic convergence criteria are \u03b4Eion = 10\u207b\u2074 eV for Elements database entries, while all other databases use \u03b4Eelec = 10\u207b\u00b3 eV and \u03b4Eion = 10\u207b\u00b2 eV.\n  - claim: Starting the training loop with sufficient data sampling a relevant portion of phase space is important for obtaining generalizable models.\n  - claim: Approximately 150,000 compounds were found with energy distance less than 50 meV/atom from the convex hull.\n  - claim: Materials within 50 meV/atom from convex hull were selected for subsequent DFT stiffness tensor calculations.\n  - claim: AFLOW detects most calculation failures, automatically corrects input parameters, restarts calculations, and can run as a Unix daemon to generate, run, correct, and converge many DFT jobs per day, yielding higher throughput than manual management.\n  - claim: AFLOW implements DFT+U using the Dudarev formalism with default Ueff values for a wide range of elements.\n  - component: Scaling parameters\n  - component: Cutoff function fc\n  - component: Automatic k\u2011point convergence protocol\n  - component: DFT stiffness tensor calculator\n  - component: NKPPRA parameter\n  - component: Dual grid technique\n  - component: Plane-wave kinetic energy cut-off\n  - component: Ueff parameters for d-block elements\n  - component: U and J parameters for f-block elements\n  - component: Cutoff function\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L0_S00008",
+    "level": 0,
+    "total_members": 92,
+    "type_breakdown": {
+      "cited_work": 4,
+      "dataset": 57,
+      "method": 8,
+      "metric": 19,
+      "technique": 4
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 92 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - cited_work: Methfessel-Paxton\n  - cited_work: McMillan formula\n  - cited_work: Allen-Dynes formula\n  - cited_work: McMillan's formula\n  - dataset: Benzene\n  - dataset: MoS2\n  - dataset: MD-17 Aspirin\n  - dataset: MD-17 Azobenzene\n  - dataset: MD-17 Benzene\n  - dataset: MD-17 Ethanol\n  - dataset: MD-17 Malonaldehyde\n  - dataset: MD-17 Naphthalene\n  - dataset: MD-17 Paracetamol\n  - dataset: MD-17 Salicylic acid\n  - dataset: MD-17 Toluene\n  - dataset: MD-17 Uracil\n  - dataset: CCSD(T) Molecular Set \u2013 Aspirin\n  - dataset: CCSD(T) Molecular Set \u2013 Benzene\n  - dataset: CCSD(T) Molecular Set \u2013 Ethanol\n  - dataset: CCSD(T) Molecular Set \u2013 Malonaldehyde\n  - dataset: CCSD(T) Molecular Set \u2013 Toluene\n  - dataset: Water\n  - dataset: Aspirin\n  - dataset: Liquid water\n  - dataset: Ice Ih\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L0_S00014",
+    "level": 0,
+    "total_members": 89,
+    "type_breakdown": {
+      "claim": 35,
+      "component": 5,
+      "dataset": 12,
+      "future_topic": 8,
+      "method": 4,
+      "problem": 10,
+      "task": 11,
+      "technique": 4
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 89 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - claim: When applied to a set of 1,585 crystals with elastic properties, CGCNN predicts bulk modulus with a mean absolute error of 0.077\u202flog(GPa) and shear modulus with a mean absolute error of 0.114\u202flog(GPa), demonstrating good generalization.\n  - claim: Using roughly 10\u2074 training examples, CGCNN attains DFT\u2011level accuracy for eight distinct material properties across diverse crystal types and compositions.\n  - claim: Compared with a prior statistical\u2011learning approach, CGCNN achieves similar or lower root\u2011mean\u2011square errors for bulk modulus (0.075\u202flog(GPa) vs 0.105) and shear modulus (0.127\u202flog(GPa) vs 0.138) using the same training data.\n  - claim: Using the vdW\u2011DF\u2011OptB88 functional for all dimensionalities yields accurate lattice parameters and formation energies for both van\u2011der\u2011Waals and non\u2011vdW bonded materials.\n  - claim: DeepH predicts DFT Hamiltonian matrix elements for graphene with an average mean absolute error of 2.1\u202fmeV and a coefficient of determination r\u00b2\u202f=\u202f0.9994 across all orbital combinations.\n  - claim: When applied to unseen graphene configurations sampled between 100\u202fK and 400\u202fK, DeepH maintains a mean absolute error of 1.9\u202fmeV for Hamiltonian matrix elements.\n  - claim: For monolayer MoS\u2082, DeepH predicts DFT Hamiltonian matrix elements with average mean absolute errors of 1.3\u202fmeV (Mo\u2013Mo), 1.0\u202fmeV (Mo\u2013S), 0.7\u202fmeV (S\u2013Mo), and 0.8\u202fmeV (S\u2013S).\n  - claim: Band structures and electric susceptibility computed from DeepH for MoS\u2082 match DFT results closely.\n  - claim: DeepH generalizes to carbon nanotubes, achieving Hamiltonian prediction MAE below 3.5\u202fmeV for diameters larger than 2\u202fnm and accurately reproducing their band structures.\n  - claim: DeepH scales linearly with system size and provides a three\u2011order\u2011of\u2011magnitude speed\u2011up over conventional DFT for a MoS\u2082 35\u202f\u00d7\u202f35 supercell.\n  - claim: A DeepH model trained only on non\u2011twisted bilayer graphene structures predicts Hamiltonians for twisted bilayer graphene supercells up to ~1000 atoms with sub\u2011meV mean absolute error and correctly reproduces the flat\u2011band feature near the Fermi level at the magic angle (~1.08\u00b0).\n  - claim: DeepH accurately predicts DFT Hamiltonians and electronic properties for twisted bilayer bismuthene with strong spin\u2011orbit coupling, achieving errors comparable to those for twisted graphene.\n  - claim: Compared with empirical tight\u2011binding and continuum models, DeepH offers higher accuracy and transferability for twisted van\u2011der\u2011Waals materials, albeit with slightly lower computational efficiency.\n  - claim: DeepH resolves the accuracy\u2011efficiency dilemma of DFT, enabling efficient ab\u2011initio electronic\u2011structure calculations for large\u2011scale material systems.\n  - claim: DeepH can be applied to both periodic and non\u2011periodic systems, including three\u2011dimensional bulk carbon allotropes and quasi\u2011zero\u2011dimensional molecules, achieving sub\u2011meV mean absolute error for Hamiltonian predictions.\n  - claim: The GNN predicts atomic von\u202fMises stress in polycrystalline graphene with a mean normalized relative error of 5.5% and a maximum error below 7% on a test set of 400 crystals.\n  - claim: The GNN predicts atomic tensile stress in porous graphene membranes under tensile strain with a mean normalized relative error of 4.9% and a maximum error of about 10%.\n  - claim: The GNN reproduces the linear decrease of Young\u2019s modulus with vacancy concentration in porous graphene, matching MD results and yielding the fitted relation E\u202f=\u202f823.7\u202f\u2212\u202f5635.6\u00b7Cv\u202f(GPa).\n  - claim: In polycrystalline aluminum, the GNN predicts atomic potential energy with a mean normalized relative error of 11.0% (maximum \u224813%) and achieves R\u00b2\u202f=\u202f0.99 for mean potential energy versus grain number.\n  - claim: Including tensile strain as an input node feature enables the GNN to accurately predict stress evolution during loading, reproducing nonlinear strain\u2011stress curves for porous graphene.\n  - claim: The GNN\u2019s stress predictions are substantially more accurate than on\u2011the\u2011fly stress calculations from the force field, which exhibit higher errors.\n  - claim: The GNN framework generalizes across defect types (grain boundaries, vacancies) and material dimensionalities (2D graphene, 3D aluminum), and to unseen defect configurations in over 10\u2076 porous graphene structures, maintaining high prediction accuracy despite being trained on only about 1,200 random samples.\n  - claim: Coupling the GNN with a genetic algorithm efficiently discovers optimal holey graphene designs (e.g., arrow\u2011shaped hole patterns) that achieve significantly lower stress concentration than suboptimal designs, using only ~800 stress evaluations\u2014an order of magnitude fewer than brute\u2011force search\u2014and reliably locates the global minimum in most of 1,000 random initializations.\n  - claim: The GNN respects physical constraints, accurately capturing derivative properties such as stress fields that obey underlying physical laws, and predicts global properties (Young\u2019s modulus, total potential energy) that follow known physical relationships and match MD results across different crystalline systems.\n  - claim: The Principal Neighbourhood Aggregation (PNA) GNN model achieves the lowest mean and variance of test mean\u2011squared error among GCN, GAT, and MPNN (sum and max) variants on the polycrystalline graphene dataset.\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L0_S00011",
+    "level": 0,
+    "total_members": 25,
+    "type_breakdown": {
+      "claim": 6,
+      "component": 3,
+      "method": 1,
+      "problem": 4,
+      "task": 8,
+      "technique": 3
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 25 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - claim: The ConvLSTM model accurately predicts fracture patterns, crack\u2011length trends, and both mode\u2011I (tensile) and mode\u2011II (shear) loading responses across crystal orientations, closely matching atomistic molecular dynamics simulations, with only a minor discrepancy for the x100 orientation under mode\u2011II shear.\n  - claim: The model predicts fracture toughness values that are comparable to those obtained from atomistic molecular dynamics simulations.\n  - claim: A model trained exclusively on single\u2011crystal data generalizes to bicrystal and gradient\u2011orientation crystals, reproducing MD fracture patterns for small orientation differences, capturing overall crack paths for large orientation differences, and handling arbitrary geometry gradients.\n  - claim: The ConvLSTM approach reduces computational cost dramatically compared with full molecular dynamics simulations, enabling rapid fracture predictions.\n  - claim: Representing molecular dynamics results as image\u2011based geometric matrices preserves crystal orientation information and allows the neural network to learn spatiotemporal fracture behavior.\n  - claim: The training dataset comprises 14,300 paired geometric\u2011crack image matrices, and the model exhibits convergent loss during training.\n  - component: Fracture\u2011toughness regression head\n  - component: Crack matrix y\n  - component: Vicker's hardness estimation model\n  - method: ConvLSTM-based fracture prediction model\n  - problem: Efficient prediction of dynamic brittle fracture paths\n  - problem: Fracture\u2011toughness estimation from atomistic data\n  - problem: Fracture pattern prediction from MD simulations\n  - problem: Modeling spatiotemporal dependencies in fracture\n  - task: Crack\u2011pattern prediction\n  - task: Fracture\u2011toughness prediction\n  - task: Bicrystal fracture prediction\n  - task: Gradient\u2011orientation fracture prediction\n  - task: Crack path prediction in crystalline solids\n  - task: Spatiotemporal fracture behavior forecasting\n  - task: Vicker's hardness estimation\n  - task: Vicker's hardness prediction\n  - technique: Pixel\u2011wise crack\u2011length measurement\n  - technique: One\u2011hot crack labeling\n  - technique: Vicker's hardness estimation\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00003",
+    "level": 1,
+    "total_members": 51,
+    "type_breakdown": {
+      "cited_work": 34,
+      "component": 3,
+      "dataset": 2,
+      "method": 10,
+      "metric": 2
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 51 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - cited_work: ConvLSTM\n  - cited_work: PredRNN\n  - cited_work: SchNet\n  - cited_work: ReaxFF\n  - cited_work: EAM\n  - cited_work: LAMMPS\n  - cited_work: DTNN\n  - cited_work: Cormorant\n  - cited_work: ChebNet\n  - cited_work: BAML\n  - cited_work: ECFP4\n  - cited_work: FCHL19\n  - cited_work: ACE\n  - cited_work: PaiNN\n  - cited_work: SpookyNet\n  - cited_work: e3nn\n  - cited_work: FCHL revisited\n  - cited_work: CP2K\n  - cited_work: AFLOW\n  - cited_work: USPP\n  - cited_work: ACBN0\n  - cited_work: UFF\n  - cited_work: Magpie\n  - cited_work: CGCNN\n  - cited_work: RooSt\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00001",
+    "level": 1,
+    "total_members": 25,
+    "type_breakdown": {
+      "cited_work": 10,
+      "component": 6,
+      "method": 9
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 25 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - cited_work: WaveNet\n  - cited_work: GemNet\n  - cited_work: DimeNet\n  - cited_work: ResNet\n  - cited_work: PhysNet\n  - cited_work: NewtonNet\n  - cited_work: Davidson blocked scheme\n  - cited_work: MEGNet\n  - cited_work: PhiSNet\n  - cited_work: ElemNet\n  - component: Interaction block\n  - component: Hypernetwork\n  - component: output block\n  - component: MEGNet block\n  - component: MEGNET blocks\n  - component: MEGNetLayer\n  - method: MEGNet\n  - method: ResNets\n  - method: DimeNet\n  - method: GemNet\n  - method: PhysNet\n  - method: NewtonNet\n  - method: MODNet\n  - method: Davidson Block Subspace\n  - method: Davidson blocked scheme\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00051",
+    "level": 1,
+    "total_members": 80,
+    "type_breakdown": {
+      "cited_work": 14,
+      "claim": 6,
+      "component": 14,
+      "future_topic": 4,
+      "method": 17,
+      "problem": 3,
+      "task": 1,
+      "technique": 21
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 80 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - cited_work: TensorFlow\n  - cited_work: Equivariant message passing\n  - cited_work: Tensor Field Networks\n  - cited_work: Steerable CNN\n  - cited_work: E(3)-equivariant GNN\n  - cited_work: Deep Tensor Neural Network\n  - cited_work: Tensor-Field Networks\n  - cited_work: SE(3)-Equivariant Graph Neural Networks\n  - cited_work: 3D Steerable CNNs\n  - cited_work: Deep Tensor Neural Networks\n  - cited_work: Keras\n  - cited_work: Tensor\u2011field networks\n  - cited_work: Group Equivariant CNN\n  - cited_work: SE(3)-equivariant GNN\n  - claim: Continuous-filter convolutional (cfconv) layers enable convolution on arbitrarily positioned inputs, overcoming the limitations of discrete filters that require grid-aligned data.\n  - claim: Using a shifted softplus activation guarantees an infinitely differentiable (smooth) potential energy surface, facilitating geometry optimization.\n  - claim: A general training method allows MPNNs to use larger node representation dimensions without increasing computation time or memory, providing substantial savings over previous high\u2011dimensional MPNNs.\n  - claim: The equivariant architecture scales linearly with the number of atoms because convolutions are limited to a local cutoff radius.\n  - claim: DeepH-E3 provides a universal E(3)-equivariant deep-learning framework that exactly preserves Euclidean symmetry of the DFT Hamiltonian, including spin-orbit coupling.\n  - claim: The equivariant architecture handles spin\u2011orbital Hamiltonians by separating real and imaginary components and applying a change\u2011of\u2011basis for half\u2011integer representations, thereby preserving equivariance without requiring complex\u2011valued network layers.\n  - component: Continuous-filter convolution (cfconv) layer\n  - component: Filter-generating network\n  - component: Shifted softplus activation\n  - component: Gate layer\n  - component: E(3)-equivariant convolution\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00007",
+    "level": 1,
+    "total_members": 90,
+    "type_breakdown": {
+      "cited_work": 25,
+      "claim": 7,
+      "component": 23,
+      "future_topic": 1,
+      "method": 22,
+      "problem": 1,
+      "technique": 11
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 90 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - cited_work: Graph Networks\n  - cited_work: Directional Message Passing\n  - cited_work: Gated Graph Neural Network\n  - cited_work: Interaction Network\n  - cited_work: Molecular Graph Convolution\n  - cited_work: Graph Convolutional Network\n  - cited_work: Spectral Graph Convolution\n  - cited_work: Message Passing Neural Network\n  - cited_work: Molecular Graph Convolutions (GC)\n  - cited_work: Kipf & Welling Graph Convolutional Networks\n  - cited_work: Duvenaud et al. Graph Convolutional Networks\n  - cited_work: Neural Message Passing\n  - cited_work: N-body Networks\n  - cited_work: Message Passing Neural Network (MPNN)\n  - cited_work: Crystal Graph Convolutional Neural Networks\n  - cited_work: Crystal-graph attention networks\n  - cited_work: Message passing networks\n  - cited_work: Crystal Graph Attention Networks\n  - cited_work: crystal graph networks\n  - cited_work: materials graph network\n  - cited_work: Neural message passing with edge updates\n  - cited_work: Crystal Graph Convolutional Neural Network\n  - cited_work: Random Relaxations Graph Networks\n  - cited_work: Embedded Atom Neural Network Potentials\n  - cited_work: Atomistic Line Graph Neural Network\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00002",
+    "level": 1,
+    "total_members": 100,
+    "type_breakdown": {
+      "cited_work": 2,
+      "claim": 24,
+      "component": 7,
+      "dataset": 5,
+      "future_topic": 14,
+      "method": 4,
+      "metric": 1,
+      "problem": 14,
+      "task": 27,
+      "technique": 2
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 100 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - cited_work: Materials Project\n  - cited_work: pymatgen\n  - claim: By extracting per\u2011atom site energies in perovskites, the model reveals that large\u2011radius elements stabilize the A site and group\u202f4\u20116 elements stabilize the B site, and using these insights the high\u2011throughput search space for stable perovskites is reduced by a factor of seven (from 18,928 to 228 candidates).\n  - claim: The Materials Project database contains computed structural, electronic, and energetic data for over 33,000 inorganic compounds, generated using more than 15\u202fmillion CPU\u2011hours of computation.\n  - claim: The Materials Project provides an open RESTful API and a high\u2011level Python library (pymatgen) that enable programmatic querying and analysis of the full dataset.\n  - claim: Visual warnings are displayed on the Materials Project website for compounds whose calculated oxidation states, cell volumes, or bond lengths deviate significantly from experimental norms, helping users assess data reliability.\n  - claim: Automated validation checks compare calculated oxidation states, cell volumes, and bond lengths against experimental data and flag outliers for user review.\n  - claim: The distribution of chromium coordination environments in oxides derived from the database matches known chemical principles: Cr\u2076\u207a prefers tetrahedral (4\u2011fold) coordination, while Cr\u00b3\u207a prefers octahedral (6\u2011fold) coordination.\n  - claim: The Materials Project website receives several hundred unique page views per day and has registered over 4,000 users from academia, government, and industry.\n  - claim: The open\u2011source software infrastructure of the Materials Project, including pymatgen, has attracted more than 100 active collaborators worldwide and incorporates community contributions such as FEFF and ABINIT support.\n  - claim: Future development plans include adding calculations of surface energies, elastic constants, point defects, finite\u2011temperature properties, and implementing a two\u2011way \u2018calculations\u2011on\u2011demand\u2019 feature for user\u2011submitted compounds.\n  - claim: The integrated JARVIS workflow (DFT \u2192 FF \u2192 ML) enables rapid screening of materials for high solar\u2011cell efficiency (SLME) with predictions validated against experimental data.\n  - claim: The AFLOWLIB repository contains calculated properties of over 625,000 materials across Binary Alloy Project, Electronic Structure database, Heusler database, and Elements database.\n  - claim: AFLOW calculations follow a standardized sequential workflow: RELAX1 \u2192 RELAX2 \u2192 STATIC \u2192 BANDS for materials in the Elements, ICSD, and Heusler databases.\n  - claim: The PBE functional combined with PAW potentials is the default exchange-correlation functional and potential combination for ICSD, Binary Alloy, and Heusler databases.\n  - claim: Following the AFLOW standard enables materials science researchers to reproduce AFLOWLIB consortium results and make direct comparisons of properties between different materials for identifying trends and formulating design rules.\n  - claim: Matbench contains data from 10 density functional theory-derived and experimental sources including Materials Project, Zhuo et al., Landolt-Bornstein Handbook, Castelli et al., JARVIS DFT 2D, and Citrine Informatics.\n  - claim: The ML-assisted high-throughput search spanned approximately 1 billion compounds across 2500 binary and ternary structure prototypes.\n  - claim: Out of 50 materials screened for electron-phonon calculations, 19 systems were found with Tc above 1 K, with ScMoC2 having the highest transition temperature at 15.97 K.\n  - claim: The ternary compound TiVB3 is predicted to have a superhard hardness of 42 GPa.\n  - claim: The Open Quantum Materials Database (OQMD) contains over 200,000 DFT\u2011calculated crystal structures, including experimental ICSD entries and theoretical prototype structures, and is freely accessible to the scientific community without usage restrictions.\n  - claim: AFLOW can automatically calculate a wide suite of physical observables across a large database of structures with minimal human intervention.\n  - claim: AFLOW provides a standardized definition of Brillouin\u2011zone integration paths for all 14 Bravais lattices, filling a gap in the literature.\n  - claim: AFLOW can automatically generate high\u2011index surface slabs for complex multicomponent compounds, demonstrated for (001), (110) and (111) slabs of an fcc L10 binary.\n  - claim: AFLOW can automatically create nanoparticle structures of arbitrary radius and separation, enabling high\u2011throughput nanoparticle studies.\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00004",
+    "level": 1,
+    "total_members": 25,
+    "type_breakdown": {
+      "cited_work": 21,
+      "component": 1,
+      "method": 3
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 25 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - cited_work: PAW method\n  - cited_work: Wang et al.\n  - cited_work: Pulay's method\n  - cited_work: Harris-Foulkes corrections\n  - cited_work: Bl\u00f6chl corrections\n  - cited_work: PAW\n  - cited_work: Schmidt et al.\n  - cited_work: Zhang and Ling\n  - cited_work: Ren et al.\n  - cited_work: statistical learning method (Hegde & Bowen)\n  - cited_work: Grimme-D2\n  - cited_work: Xie & Grossman\n  - cited_work: Willatt et al.\n  - cited_work: Hautier et al.\n  - cited_work: t-SNE\n  - cited_work: Smith et al.\n  - cited_work: Altae-Tran et al.\n  - cited_work: Ward et al. method\n  - cited_work: Goodall et al. method\n  - cited_work: Finnis\u2013Sinclair\n  - cited_work: Fukui\u2011Hatsugai\u2011Suzuki method\n  - component: Harris-Foulkes force/stress corrector\n  - method: Harris-Foulkes corrections\n  - method: Tetrahedron method with Bl\u00f6chl corrections\n  - method: Grimme-D2\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00009",
+    "level": 1,
+    "total_members": 37,
+    "type_breakdown": {
+      "cited_work": 18,
+      "claim": 3,
+      "component": 6,
+      "dataset": 3,
+      "future_topic": 1,
+      "method": 5,
+      "technique": 1
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 37 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - cited_work: VASP\n  - cited_work: sGDML\n  - cited_work: GRU\n  - cited_work: HDAD\n  - cited_work: GG\u2011NN\n  - cited_work: GELU\n  - cited_work: UNiTE\n  - cited_work: DeepMD\n  - cited_work: DeepH\n  - cited_work: LDA+U\n  - cited_work: GGA+U\n  - cited_work: GW@LDA+U\n  - cited_work: LSDA+Hubbard U\n  - cited_work: LDA\n  - cited_work: LOCO-CV\n  - cited_work: CPMD\n  - cited_work: GDML\n  - cited_work: CDVAE\n  - claim: GDML cannot be trained on 50,000 MD17 examples due to its quadratic scaling with the number of atoms and samples, whereas SchNet scales to that dataset size.\n  - claim: DCGAT-2 dataset contains approximately 780,000 more compounds than DCGAT-1, with 3 to 20 times more compounds containing undersampled chemical elements.\n  - claim: CGAT-2 shows unprecedented generalization accuracy with strongly reduced chemical and structural bias compared to previous models trained on under-represented data.\n  - component: VaspJob / LammpsJob / Wannier90Win classes\n  - component: AFLOW.IN / VASP POSCAR output generator\n  - component: CGAT-2\n  - component: DCGAT-2\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00015",
+    "level": 1,
+    "total_members": 26,
+    "type_breakdown": {
+      "cited_work": 7,
+      "claim": 1,
+      "component": 2,
+      "dataset": 1,
+      "method": 10,
+      "task": 2,
+      "technique": 3
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 26 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - cited_work: PBE functional\n  - cited_work: BOB\n  - cited_work: PBE\n  - cited_work: Density Functional Theory (DFT)\n  - cited_work: PBEsol\n  - cited_work: Leaky ReLU\n  - cited_work: REBO\n  - claim: Hybrid functional calculations scale approximately as O(N^2.5) for small systems and linearly beyond ~15\u202f\u00c5 (HSE06) or ~100\u202f\u00c5 (PBE0), whereas standard GGA calculations scale as O(N^3).\n  - component: Combined Atomic Density \u03c1_i\n  - component: DensityFeatures featurizer\n  - dataset: MPF.2021.2.8\n  - method: density functional theory\n  - method: Kohn-Sham density-functional theory\n  - method: Tran-Blaha modified Becke-Johnson (TBmBJ) meta\u2011GGA\n  - method: Hybrid functional HSE06\n  - method: Hybrid functional PBE0\n  - method: MPInterfaces\n  - method: hybrid functional\n  - method: PBEsol\n  - method: PBE functional\n  - method: REBO potential\n  - task: Density of states calculation\n  - task: density functional theory\n  - technique: \u03b1\u2011tuning of hybrid functionals\n  - technique: Density-functional perturbation theory\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00020",
+    "level": 1,
+    "total_members": 60,
+    "type_breakdown": {
+      "cited_work": 8,
+      "claim": 1,
+      "component": 14,
+      "method": 5,
+      "metric": 1,
+      "problem": 4,
+      "task": 3,
+      "technique": 24
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 60 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - cited_work: Adam\n  - cited_work: Adam optimizer\n  - cited_work: AdamW (decoupled weight decay)\n  - cited_work: Adam convergence analysis\n  - cited_work: Conjugate gradients\n  - cited_work: TPOT\n  - cited_work: Bayesian optimization with symmetry relaxation\n  - cited_work: Franzblau algorithm\n  - claim: All fitting coefficients in the GAP model enter linearly, allowing solution via simple linear algebra rather than difficult nonlinear parameter optimization required for traditional potentials and neural networks.\n  - component: Non\u2011linear activation g\n  - component: Input representation D_ij\n  - component: Multi\u2011term loss function\n  - component: Progressive loss\u2011weight schedule\n  - component: C++ gradient module for descriptor derivatives\n  - component: Adaptive loss\u2011prefactor schedule\n  - component: Genetic\u2011algorithm\u2011driven inverse design\n  - component: GA optimizer\n  - component: Genetic Algorithm design optimizer\n  - component: Linear correction of heuristic\n  - component: TPOT evolutionary optimizer\n  - component: CG ionic optimizer\n  - component: virial in loss function\n  - component: compliance matrix\n  - method: Genetic Algorithms\n  - method: generalized gradient approximation\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00005",
+    "level": 1,
+    "total_members": 68,
+    "type_breakdown": {
+      "cited_work": 18,
+      "claim": 1,
+      "component": 2,
+      "dataset": 3,
+      "future_topic": 4,
+      "method": 22,
+      "metric": 1,
+      "problem": 10,
+      "task": 5,
+      "technique": 2
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 68 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - cited_work: Neural Fingerprints\n  - cited_work: Behler\u2011Parrinello Neural Network\n  - cited_work: Deep Potential\n  - cited_work: Deep Potential Molecular Dynamics\n  - cited_work: Deep Potential MD (water)\n  - cited_work: Symmetry-Preserving Inter-Atomic Potential\n  - cited_work: Gaussian Approximation Potentials\n  - cited_work: Moment Tensor Potentials\n  - cited_work: GW approximation\n  - cited_work: Behler-Parrinello neural network potential\n  - cited_work: Behler\u2011Parrinello\n  - cited_work: Behler-Parrinello neural network\n  - cited_work: Neural fingerprint\n  - cited_work: Tersoff potential\n  - cited_work: Brenner potential\n  - cited_work: Gaussian approximation potential\n  - cited_work: neural network potentials\n  - cited_work: Shapeev potential\n  - claim: Moments Tensor Potentials (MTP) and the Spectral Neighbor Analysis Potential (SNAP) can be expressed exactly as special cases of the ACE.\n  - component: Repulsive pair potential\n  - component: Deep neural network potential energy surface\n  - dataset: Diamond\n  - dataset: a-C\n  - dataset: ta-C\n  - future_topic: Extension of Gaussian Approximation Potentials to other materials\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00008",
+    "level": 1,
+    "total_members": 43,
+    "type_breakdown": {
+      "cited_work": 1,
+      "component": 12,
+      "dataset": 3,
+      "method": 1,
+      "metric": 1,
+      "problem": 4,
+      "task": 1,
+      "technique": 20
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 43 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - cited_work: Set2Set\n  - component: Set2Set readout\n  - component: Mode\u2011I and Mode\u2011II training pipelines\n  - component: Predictive model architecture\n  - component: Iterative column\u2011wise prediction scheme\n  - component: Cleaning stage\n  - component: Set2Set\n  - component: Iterative self-consistent training protocol\n  - component: Training set cleaning pipeline\n  - component: active learning workflow\n  - component: Iterative training loop workflow\n  - component: Training set cleaning procedure\n  - component: Iterative training workflow\n  - dataset: CCDC 7th CSP Blind Test\n  - dataset: Crystalline test set\n  - dataset: Custom test set\n  - method: Set2Set\n  - metric: test error\n  - problem: Efficient representation of large training sets\n  - problem: efficient training set construction\n  - problem: Heterogeneous training database fitting\n  - problem: Training data completeness\n  - task: Guided DFT crystal\u2011structure prediction\n  - technique: Active learning\n  - technique: Learning rate scheduling\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00042",
+    "level": 1,
+    "total_members": 32,
+    "type_breakdown": {
+      "cited_work": 3,
+      "component": 4,
+      "method": 3,
+      "technique": 22
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 32 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - cited_work: Kernel Ridge Regression\n  - cited_work: Deep Learning Scaling\n  - cited_work: Voigt-Reuss-Hill averaging\n  - component: Kernel normalization and exponentiation\n  - component: Composition\u2011weighted binary averaging heuristic\n  - component: Squared exponential kernel\n  - component: Power spectrum kernel\n  - method: Batch Normalization\n  - method: Adaptive Moment Estimation\n  - method: Principal Neighborhood Aggregation\n  - technique: Batch normalization\n  - technique: Layer normalization\n  - technique: Exponential moving average of weights\n  - technique: mean\u2011squared displacement (MSD) analysis\n  - technique: Kernel normalisation and integer power\n  - technique: Sigmoid\u2011gated neighbor aggregation\n  - technique: Normalized summation pooling\n  - technique: Linear pooling for site\u2011energy extraction\n  - technique: Degree\u2011scaled aggregation\n  - technique: Sum and Max aggregation\n  - technique: Principal Neighbourhood Aggregation\n  - technique: Box\u2011plot visualization of MSE distribution\n  - technique: Composition\u2011weighted averaging\n  - technique: Weighted averaging of pure\u2011element volumes\n  - technique: Normalization\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00011",
+    "level": 1,
+    "total_members": 20,
+    "type_breakdown": {
+      "cited_work": 8,
+      "component": 3,
+      "dataset": 1,
+      "method": 2,
+      "technique": 6
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 20 member surface forms (of 20 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - cited_work: Coulomb Matrix\n  - cited_work: Formate on Cu study\n  - cited_work: Formate synthesis on copper\n  - cited_work: PyTorch\n  - cited_work: PyTorch Geometric\n  - cited_work: SineCoulombMatrix\n  - cited_work: Sine Coulomb Matrix\n  - cited_work: CUR\n  - component: Image\u2011based geometric matrix\n  - component: Geometric matrix X\n  - component: SineCoulombMatrix featurizer\n  - dataset: Formate on Cu\n  - method: CUR matrix decomposition\n  - method: Sine Coulomb Matrix\n  - technique: CUR matrix reconstruction\n  - technique: ARPACK eigenvalue solver\n  - technique: PyTorch\u2011Geometric implementation\n  - technique: matrix eigenvector methods\n  - technique: CUR sparsification\n  - technique: Uniform grid sparsification\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00052",
+    "level": 1,
+    "total_members": 21,
+    "type_breakdown": {
+      "cited_work": 9,
+      "component": 3,
+      "dataset": 3,
+      "future_topic": 1,
+      "method": 4,
+      "technique": 1
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 21 member surface forms (of 21 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - cited_work: ANI-1\n  - cited_work: ANI\n  - cited_work: ANI extension to S and Halogens\n  - cited_work: Quantum ESPRESSO\n  - cited_work: ICSD\n  - cited_work: RMM-DIIS\n  - cited_work: ANI\u20111\n  - cited_work: OpenMX\n  - cited_work: QML\n  - component: OQMD database\n  - component: DBS electronic minimizer\n  - component: RMM-DIIS electronic minimizer\n  - dataset: QM9\n  - dataset: SSUB thermodynamic database\n  - dataset: OQMD\n  - future_topic: Completion of Quantum ESPRESSO software integration\n  - method: i-PI\n  - method: Quantum Espresso\n  - method: Open Quantum Materials Database\n  - method: RMM-DIIS\n  - technique: DBS-to-RMM-DIIS switching\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00034",
+    "level": 1,
+    "total_members": 54,
+    "type_breakdown": {
+      "cited_work": 2,
+      "claim": 3,
+      "component": 3,
+      "dataset": 3,
+      "method": 2,
+      "metric": 2,
+      "problem": 4,
+      "task": 26,
+      "technique": 9
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 54 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - cited_work: GAP\n  - cited_work: Order\u2011N electronic structure theory\n  - claim: BANDS calculations use 128 k-points per segment for single element structures and 20 k-points for compounds along high-symmetry paths.\n  - claim: M3GNet predicts phonon band structures and densities of states for SiO\u2082 polymorphs that quantitatively agree with DFT calculations, and the predicted phonon density\u2011of\u2011states center follows the expected \u03c9\u202f\u221d\u202f1/\u221am trend across materials.\n  - claim: AFLOW reproduces experimental phonon dispersion curves for face\u2011centered cubic Rhodium, showing excellent agreement with measured data.\n  - component: Phonon and elastic property predictor\n  - component: APL phonon library\n  - component: Electron-phonon coupling calculator\n  - dataset: Phonon DOS benchmark\n  - dataset: SiO2 polymorph phonon calculations\n  - dataset: Band gap\n  - method: Linear response phonon method\n  - method: Frozen\u2011phonon method\n  - metric: band structure\n  - metric: band gap (eV)\n  - problem: accurate prediction of phonon spectra and elastic properties\n  - problem: Automated phonon and vibrational property extraction\n  - problem: electronic structure of correlated systems\n  - problem: band structure prediction\n  - task: electronic structure\n  - task: Electronic structure calculation\n  - task: Electronic band\u2011structure prediction\n  - task: Phonon and elasticity calculations\n  - task: phonon band structure calculation\n  - task: Electronic\u2011structure property calculation\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00013",
+    "level": 1,
+    "total_members": 11,
+    "type_breakdown": {
+      "cited_work": 3,
+      "component": 5,
+      "method": 2,
+      "metric": 1
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 11 member surface forms (of 11 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - cited_work: SOAP\n  - cited_work: FireWorks\n  - cited_work: SNAP\n  - component: FireWorks\n  - component: RELAX1\n  - component: RELAX2\n  - component: STATIC\n  - component: BANDS\n  - method: ANAKIN-ME\n  - method: FireWorks\n  - metric: ME\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00047",
+    "level": 1,
+    "total_members": 19,
+    "type_breakdown": {
+      "cited_work": 1,
+      "claim": 1,
+      "component": 2,
+      "dataset": 1,
+      "method": 2,
+      "problem": 1,
+      "task": 5,
+      "technique": 6
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 19 member surface forms (of 19 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - cited_work: Geometric Prediction\n  - claim: For LLZO, results are quite insensitive to the choice of cell volume (NPT equilibrated vs experimental cif-file values) for producing the initial training set.\n  - component: Volume prediction network\n  - component: Convex hull distance predictor\n  - dataset: Volume prediction dataset\n  - method: Convex hull stability analysis\n  - method: convex hull\n  - problem: Limited convex hull coverage\n  - task: Phase\u2011diagram convex\u2011hull construction\n  - task: convex\u2011hull phase diagram construction\n  - task: Convex hull distance prediction\n  - task: Convex hull stability analysis\n  - task: Unit cell volume prediction\n  - technique: Convex\u2011hull construction\n  - technique: convex hull distance prediction\n  - technique: Convex hull stability filtering\n  - technique: Unit cell size filtering\n  - technique: Convex hull distance filtering\n  - technique: Standard primitive cell transformation\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00031",
+    "level": 1,
+    "total_members": 50,
+    "type_breakdown": {
+      "cited_work": 3,
+      "claim": 10,
+      "component": 12,
+      "method": 3,
+      "problem": 6,
+      "task": 1,
+      "technique": 15
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 50 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - cited_work: Clebsch\u2013Gordan Nets\n  - cited_work: Atomic Cluster Expansion\n  - cited_work: Linear Atomic Cluster Expansion\n  - claim: Using higher-order E(3)-equivariant representations (increasing rotation order from l=0 to l=1 and up to l=3) consistently reduces prediction error and improves accuracy across all evaluated tasks.\n  - claim: The first RELAX calculation is performed in collinear spin-polarized fashion with initial magnetic moments set to 1.0 \u00b5B per atom, and spin polarization is turned off in subsequent calculations if magnetization is below 0.025 \u00b5B/atom.\n  - claim: The use of a local\u2011coordinate message\u2011passing (LCMP) layer is critical for achieving high prediction accuracy of rotation\u2011covariant Hamiltonian blocks.\n  - claim: The atomic cluster expansion (ACE) is generalized to model scalar, vectorial and tensorial atomic properties and to include additional atomic degrees of freedom\u2014species, magnetic moments, and charges\u2014on equal footing with atomic positions.\n  - claim: The derived ACE formulas enable efficient evaluation of forces and magnetic torques.\n  - claim: At the lowest order, the magnetic ACE reproduces a distance\u2011dependent Heisenberg interaction.\n  - claim: Neglecting spin\u2011orbit coupling forces all magnetic angular momenta to be zero, greatly reducing the number of ACE expansion coefficients, since the magnetic contribution to the cohesive energy is only about 10\u202f% of the total.\n  - claim: The ACE formulation is invariant under translation, rotation, inversion and permutation of identical atoms.\n  - claim: Although the full magnetic and charge\u2011transfer ACE contains many parameters, hierarchical ordering of interactions allows robust and systematic fitting to reference data.\n  - claim: Implementing the extended ACE for vectorial, tensorial, magnetic and charge degrees of freedom requires no significantly greater effort than the original scalar ACE implementation.\n  - component: Tensor product layer\n  - component: Atomic\u2011like localized basis representation\n  - component: Tensor\u2011product module\n  - component: Local atomic reference frame\n  - component: Local atomic-like orbital basis\n  - component: Local coordinate system for each edge\n  - component: Rotation transformation to global frame\n  - component: Vectorial and Tensorial Property Expansion\n  - component: Magnetic and Charge Degrees of Freedom\n  - component: Orthogonal Single\u2011Atom Basis Functions \u03c6_v\n  - component: Irreducible Basis Set B\n  - component: Collinear spin-polarized calculation setup\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00028",
+    "level": 1,
+    "total_members": 71,
+    "type_breakdown": {
+      "cited_work": 2,
+      "claim": 5,
+      "component": 11,
+      "dataset": 1,
+      "future_topic": 3,
+      "method": 18,
+      "metric": 1,
+      "problem": 9,
+      "task": 9,
+      "technique": 12
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 71 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - cited_work: Atomic Simulation Environment (ASE)\n  - cited_work: atomate\n  - claim: Class\u2011specific computational methodologies and reference reactions are applied for solid\u2011gas, d\u2011block oxide, and dissolved\u2011ion systems to improve agreement with experimental data.\n  - claim: Starting the training loop with PFF-MD configurations leads to faster convergence than starting with short FPMD trajectories because larger simulation cells can be used.\n  - claim: The proposed training protocol based on augmenting the training set via intermediate molecular dynamics simulations can assess the quality of approximate trajectories and computed physical properties.\n  - claim: Discontinuities in forces caused by the sharp cutoff radius and neighbor\u2011list sorting are much smaller than thermal fluctuations and do not impair canonical sampling.\n  - claim: Combined two-body, three-body, and SOAP many-body descriptors are necessary for GAP to achieve the accuracy limit imposed by force locality and make physically meaningful predictions; models using only subsets of descriptors produce unphysical structures during molecular dynamics simulations.\n  - component: Atom-wise dense layers\n  - component: Atom type embedding\n  - component: Short\u2011time MD simulation workflow\n  - component: Many\u2011body kernel term\n  - component: Sparse set of representative atoms\n  - component: Integration with i\u2011PI for NPT simulations\n  - component: Atoms class\n  - component: Li2O reaction enumeration engine\n  - component: AtomicOrbitals featurizer\n  - component: Stoichiometry featurizer\n  - component: NVE simulation cell\n  - dataset: Experimental sp3 data\n  - future_topic: high-order quantum chemical level of theory as reference\n  - future_topic: high-fidelity molecular dynamics simulations over long time scales\n  - future_topic: Machine-learning based atomistic simulations bridging empirical and DFT realms\n  - method: Atomic Simulation Environment\n  - method: Vienna Ab Initio simulation Package\n  - method: Molecular dynamics\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00033",
+    "level": 1,
+    "total_members": 58,
+    "type_breakdown": {
+      "cited_work": 2,
+      "claim": 41,
+      "component": 2,
+      "dataset": 1,
+      "future_topic": 6,
+      "method": 3,
+      "task": 1,
+      "technique": 2
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 58 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - cited_work: Gradient-Enhanced ML for Molecular Energies\n  - cited_work: Ab initio thermodynamics of water\n  - claim: When trained on MD17 trajectories with a combined energy\u2011and\u2011force loss, SchNet achieves energy MAE \u22640.12\u202fkcal/mol and force MAE \u22640.33\u202fkcal/mol/\u00c5, matching or surpassing GDML and DTNN on all tested molecules, including flexible ones such as malonaldehyde and ethanol.\n  - claim: Training SchNet with forces on only 1,000 examples yields better accuracy than training on 50,000 examples using energies alone, demonstrating that force information improves data efficiency.\n  - claim: On the ISO17 benchmark, SchNet reaches chemical\u2011accuracy (\u22480.5\u202fkcal/mol MAE) for energy predictions on molecules seen during training and further improves predictions on unseen isomers when forces are included in training.\n  - claim: Including force information in the training loss causally improves SchNet\u2019s generalization to previously unseen chemical structures in ISO17.\n  - claim: Continuous-filter convolutions produce smoother energy predictions than discrete filters, as illustrated in Figure\u202f1.\n  - claim: On the QM9 benchmark, SchNet attains a mean absolute error of 0.31\u202fkcal/mol for total\u2011energy prediction with 110\u202fk training examples, outperforming DTNN (0.84) and enn\u2011s2s (0.45).\n  - claim: The Message Passing Neural Network (MPNN) achieves state\u2011of\u2011the\u2011art performance on all QM9 regression targets, reaching chemical accuracy on 11 of the 13 targets and outperforming prior models such as SchNet and DTNN.\n  - claim: NequIP achieves state-of-the-art accuracy on the MD-17 benchmark, surpassing invariant GNN\u2011IPs, shallow neural networks, and kernel\u2011based methods.\n  - claim: NequIP outperforms kernel\u2011based approaches such as sGDML and FCHL19/GPR across benchmarks, including small-data regimes and the MD-17 dataset.\n  - claim: NequIP requires up to three orders of magnitude fewer training configurations than existing neural interatomic potentials to reach comparable accuracy.\n  - claim: When trained on only 133 structures (~1\u202fk frames), NequIP outperforms DeepMD trained on 133,500 structures for liquid water and ice simulations.\n  - claim: NequIP attains chemical\u2011accuracy energy errors (~2\u202fmeV) on CCSD(T) benchmark molecules using only 1,000 reference configurations, outperforming sGDML and GemNet.\n  - claim: NequIP reproduces structural and kinetic properties from ab\u2011initio molecular dynamics simulations with high fidelity.\n  - claim: The DeePMD model provides excellent energy conservation in all tested systems up to 2 ns of NVE dynamics.\n  - claim: For NASICON, training starting from PFF-MD configurations with 480 atoms achieves convergence during the first training loop with activation energy around 0.2 eV.\n  - claim: For NASICON, training starting from FPMD configurations with 80 atoms fails to converge even after three training loops with activation energies spanning 0.2-0.4 eV.\n  - claim: Training set cleaning procedures including minimum ion-ion distance cutoff, energy/force outlier removal, and loss condition monitoring are necessary to help the algorithm converge to a physical model.\n  - claim: MEGNet models achieve lower mean absolute errors than SchNet on 11 of the 13 QM9 molecular properties evaluated.\n  - claim: Simple MEGNet models that use only atomic number and spatial distance as input achieve chemical accuracy, perform comparably to full\u2011feature models, and outperform prior state\u2011of\u2011the\u2011art models on 8 of the 13 QM9 properties.\n  - claim: MEGNet models trained on approximately 60,000 crystals outperform prior models (SchNet and CGCNN) for formation energy, band gap, bulk modulus, and shear modulus, achieving errors comparable to or better than density\u2011functional\u2011theory uncertainties.\n  - claim: A unified free\u2011energy MEGNet model that incorporates temperature, pressure, and entropy as global state inputs predicts U\u2080, U, H, and G with a combined mean absolute error of 0.010\u202feV, comparable to separate single\u2011property models.\n  - claim: Elemental embedding vectors learned by the crystal formation\u2011energy MEGNet model reproduce known periodic\u2011table trends and, when transferred to band\u2011gap and elastic\u2011moduli models, reduce their mean absolute errors, improving upon prior machine\u2011learning approaches.\n  - claim: Ensembling two independently trained three\u2011block MEGNet models lowers the formation\u2011energy mean absolute error from 0.028\u202feV/atom to 0.024\u202feV/atom.\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00012",
+    "level": 1,
+    "total_members": 59,
+    "type_breakdown": {
+      "cited_work": 4,
+      "claim": 8,
+      "component": 4,
+      "dataset": 9,
+      "future_topic": 3,
+      "method": 5,
+      "metric": 1,
+      "problem": 4,
+      "task": 19,
+      "technique": 2
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 59 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - cited_work: Lithium Phosphorus Oxynitride electrolyte\n  - cited_work: Plasma synthesis of electrolyte nanopowders\n  - cited_work: Li diffusion with NN potential\n  - cited_work: PW91\n  - claim: Using Materials Project tools, researchers designed a new class of sodium\u2011based carbonophosphate compounds, predicted them to be thermodynamically stable, synthesized them hydrothermally, and experimentally confirmed their Li\u2011ion battery performance after ion exchange.\n  - claim: High\u2011throughput computational screening through the Materials Project has screened tens of thousands of compounds and identified promising candidates for solar water splitting, photovoltaics, topological insulators, scintillators, CO\u2082 capture, piezoelectrics, thermoelectrics, catalysis, hydrogen storage, and Li\u2011ion batteries, with experimental hits reported in several areas.\n  - claim: The Materials Project aims to reduce the typical 10\u201320\u202fyear timeline for advanced material development by providing large\u2011scale accurate information, thereby accelerating discovery for clean energy, electronics, and other sectors.\n  - claim: The DeePMD model successfully reproduces the superionic behavior of solid-state electrolytes with linear Lithium/Sodium mean squared displacement over time and diffusion coefficient uncertainty of about 20% or smaller, which is precise enough for battery applications.\n  - claim: The DeePMD model is a promising candidate for developing a universal potential for solid-state electrolytes, though care must be taken when selecting training configurations.\n  - claim: M3GNet molecular\u2011dynamics simulations of Li\u2083YCl\u2086 reproduce ionic conductivity (14.3\u202fmS\u202fcm\u207b\u00b9) and activation energy (0.22\u202feV) consistent with ab\u2011initio MD, and short\u2011time MD correctly identifies known lithium superionic conductors by their high mean\u2011squared displacements at elevated temperatures.\n  - claim: High\u2011throughput screening identified TiP, LiSiNi\u2082, and CoSi\u2082 as the most promising Li\u2011ion battery anode conversion reactions, offering high capacity, moderate voltage, and low volume expansion.\n  - claim: Among binary metal\u2011oxide candidates, Al\u2082O\u2083 provides the optimal balance of HF\u2011scavenging tendency, lithiation voltage, gravimetric and volumetric capacities, outperforming other oxides in the four\u2011dimensional design space.\n  - component: Thermodynamic screening pipeline for battery anodes\n  - component: HF\u2011scavenging coating screen\n  - component: Nanoparticle generator\n  - component: Diffusion coefficient convergence criterion\n  - dataset: Li4P2O7\n  - dataset: Li10GeP2S12\n  - dataset: Li7La3Zr2O12\n  - dataset: Na3Zr2Si2PO12\n  - dataset: LGPS\n  - dataset: Wiggle150\n  - dataset: Li10GeP2S12 (LGPS)\n  - dataset: Li7La3Zr2O12 (LLZO)\n  - dataset: Na3Zr2Si2PO12 (NASICON)\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00053",
+    "level": 1,
+    "total_members": 50,
+    "type_breakdown": {
+      "cited_work": 1,
+      "claim": 2,
+      "component": 17,
+      "method": 1,
+      "problem": 2,
+      "technique": 27
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 50 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - cited_work: Spectral Neighbor Analysis Method\n  - claim: Representing tensors with spherical harmonics yields a dramatically sparser basis, where a rank\u2011N Cartesian tensor with 3^N components can be represented by (N+1)^2 spherical harmonics (e.g., a 10th\u2011order tensor requires 121 harmonics instead of 59\u202f049 Cartesian components).\n  - claim: Because the ACE basis is complete and hierarchical, it can in principle achieve arbitrary accuracy for any scalar, vectorial or tensorial property.\n  - component: Distance binning\n  - component: Gaussian basis expansion\n  - component: Spherical harmonics encoding\n  - component: Complex\u2011vector handling via time\u2011reversal basis\n  - component: Gaussian radial basis expansion\n  - component: Spherical harmonics up to l=5\n  - component: Sorted neighbor list\n  - component: Edge embedding with Gaussian distance expansion\n  - component: Spherical harmonic orientation encoding\n  - component: Gaussian radial basis edge features\n  - component: Node feature vectors\n  - component: Edge feature vectors\n  - component: Global state vector\n  - component: Gaussian\u2011basis distance expansion\n  - component: Spatial\u2011coordinate node features\n  - component: Boundary\u2011condition encoding\n  - component: Global context vector\n  - method: Gaussian process regression\n  - problem: Inability to model state\u2011dependent properties\n  - problem: Long-range behavior modeling\n  - technique: One-hot encoding\n  - technique: Gaussian process regression\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00054",
+    "level": 1,
+    "total_members": 21,
+    "type_breakdown": {
+      "cited_work": 2,
+      "claim": 2,
+      "component": 5,
+      "dataset": 1,
+      "future_topic": 1,
+      "problem": 3,
+      "task": 5,
+      "technique": 2
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 21 member surface forms (of 21 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - cited_work: Monkhorst-Pack\n  - cited_work: Pauling File\n  - claim: Representing crystals as graphs of atoms and bonds provides a universal, size\u2011invariant input format applicable to any periodic crystal system.\n  - claim: A single\u2011CPU M3GNet relaxation completes in about 22\u202fseconds, compared with 15\u202fhours on 32 cores for DFT; pre\u2011relaxation with M3GNet shortens subsequent DFT relaxation time by roughly a factor of three and reduces total CPU time by an average factor of 2.97.\n  - component: Relaxation engine\n  - component: Pre\u2011relaxation pipeline\n  - component: Vertex embedding of atomic numbers\n  - component: Crystal graph representation\n  - component: Binary hole\u2011site representation\n  - dataset: DFT relaxation time with M3GNet pre\u2011relaxation\n  - future_topic: Quasi\u2011crystals\n  - problem: Variable\u2011size crystal representation\n  - problem: Standardized structure representation\n  - problem: capturing tetrahedral motifs\n  - task: Crystal structural relaxation\n  - task: crystal structure relaxation\n  - task: Bulk crystal equation\u2011of\u2011state calculations\n  - task: Crystalline allotrope modeling\n  - task: Bulk crystal structure modeling\n  - technique: Graph construction from atomic coordinates\n  - technique: Graph representation of atomic structures\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00018",
+    "level": 1,
+    "total_members": 48,
+    "type_breakdown": {
+      "cited_work": 3,
+      "claim": 6,
+      "component": 2,
+      "method": 2,
+      "metric": 4,
+      "problem": 20,
+      "task": 2,
+      "technique": 9
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 48 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - cited_work: DFT+U\n  - cited_work: Dudarev DFT+U\n  - cited_work: Liechtenstein DFT+U\n  - claim: JARVIS\u2011Tools implements automatic k\u2011point convergence protocols that improve the precision of DFT calculations.\n  - claim: The AFLOW standard enables reproducible high-throughput DFT calculations through standardized parameter sets for k-point density, energy cut-offs, exchange-correlation functionals, pseudopotentials, DFT+U parameters, and convergence criteria.\n  - claim: DFT+U corrections are applied to the entire ICSD database and certain Heusler database entries containing O, S, Se, and F elements, but not to the Binary Alloy database.\n  - claim: Specific Ueff parameters are defined for d-block elements (Table 4) and U, J parameters for f-block elements (Table 5) to correct self-interaction error in DFT+U calculations, with values ranging from 1.9 eV (In) to 7.5 eV (Zn).\n  - claim: AFLOW detects most calculation failures, automatically corrects input parameters, restarts calculations, and can run as a Unix daemon to generate, run, correct, and converge many DFT jobs per day, yielding higher throughput than manual management.\n  - claim: AFLOW implements DFT+U using the Dudarev formalism with default Ueff values for a wide range of elements.\n  - component: Ueff parameters for d-block elements\n  - component: U and J parameters for f-block elements\n  - method: DFT+U\n  - method: AFLOW high-throughput DFT calculation protocol\n  - metric: performance\n  - metric: speedup (\u00d7)\n  - metric: speedup factor\n  - metric: runtime speedup\n  - problem: Computational cost reduction\n  - problem: Efficient inference compared to DFT\n  - problem: Computational cost of large\u2011scale DFT\n  - problem: Accuracy\u2011efficiency trade\u2011off in large\u2011scale DFT\n  - problem: high\u2011cost DFT geometry optimization\n  - problem: DFT\u2011level accuracy with linear scaling\n  - problem: Accuracy\u2011efficiency dilemma of DFT\n  - problem: Manual management of large calculation campaigns\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00021",
+    "level": 1,
+    "total_members": 49,
+    "type_breakdown": {
+      "cited_work": 1,
+      "dataset": 45,
+      "method": 1,
+      "technique": 2
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 49 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - cited_work: Methfessel-Paxton\n  - dataset: Benzene\n  - dataset: MD-17 Aspirin\n  - dataset: MD-17 Azobenzene\n  - dataset: MD-17 Benzene\n  - dataset: MD-17 Ethanol\n  - dataset: MD-17 Malonaldehyde\n  - dataset: MD-17 Naphthalene\n  - dataset: MD-17 Paracetamol\n  - dataset: MD-17 Salicylic acid\n  - dataset: MD-17 Toluene\n  - dataset: MD-17 Uracil\n  - dataset: CCSD(T) Molecular Set \u2013 Aspirin\n  - dataset: CCSD(T) Molecular Set \u2013 Benzene\n  - dataset: CCSD(T) Molecular Set \u2013 Ethanol\n  - dataset: CCSD(T) Molecular Set \u2013 Malonaldehyde\n  - dataset: CCSD(T) Molecular Set \u2013 Toluene\n  - dataset: Water\n  - dataset: Aspirin\n  - dataset: Liquid water\n  - dataset: Ice Ih\n  - dataset: Uracil\n  - dataset: Naphthalene\n  - dataset: Salicylic acid\n  - dataset: Malonaldehyde\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00030",
+    "level": 1,
+    "total_members": 57,
+    "type_breakdown": {
+      "cited_work": 3,
+      "claim": 9,
+      "component": 5,
+      "future_topic": 3,
+      "method": 3,
+      "problem": 12,
+      "task": 17,
+      "technique": 5
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 57 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - cited_work: AMBER\n  - cited_work: Graph Neural Network Force Field\n  - cited_work: tight-binding\n  - claim: JARVIS-DFT contains approximately 40,000 materials and about 1\u202fmillion calculated properties.\n  - claim: Machine\u2011learning models trained on Classical Force\u2011field Inspired Descriptors (CFID) achieve high predictive accuracy for formation energies, exfoliation energies, band gaps, magnetic moments, refractive indices, dielectric constants, thermoelectric performance, and piezoelectric/infrared modes.\n  - claim: JARVIS\u2011FF includes data for roughly 1,500 materials and about 110 classical force\u2011fields.\n  - claim: JARVIS\u2011FF automatically computes bulk modulus, defect formation energies, and phonon spectra for each force\u2011field and compares them with DFT results to assess force\u2011field quality.\n  - claim: SchNet provides rotationally invariant energy predictions and rotationally equivariant, energy\u2011conserving force predictions by defining forces as the negative gradient of the predicted energy.\n  - claim: Predicting forces as the negative gradient of the learned total energy guarantees energy conservation and rotation\u2011equivariant forces.\n  - claim: The number of force components in the initial training set is more important than total configurations for obtaining generalizable models.\n  - claim: Using a loss function with adaptive prefactors that emphasize forces early and energies/virial later reduces the total training time to a few core\u2011hours for all test cases.\n  - claim: Diamond exhibits strong force locality with force deviations vanishing practically at rfix = 5.5 \u00c5, while graphite is highly nonlocal with larger force deviations that do not decay as rapidly.\n  - component: Energy\u2011conserving force computation\n  - component: Auto\u2011differentiation layer\n  - component: Force and Torque Gradient Formulas\n  - component: Stress\u2011concentration objective\n  - component: Stress\u2011field surrogate objective\n  - future_topic: Exploiting intermediate PES data (energies, forces, stresses) from high\u2011throughput relaxations to further improve IAP accuracy\n  - future_topic: Extending universal IAP coverage beyond the current 89 elements to the full periodic table\n  - future_topic: Developing linear\u2011scaling IAPs based on graph deep learning for large\u2011scale molecular dynamics simulations of complex materials\n  - method: AMBER force field\n  - method: Universal Force Field\n  - method: Direct force\u2011constant method\n  - problem: Energy\u2011conserving force field learning\n  - problem: Energy\u2011non\u2011conserving force predictions\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00055",
+    "level": 1,
+    "total_members": 23,
+    "type_breakdown": {
+      "cited_work": 4,
+      "component": 2,
+      "dataset": 7,
+      "method": 5,
+      "metric": 1,
+      "task": 2,
+      "technique": 2
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 23 member surface forms (of 23 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - cited_work: Matminer\n  - cited_work: Matbench\n  - cited_work: Pseudodojo\n  - cited_work: Quickstep\n  - component: Matbench test suite\n  - component: Matbench\n  - dataset: Matbench Discovery\n  - dataset: ZnO\n  - dataset: Matbench\n  - dataset: Matbench test suite v0.1\n  - dataset: Matbench v0.1\n  - dataset: LLZO\n  - dataset: Matbench-Discovery\n  - method: Universal Models for Atoms\n  - method: Matminer\n  - method: BoltzTraP\n  - method: PseudoDojo\n  - method: Matbench\n  - metric: F1\n  - task: Matbench regression tasks\n  - task: Matbench classification tasks\n  - technique: Data mining with Matminer\n  - technique: BoltzTraP with constant relaxation time approximation\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00024",
+    "level": 1,
+    "total_members": 51,
+    "type_breakdown": {
+      "cited_work": 2,
+      "claim": 4,
+      "component": 4,
+      "method": 5,
+      "metric": 2,
+      "problem": 2,
+      "task": 6,
+      "technique": 26
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 51 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - cited_work: scikit-learn\n  - cited_work: Random Forests\n  - claim: A two-step approach combining unsupervised clustering with supervised regression achieves 156\u00b14 K MAE and 0.92 R\u00b2, outperforming direct one-step supervised learning.\n  - claim: Tree ensemble methods (gradient-boosted trees and random forest regression) substantially outperform linear models, which achieve MAE >240 K and RMSE >340 K, at least 100 K worse than non-linear approaches.\n  - claim: All algorithms exhibit a universal trend of decreasing relative errors as dataset size increases.\n  - claim: Matbench provides a consistent evaluation framework using five-fold nested cross-validation on identical folds across all algorithms to minimize comparison bias, with datasets pre-cleaned to remove unphysical computed data and task-irrelevant experimental data.\n  - component: Decision\u2011tree based ML model\n  - component: Ensemble-based decision tree feature selector\n  - component: Dimensionality reduction stage\n  - component: Nested cross-validation evaluation\n  - method: Random Forest\n  - method: Random Forests\n  - method: Scikit-learn\n  - method: Gradient Boosting Decision Tree\n  - method: Scikit\u2011learn\n  - metric: MAE/ROC-AUC\n  - metric: ROC-AUC\n  - problem: Lack of standardized benchmarking\n  - problem: False negative rate\n  - task: machine learning\n  - task: Binary classification\n  - task: Force\u2011error benchmarking\n  - task: Benchmarking GNN architectures\n  - task: ML method benchmarking\n  - task: machine learning benchmarking\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00022",
+    "level": 1,
+    "total_members": 43,
+    "type_breakdown": {
+      "cited_work": 3,
+      "dataset": 12,
+      "method": 7,
+      "metric": 19,
+      "technique": 2
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 43 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - cited_work: McMillan formula\n  - cited_work: Allen-Dynes formula\n  - cited_work: McMillan's formula\n  - dataset: MoS2\n  - dataset: OC20 IS2RE-Total\n  - dataset: OC20 S2EF-All\n  - dataset: OC20 S2EF-All+MD\n  - dataset: OC20 IS2RS\n  - dataset: OC22 S2EF-Total\n  - dataset: OC22 IS2RE-Total\n  - dataset: AdsorbML\n  - dataset: OC2M\n  - dataset: Dipeptides\n  - dataset: OC20-NEB\n  - dataset: MP Traj\n  - method: EquiformerV2\n  - method: graph neural networks with three-body interactions\n  - method: deep neural network approach to represent DFT Hamiltonian\n  - method: Orb-v3\n  - method: DeePMD-kit v2\n  - method: Allen-Dynes formula\n  - method: McMillan's formula\n  - metric: MAE (formation energy per atom)\n  - metric: MAE\n  - metric: RMSE\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00025",
+    "level": 1,
+    "total_members": 43,
+    "type_breakdown": {
+      "claim": 25,
+      "future_topic": 3,
+      "method": 1,
+      "problem": 5,
+      "task": 9
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 43 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - claim: The modified convolution function reduces the mean absolute error for formation\u2011energy prediction from 0.112\u202feV/atom to 0.039\u202feV/atom, achieving DFT\u2011level accuracy comparable to the experimental DFT\u2011experiment error of 0.081\u20130.136\u202feV/atom.\n  - claim: The meta\u2011GGA TBmBJ potential predicts band gaps with accuracy comparable to the hybrid HSE06 functional while requiring up to ten times less computational effort.\n  - claim: Comparisons of JARVIS\u2011DFT computed formation energies, band gaps, and elastic constants with experimental measurements show acceptable error margins, confirming the database\u2019s predictive reliability.\n  - claim: Beyond\u2011DFT methods (HSE06, PBE0, G0W0, DMFT) are generated for a subset of materials to provide higher\u2011level reference data and enable uncertainty quantification.\n  - claim: The Gaussian Approximation Potential (GAP) for silicon reproduces density functional theory reference results across a wide range of observable properties, including bulk crystal, liquid, amorphous phases, and point, line, and plane defects.\n  - claim: For bulk elastic constants (B, C11, C12, C44) the GAP model achieves fractional errors of less than 10% relative to DFT, outperforming all other evaluated interatomic potentials.\n  - claim: Surface energies of the (111), (110) and (100) silicon cleavage planes are predicted by GAP with errors of around 2% relative to DFT, which is comparable or better than other potentials.\n  - claim: Formation energies of vacancy and interstitial point defects (hexagonal, tetrahedral, dumbbell) are predicted by GAP within 10% of DFT values, providing uniform accuracy across these defects.\n  - claim: For extrapolative planar defects not included in the training set\u2014specifically the (112) \u03a33 grain boundary and unstable stacking fault energies on the (111) shuffle and glide planes\u2014GAP errors remain within 20% of DFT, outperforming other models.\n  - claim: Combining a simple repulsive pair potential with a many\u2011body SOAP\u2011kernel term in the GAP framework yields meV\u2011per\u2011atom accuracy for silicon energetics.\n  - claim: The Gaussian process regression framework underlying GAP provides an uncertainty quantification that qualitatively estimates the potential\u2019s accuracy for any given atomic configuration.\n  - claim: A training database of manageable size, constructed from DFT configurations covering relevant phases and defects, is sufficient to achieve high transferability of the GAP model across diverse silicon configurations.\n  - claim: Benchmark comparisons show that the new GAP model yields lower errors than previous GAP models for silicon.\n  - claim: The Smooth Overlap of Atomic Positions (SOAP) kernel captures the regularity of the silicon potential energy surface, leading to accurate interpolation within the sampled configuration space.\n  - claim: Increasing the crystal graph radius cut\u2011off from 4\u202f\u00c5 to 6\u202f\u00c5 slightly worsens the formation\u2011energy mean absolute error (to 0.03\u202feV/atom), confirming the 4\u202f\u00c5 cut\u2011off as near\u2011optimal.\n  - claim: 338 extreme materials were identified from predicted deformation potentials for full deformation potential calculation.\n  - claim: The average error between DFT\u2011predicted formation energies in the OQMD and experimental values from the SGTE database is 24\u202fmeV/atom, with a mean absolute error of 113\u202fmeV/atom.\n  - claim: A hybrid HSE06 calculation for ZnO yields a band gap of 2.48\u202feV, substantially larger than the LDA/GGA gap of 0.7\u202feV and the PBE+U gap of 1.82\u202feV.\n  - claim: Tuning the exact\u2011exchange fraction \u03b1 to 0.375 in HSE06 brings the calculated ZnO band gap into agreement with experiment.\n  - claim: A bulk ZnO HSE06 calculation (8\u00d78\u00d76 k\u2011point mesh, 400\u202feV cutoff) takes approximately 5\u202fhours on 8 CPUs, while the equivalent GGA/PBE+U calculation finishes in less than a minute.\n  - claim: The Gaussian approximation potential (GAP) enables atomistic simulations with close-to-DFT accuracy at computational costs many orders of magnitude lower than quantum-mechanical methods.\n  - claim: GAP predicts diamond lattice parameter (3.539 \u00c5) very close to DFT-LDA reference (3.532 \u00c5), outperforming screened Tersoff potential (3.566 \u00c5), with bulk modulus and elastic constants reasonably close to DFT reference values.\n  - claim: GAP fully reproduces the stability ordering of ta-C surface energies compared to DFT calculations, with differences less than 0.01 J m\u22122 for the most stable surface.\n  - claim: Empirical potentials (Tersoff/Brenner) cannot describe interlayer spacing in graphite due to short-range cutoff being less than c/2, provide poor description of carbon surfaces, and yield much lower surface energies than GAP and DFT for ta-C surfaces.\n  - claim: GAP predicts graphite c parameter at 6.518 \u00c5 versus 6.625 \u00c5 from DFT, representing -1.6% overbinding.\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00026",
+    "level": 1,
+    "total_members": 91,
+    "type_breakdown": {
+      "claim": 12,
+      "component": 4,
+      "dataset": 8,
+      "future_topic": 7,
+      "method": 2,
+      "problem": 18,
+      "task": 33,
+      "technique": 7
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 91 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - claim: CGCNN classifies metals versus semiconductors with an area under the ROC curve of 0.95 and an overall accuracy of 0.90.\n  - claim: JARVIS\u2011ML provides around 25 machine\u2011learning models for predicting material properties.\n  - claim: Interpretability analyses of JARVIS\u2011ML models reveal physical insights that go beyond conventional materials\u2011science intuition.\n  - claim: The ISO17 benchmark, comprising 645,000 conformations of 129 C7O2H10 isomers, is introduced to evaluate models on combined chemical and conformational variation.\n  - claim: Matbench v0.1 is a benchmark suite containing 13 supervised machine learning tasks (10 regression, 3 classification) for materials property prediction, with dataset sizes ranging from 312 to 132,752 samples.\n  - claim: Matbench tasks include predicting optical, thermal, electronic, thermodynamic, tensile, and elastic properties given materials composition and/or crystal structure.\n  - claim: Automatminer's auto-generated models outperform or equal the Random Forest model across all Matbench tasks except predicting formation energies across the Materials Project.\n  - claim: Graph networks (CGCNN and MEGNet) far outperform traditional ML algorithms on formation energy prediction tasks, with MEGNet decisively outperforming Automatminer for the PhDOS task; among nine structure-based tasks, Automatminer and MEGNet each achieve best scores on 4 tasks.\n  - claim: Graph networks constitute a universal machine\u2011learning framework that can accurately predict properties for both molecules and crystals.\n  - claim: A combined heuristic\u2011plus\u2011machine\u2011learning model trained on OQMD ternary formation energies predicts formation energies with a mean absolute error of ~0.11\u202feV/atom, roughly half the typical DFT\u2011experiment error.\n  - claim: Applying the heuristic\u2011ML model to 1.6\u202fmillion hypothetical ternary compositions identified nine top candidates, of which eight were confirmed by DFT to be new stable compounds (e.g., SiYb\u2083F\u2085, Pa\u2082O(SiO\u2086)).\n  - claim: AFLOW can predict alloy miscibility using Miedema and Hume\u2011Rothery mixing rules.\n  - component: Linear pooling for interpretability\n  - component: Heuristic + machine\u2011learning formation\u2011energy predictor\n  - component: ElementProperty featurizer\n  - component: extended xyz format database\n  - dataset: Single-element dataset\n  - dataset: Formation energy\n  - dataset: Poisson ratio\n  - dataset: Materials Project formation energy\n  - dataset: Polycrystalline aluminum bulk\n  - dataset: Matbench experimental metallicity classification\n  - dataset: Togo Database\n  - dataset: Single-element dataset (Zuo et al.)\n  - future_topic: Development of new machine\u2011learning models for material\u2011property predictions\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00056",
+    "level": 1,
+    "total_members": 38,
+    "type_breakdown": {
+      "claim": 15,
+      "component": 3,
+      "dataset": 6,
+      "future_topic": 7,
+      "method": 1,
+      "problem": 3,
+      "task": 3
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 38 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - claim: When applied to a set of 1,585 crystals with elastic properties, CGCNN predicts bulk modulus with a mean absolute error of 0.077\u202flog(GPa) and shear modulus with a mean absolute error of 0.114\u202flog(GPa), demonstrating good generalization.\n  - claim: Using roughly 10\u2074 training examples, CGCNN attains DFT\u2011level accuracy for eight distinct material properties across diverse crystal types and compositions.\n  - claim: Compared with a prior statistical\u2011learning approach, CGCNN achieves similar or lower root\u2011mean\u2011square errors for bulk modulus (0.075\u202flog(GPa) vs 0.105) and shear modulus (0.127\u202flog(GPa) vs 0.138) using the same training data.\n  - claim: The GNN predicts atomic von\u202fMises stress in polycrystalline graphene with a mean normalized relative error of 5.5% and a maximum error below 7% on a test set of 400 crystals.\n  - claim: The GNN predicts atomic tensile stress in porous graphene membranes under tensile strain with a mean normalized relative error of 4.9% and a maximum error of about 10%.\n  - claim: The GNN reproduces the linear decrease of Young\u2019s modulus with vacancy concentration in porous graphene, matching MD results and yielding the fitted relation E\u202f=\u202f823.7\u202f\u2212\u202f5635.6\u00b7Cv\u202f(GPa).\n  - claim: In polycrystalline aluminum, the GNN predicts atomic potential energy with a mean normalized relative error of 11.0% (maximum \u224813%) and achieves R\u00b2\u202f=\u202f0.99 for mean potential energy versus grain number.\n  - claim: Including tensile strain as an input node feature enables the GNN to accurately predict stress evolution during loading, reproducing nonlinear strain\u2011stress curves for porous graphene.\n  - claim: The GNN\u2019s stress predictions are substantially more accurate than on\u2011the\u2011fly stress calculations from the force field, which exhibit higher errors.\n  - claim: The GNN framework generalizes across defect types (grain boundaries, vacancies) and material dimensionalities (2D graphene, 3D aluminum), and to unseen defect configurations in over 10\u2076 porous graphene structures, maintaining high prediction accuracy despite being trained on only about 1,200 random samples.\n  - claim: Coupling the GNN with a genetic algorithm efficiently discovers optimal holey graphene designs (e.g., arrow\u2011shaped hole patterns) that achieve significantly lower stress concentration than suboptimal designs, using only ~800 stress evaluations\u2014an order of magnitude fewer than brute\u2011force search\u2014and reliably locates the global minimum in most of 1,000 random initializations.\n  - claim: The GNN respects physical constraints, accurately capturing derivative properties such as stress fields that obey underlying physical laws, and predicts global properties (Young\u2019s modulus, total potential energy) that follow known physical relationships and match MD results across different crystalline systems.\n  - claim: The Principal Neighbourhood Aggregation (PNA) GNN model achieves the lowest mean and variance of test mean\u2011squared error among GCN, GAT, and MPNN (sum and max) variants on the polycrystalline graphene dataset.\n  - claim: The GNN accelerates atomic property prediction by hundreds to thousands of times compared with conventional MD simulations, requiring seconds on a single CPU versus thousands of seconds on 24 CPUs.\n  - claim: Linear fitting of atomic properties yields substantially higher prediction errors than the GNN approach, demonstrating the superiority of the nonlinear GNN model for mapping initial structures to final property distributions.\n  - component: Position\u2011included material graph\n  - component: CGCNN model for elastic properties\n  - component: CGCNN model for deformation potential\n  - dataset: graphene\n  - dataset: Graphene 6\u00d76 supercell\n  - dataset: Graphene unseen configurations\n  - dataset: Polycrystalline graphene\n  - dataset: Porous graphene membranes\n  - dataset: Graphite\n  - future_topic: Application of CGCNN to additional material classes beyond perovskites\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00023",
+    "level": 1,
+    "total_members": 45,
+    "type_breakdown": {
+      "claim": 6,
+      "component": 16,
+      "method": 2,
+      "problem": 10,
+      "task": 2,
+      "technique": 9
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 45 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - claim: The workflow software FireWorks together with the custodian job\u2011management tool automatically manages high\u2011throughput DFT calculations, self\u2011heals failed runs, and applies material\u2011type\u2011specific workflows.\n  - claim: Automatminer is a fully-automated machine learning pipeline consisting of four stages (autofeaturization, cleaning, dimensionality reduction, and AutoML search) that requires no user intervention or hyperparameter tuning.\n  - claim: Automatminer Express preset achieves the best performance on 8 of 13 tasks in the Matbench benchmark.\n  - claim: Descriptor-based Automatminer and RF models have lower errors on small datasets but their improvement rates are shallower, with AutoML's advantage over conventional techniques narrowing as sample count increases and essentially lost near 10^5 samples.\n  - claim: For small datasets (<10^4 samples), inexpensive Automatminer presets (~1-5 minute training) retain the bulk of performance compared to expensive presets (24h+ training), with Express retaining 95% or more of the accuracy of more expensive presets at less than 50% of the computational cost on data-scarce tasks.\n  - claim: Automatminer source code and pre-processed Matbench tasks are open source and available online.\n  - component: Web applications\n  - component: Combined heuristic\u2011ML pipeline\n  - component: AFLOW workflow engine\n  - component: Alien\u2011mode task executor\n  - component: HT\u2011DFT+U workflow\n  - component: Hybrid functional workflow\n  - component: Automatminer pipeline\n  - component: Automatminer autofeaturizer Express preset\n  - component: Automatminer\n  - component: Autofeaturization stage\n  - component: AutoML stage\n  - component: Automatminer Express preset\n  - component: Automatminer Debug preset\n  - component: Automatminer Debug_single preset\n  - component: Automatminer Heavy preset\n  - component: AutoML model search space\n  - method: Automated Interactive Infrastructure and Database\n  - method: Automatminer\n  - problem: high\u2011throughput workflow automation\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00029",
+    "level": 1,
+    "total_members": 25,
+    "type_breakdown": {
+      "claim": 6,
+      "component": 3,
+      "method": 1,
+      "problem": 4,
+      "task": 8,
+      "technique": 3
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 25 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - claim: The ConvLSTM model accurately predicts fracture patterns, crack\u2011length trends, and both mode\u2011I (tensile) and mode\u2011II (shear) loading responses across crystal orientations, closely matching atomistic molecular dynamics simulations, with only a minor discrepancy for the x100 orientation under mode\u2011II shear.\n  - claim: The model predicts fracture toughness values that are comparable to those obtained from atomistic molecular dynamics simulations.\n  - claim: A model trained exclusively on single\u2011crystal data generalizes to bicrystal and gradient\u2011orientation crystals, reproducing MD fracture patterns for small orientation differences, capturing overall crack paths for large orientation differences, and handling arbitrary geometry gradients.\n  - claim: The ConvLSTM approach reduces computational cost dramatically compared with full molecular dynamics simulations, enabling rapid fracture predictions.\n  - claim: Representing molecular dynamics results as image\u2011based geometric matrices preserves crystal orientation information and allows the neural network to learn spatiotemporal fracture behavior.\n  - claim: The training dataset comprises 14,300 paired geometric\u2011crack image matrices, and the model exhibits convergent loss during training.\n  - component: Fracture\u2011toughness regression head\n  - component: Crack matrix y\n  - component: Vicker's hardness estimation model\n  - method: ConvLSTM-based fracture prediction model\n  - problem: Efficient prediction of dynamic brittle fracture paths\n  - problem: Fracture\u2011toughness estimation from atomistic data\n  - problem: Fracture pattern prediction from MD simulations\n  - problem: Modeling spatiotemporal dependencies in fracture\n  - task: Crack\u2011pattern prediction\n  - task: Fracture\u2011toughness prediction\n  - task: Bicrystal fracture prediction\n  - task: Gradient\u2011orientation fracture prediction\n  - task: Crack path prediction in crystalline solids\n  - task: Spatiotemporal fracture behavior forecasting\n  - task: Vicker's hardness estimation\n  - task: Vicker's hardness prediction\n  - technique: Pixel\u2011wise crack\u2011length measurement\n  - technique: One\u2011hot crack labeling\n  - technique: Vicker's hardness estimation\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00057",
+    "level": 1,
+    "total_members": 51,
+    "type_breakdown": {
+      "claim": 20,
+      "component": 2,
+      "dataset": 6,
+      "future_topic": 1,
+      "method": 3,
+      "problem": 7,
+      "task": 8,
+      "technique": 4
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 51 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - claim: Using the vdW\u2011DF\u2011OptB88 functional for all dimensionalities yields accurate lattice parameters and formation energies for both van\u2011der\u2011Waals and non\u2011vdW bonded materials.\n  - claim: DeepH predicts DFT Hamiltonian matrix elements for graphene with an average mean absolute error of 2.1\u202fmeV and a coefficient of determination r\u00b2\u202f=\u202f0.9994 across all orbital combinations.\n  - claim: When applied to unseen graphene configurations sampled between 100\u202fK and 400\u202fK, DeepH maintains a mean absolute error of 1.9\u202fmeV for Hamiltonian matrix elements.\n  - claim: For monolayer MoS\u2082, DeepH predicts DFT Hamiltonian matrix elements with average mean absolute errors of 1.3\u202fmeV (Mo\u2013Mo), 1.0\u202fmeV (Mo\u2013S), 0.7\u202fmeV (S\u2013Mo), and 0.8\u202fmeV (S\u2013S).\n  - claim: Band structures and electric susceptibility computed from DeepH for MoS\u2082 match DFT results closely.\n  - claim: DeepH generalizes to carbon nanotubes, achieving Hamiltonian prediction MAE below 3.5\u202fmeV for diameters larger than 2\u202fnm and accurately reproducing their band structures.\n  - claim: DeepH scales linearly with system size and provides a three\u2011order\u2011of\u2011magnitude speed\u2011up over conventional DFT for a MoS\u2082 35\u202f\u00d7\u202f35 supercell.\n  - claim: A DeepH model trained only on non\u2011twisted bilayer graphene structures predicts Hamiltonians for twisted bilayer graphene supercells up to ~1000 atoms with sub\u2011meV mean absolute error and correctly reproduces the flat\u2011band feature near the Fermi level at the magic angle (~1.08\u00b0).\n  - claim: DeepH accurately predicts DFT Hamiltonians and electronic properties for twisted bilayer bismuthene with strong spin\u2011orbit coupling, achieving errors comparable to those for twisted graphene.\n  - claim: Compared with empirical tight\u2011binding and continuum models, DeepH offers higher accuracy and transferability for twisted van\u2011der\u2011Waals materials, albeit with slightly lower computational efficiency.\n  - claim: DeepH resolves the accuracy\u2011efficiency dilemma of DFT, enabling efficient ab\u2011initio electronic\u2011structure calculations for large\u2011scale material systems.\n  - claim: DeepH can be applied to both periodic and non\u2011periodic systems, including three\u2011dimensional bulk carbon allotropes and quasi\u2011zero\u2011dimensional molecules, achieving sub\u2011meV mean absolute error for Hamiltonian predictions.\n  - claim: DeepH-E3 predicts DFT Hamiltonian matrix elements with sub\u2011meV mean absolute error, reducing the error by roughly a factor of two compared with the original DeepH method across diverse material systems.\n  - claim: DeepH-E3 enables accurate electronic\u2011structure calculations for supercells larger than 10\u2074 atoms, reducing computational cost by several orders of magnitude and allowing calculations in minutes on a single GPU versus months on thousands of CPU cores.\n  - claim: DeepH\u2011E3 reproduces the band structure of magic\u2011angle twisted bilayer graphene (\u03b8\u202f=\u202f1.08\u00b0, 11\u202f164 atoms) in excellent agreement with DFT and low\u2011energy continuum models, correctly capturing the flat bands near the Fermi level.\n  - claim: DeepH\u2011E3 predicts a spin\u2011orbit\u2011coupling\u2011induced topological quantum phase transition in twisted bilayer Bi\u2082Te\u2083, evidenced by band\u2011gap closing and reopening and a change of the Z\u2082 invariant from 0 to 1 as SOC strength increases.\n  - claim: DeepH\u2011E3 attains sub\u2011meV accuracy after training on only a few hundred DFT calculations of small, non\u2011twisted structures, demonstrating high data efficiency.\n  - claim: DeepH\u2011E3 generalizes across diverse material systems\u2014including graphene, MoS\u2082, bismuthene, Bi\u2082Se\u2083, and Bi\u2082Te\u2083\u2014achieving consistently sub\u2011meV Hamiltonian prediction errors.\n  - claim: The model generalizes to arbitrarily twisted bilayer structures; the mean absolute error of Hamiltonian predictions decreases as the Moir\u00e9 supercell size grows (or twist angle decreases).\n  - claim: The model can fit 2.8\u202f\u00d7\u202f10\u2079 non\u2011zero complex\u2011valued Hamiltonian matrix elements with only ~10\u2075 real trainable parameters, indicating high capacity efficiency.\n  - component: Virtual Hamiltonian construction\n  - component: Sparse Hamiltonian matrix blocks\n  - dataset: MoS\u2082 35\u00d735 supercell\n  - dataset: twisted bilayer graphene\n  - dataset: twisted bilayer bismuthene\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00017",
+    "level": 1,
+    "total_members": 29,
+    "type_breakdown": {
+      "claim": 2,
+      "component": 19,
+      "future_topic": 2,
+      "method": 1,
+      "problem": 1,
+      "task": 2,
+      "technique": 2
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 29 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - claim: A REST\u2011API is provided for programmatic download and upload of JARVIS data, supporting community contributions and interoperability.\n  - claim: The AFLOWLIB data is accessible through a REST-API for standardized data exchange.\n  - component: JARVIS\u2011DFT\n  - component: JARVIS\u2011FF\n  - component: JARVIS\u2011ML\n  - component: JARVIS\u2011Tools\n  - component: REST\u2011API\n  - component: Heterostructure design app\n  - component: JARVIS-DFT workflow\n  - component: JARVIS-FF workflow\n  - component: JARVIS-ML workflow\n  - component: Data download utilities\n  - component: JARVIS\u2011Heterostructure app\n  - component: JARVIS\u2011Wannier Tight\u2011Binding app\n  - component: JARVIS-Beyond-DFT database\n  - component: JARVIS-FF database\n  - component: JARVIS-ML platform\n  - component: JARVIS\u2011WannierTB app\n  - component: JARVIS\u2011ODF library\n  - component: JARVIS\u2011Tools workflow\n  - component: Aconvasp command\u2011line tool\n  - future_topic: Continuous expansion of JARVIS datasets and tools\n  - future_topic: Interfaces and heterostructures\n  - method: JARVIS integrated materials design infrastructure\n  - problem: Rapid heterostructure design\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00050",
+    "level": 1,
+    "total_members": 56,
+    "type_breakdown": {
+      "claim": 19,
+      "component": 5,
+      "dataset": 6,
+      "future_topic": 1,
+      "method": 1,
+      "problem": 3,
+      "task": 11,
+      "technique": 10
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 56 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - claim: A curated dataset of 476 binary ionic compound melting temperatures spanning 0-4,000\u00b0C was compiled for machine learning model development.\n  - claim: The best one-step gradient-boosted tree regression model achieves 165\u00b14 K MAE and 0.89 R\u00b2 on the test set for melting temperature prediction.\n  - claim: Cluster 1 (198 compounds, mostly ionic halides and oxides) achieves 136\u00b15 K MAE and 0.92 R\u00b2, while Cluster 2 (222 compounds, mostly covalent carbides and nitrides) achieves 189\u00b17 K MAE and 0.90 R\u00b2.\n  - claim: Cohesive energy and elastic moduli (shear and bulk modulus) are the most important features for melting temperature prediction, as identified by both ensemble feature importance and SHAP analysis.\n  - claim: Models trained without elastic moduli features yield errors greater than 400 K, demonstrating that elastic features are necessary for accurate melting temperature predictions.\n  - claim: Very-high melting temperatures (>3150 K) appear only in Cluster 2, predominantly in metal carbides, reflecting the covalent bonding character of these materials.\n  - claim: The two-step clustering approach provides interpretability by revealing different melting physics dominated by bonding types, with Cluster 1 governed by ionic bonding features and Cluster 2 by covalent bonding features.\n  - claim: VS-SISSO symbolic regression generates interpretable expressions for melting temperature that provide qualitative insight into the melting physics dominating within each cluster.\n  - claim: Cluster 2 melting temperatures can be accurately represented with symbolic models depending on only two features: squared cohesive energy and inverse square root of periodic groups or electronegativities.\n  - claim: For internal energy at 0\u202fK (U0), enthalpy (H), Gibbs free energy (G), heat capacity at constant volume (Cv), and highest vibrational frequency (\u03a9), the MPNN records lower mean absolute errors than SchNet and DTNN (U0\u202fMAE\u202f0.45 vs\u202f0.55/0.72; H\u202f0.39 vs\u202f0.59/0.80; G\u202f0.44 vs\u202f0.55/0.74; Cv\u202f0.80 vs\u202f0.99/1.71; \u03a9\u202f0.19 vs\u202f0.41/0.78).\n  - claim: Using the GAP model enables simulations that would be prohibitively expensive with DFT, such as finite\u2011temperature phase\u2011boundary calculations, liquid self\u2011diffusivity, amorphous silicon formation by slow quench, and dynamic brittle fracture.\n  - claim: CGAT-2 network achieves a mean absolute test error of 21 meV/atom for distance to the convex hull, enabling prediction of thermodynamic stability from unrelaxed crystal structures.\n  - claim: The ML-assisted high-throughput search uncovered 19,512 additional materials on the convex hull of thermodynamic stability after DFT validation.\n  - claim: At 0\u202fK and zero pressure, 23\u202f% of the 32,489 ICSD structures in the OQMD are thermodynamically stable according to grand canonical linear programming analysis.\n  - claim: All eleven experimentally known rare\u2011earth\u2011containing Mg\u2011XL\u2011XS LPSO systems are correctly predicted to be thermodynamically stable by DFT calculations using OQMD convex hulls.\n  - claim: DFT screening predicts forty\u2011one previously unreported rare\u2011earth\u2011containing Mg\u2011XL\u2011XS ternary systems to be thermodynamically stable LPSO phases, providing new experimental targets.\n  - claim: Calcium and strontium are predicted to form stable (or nearly stable) LPSO precipitates in Mg alloys, offering affordable alternatives to rare\u2011earth elements, with Ca especially promising in the Mg\u2011Ca\u2011Zn system.\n  - claim: AFLOW can automatically construct convex hulls for binary alloy systems at zero temperature using formation enthalpies from DFT calculations.\n  - claim: The training database includes liquid and amorphous structures, randomly distorted crystalline allotropes (diamond and graphite), and isolated dimer DFT data, extended iteratively by performing melt-quench simulations driven by previous GAP versions with DFT single-point computations for validation snapshots.\n  - component: LPSO precipitate stability evaluator\n  - component: Stability\u2011ranking and heat\u2011map visualization\n  - component: Temperature ramping scheme\n  - component: NVT thermostat during training\n  - component: Melt-quench trajectory generator\n  - dataset: Quench configurations\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00058",
+    "level": 1,
+    "total_members": 13,
+    "type_breakdown": {
+      "claim": 1,
+      "component": 2,
+      "problem": 9,
+      "technique": 1
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 13 member surface forms (of 13 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - claim: Symbolic regression results corroborate that cohesive energy and elastic moduli are the most important features, consistent with feature importance and SHAP analysis from tree ensemble models.\n  - component: Hyperparameters\n  - component: Representative environment selection\n  - problem: Model selection bias\n  - problem: Sample selection bias\n  - problem: Paradox of choice in descriptor/model selection\n  - problem: Unbiased model comparison\n  - problem: chemical element bias\n  - problem: structural prototype bias\n  - problem: Training data bias\n  - problem: First row anomaly\n  - problem: Structural diversity deficiency\n  - technique: Element bias correction\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00059",
+    "level": 1,
+    "total_members": 29,
+    "type_breakdown": {
+      "claim": 2,
+      "component": 20,
+      "technique": 7
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 29 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - claim: The featurization methods are transferable to more complex compositions, enabling new ML models to be fitted without revising the materials embedding method given extended datasets.\n  - claim: Adding a latent master node that connects to every atom provides a global scratch space, allowing larger hidden dimensions with minimal performance penalty.\n  - component: Output layer\n  - component: embedding layer\n  - component: Pooling layer\n  - component: E3Linear layer\n  - component: E3LayerNorm\n  - component: EquiConv block\n  - component: Elemental embedding\n  - component: EquiConv layer\n  - component: Atomic embedding layer\n  - component: Element embedding layer\n  - component: Elemental embeddings\n  - component: Fully\u2011connected hidden layers\n  - component: Materials-specific featurization library\n  - component: Extensible featurizer sets\n  - component: ElementFraction featurizer\n  - component: TMetalFraction featurizer\n  - component: BandCenter featurizer\n  - component: GlobalSymmetryFeatures featurizer\n  - component: EwaldEnergy featurizer\n  - component: Skip connection Add layers\n  - technique: Residual connections\n  - technique: ResNet\u2011style skip connections\n  - technique: Elemental embedding\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00041",
+    "level": 1,
+    "total_members": 50,
+    "type_breakdown": {
+      "claim": 7,
+      "component": 1,
+      "dataset": 9,
+      "future_topic": 2,
+      "metric": 2,
+      "problem": 6,
+      "task": 20,
+      "technique": 3
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 50 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - claim: Inference with the MPNN takes roughly 10\u207b\u00b2 seconds per molecule, about 300,000 times faster than the DFT reference calculation (~10\u00b3 seconds).\n  - claim: GAP radial and angular distribution functions for liquid and amorphous carbon closely match DFT reference results, including peak locations, extents, and overall curve shapes.\n  - claim: GAP recovers three- and four-membered rings that are key features of liquid and low-density amorphous carbon structures, which empirical potentials (Tersoff/Brenner) fail to predict.\n  - claim: GAP predictions for Young's modulus of amorphous carbon agree very well with experimental values at all relevant densities, while screened Tersoff potential captures the trend but significantly overestimates absolute values.\n  - claim: GAP sp3 concentration predictions are closer to DFT reference than empirical Brenner and Tersoff potentials, particularly at lower densities; empirical potentials underestimate sp3 concentration in tetrahedral amorphous carbon.\n  - claim: For amorphous carbon with 3.7 \u00c5 cutoff radius, the lowest achievable standard deviation of force components is approximately 1 eV/\u00c5 due to fundamental nonlocality limits, representing a maximum accuracy bound for any finite-range interatomic potential.\n  - claim: DFT-based methods are practically limited to systems of a few hundred atoms, making generation of 8,000-atom amorphous carbon structures impossible with DFT-MD even on state-of-the-art supercomputers.\n  - component: 6\u00d76 elastic constants matrix\n  - dataset: Bulk moduli\n  - dataset: Shear moduli\n  - dataset: Elasticity\n  - dataset: amorphous carbon structures\n  - dataset: Liquid carbon 9000K\n  - dataset: Liquid carbon 5000K\n  - dataset: Amorphous carbon\n  - dataset: DFT carbon reference data\n  - dataset: amorphous carbon Young's modulus\n  - future_topic: Realistic and accurate simulations of nanoscale amorphous carbon structures\n  - future_topic: High-temperature surface reconstructions of amorphous carbon\n  - metric: Gvrh MAE\n  - metric: Young's modulus\n  - problem: Nonlocality in carbon allotropes\n  - problem: Fourfold ring prediction in amorphous carbon\n  - problem: Transferability across carbon phases\n  - problem: Large-scale amorphous carbon simulation\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00037",
+    "level": 1,
+    "total_members": 46,
+    "type_breakdown": {
+      "claim": 3,
+      "component": 4,
+      "future_topic": 3,
+      "method": 3,
+      "metric": 1,
+      "problem": 7,
+      "task": 1,
+      "technique": 24
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 46 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - claim: Default NKPPRA values for non-BANDS calculations vary by database: Binary Alloy uses 6000 for RELAX, Heusler uses 10000 for STATIC and 6000 for RELAX, and ICSD uses 10000 for STATIC and 8000 for RELAX.\n  - claim: Electronic convergence criteria are \u03b4Eelec = 10\u207b\u2075 eV and ionic convergence criteria are \u03b4Eion = 10\u207b\u2074 eV for Elements database entries, while all other databases use \u03b4Eelec = 10\u207b\u00b3 eV and \u03b4Eion = 10\u207b\u00b2 eV.\n  - claim: Starting the training loop with sufficient data sampling a relevant portion of phase space is important for obtaining generalizable models.\n  - component: Scaling parameters\n  - component: Automatic k\u2011point convergence protocol\n  - component: NKPPRA parameter\n  - component: Dual grid technique\n  - future_topic: modeling objects with arbitrary positions such as astronomical observations\n  - future_topic: Standard parameter values for k-point grid density\n  - future_topic: AFLOW Calculation Types classification\n  - method: Monkhorst-Pack k-point sampling\n  - method: Voronoi tessellation\n  - method: Monkhorst\u2011Pack k\u2011point sampling\n  - metric: lattice parameter\n  - problem: Modeling of non\u2011grid spatial data\n  - problem: Continuity of physical quantities\n  - problem: Efficient sampling of high\u2011dimensional PES\n  - problem: Dataset size scaling characterization\n  - problem: Electronic convergence stability\n  - problem: Phase space sampling for generalizable ML potentials\n  - problem: Incomplete configuration space sampling\n  - task: Lattice parameter reproduction\n  - technique: Voronoi\u2011based grain generation\n  - technique: Automatic k\u2011point convergence\n  - technique: Automated k\u2011point and plane\u2011wave cutoff convergence\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00060",
+    "level": 1,
+    "total_members": 10,
+    "type_breakdown": {
+      "claim": 3,
+      "component": 4,
+      "technique": 3
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 10 member surface forms (of 10 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - claim: The applied plane-wave kinetic energy cut-off (Ecut) is the largest recommended value among all species in the calculation, increased by a factor of 1.4.\n  - claim: Approximately 150,000 compounds were found with energy distance less than 50 meV/atom from the convex hull.\n  - claim: Materials within 50 meV/atom from convex hull were selected for subsequent DFT stiffness tensor calculations.\n  - component: Cutoff function fc\n  - component: DFT stiffness tensor calculator\n  - component: Plane-wave kinetic energy cut-off\n  - component: Cutoff function\n  - technique: Early stopping\n  - technique: Smooth cutoff function\n  - technique: Minimum ion-ion distance cutoff\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00048",
+    "level": 1,
+    "total_members": 58,
+    "type_breakdown": {
+      "claim": 2,
+      "component": 8,
+      "dataset": 6,
+      "method": 1,
+      "metric": 5,
+      "problem": 7,
+      "task": 24,
+      "technique": 5
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 58 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - claim: For LLZO, the computed activation energies range from 0.2 to 0.22 eV, in very good agreement with experimental values of 0.20-0.21 eV for cubic LLZO.\n  - claim: For LGPS, the computed activation energy is 0.16 eV, which is slightly lower than experimental values (0.22 eV) but in line with previous computational studies (0.17-0.21 eV).\n  - component: Energy pooling\n  - component: Atomic\u2011energy decomposition\n  - component: Linear output mapping for atomic energy\n  - component: Surface\u2011slab builder\n  - component: NCV fold structure\n  - component: Prototype-based structure sampler\n  - component: surface slab models\n  - component: Surface cleavage module\n  - dataset: Kahle2020\n  - dataset: Absolute energy\n  - dataset: Fermi energy\n  - dataset: ta-C surfaces\n  - dataset: ta-C surface energies\n  - dataset: Trimer configurations\n  - method: Frozen-framework potential energy surface (PES) descriptor screening\n  - metric: Score [a.u.]\n  - metric: activation_energy\n  - metric: surface energy\n  - metric: energy error\n  - metric: interaction energy\n  - problem: Smooth potential energy surface\n  - problem: Construction of complex surface slabs and nanoparticles\n  - problem: Activation energy prediction accuracy\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00061",
+    "level": 1,
+    "total_members": 17,
+    "type_breakdown": {
+      "claim": 1,
+      "component": 5,
+      "problem": 2,
+      "technique": 9
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 17 member surface forms (of 17 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - claim: Compositional models cannot differentiate between polymorphs with the same chemical composition.\n  - component: Readout module\n  - component: Arrhenius analysis module\n  - component: Regularized least\u2011squares solution for expansion coefficients\n  - component: Dropout regularization layers\n  - component: Apennsy analysis module\n  - problem: Nonlinear structure\u2011property mapping\n  - problem: polymorph differentiation\n  - technique: Dropout regularization\n  - technique: L2 regularization\n  - technique: Arrhenius fitting\n  - technique: Polynomial mutation\n  - technique: Cubic spline fitting\n  - technique: Nonlinear transformations\n  - technique: First-order polynomial fitting\n  - technique: Arrhenius plot analysis\n  - technique: Linear coefficient fitting\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00040",
+    "level": 1,
+    "total_members": 15,
+    "type_breakdown": {
+      "claim": 1,
+      "component": 3,
+      "problem": 4,
+      "task": 3,
+      "technique": 4
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 15 member surface forms (of 15 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - claim: AFLOW\u2019s cage\u2011finding algorithm identifies interstitial sites via a topological method, finding 14 cages (6 octahedral, 8 tetrahedral) that reduce to 5 symmetrically inequivalent positions, with radii of 2.2225\u202f\u00c5 (octahedral) and 1.9248\u202f\u00c5 (tetrahedral).\n  - component: Interstitial\u2011site topological search\n  - component: Apennsy interstitial cage search\n  - component: cage reduction module\n  - problem: Learning from graph topology without handcrafted descriptors\n  - problem: Reduction of computational cost for exhaustive search\n  - problem: Identification of interstitial sites\n  - problem: poor generalization error in high-throughput searches\n  - task: Topological invariant analysis\n  - task: Interstitial site discovery and energetics\n  - task: interstitial cage detection in L13 structure\n  - technique: Topological spillage analysis\n  - technique: Topological cage identification\n  - technique: grid\u2011based interstitial search\n  - technique: symmetry reduction of cages\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00062",
+    "level": 1,
+    "total_members": 12,
+    "type_breakdown": {
+      "component": 2,
+      "method": 3,
+      "metric": 1,
+      "task": 4,
+      "technique": 2
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 12 member surface forms (of 12 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - component: Wigner\u2011Eckart layer\n  - component: Pulay charge mixer\n  - method: Phase-Field Hub\n  - method: projector-augmented wave\n  - method: Pulay charge mixing\n  - metric: energetic and structural properties\n  - task: chemistry\n  - task: condensed matter physics\n  - task: quantum chemistry\n  - task: solid-state physics\n  - technique: Wigner\u2011Eckart theorem\n  - technique: Wigner Symbol Recoupling\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00063",
+    "level": 1,
+    "total_members": 6,
+    "type_breakdown": {
+      "component": 3,
+      "problem": 2,
+      "technique": 1
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 6 member surface forms (of 6 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - component: Bond distance expansion\n  - component: Many\u2011body to bond update\n  - component: Maximum bond variation criterion\n  - problem: Linear sp-bonded chain detection\n  - problem: preventing sp chain overprediction\n  - technique: Maximum bond variation check\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00044",
+    "level": 1,
+    "total_members": 31,
+    "type_breakdown": {
+      "component": 22,
+      "method": 4,
+      "problem": 2,
+      "technique": 3
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 31 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - component: Three\u2011body angular module\n  - component: 3\u2011body interaction module\n  - component: SOAP descriptor\n  - component: CFID\n  - component: CFID descriptor set\n  - component: Two-body descriptor\n  - component: Three-body descriptor\n  - component: Many-body descriptor\n  - component: Hierarchical descriptor set\n  - component: 2-body descriptor\n  - component: 3-body descriptor\n  - component: SOAP many-body descriptor\n  - component: 2b descriptor\n  - component: 3b descriptor\n  - component: MB descriptor\n  - component: Combined structural descriptors\n  - component: Two-body descriptors only\n  - component: Two-body plus three-body descriptors\n  - component: distance descriptor\n  - component: angle descriptor\n  - component: SOAP descriptor with sparse points\n  - component: SOAP sparse points\n  - method: SOAP kernel\n  - method: Findsym symmetry analysis\n  - method: SOAP descriptors\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00014",
+    "level": 1,
+    "total_members": 30,
+    "type_breakdown": {
+      "component": 6,
+      "metric": 3,
+      "problem": 8,
+      "task": 1,
+      "technique": 12
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 25 member surface forms (of 30 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - component: Uncertainty quantification\n  - component: Bayesian uncertainty estimation\n  - component: Visual warning system\n  - component: Error\u2011detection and auto\u2011restart module\n  - component: Error correction system\n  - component: ring statistics analysis\n  - metric: error ratio\n  - metric: relative error (MAE/MAD)\n  - metric: normalized relative error\n  - problem: Uncertainty quantification\n  - problem: Uncertainty quantification for ML predictions\n  - problem: Robust handling of calculation failures\n  - problem: Generalization error estimation\n  - problem: Inconsistent prediction error\n  - problem: Generalization error\n  - problem: Calculation failure handling\n  - problem: Accuracy limit determination\n  - task: Ring statistics analysis\n  - technique: Radial distribution function analysis\n  - technique: Uncertainty quantification via GP variance\n  - technique: Rule\u2011based self\u2011healing\n  - technique: Monte\u2011Carlo dropout for uncertainty quantification\n  - technique: Error\u2011handler auto\u2011resubmit\n  - technique: Automatic error detection and correction\n  - technique: Mean imputation\n",
+    "label": null,
+    "gloss": null
+  },
+  {
+    "super_node_id": "L1_S00043",
+    "level": 1,
+    "total_members": 9,
+    "type_breakdown": {
+      "component": 3,
+      "method": 1,
+      "problem": 1,
+      "task": 2,
+      "technique": 2
+    },
+    "prompt": "You are labelling ONE cluster (\"super-node\") from a hierarchy built over a temporal knowledge hypergraph of ML/materials-science literature, as it looked at the 2022 snapshot.\n\nBelow are up to 9 member surface forms (of 9 total members), with a breakdown of member node types. Write:\n  1. A short label (<=6 words) naming the shared scientific concept.\n  2. A one-sentence gloss (<=25 words) describing what unites the members.\n\nRules:\n- Assert NOTHING the member list does not support. If members are diverse or you are unsure, say so plainly in the gloss rather than overclaiming a crisp topic.\n- Do not reference anything outside this member list (no outside knowledge about methods that AREN'T listed here, even if you know they exist).\n- This snapshot is dated 2022: do not describe members using terms/status that wouldn't have been known by then.\n\nMembers (type: surface_form):\n  - component: Image\u2011based data\u2011processing pipeline\n  - component: STM\u2011image database and analysis pipeline\n  - component: uncorrelated snapshots selection\n  - method: Light Gradient-Boosting Machine\n  - problem: Automated STM image analysis\n  - task: STM image analysis\n  - task: STM image classification\n  - technique: Tersoff\u2011Hamann STM image simulation\n  - technique: snapshot extraction at multiple time points\n",
+    "label": null,
+    "gloss": null
+  }
+]

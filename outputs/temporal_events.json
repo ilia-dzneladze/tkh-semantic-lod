@@ -1,0 +1,9892 @@
+[
+  {
+    "type": "birth",
+    "id": "L0_S00001",
+    "curr_size": 100,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 0
+  },
+  {
+    "type": "birth",
+    "id": "L0_S00002",
+    "curr_size": 253,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 0
+  },
+  {
+    "type": "birth",
+    "id": "L0_S00003",
+    "curr_size": 201,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 0
+  },
+  {
+    "type": "birth",
+    "id": "L0_S00004",
+    "curr_size": 85,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 0
+  },
+  {
+    "type": "birth",
+    "id": "L0_S00005",
+    "curr_size": 130,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 0
+  },
+  {
+    "type": "birth",
+    "id": "L0_S00006",
+    "curr_size": 62,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 0
+  },
+  {
+    "type": "birth",
+    "id": "L0_S00007",
+    "curr_size": 60,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 0
+  },
+  {
+    "type": "birth",
+    "id": "L0_S00008",
+    "curr_size": 82,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 0
+  },
+  {
+    "type": "birth",
+    "id": "L0_S00009",
+    "curr_size": 167,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 0
+  },
+  {
+    "type": "birth",
+    "id": "L0_S00010",
+    "curr_size": 129,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 0
+  },
+  {
+    "type": "birth",
+    "id": "L0_S00011",
+    "curr_size": 40,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 0
+  },
+  {
+    "type": "birth",
+    "id": "L0_S00012",
+    "curr_size": 97,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 0
+  },
+  {
+    "type": "grow",
+    "id": "L0_S00001",
+    "prev_size": 100,
+    "curr_size": 159,
+    "jaccard": 0.4388888888888889,
+    "year": 2022,
+    "level": 0
+  },
+  {
+    "type": "split",
+    "from": "L0_S00002",
+    "into_local_labels": [
+      11,
+      9
+    ],
+    "jaccard": 0.27442827442827444,
+    "year": 2022,
+    "level": 0
+  },
+  {
+    "type": "merge",
+    "into": "L0_S00003",
+    "from_persistent_ids": [
+      "L0_S00003",
+      "L0_S00010"
+    ],
+    "curr_size": 104,
+    "year": 2022,
+    "level": 0
+  },
+  {
+    "type": "grow",
+    "id": "L0_S00004",
+    "prev_size": 85,
+    "curr_size": 199,
+    "jaccard": 0.3209302325581395,
+    "year": 2022,
+    "level": 0
+  },
+  {
+    "type": "grow",
+    "id": "L0_S00005",
+    "prev_size": 130,
+    "curr_size": 275,
+    "jaccard": 0.43617021276595747,
+    "year": 2022,
+    "level": 0
+  },
+  {
+    "type": "grow",
+    "id": "L0_S00006",
+    "prev_size": 62,
+    "curr_size": 176,
+    "jaccard": 0.25925925925925924,
+    "year": 2022,
+    "level": 0
+  },
+  {
+    "type": "shrink",
+    "id": "L0_S00007",
+    "prev_size": 60,
+    "curr_size": 59,
+    "jaccard": 0.4691358024691358,
+    "year": 2022,
+    "level": 0
+  },
+  {
+    "type": "shrink",
+    "id": "L0_S00008",
+    "prev_size": 82,
+    "curr_size": 92,
+    "jaccard": 0.46218487394957986,
+    "year": 2022,
+    "level": 0
+  },
+  {
+    "type": "grow",
+    "id": "L0_S00009",
+    "prev_size": 167,
+    "curr_size": 431,
+    "jaccard": 0.17716535433070865,
+    "year": 2022,
+    "level": 0
+  },
+  {
+    "type": "shrink",
+    "id": "L0_S00011",
+    "prev_size": 40,
+    "curr_size": 25,
+    "jaccard": 0.4772727272727273,
+    "year": 2022,
+    "level": 0
+  },
+  {
+    "type": "birth",
+    "id": "L0_S00013",
+    "curr_size": 77,
+    "year": 2022,
+    "level": 0
+  },
+  {
+    "type": "birth",
+    "id": "L0_S00014",
+    "curr_size": 89,
+    "year": 2022,
+    "level": 0
+  },
+  {
+    "type": "death",
+    "id": "L0_S00012",
+    "prev_size": 97,
+    "year": 2022,
+    "level": 0
+  },
+  {
+    "type": "merge",
+    "into": "L0_S00001",
+    "from_persistent_ids": [
+      "L0_S00001",
+      "L0_S00008"
+    ],
+    "curr_size": 450,
+    "year": 2024,
+    "level": 0
+  },
+  {
+    "type": "grow",
+    "id": "L0_S00004",
+    "prev_size": 199,
+    "curr_size": 471,
+    "jaccard": 0.2570356472795497,
+    "year": 2024,
+    "level": 0
+  },
+  {
+    "type": "grow",
+    "id": "L0_S00002",
+    "prev_size": 360,
+    "curr_size": 556,
+    "jaccard": 0.24456521739130435,
+    "year": 2024,
+    "level": 0
+  },
+  {
+    "type": "split",
+    "from": "L0_S00009",
+    "into_local_labels": [
+      8,
+      6
+    ],
+    "jaccard": 0.23488372093023255,
+    "year": 2024,
+    "level": 0
+  },
+  {
+    "type": "grow",
+    "id": "L0_S00005",
+    "prev_size": 275,
+    "curr_size": 721,
+    "jaccard": 0.245,
+    "year": 2024,
+    "level": 0
+  },
+  {
+    "type": "grow",
+    "id": "L0_S00014",
+    "prev_size": 89,
+    "curr_size": 228,
+    "jaccard": 0.16117216117216118,
+    "year": 2024,
+    "level": 0
+  },
+  {
+    "type": "grow",
+    "id": "L0_S00011",
+    "prev_size": 25,
+    "curr_size": 76,
+    "jaccard": 0.32894736842105265,
+    "year": 2024,
+    "level": 0
+  },
+  {
+    "type": "birth",
+    "id": "L0_S00015",
+    "curr_size": 274,
+    "year": 2024,
+    "level": 0
+  },
+  {
+    "type": "birth",
+    "id": "L0_S00016",
+    "curr_size": 61,
+    "year": 2024,
+    "level": 0
+  },
+  {
+    "type": "birth",
+    "id": "L0_S00017",
+    "curr_size": 171,
+    "year": 2024,
+    "level": 0
+  },
+  {
+    "type": "birth",
+    "id": "L0_S00018",
+    "curr_size": 198,
+    "year": 2024,
+    "level": 0
+  },
+  {
+    "type": "birth",
+    "id": "L0_S00019",
+    "curr_size": 58,
+    "year": 2024,
+    "level": 0
+  },
+  {
+    "type": "death",
+    "id": "L0_S00003",
+    "prev_size": 104,
+    "year": 2024,
+    "level": 0
+  },
+  {
+    "type": "death",
+    "id": "L0_S00006",
+    "prev_size": 176,
+    "year": 2024,
+    "level": 0
+  },
+  {
+    "type": "death",
+    "id": "L0_S00007",
+    "prev_size": 59,
+    "year": 2024,
+    "level": 0
+  },
+  {
+    "type": "death",
+    "id": "L0_S00013",
+    "prev_size": 77,
+    "year": 2024,
+    "level": 0
+  },
+  {
+    "type": "grow",
+    "id": "L0_S00001",
+    "prev_size": 450,
+    "curr_size": 653,
+    "jaccard": 0.4343302990897269,
+    "year": 2026,
+    "level": 0
+  },
+  {
+    "type": "stable",
+    "id": "L0_S00004",
+    "prev_size": 471,
+    "curr_size": 505,
+    "jaccard": 0.515527950310559,
+    "year": 2026,
+    "level": 0
+  },
+  {
+    "type": "grow",
+    "id": "L0_S00015",
+    "prev_size": 274,
+    "curr_size": 375,
+    "jaccard": 0.29282868525896416,
+    "year": 2026,
+    "level": 0
+  },
+  {
+    "type": "merge",
+    "into": "L0_S00002",
+    "from_persistent_ids": [
+      "L0_S00002",
+      "L0_S00017"
+    ],
+    "curr_size": 693,
+    "year": 2026,
+    "level": 0
+  },
+  {
+    "type": "shrink",
+    "id": "L0_S00005",
+    "prev_size": 721,
+    "curr_size": 760,
+    "jaccard": 0.27343078245915736,
+    "year": 2026,
+    "level": 0
+  },
+  {
+    "type": "split",
+    "from": "L0_S00009",
+    "into_local_labels": [
+      6,
+      5
+    ],
+    "jaccard": 0.2492753623188406,
+    "year": 2026,
+    "level": 0
+  },
+  {
+    "type": "grow",
+    "id": "L0_S00014",
+    "prev_size": 228,
+    "curr_size": 340,
+    "jaccard": 0.16872427983539096,
+    "year": 2026,
+    "level": 0
+  },
+  {
+    "type": "shrink",
+    "id": "L0_S00011",
+    "prev_size": 76,
+    "curr_size": 21,
+    "jaccard": 0.27631578947368424,
+    "year": 2026,
+    "level": 0
+  },
+  {
+    "type": "birth",
+    "id": "L0_S00020",
+    "curr_size": 403,
+    "year": 2026,
+    "level": 0
+  },
+  {
+    "type": "birth",
+    "id": "L0_S00021",
+    "curr_size": 410,
+    "year": 2026,
+    "level": 0
+  },
+  {
+    "type": "birth",
+    "id": "L0_S00022",
+    "curr_size": 42,
+    "year": 2026,
+    "level": 0
+  },
+  {
+    "type": "birth",
+    "id": "L0_S00023",
+    "curr_size": 133,
+    "year": 2026,
+    "level": 0
+  },
+  {
+    "type": "death",
+    "id": "L0_S00016",
+    "prev_size": 61,
+    "year": 2026,
+    "level": 0
+  },
+  {
+    "type": "death",
+    "id": "L0_S00018",
+    "prev_size": 198,
+    "year": 2026,
+    "level": 0
+  },
+  {
+    "type": "death",
+    "id": "L0_S00019",
+    "prev_size": 58,
+    "year": 2026,
+    "level": 0
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00001",
+    "curr_size": 29,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00002",
+    "curr_size": 52,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00003",
+    "curr_size": 26,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00004",
+    "curr_size": 14,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00005",
+    "curr_size": 30,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00006",
+    "curr_size": 19,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00007",
+    "curr_size": 85,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00008",
+    "curr_size": 35,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00009",
+    "curr_size": 31,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00010",
+    "curr_size": 15,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00011",
+    "curr_size": 20,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00012",
+    "curr_size": 48,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00013",
+    "curr_size": 12,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00014",
+    "curr_size": 50,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00015",
+    "curr_size": 18,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00016",
+    "curr_size": 7,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00017",
+    "curr_size": 31,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00018",
+    "curr_size": 36,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00019",
+    "curr_size": 8,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00020",
+    "curr_size": 25,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00021",
+    "curr_size": 41,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00022",
+    "curr_size": 29,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00023",
+    "curr_size": 59,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00024",
+    "curr_size": 36,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00025",
+    "curr_size": 41,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00026",
+    "curr_size": 71,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00027",
+    "curr_size": 16,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00028",
+    "curr_size": 41,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00029",
+    "curr_size": 26,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00030",
+    "curr_size": 29,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00031",
+    "curr_size": 36,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00032",
+    "curr_size": 50,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00033",
+    "curr_size": 40,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00034",
+    "curr_size": 31,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00035",
+    "curr_size": 14,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00036",
+    "curr_size": 18,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00037",
+    "curr_size": 19,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00038",
+    "curr_size": 12,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00039",
+    "curr_size": 5,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00040",
+    "curr_size": 10,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00041",
+    "curr_size": 33,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00042",
+    "curr_size": 22,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00043",
+    "curr_size": 11,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00044",
+    "curr_size": 31,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00045",
+    "curr_size": 11,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00046",
+    "curr_size": 20,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00047",
+    "curr_size": 13,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00048",
+    "curr_size": 32,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00049",
+    "curr_size": 4,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00050",
+    "curr_size": 14,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 1
+  },
+  {
+    "type": "split",
+    "from": "L1_S00001",
+    "into_local_labels": [
+      26,
+      27
+    ],
+    "jaccard": 0.22727272727272727,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00002",
+    "prev_size": 52,
+    "curr_size": 100,
+    "jaccard": 0.49019607843137253,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00003",
+    "prev_size": 26,
+    "curr_size": 51,
+    "jaccard": 0.2222222222222222,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "merge",
+    "into": "L1_S00004",
+    "from_persistent_ids": [
+      "L1_S00004",
+      "L1_S00019"
+    ],
+    "curr_size": 25,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00005",
+    "prev_size": 30,
+    "curr_size": 68,
+    "jaccard": 0.3611111111111111,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "merge",
+    "into": "L1_S00020",
+    "from_persistent_ids": [
+      "L1_S00006",
+      "L1_S00020"
+    ],
+    "curr_size": 60,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "shrink",
+    "id": "L1_S00007",
+    "prev_size": 85,
+    "curr_size": 90,
+    "jaccard": 0.35658914728682173,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00008",
+    "prev_size": 35,
+    "curr_size": 43,
+    "jaccard": 0.6956521739130435,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "split",
+    "from": "L1_S00009",
+    "into_local_labels": [
+      28,
+      29
+    ],
+    "jaccard": 0.3076923076923077,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "merge",
+    "into": "L1_S00042",
+    "from_persistent_ids": [
+      "L1_S00010",
+      "L1_S00042"
+    ],
+    "curr_size": 32,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "shrink",
+    "id": "L1_S00011",
+    "prev_size": 20,
+    "curr_size": 20,
+    "jaccard": 0.48148148148148145,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00012",
+    "prev_size": 48,
+    "curr_size": 59,
+    "jaccard": 0.5507246376811594,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "shrink",
+    "id": "L1_S00013",
+    "prev_size": 12,
+    "curr_size": 11,
+    "jaccard": 0.4375,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "merge",
+    "into": "L1_S00014",
+    "from_persistent_ids": [
+      "L1_S00014",
+      "L1_S00046"
+    ],
+    "curr_size": 30,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00015",
+    "prev_size": 18,
+    "curr_size": 26,
+    "jaccard": 0.4666666666666667,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "stable",
+    "id": "L1_S00017",
+    "prev_size": 31,
+    "curr_size": 29,
+    "jaccard": 0.5789473684210527,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00018",
+    "prev_size": 36,
+    "curr_size": 48,
+    "jaccard": 0.5849056603773585,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "stable",
+    "id": "L1_S00021",
+    "prev_size": 41,
+    "curr_size": 49,
+    "jaccard": 0.5789473684210527,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00022",
+    "prev_size": 29,
+    "curr_size": 43,
+    "jaccard": 0.3333333333333333,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "merge",
+    "into": "L1_S00023",
+    "from_persistent_ids": [
+      "L1_S00023",
+      "L1_S00027"
+    ],
+    "curr_size": 45,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00024",
+    "prev_size": 36,
+    "curr_size": 51,
+    "jaccard": 0.7058823529411765,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "shrink",
+    "id": "L1_S00025",
+    "prev_size": 41,
+    "curr_size": 43,
+    "jaccard": 0.4482758620689655,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "merge",
+    "into": "L1_S00026",
+    "from_persistent_ids": [
+      "L1_S00026",
+      "L1_S00032"
+    ],
+    "curr_size": 91,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00028",
+    "prev_size": 41,
+    "curr_size": 71,
+    "jaccard": 0.47368421052631576,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "stable",
+    "id": "L1_S00029",
+    "prev_size": 26,
+    "curr_size": 25,
+    "jaccard": 0.7,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00030",
+    "prev_size": 29,
+    "curr_size": 57,
+    "jaccard": 0.3870967741935484,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00031",
+    "prev_size": 36,
+    "curr_size": 50,
+    "jaccard": 0.3230769230769231,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00033",
+    "prev_size": 40,
+    "curr_size": 58,
+    "jaccard": 0.48484848484848486,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00034",
+    "prev_size": 31,
+    "curr_size": 54,
+    "jaccard": 0.49122807017543857,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "merge",
+    "into": "L1_S00037",
+    "from_persistent_ids": [
+      "L1_S00035",
+      "L1_S00037"
+    ],
+    "curr_size": 46,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00040",
+    "prev_size": 10,
+    "curr_size": 15,
+    "jaccard": 0.6666666666666666,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00041",
+    "prev_size": 33,
+    "curr_size": 50,
+    "jaccard": 0.5660377358490566,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "stable",
+    "id": "L1_S00043",
+    "prev_size": 11,
+    "curr_size": 9,
+    "jaccard": 0.5384615384615384,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "stable",
+    "id": "L1_S00044",
+    "prev_size": 31,
+    "curr_size": 31,
+    "jaccard": 0.8235294117647058,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00047",
+    "prev_size": 13,
+    "curr_size": 19,
+    "jaccard": 0.18518518518518517,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00048",
+    "prev_size": 32,
+    "curr_size": 58,
+    "jaccard": 0.5254237288135594,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00050",
+    "prev_size": 14,
+    "curr_size": 56,
+    "jaccard": 0.25,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00051",
+    "curr_size": 80,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00052",
+    "curr_size": 21,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00053",
+    "curr_size": 50,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00054",
+    "curr_size": 21,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00055",
+    "curr_size": 23,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00056",
+    "curr_size": 38,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00057",
+    "curr_size": 51,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00058",
+    "curr_size": 13,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00059",
+    "curr_size": 29,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00060",
+    "curr_size": 10,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00061",
+    "curr_size": 17,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00062",
+    "curr_size": 12,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00063",
+    "curr_size": 6,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "death",
+    "id": "L1_S00016",
+    "prev_size": 7,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "death",
+    "id": "L1_S00036",
+    "prev_size": 18,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "death",
+    "id": "L1_S00038",
+    "prev_size": 12,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "death",
+    "id": "L1_S00039",
+    "prev_size": 5,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "death",
+    "id": "L1_S00045",
+    "prev_size": 11,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "death",
+    "id": "L1_S00049",
+    "prev_size": 4,
+    "year": 2022,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00003",
+    "prev_size": 51,
+    "curr_size": 102,
+    "jaccard": 0.1590909090909091,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00001",
+    "prev_size": 25,
+    "curr_size": 90,
+    "jaccard": 0.19791666666666666,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "split",
+    "from": "L1_S00007",
+    "into_local_labels": [
+      4,
+      3
+    ],
+    "jaccard": 0.19402985074626866,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00002",
+    "prev_size": 100,
+    "curr_size": 264,
+    "jaccard": 0.2682926829268293,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "shrink",
+    "id": "L1_S00004",
+    "prev_size": 25,
+    "curr_size": 22,
+    "jaccard": 0.20512820512820512,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "split",
+    "from": "L1_S00020",
+    "into_local_labels": [
+      12,
+      13
+    ],
+    "jaccard": 0.24096385542168675,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00005",
+    "prev_size": 68,
+    "curr_size": 95,
+    "jaccard": 0.34710743801652894,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00008",
+    "prev_size": 43,
+    "curr_size": 64,
+    "jaccard": 0.17582417582417584,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "split",
+    "from": "L1_S00042",
+    "into_local_labels": [
+      17,
+      21
+    ],
+    "jaccard": 0.2,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "shrink",
+    "id": "L1_S00011",
+    "prev_size": 20,
+    "curr_size": 16,
+    "jaccard": 0.16129032258064516,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "shrink",
+    "id": "L1_S00052",
+    "prev_size": 21,
+    "curr_size": 12,
+    "jaccard": 0.17857142857142858,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00034",
+    "prev_size": 54,
+    "curr_size": 137,
+    "jaccard": 0.34507042253521125,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00047",
+    "prev_size": 19,
+    "curr_size": 33,
+    "jaccard": 0.23809523809523808,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "shrink",
+    "id": "L1_S00028",
+    "prev_size": 71,
+    "curr_size": 75,
+    "jaccard": 0.26956521739130435,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00012",
+    "prev_size": 59,
+    "curr_size": 87,
+    "jaccard": 0.3644859813084112,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "shrink",
+    "id": "L1_S00054",
+    "prev_size": 21,
+    "curr_size": 25,
+    "jaccard": 0.15,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00018",
+    "prev_size": 48,
+    "curr_size": 120,
+    "jaccard": 0.2631578947368421,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00021",
+    "prev_size": 49,
+    "curr_size": 71,
+    "jaccard": 0.6666666666666666,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00030",
+    "prev_size": 57,
+    "curr_size": 77,
+    "jaccard": 0.38144329896907214,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "merge",
+    "into": "L1_S00023",
+    "from_persistent_ids": [
+      "L1_S00055",
+      "L1_S00023"
+    ],
+    "curr_size": 85,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00024",
+    "prev_size": 51,
+    "curr_size": 99,
+    "jaccard": 0.2396694214876033,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00022",
+    "prev_size": 43,
+    "curr_size": 88,
+    "jaccard": 0.28431372549019607,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "merge",
+    "into": "L1_S00025",
+    "from_persistent_ids": [
+      "L1_S00025",
+      "L1_S00056"
+    ],
+    "curr_size": 147,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00029",
+    "prev_size": 25,
+    "curr_size": 30,
+    "jaccard": 0.8333333333333334,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00057",
+    "prev_size": 51,
+    "curr_size": 108,
+    "jaccard": 0.3706896551724138,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "shrink",
+    "id": "L1_S00017",
+    "prev_size": 29,
+    "curr_size": 22,
+    "jaccard": 0.7586206896551724,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "shrink",
+    "id": "L1_S00050",
+    "prev_size": 56,
+    "curr_size": 57,
+    "jaccard": 0.3780487804878049,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "merge",
+    "into": "L1_S00048",
+    "from_persistent_ids": [
+      "L1_S00041",
+      "L1_S00048"
+    ],
+    "curr_size": 88,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00037",
+    "prev_size": 46,
+    "curr_size": 68,
+    "jaccard": 0.2391304347826087,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00044",
+    "prev_size": 31,
+    "curr_size": 61,
+    "jaccard": 0.35294117647058826,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00014",
+    "prev_size": 30,
+    "curr_size": 105,
+    "jaccard": 0.21621621621621623,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00064",
+    "curr_size": 96,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00065",
+    "curr_size": 91,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00066",
+    "curr_size": 104,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00067",
+    "curr_size": 80,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00068",
+    "curr_size": 145,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00069",
+    "curr_size": 90,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00070",
+    "curr_size": 23,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00071",
+    "curr_size": 29,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00072",
+    "curr_size": 76,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00073",
+    "curr_size": 161,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00074",
+    "curr_size": 70,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00075",
+    "curr_size": 64,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00076",
+    "curr_size": 46,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00077",
+    "curr_size": 21,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00078",
+    "curr_size": 33,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00079",
+    "curr_size": 88,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00080",
+    "curr_size": 53,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00081",
+    "curr_size": 44,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00082",
+    "curr_size": 106,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "death",
+    "id": "L1_S00009",
+    "prev_size": 37,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "death",
+    "id": "L1_S00013",
+    "prev_size": 11,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "death",
+    "id": "L1_S00015",
+    "prev_size": 26,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "death",
+    "id": "L1_S00026",
+    "prev_size": 91,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "death",
+    "id": "L1_S00031",
+    "prev_size": 50,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "death",
+    "id": "L1_S00033",
+    "prev_size": 58,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "death",
+    "id": "L1_S00040",
+    "prev_size": 15,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "death",
+    "id": "L1_S00043",
+    "prev_size": 9,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "death",
+    "id": "L1_S00051",
+    "prev_size": 80,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "death",
+    "id": "L1_S00053",
+    "prev_size": 50,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "death",
+    "id": "L1_S00058",
+    "prev_size": 13,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "death",
+    "id": "L1_S00059",
+    "prev_size": 29,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "death",
+    "id": "L1_S00060",
+    "prev_size": 10,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "death",
+    "id": "L1_S00061",
+    "prev_size": 17,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "death",
+    "id": "L1_S00062",
+    "prev_size": 12,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "death",
+    "id": "L1_S00063",
+    "prev_size": 6,
+    "year": 2024,
+    "level": 1
+  },
+  {
+    "type": "shrink",
+    "id": "L1_S00001",
+    "prev_size": 90,
+    "curr_size": 71,
+    "jaccard": 0.2578125,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00064",
+    "prev_size": 96,
+    "curr_size": 197,
+    "jaccard": 0.172,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "merge",
+    "into": "L1_S00065",
+    "from_persistent_ids": [
+      "L1_S00065",
+      "L1_S00050"
+    ],
+    "curr_size": 193,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "split",
+    "from": "L1_S00007",
+    "into_local_labels": [
+      30,
+      31
+    ],
+    "jaccard": 0.40425531914893614,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00003",
+    "prev_size": 102,
+    "curr_size": 310,
+    "jaccard": 0.1839080459770115,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "stable",
+    "id": "L1_S00024",
+    "prev_size": 99,
+    "curr_size": 117,
+    "jaccard": 0.5428571428571428,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00002",
+    "prev_size": 264,
+    "curr_size": 352,
+    "jaccard": 0.5061124694376528,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "stable",
+    "id": "L1_S00044",
+    "prev_size": 61,
+    "curr_size": 57,
+    "jaccard": 0.5324675324675324,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "split",
+    "from": "L1_S00066",
+    "into_local_labels": [
+      26,
+      42
+    ],
+    "jaccard": 0.3125,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "merge",
+    "into": "L1_S00020",
+    "from_persistent_ids": [
+      "L1_S00020",
+      "L1_S00054"
+    ],
+    "curr_size": 106,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "split",
+    "from": "L1_S00068",
+    "into_local_labels": [
+      28,
+      29
+    ],
+    "jaccard": 0.4117647058823529,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "stable",
+    "id": "L1_S00018",
+    "prev_size": 120,
+    "curr_size": 102,
+    "jaccard": 0.5857142857142857,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "stable",
+    "id": "L1_S00034",
+    "prev_size": 137,
+    "curr_size": 142,
+    "jaccard": 0.650887573964497,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "split",
+    "from": "L1_S00069",
+    "into_local_labels": [
+      33,
+      46
+    ],
+    "jaccard": 0.38095238095238093,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "merge",
+    "into": "L1_S00022",
+    "from_persistent_ids": [
+      "L1_S00021",
+      "L1_S00022"
+    ],
+    "curr_size": 218,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00070",
+    "prev_size": 23,
+    "curr_size": 54,
+    "jaccard": 0.18461538461538463,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "shrink",
+    "id": "L1_S00073",
+    "prev_size": 161,
+    "curr_size": 124,
+    "jaccard": 0.2445414847161572,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "shrink",
+    "id": "L1_S00023",
+    "prev_size": 85,
+    "curr_size": 74,
+    "jaccard": 0.40707964601769914,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00074",
+    "prev_size": 70,
+    "curr_size": 136,
+    "jaccard": 0.32903225806451614,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "shrink",
+    "id": "L1_S00005",
+    "prev_size": 95,
+    "curr_size": 70,
+    "jaccard": 0.18705035971223022,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00076",
+    "prev_size": 46,
+    "curr_size": 85,
+    "jaccard": 0.43956043956043955,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "merge",
+    "into": "L1_S00025",
+    "from_persistent_ids": [
+      "L1_S00025",
+      "L1_S00048"
+    ],
+    "curr_size": 137,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "split",
+    "from": "L1_S00014",
+    "into_local_labels": [
+      47,
+      11
+    ],
+    "jaccard": 0.23121387283236994,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00078",
+    "prev_size": 33,
+    "curr_size": 42,
+    "jaccard": 0.4423076923076923,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00079",
+    "prev_size": 88,
+    "curr_size": 301,
+    "jaccard": 0.16816816816816818,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00080",
+    "prev_size": 53,
+    "curr_size": 133,
+    "jaccard": 0.25675675675675674,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "shrink",
+    "id": "L1_S00028",
+    "prev_size": 75,
+    "curr_size": 81,
+    "jaccard": 0.41818181818181815,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00012",
+    "prev_size": 87,
+    "curr_size": 182,
+    "jaccard": 0.37244897959183676,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00047",
+    "prev_size": 33,
+    "curr_size": 111,
+    "jaccard": 0.23076923076923078,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "shrink",
+    "id": "L1_S00057",
+    "prev_size": 108,
+    "curr_size": 81,
+    "jaccard": 0.575,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00030",
+    "prev_size": 77,
+    "curr_size": 168,
+    "jaccard": 0.2760416666666667,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "merge",
+    "into": "L1_S00037",
+    "from_persistent_ids": [
+      "L1_S00081",
+      "L1_S00037"
+    ],
+    "curr_size": 103,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00008",
+    "prev_size": 64,
+    "curr_size": 120,
+    "jaccard": 0.34306569343065696,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "shrink",
+    "id": "L1_S00082",
+    "prev_size": 106,
+    "curr_size": 115,
+    "jaccard": 0.3558282208588957,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "shrink",
+    "id": "L1_S00029",
+    "prev_size": 30,
+    "curr_size": 21,
+    "jaccard": 0.7,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "grow",
+    "id": "L1_S00017",
+    "prev_size": 22,
+    "curr_size": 31,
+    "jaccard": 0.7096774193548387,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00083",
+    "curr_size": 58,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00084",
+    "curr_size": 113,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00085",
+    "curr_size": 94,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00086",
+    "curr_size": 41,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00087",
+    "curr_size": 47,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00088",
+    "curr_size": 42,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00089",
+    "curr_size": 99,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00090",
+    "curr_size": 78,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00091",
+    "curr_size": 36,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00092",
+    "curr_size": 54,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00093",
+    "curr_size": 46,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00094",
+    "curr_size": 39,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00095",
+    "curr_size": 47,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L1_S00096",
+    "curr_size": 43,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "death",
+    "id": "L1_S00004",
+    "prev_size": 22,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "death",
+    "id": "L1_S00042",
+    "prev_size": 34,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "death",
+    "id": "L1_S00011",
+    "prev_size": 16,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "death",
+    "id": "L1_S00052",
+    "prev_size": 12,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "death",
+    "id": "L1_S00067",
+    "prev_size": 80,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "death",
+    "id": "L1_S00071",
+    "prev_size": 29,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "death",
+    "id": "L1_S00072",
+    "prev_size": 76,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "death",
+    "id": "L1_S00075",
+    "prev_size": 64,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "death",
+    "id": "L1_S00077",
+    "prev_size": 21,
+    "year": 2026,
+    "level": 1
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00001",
+    "curr_size": 5,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00002",
+    "curr_size": 12,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00003",
+    "curr_size": 8,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00004",
+    "curr_size": 10,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00005",
+    "curr_size": 4,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00006",
+    "curr_size": 3,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00007",
+    "curr_size": 7,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00008",
+    "curr_size": 8,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00009",
+    "curr_size": 18,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00010",
+    "curr_size": 23,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00011",
+    "curr_size": 13,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00012",
+    "curr_size": 9,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00013",
+    "curr_size": 14,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00014",
+    "curr_size": 9,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00015",
+    "curr_size": 9,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00016",
+    "curr_size": 2,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00017",
+    "curr_size": 5,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00018",
+    "curr_size": 7,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00019",
+    "curr_size": 11,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00020",
+    "curr_size": 6,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00021",
+    "curr_size": 4,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00022",
+    "curr_size": 5,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00023",
+    "curr_size": 2,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00024",
+    "curr_size": 2,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00025",
+    "curr_size": 13,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00026",
+    "curr_size": 5,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00027",
+    "curr_size": 3,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00028",
+    "curr_size": 6,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00029",
+    "curr_size": 5,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00030",
+    "curr_size": 4,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00031",
+    "curr_size": 4,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00032",
+    "curr_size": 11,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00033",
+    "curr_size": 4,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00034",
+    "curr_size": 6,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00035",
+    "curr_size": 13,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00036",
+    "curr_size": 4,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00037",
+    "curr_size": 5,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00038",
+    "curr_size": 13,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00039",
+    "curr_size": 2,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00040",
+    "curr_size": 4,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00041",
+    "curr_size": 1,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00042",
+    "curr_size": 3,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00043",
+    "curr_size": 8,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00044",
+    "curr_size": 7,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00045",
+    "curr_size": 21,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00046",
+    "curr_size": 4,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00047",
+    "curr_size": 4,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00048",
+    "curr_size": 8,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00049",
+    "curr_size": 12,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00050",
+    "curr_size": 10,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00051",
+    "curr_size": 10,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00052",
+    "curr_size": 11,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00053",
+    "curr_size": 16,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00054",
+    "curr_size": 15,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00055",
+    "curr_size": 21,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00056",
+    "curr_size": 10,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00057",
+    "curr_size": 6,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00058",
+    "curr_size": 6,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00059",
+    "curr_size": 8,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00060",
+    "curr_size": 17,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00061",
+    "curr_size": 26,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00062",
+    "curr_size": 16,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00063",
+    "curr_size": 4,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00064",
+    "curr_size": 9,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00065",
+    "curr_size": 8,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00066",
+    "curr_size": 10,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00067",
+    "curr_size": 5,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00068",
+    "curr_size": 3,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00069",
+    "curr_size": 3,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00070",
+    "curr_size": 3,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00071",
+    "curr_size": 10,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00072",
+    "curr_size": 11,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00073",
+    "curr_size": 2,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00074",
+    "curr_size": 4,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00075",
+    "curr_size": 14,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00076",
+    "curr_size": 9,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00077",
+    "curr_size": 18,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00078",
+    "curr_size": 4,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00079",
+    "curr_size": 17,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00080",
+    "curr_size": 4,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00081",
+    "curr_size": 9,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00082",
+    "curr_size": 5,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00083",
+    "curr_size": 18,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00084",
+    "curr_size": 7,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00085",
+    "curr_size": 5,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00086",
+    "curr_size": 5,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00087",
+    "curr_size": 4,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00088",
+    "curr_size": 3,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00089",
+    "curr_size": 14,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00090",
+    "curr_size": 12,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00091",
+    "curr_size": 2,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00092",
+    "curr_size": 6,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00093",
+    "curr_size": 9,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00094",
+    "curr_size": 2,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00095",
+    "curr_size": 9,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00096",
+    "curr_size": 10,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00097",
+    "curr_size": 6,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00098",
+    "curr_size": 4,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00099",
+    "curr_size": 17,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00100",
+    "curr_size": 33,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00101",
+    "curr_size": 5,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00102",
+    "curr_size": 11,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00103",
+    "curr_size": 5,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00104",
+    "curr_size": 10,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00105",
+    "curr_size": 4,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00106",
+    "curr_size": 3,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00107",
+    "curr_size": 24,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00108",
+    "curr_size": 4,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00109",
+    "curr_size": 6,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00110",
+    "curr_size": 4,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00111",
+    "curr_size": 10,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00112",
+    "curr_size": 7,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00113",
+    "curr_size": 2,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00114",
+    "curr_size": 6,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00115",
+    "curr_size": 3,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00116",
+    "curr_size": 6,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00117",
+    "curr_size": 5,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00118",
+    "curr_size": 17,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00119",
+    "curr_size": 2,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00120",
+    "curr_size": 7,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00121",
+    "curr_size": 5,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00122",
+    "curr_size": 2,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00123",
+    "curr_size": 3,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00124",
+    "curr_size": 2,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00125",
+    "curr_size": 4,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00126",
+    "curr_size": 3,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00127",
+    "curr_size": 6,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00128",
+    "curr_size": 4,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00129",
+    "curr_size": 5,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00130",
+    "curr_size": 5,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00131",
+    "curr_size": 12,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00132",
+    "curr_size": 9,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00133",
+    "curr_size": 5,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00134",
+    "curr_size": 8,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00135",
+    "curr_size": 9,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00136",
+    "curr_size": 2,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00137",
+    "curr_size": 2,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00138",
+    "curr_size": 12,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00139",
+    "curr_size": 2,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00140",
+    "curr_size": 9,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00141",
+    "curr_size": 2,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00142",
+    "curr_size": 14,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00143",
+    "curr_size": 3,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00144",
+    "curr_size": 6,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00145",
+    "curr_size": 2,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00146",
+    "curr_size": 3,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00147",
+    "curr_size": 3,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00148",
+    "curr_size": 5,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00149",
+    "curr_size": 8,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00150",
+    "curr_size": 9,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00151",
+    "curr_size": 3,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00152",
+    "curr_size": 9,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00153",
+    "curr_size": 19,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00154",
+    "curr_size": 8,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00155",
+    "curr_size": 11,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00156",
+    "curr_size": 6,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00157",
+    "curr_size": 3,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00158",
+    "curr_size": 4,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00159",
+    "curr_size": 7,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00160",
+    "curr_size": 5,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00161",
+    "curr_size": 11,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00162",
+    "curr_size": 6,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00163",
+    "curr_size": 6,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00164",
+    "curr_size": 8,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00165",
+    "curr_size": 3,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00166",
+    "curr_size": 3,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00167",
+    "curr_size": 12,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00168",
+    "curr_size": 3,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00169",
+    "curr_size": 2,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00170",
+    "curr_size": 4,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00171",
+    "curr_size": 5,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00172",
+    "curr_size": 3,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00173",
+    "curr_size": 5,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00174",
+    "curr_size": 5,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00175",
+    "curr_size": 10,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00176",
+    "curr_size": 1,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00177",
+    "curr_size": 3,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00178",
+    "curr_size": 2,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00179",
+    "curr_size": 2,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00180",
+    "curr_size": 5,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00181",
+    "curr_size": 5,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00182",
+    "curr_size": 3,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00183",
+    "curr_size": 6,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00184",
+    "curr_size": 6,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00185",
+    "curr_size": 1,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00186",
+    "curr_size": 3,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00187",
+    "curr_size": 9,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00188",
+    "curr_size": 2,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00189",
+    "curr_size": 7,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00190",
+    "curr_size": 2,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00191",
+    "curr_size": 2,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00192",
+    "curr_size": 2,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00193",
+    "curr_size": 2,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00194",
+    "curr_size": 9,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00195",
+    "curr_size": 1,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00196",
+    "curr_size": 2,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00197",
+    "curr_size": 2,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00198",
+    "curr_size": 4,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00199",
+    "curr_size": 2,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00200",
+    "curr_size": 1,
+    "year": 2020,
+    "note": "initial snapshot",
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00001",
+    "prev_size": 5,
+    "curr_size": 7,
+    "jaccard": 0.2,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00002",
+    "from_persistent_ids": [
+      "L2_S00002",
+      "L2_S00167"
+    ],
+    "curr_size": 26,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "split",
+    "from": "L2_S00003",
+    "into_local_labels": [
+      105,
+      104
+    ],
+    "jaccard": 0.3333333333333333,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00004",
+    "from_persistent_ids": [
+      "L2_S00004",
+      "L2_S00040"
+    ],
+    "curr_size": 13,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00020",
+    "from_persistent_ids": [
+      "L2_S00005",
+      "L2_S00020"
+    ],
+    "curr_size": 10,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00006",
+    "prev_size": 3,
+    "curr_size": 5,
+    "jaccard": 0.3333333333333333,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "split",
+    "from": "L2_S00007",
+    "into_local_labels": [
+      75,
+      77
+    ],
+    "jaccard": 0.5,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00008",
+    "prev_size": 8,
+    "curr_size": 10,
+    "jaccard": 0.2857142857142857,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "split",
+    "from": "L2_S00009",
+    "into_local_labels": [
+      143,
+      145
+    ],
+    "jaccard": 0.42105263157894735,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00010",
+    "prev_size": 23,
+    "curr_size": 29,
+    "jaccard": 0.5757575757575758,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00011",
+    "prev_size": 13,
+    "curr_size": 20,
+    "jaccard": 0.17857142857142858,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "shrink",
+    "id": "L2_S00012",
+    "prev_size": 9,
+    "curr_size": 7,
+    "jaccard": 0.7777777777777778,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00013",
+    "prev_size": 14,
+    "curr_size": 14,
+    "jaccard": 0.6470588235294118,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00014",
+    "prev_size": 9,
+    "curr_size": 10,
+    "jaccard": 0.9,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "split",
+    "from": "L2_S00015",
+    "into_local_labels": [
+      35,
+      36
+    ],
+    "jaccard": 0.6,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00017",
+    "prev_size": 5,
+    "curr_size": 8,
+    "jaccard": 0.625,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00018",
+    "prev_size": 7,
+    "curr_size": 7,
+    "jaccard": 1.0,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00019",
+    "from_persistent_ids": [
+      "L2_S00019",
+      "L2_S00043"
+    ],
+    "curr_size": 11,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00021",
+    "prev_size": 4,
+    "curr_size": 6,
+    "jaccard": 0.25,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00022",
+    "from_persistent_ids": [
+      "L2_S00022",
+      "L2_S00129"
+    ],
+    "curr_size": 10,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00023",
+    "prev_size": 2,
+    "curr_size": 6,
+    "jaccard": 0.3333333333333333,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00024",
+    "prev_size": 2,
+    "curr_size": 2,
+    "jaccard": 1.0,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00060",
+    "from_persistent_ids": [
+      "L2_S00025",
+      "L2_S00060"
+    ],
+    "curr_size": 34,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00026",
+    "prev_size": 5,
+    "curr_size": 5,
+    "jaccard": 1.0,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00027",
+    "from_persistent_ids": [
+      "L2_S00027",
+      "L2_S00177"
+    ],
+    "curr_size": 4,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00028",
+    "prev_size": 6,
+    "curr_size": 9,
+    "jaccard": 0.6666666666666666,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00029",
+    "prev_size": 5,
+    "curr_size": 5,
+    "jaccard": 1.0,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00030",
+    "prev_size": 4,
+    "curr_size": 4,
+    "jaccard": 1.0,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00031",
+    "from_persistent_ids": [
+      "L2_S00031",
+      "L2_S00126"
+    ],
+    "curr_size": 5,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00032",
+    "prev_size": 11,
+    "curr_size": 15,
+    "jaccard": 0.625,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00033",
+    "prev_size": 4,
+    "curr_size": 5,
+    "jaccard": 0.8,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00034",
+    "prev_size": 6,
+    "curr_size": 20,
+    "jaccard": 0.23809523809523808,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00035",
+    "prev_size": 13,
+    "curr_size": 16,
+    "jaccard": 0.8125,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00036",
+    "prev_size": 4,
+    "curr_size": 11,
+    "jaccard": 0.36363636363636365,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00037",
+    "prev_size": 5,
+    "curr_size": 15,
+    "jaccard": 0.3333333333333333,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00038",
+    "prev_size": 13,
+    "curr_size": 13,
+    "jaccard": 1.0,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00042",
+    "prev_size": 3,
+    "curr_size": 4,
+    "jaccard": 0.4,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "split",
+    "from": "L2_S00044",
+    "into_local_labels": [
+      34,
+      28
+    ],
+    "jaccard": 0.5,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00045",
+    "prev_size": 21,
+    "curr_size": 20,
+    "jaccard": 0.9523809523809523,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00162",
+    "from_persistent_ids": [
+      "L2_S00046",
+      "L2_S00162"
+    ],
+    "curr_size": 6,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00047",
+    "prev_size": 4,
+    "curr_size": 13,
+    "jaccard": 0.3076923076923077,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00048",
+    "prev_size": 8,
+    "curr_size": 24,
+    "jaccard": 0.28,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00053",
+    "from_persistent_ids": [
+      "L2_S00049",
+      "L2_S00053"
+    ],
+    "curr_size": 21,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "split",
+    "from": "L2_S00050",
+    "into_local_labels": [
+      183,
+      181
+    ],
+    "jaccard": 0.3333333333333333,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "shrink",
+    "id": "L2_S00051",
+    "prev_size": 10,
+    "curr_size": 8,
+    "jaccard": 0.8,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00052",
+    "prev_size": 11,
+    "curr_size": 15,
+    "jaccard": 0.625,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00054",
+    "prev_size": 15,
+    "curr_size": 18,
+    "jaccard": 0.5,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00055",
+    "prev_size": 21,
+    "curr_size": 21,
+    "jaccard": 1.0,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00056",
+    "prev_size": 10,
+    "curr_size": 13,
+    "jaccard": 0.6428571428571429,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00057",
+    "prev_size": 6,
+    "curr_size": 10,
+    "jaccard": 0.6,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "split",
+    "from": "L2_S00059",
+    "into_local_labels": [
+      155,
+      156
+    ],
+    "jaccard": 0.375,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00061",
+    "prev_size": 26,
+    "curr_size": 26,
+    "jaccard": 0.8571428571428571,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00062",
+    "prev_size": 16,
+    "curr_size": 16,
+    "jaccard": 1.0,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00063",
+    "prev_size": 4,
+    "curr_size": 5,
+    "jaccard": 0.8,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "split",
+    "from": "L2_S00064",
+    "into_local_labels": [
+      1,
+      8
+    ],
+    "jaccard": 0.36363636363636365,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00072",
+    "from_persistent_ids": [
+      "L2_S00065",
+      "L2_S00072"
+    ],
+    "curr_size": 18,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00066",
+    "prev_size": 10,
+    "curr_size": 14,
+    "jaccard": 0.5,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00067",
+    "prev_size": 5,
+    "curr_size": 6,
+    "jaccard": 0.8333333333333334,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00069",
+    "prev_size": 3,
+    "curr_size": 3,
+    "jaccard": 1.0,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00070",
+    "prev_size": 3,
+    "curr_size": 4,
+    "jaccard": 0.4,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00071",
+    "from_persistent_ids": [
+      "L2_S00071",
+      "L2_S00172"
+    ],
+    "curr_size": 17,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00073",
+    "prev_size": 2,
+    "curr_size": 2,
+    "jaccard": 1.0,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00074",
+    "from_persistent_ids": [
+      "L2_S00074",
+      "L2_S00147"
+    ],
+    "curr_size": 6,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00075",
+    "from_persistent_ids": [
+      "L2_S00075",
+      "L2_S00182"
+    ],
+    "curr_size": 16,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00076",
+    "prev_size": 9,
+    "curr_size": 9,
+    "jaccard": 0.8,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00077",
+    "prev_size": 18,
+    "curr_size": 27,
+    "jaccard": 0.6071428571428571,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00078",
+    "prev_size": 4,
+    "curr_size": 6,
+    "jaccard": 0.6666666666666666,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "shrink",
+    "id": "L2_S00079",
+    "prev_size": 17,
+    "curr_size": 12,
+    "jaccard": 0.7058823529411765,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00081",
+    "prev_size": 9,
+    "curr_size": 16,
+    "jaccard": 0.47058823529411764,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00082",
+    "prev_size": 5,
+    "curr_size": 8,
+    "jaccard": 0.625,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00083",
+    "prev_size": 18,
+    "curr_size": 29,
+    "jaccard": 0.6206896551724138,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00084",
+    "prev_size": 7,
+    "curr_size": 17,
+    "jaccard": 0.3333333333333333,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "split",
+    "from": "L2_S00085",
+    "into_local_labels": [
+      133,
+      132
+    ],
+    "jaccard": 0.5,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00086",
+    "prev_size": 5,
+    "curr_size": 8,
+    "jaccard": 0.625,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00088",
+    "prev_size": 3,
+    "curr_size": 7,
+    "jaccard": 0.25,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00089",
+    "prev_size": 14,
+    "curr_size": 22,
+    "jaccard": 0.38461538461538464,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00090",
+    "prev_size": 12,
+    "curr_size": 25,
+    "jaccard": 0.37037037037037035,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00106",
+    "from_persistent_ids": [
+      "L2_S00091",
+      "L2_S00106"
+    ],
+    "curr_size": 6,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00092",
+    "prev_size": 6,
+    "curr_size": 6,
+    "jaccard": 1.0,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00131",
+    "from_persistent_ids": [
+      "L2_S00093",
+      "L2_S00131"
+    ],
+    "curr_size": 18,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00094",
+    "from_persistent_ids": [
+      "L2_S00094",
+      "L2_S00119"
+    ],
+    "curr_size": 4,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00095",
+    "prev_size": 9,
+    "curr_size": 23,
+    "jaccard": 0.391304347826087,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "split",
+    "from": "L2_S00096",
+    "into_local_labels": [
+      180,
+      179
+    ],
+    "jaccard": 0.6153846153846154,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00097",
+    "prev_size": 6,
+    "curr_size": 14,
+    "jaccard": 0.25,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00098",
+    "prev_size": 4,
+    "curr_size": 6,
+    "jaccard": 0.6666666666666666,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00099",
+    "prev_size": 17,
+    "curr_size": 24,
+    "jaccard": 0.64,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00100",
+    "prev_size": 33,
+    "curr_size": 33,
+    "jaccard": 0.8333333333333334,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "split",
+    "from": "L2_S00102",
+    "into_local_labels": [
+      44,
+      66
+    ],
+    "jaccard": 0.4,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00103",
+    "prev_size": 5,
+    "curr_size": 14,
+    "jaccard": 0.26666666666666666,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "split",
+    "from": "L2_S00104",
+    "into_local_labels": [
+      81,
+      82
+    ],
+    "jaccard": 0.45454545454545453,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00105",
+    "prev_size": 4,
+    "curr_size": 8,
+    "jaccard": 0.5,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00107",
+    "prev_size": 24,
+    "curr_size": 26,
+    "jaccard": 0.8518518518518519,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00108",
+    "prev_size": 4,
+    "curr_size": 7,
+    "jaccard": 0.5714285714285714,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "shrink",
+    "id": "L2_S00109",
+    "prev_size": 6,
+    "curr_size": 7,
+    "jaccard": 0.4444444444444444,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00110",
+    "from_persistent_ids": [
+      "L2_S00110",
+      "L2_S00179"
+    ],
+    "curr_size": 5,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00111",
+    "prev_size": 10,
+    "curr_size": 17,
+    "jaccard": 0.2857142857142857,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00112",
+    "prev_size": 7,
+    "curr_size": 11,
+    "jaccard": 0.6363636363636364,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00113",
+    "prev_size": 2,
+    "curr_size": 2,
+    "jaccard": 1.0,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00114",
+    "prev_size": 6,
+    "curr_size": 17,
+    "jaccard": 0.21052631578947367,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00115",
+    "prev_size": 3,
+    "curr_size": 5,
+    "jaccard": 0.6,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00116",
+    "prev_size": 6,
+    "curr_size": 14,
+    "jaccard": 0.42857142857142855,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "shrink",
+    "id": "L2_S00117",
+    "prev_size": 5,
+    "curr_size": 5,
+    "jaccard": 0.25,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00118",
+    "from_persistent_ids": [
+      "L2_S00118",
+      "L2_S00121"
+    ],
+    "curr_size": 16,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00120",
+    "prev_size": 7,
+    "curr_size": 7,
+    "jaccard": 1.0,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00123",
+    "from_persistent_ids": [
+      "L2_S00123",
+      "L2_S00188"
+    ],
+    "curr_size": 5,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00125",
+    "prev_size": 4,
+    "curr_size": 5,
+    "jaccard": 0.2857142857142857,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00127",
+    "prev_size": 6,
+    "curr_size": 7,
+    "jaccard": 0.8571428571428571,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "split",
+    "from": "L2_S00128",
+    "into_local_labels": [
+      49,
+      195
+    ],
+    "jaccard": 0.4,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "shrink",
+    "id": "L2_S00130",
+    "prev_size": 5,
+    "curr_size": 4,
+    "jaccard": 0.5,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00132",
+    "prev_size": 9,
+    "curr_size": 17,
+    "jaccard": 0.4444444444444444,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00133",
+    "prev_size": 5,
+    "curr_size": 10,
+    "jaccard": 0.36363636363636365,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00134",
+    "prev_size": 8,
+    "curr_size": 8,
+    "jaccard": 0.7777777777777778,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00135",
+    "prev_size": 9,
+    "curr_size": 9,
+    "jaccard": 0.8,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00136",
+    "prev_size": 2,
+    "curr_size": 5,
+    "jaccard": 0.16666666666666666,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00137",
+    "prev_size": 2,
+    "curr_size": 5,
+    "jaccard": 0.4,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00138",
+    "from_persistent_ids": [
+      "L2_S00138",
+      "L2_S00161"
+    ],
+    "curr_size": 18,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00140",
+    "prev_size": 9,
+    "curr_size": 9,
+    "jaccard": 0.8,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00194",
+    "from_persistent_ids": [
+      "L2_S00141",
+      "L2_S00194"
+    ],
+    "curr_size": 11,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00142",
+    "prev_size": 14,
+    "curr_size": 16,
+    "jaccard": 0.875,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00143",
+    "prev_size": 3,
+    "curr_size": 4,
+    "jaccard": 0.4,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00144",
+    "from_persistent_ids": [
+      "L2_S00144",
+      "L2_S00183"
+    ],
+    "curr_size": 11,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00145",
+    "prev_size": 2,
+    "curr_size": 2,
+    "jaccard": 1.0,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "split",
+    "from": "L2_S00146",
+    "into_local_labels": [
+      19,
+      87
+    ],
+    "jaccard": 0.4,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00148",
+    "prev_size": 5,
+    "curr_size": 5,
+    "jaccard": 1.0,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00149",
+    "prev_size": 8,
+    "curr_size": 23,
+    "jaccard": 0.34782608695652173,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00150",
+    "from_persistent_ids": [
+      "L2_S00150",
+      "L2_S00152"
+    ],
+    "curr_size": 9,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00151",
+    "prev_size": 3,
+    "curr_size": 4,
+    "jaccard": 0.75,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00153",
+    "prev_size": 19,
+    "curr_size": 36,
+    "jaccard": 0.4473684210526316,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00155",
+    "prev_size": 11,
+    "curr_size": 10,
+    "jaccard": 0.5,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00156",
+    "prev_size": 6,
+    "curr_size": 12,
+    "jaccard": 0.5,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "shrink",
+    "id": "L2_S00157",
+    "prev_size": 3,
+    "curr_size": 2,
+    "jaccard": 0.25,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00158",
+    "from_persistent_ids": [
+      "L2_S00158",
+      "L2_S00166"
+    ],
+    "curr_size": 10,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00159",
+    "prev_size": 7,
+    "curr_size": 15,
+    "jaccard": 0.2222222222222222,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00160",
+    "prev_size": 5,
+    "curr_size": 9,
+    "jaccard": 0.16666666666666666,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00163",
+    "prev_size": 6,
+    "curr_size": 6,
+    "jaccard": 1.0,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00164",
+    "prev_size": 8,
+    "curr_size": 8,
+    "jaccard": 0.6,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00169",
+    "prev_size": 2,
+    "curr_size": 5,
+    "jaccard": 0.4,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00170",
+    "prev_size": 4,
+    "curr_size": 13,
+    "jaccard": 0.21428571428571427,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00171",
+    "prev_size": 5,
+    "curr_size": 18,
+    "jaccard": 0.2777777777777778,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00173",
+    "prev_size": 5,
+    "curr_size": 5,
+    "jaccard": 1.0,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00174",
+    "prev_size": 5,
+    "curr_size": 5,
+    "jaccard": 0.6666666666666666,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00175",
+    "prev_size": 10,
+    "curr_size": 13,
+    "jaccard": 0.7692307692307693,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00178",
+    "prev_size": 2,
+    "curr_size": 7,
+    "jaccard": 0.2857142857142857,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00180",
+    "prev_size": 5,
+    "curr_size": 12,
+    "jaccard": 0.4166666666666667,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "shrink",
+    "id": "L2_S00181",
+    "prev_size": 5,
+    "curr_size": 3,
+    "jaccard": 0.6,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00184",
+    "prev_size": 6,
+    "curr_size": 5,
+    "jaccard": 0.8333333333333334,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00187",
+    "prev_size": 9,
+    "curr_size": 15,
+    "jaccard": 0.6,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "shrink",
+    "id": "L2_S00189",
+    "prev_size": 7,
+    "curr_size": 6,
+    "jaccard": 0.4444444444444444,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00190",
+    "prev_size": 2,
+    "curr_size": 2,
+    "jaccard": 1.0,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00191",
+    "prev_size": 2,
+    "curr_size": 4,
+    "jaccard": 0.5,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00192",
+    "prev_size": 2,
+    "curr_size": 7,
+    "jaccard": 0.2857142857142857,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00195",
+    "prev_size": 1,
+    "curr_size": 3,
+    "jaccard": 0.3333333333333333,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00196",
+    "prev_size": 2,
+    "curr_size": 2,
+    "jaccard": 1.0,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00198",
+    "from_persistent_ids": [
+      "L2_S00198",
+      "L2_S00200"
+    ],
+    "curr_size": 6,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "split",
+    "from": "L2_S00199",
+    "into_local_labels": [
+      77,
+      67
+    ],
+    "jaccard": 0.2,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00201",
+    "curr_size": 4,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00202",
+    "curr_size": 25,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00203",
+    "curr_size": 7,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00204",
+    "curr_size": 8,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00205",
+    "curr_size": 3,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00206",
+    "curr_size": 13,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00207",
+    "curr_size": 10,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00208",
+    "curr_size": 5,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00209",
+    "curr_size": 17,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00210",
+    "curr_size": 6,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00211",
+    "curr_size": 35,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00212",
+    "curr_size": 3,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00213",
+    "curr_size": 8,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00214",
+    "curr_size": 9,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00215",
+    "curr_size": 13,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00216",
+    "curr_size": 4,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00217",
+    "curr_size": 15,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00218",
+    "curr_size": 16,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00219",
+    "curr_size": 4,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00220",
+    "curr_size": 10,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00221",
+    "curr_size": 5,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00222",
+    "curr_size": 12,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00223",
+    "curr_size": 13,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00224",
+    "curr_size": 2,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00225",
+    "curr_size": 14,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00226",
+    "curr_size": 16,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00227",
+    "curr_size": 9,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00228",
+    "curr_size": 4,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00229",
+    "curr_size": 9,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00230",
+    "curr_size": 7,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00231",
+    "curr_size": 2,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00232",
+    "curr_size": 7,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00233",
+    "curr_size": 8,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00234",
+    "curr_size": 4,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00235",
+    "curr_size": 5,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00236",
+    "curr_size": 4,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00237",
+    "curr_size": 5,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00238",
+    "curr_size": 2,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00239",
+    "curr_size": 3,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00240",
+    "curr_size": 7,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00241",
+    "curr_size": 8,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00242",
+    "curr_size": 3,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00243",
+    "curr_size": 2,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00244",
+    "curr_size": 2,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00245",
+    "curr_size": 2,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00016",
+    "prev_size": 2,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00039",
+    "prev_size": 2,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00041",
+    "prev_size": 1,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00058",
+    "prev_size": 6,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00068",
+    "prev_size": 3,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00080",
+    "prev_size": 4,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00087",
+    "prev_size": 4,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00101",
+    "prev_size": 5,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00122",
+    "prev_size": 2,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00124",
+    "prev_size": 2,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00139",
+    "prev_size": 2,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00154",
+    "prev_size": 8,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00165",
+    "prev_size": 3,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00168",
+    "prev_size": 3,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00176",
+    "prev_size": 1,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00185",
+    "prev_size": 1,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00186",
+    "prev_size": 3,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00193",
+    "prev_size": 2,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00197",
+    "prev_size": 2,
+    "year": 2022,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00003",
+    "from_persistent_ids": [
+      "L2_S00001",
+      "L2_S00003",
+      "L2_S00031"
+    ],
+    "curr_size": 14,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00008",
+    "prev_size": 10,
+    "curr_size": 41,
+    "jaccard": 0.21428571428571427,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00034",
+    "prev_size": 20,
+    "curr_size": 37,
+    "jaccard": 0.5,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00171",
+    "prev_size": 18,
+    "curr_size": 32,
+    "jaccard": 0.28205128205128205,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00202",
+    "prev_size": 25,
+    "curr_size": 75,
+    "jaccard": 0.28205128205128205,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00010",
+    "prev_size": 29,
+    "curr_size": 56,
+    "jaccard": 0.4166666666666667,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00002",
+    "prev_size": 26,
+    "curr_size": 39,
+    "jaccard": 0.4444444444444444,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00203",
+    "prev_size": 7,
+    "curr_size": 14,
+    "jaccard": 0.4,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00136",
+    "prev_size": 5,
+    "curr_size": 5,
+    "jaccard": 1.0,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00020",
+    "from_persistent_ids": [
+      "L2_S00020",
+      "L2_S00204"
+    ],
+    "curr_size": 9,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00021",
+    "prev_size": 6,
+    "curr_size": 8,
+    "jaccard": 0.2727272727272727,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00006",
+    "prev_size": 5,
+    "curr_size": 12,
+    "jaccard": 0.21428571428571427,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00007",
+    "prev_size": 8,
+    "curr_size": 20,
+    "jaccard": 0.3333333333333333,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00004",
+    "prev_size": 13,
+    "curr_size": 12,
+    "jaccard": 0.5625,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00011",
+    "prev_size": 20,
+    "curr_size": 45,
+    "jaccard": 0.3541666666666667,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00017",
+    "prev_size": 8,
+    "curr_size": 14,
+    "jaccard": 0.2222222222222222,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00170",
+    "from_persistent_ids": [
+      "L2_S00170",
+      "L2_S00232"
+    ],
+    "curr_size": 22,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00036",
+    "prev_size": 11,
+    "curr_size": 12,
+    "jaccard": 0.5333333333333333,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00205",
+    "prev_size": 3,
+    "curr_size": 18,
+    "jaccard": 0.16666666666666666,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00012",
+    "prev_size": 7,
+    "curr_size": 10,
+    "jaccard": 0.7,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "split",
+    "from": "L2_S00013",
+    "into_local_labels": [
+      183,
+      168
+    ],
+    "jaccard": 0.3142857142857143,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00014",
+    "from_persistent_ids": [
+      "L2_S00014",
+      "L2_S00106"
+    ],
+    "curr_size": 8,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00015",
+    "prev_size": 7,
+    "curr_size": 14,
+    "jaccard": 0.5,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00019",
+    "from_persistent_ids": [
+      "L2_S00009",
+      "L2_S00019"
+    ],
+    "curr_size": 30,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00206",
+    "prev_size": 13,
+    "curr_size": 31,
+    "jaccard": 0.1891891891891892,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00023",
+    "prev_size": 6,
+    "curr_size": 9,
+    "jaccard": 0.36363636363636365,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00077",
+    "prev_size": 27,
+    "curr_size": 46,
+    "jaccard": 0.5869565217391305,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00150",
+    "from_persistent_ids": [
+      "L2_S00018",
+      "L2_S00150"
+    ],
+    "curr_size": 27,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00088",
+    "prev_size": 7,
+    "curr_size": 8,
+    "jaccard": 0.5,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00207",
+    "prev_size": 10,
+    "curr_size": 25,
+    "jaccard": 0.20689655172413793,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00099",
+    "prev_size": 24,
+    "curr_size": 39,
+    "jaccard": 0.5365853658536586,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00072",
+    "prev_size": 18,
+    "curr_size": 32,
+    "jaccard": 0.35135135135135137,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00075",
+    "prev_size": 16,
+    "curr_size": 24,
+    "jaccard": 0.21212121212121213,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00111",
+    "prev_size": 17,
+    "curr_size": 37,
+    "jaccard": 0.3170731707317073,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00044",
+    "from_persistent_ids": [
+      "L2_S00044",
+      "L2_S00069"
+    ],
+    "curr_size": 16,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00083",
+    "from_persistent_ids": [
+      "L2_S00083",
+      "L2_S00085"
+    ],
+    "curr_size": 22,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00132",
+    "prev_size": 17,
+    "curr_size": 16,
+    "jaccard": 0.5,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00208",
+    "prev_size": 5,
+    "curr_size": 12,
+    "jaccard": 0.4166666666666667,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "split",
+    "from": "L2_S00032",
+    "into_local_labels": [
+      137,
+      136
+    ],
+    "jaccard": 0.4,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00105",
+    "prev_size": 8,
+    "curr_size": 16,
+    "jaccard": 0.2631578947368421,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "split",
+    "from": "L2_S00022",
+    "into_local_labels": [
+      182,
+      115
+    ],
+    "jaccard": 0.25,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "split",
+    "from": "L2_S00060",
+    "into_local_labels": [
+      184,
+      183
+    ],
+    "jaccard": 0.3333333333333333,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00026",
+    "prev_size": 5,
+    "curr_size": 7,
+    "jaccard": 0.7142857142857143,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00028",
+    "prev_size": 9,
+    "curr_size": 17,
+    "jaccard": 0.23809523809523808,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "split",
+    "from": "L2_S00029",
+    "into_local_labels": [
+      139,
+      64
+    ],
+    "jaccard": 0.42857142857142855,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00071",
+    "from_persistent_ids": [
+      "L2_S00033",
+      "L2_S00071"
+    ],
+    "curr_size": 17,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00056",
+    "from_persistent_ids": [
+      "L2_S00056",
+      "L2_S00162"
+    ],
+    "curr_size": 24,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00035",
+    "prev_size": 16,
+    "curr_size": 26,
+    "jaccard": 0.5555555555555556,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00037",
+    "prev_size": 15,
+    "curr_size": 32,
+    "jaccard": 0.38235294117647056,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00038",
+    "prev_size": 13,
+    "curr_size": 27,
+    "jaccard": 0.3333333333333333,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00209",
+    "from_persistent_ids": [
+      "L2_S00209",
+      "L2_S00050"
+    ],
+    "curr_size": 19,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "split",
+    "from": "L2_S00116",
+    "into_local_labels": [
+      191,
+      96
+    ],
+    "jaccard": 0.3,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00210",
+    "prev_size": 6,
+    "curr_size": 15,
+    "jaccard": 0.16666666666666666,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00089",
+    "prev_size": 22,
+    "curr_size": 37,
+    "jaccard": 0.40476190476190477,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00199",
+    "prev_size": 4,
+    "curr_size": 8,
+    "jaccard": 0.2,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00047",
+    "from_persistent_ids": [
+      "L2_S00047",
+      "L2_S00079"
+    ],
+    "curr_size": 30,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00061",
+    "from_persistent_ids": [
+      "L2_S00061",
+      "L2_S00187"
+    ],
+    "curr_size": 42,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00053",
+    "prev_size": 21,
+    "curr_size": 32,
+    "jaccard": 0.4722222222222222,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "split",
+    "from": "L2_S00048",
+    "into_local_labels": [
+      92,
+      94
+    ],
+    "jaccard": 0.38636363636363635,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00051",
+    "prev_size": 8,
+    "curr_size": 20,
+    "jaccard": 0.3333333333333333,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00052",
+    "prev_size": 15,
+    "curr_size": 34,
+    "jaccard": 0.2564102564102564,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00130",
+    "prev_size": 4,
+    "curr_size": 12,
+    "jaccard": 0.3333333333333333,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00055",
+    "prev_size": 21,
+    "curr_size": 21,
+    "jaccard": 1.0,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00057",
+    "prev_size": 10,
+    "curr_size": 19,
+    "jaccard": 0.5263157894736842,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00211",
+    "prev_size": 35,
+    "curr_size": 39,
+    "jaccard": 0.5102040816326531,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00062",
+    "from_persistent_ids": [
+      "L2_S00062",
+      "L2_S00127"
+    ],
+    "curr_size": 22,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00063",
+    "prev_size": 5,
+    "curr_size": 9,
+    "jaccard": 0.2727272727272727,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00149",
+    "prev_size": 23,
+    "curr_size": 40,
+    "jaccard": 0.5,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "shrink",
+    "id": "L2_S00142",
+    "prev_size": 16,
+    "curr_size": 18,
+    "jaccard": 0.4166666666666667,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00082",
+    "prev_size": 8,
+    "curr_size": 19,
+    "jaccard": 0.22727272727272727,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00102",
+    "from_persistent_ids": [
+      "L2_S00212",
+      "L2_S00102"
+    ],
+    "curr_size": 9,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00066",
+    "prev_size": 14,
+    "curr_size": 27,
+    "jaccard": 0.20588235294117646,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00067",
+    "prev_size": 6,
+    "curr_size": 26,
+    "jaccard": 0.18518518518518517,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00100",
+    "prev_size": 33,
+    "curr_size": 39,
+    "jaccard": 0.6744186046511628,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00064",
+    "prev_size": 6,
+    "curr_size": 15,
+    "jaccard": 0.23529411764705882,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "shrink",
+    "id": "L2_S00214",
+    "prev_size": 9,
+    "curr_size": 10,
+    "jaccard": 0.35714285714285715,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00215",
+    "prev_size": 13,
+    "curr_size": 13,
+    "jaccard": 0.625,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00074",
+    "prev_size": 6,
+    "curr_size": 13,
+    "jaccard": 0.26666666666666666,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00216",
+    "prev_size": 4,
+    "curr_size": 8,
+    "jaccard": 0.3333333333333333,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "split",
+    "from": "L2_S00076",
+    "into_local_labels": [
+      185,
+      80
+    ],
+    "jaccard": 0.18518518518518517,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00078",
+    "prev_size": 6,
+    "curr_size": 10,
+    "jaccard": 0.3333333333333333,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "shrink",
+    "id": "L2_S00217",
+    "prev_size": 15,
+    "curr_size": 14,
+    "jaccard": 0.3181818181818182,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00045",
+    "prev_size": 20,
+    "curr_size": 29,
+    "jaccard": 0.6896551724137931,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00131",
+    "prev_size": 18,
+    "curr_size": 21,
+    "jaccard": 0.8571428571428571,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "split",
+    "from": "L2_S00084",
+    "into_local_labels": [
+      134,
+      135
+    ],
+    "jaccard": 0.20689655172413793,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00086",
+    "prev_size": 8,
+    "curr_size": 17,
+    "jaccard": 0.25,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00054",
+    "prev_size": 18,
+    "curr_size": 38,
+    "jaccard": 0.4358974358974359,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00175",
+    "prev_size": 13,
+    "curr_size": 40,
+    "jaccard": 0.23255813953488372,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00218",
+    "prev_size": 16,
+    "curr_size": 24,
+    "jaccard": 0.42857142857142855,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00220",
+    "prev_size": 10,
+    "curr_size": 15,
+    "jaccard": 0.47058823529411764,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00221",
+    "prev_size": 5,
+    "curr_size": 14,
+    "jaccard": 0.1875,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00222",
+    "prev_size": 12,
+    "curr_size": 11,
+    "jaccard": 0.5333333333333333,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00223",
+    "prev_size": 13,
+    "curr_size": 22,
+    "jaccard": 0.4,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00225",
+    "prev_size": 14,
+    "curr_size": 19,
+    "jaccard": 0.5,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "shrink",
+    "id": "L2_S00226",
+    "prev_size": 16,
+    "curr_size": 19,
+    "jaccard": 0.4583333333333333,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00227",
+    "prev_size": 9,
+    "curr_size": 25,
+    "jaccard": 0.21428571428571427,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00095",
+    "prev_size": 23,
+    "curr_size": 72,
+    "jaccard": 0.15853658536585366,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00092",
+    "prev_size": 6,
+    "curr_size": 6,
+    "jaccard": 1.0,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "split",
+    "from": "L2_S00096",
+    "into_local_labels": [
+      66,
+      68
+    ],
+    "jaccard": 0.38095238095238093,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00059",
+    "prev_size": 3,
+    "curr_size": 18,
+    "jaccard": 0.16666666666666666,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "shrink",
+    "id": "L2_S00103",
+    "prev_size": 14,
+    "curr_size": 16,
+    "jaccard": 0.36363636363636365,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00229",
+    "from_persistent_ids": [
+      "L2_S00229",
+      "L2_S00244"
+    ],
+    "curr_size": 5,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00104",
+    "prev_size": 6,
+    "curr_size": 20,
+    "jaccard": 0.18181818181818182,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00195",
+    "prev_size": 3,
+    "curr_size": 4,
+    "jaccard": 0.75,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "shrink",
+    "id": "L2_S00230",
+    "prev_size": 7,
+    "curr_size": 7,
+    "jaccard": 0.2727272727272727,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00114",
+    "prev_size": 17,
+    "curr_size": 28,
+    "jaccard": 0.3235294117647059,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00109",
+    "prev_size": 7,
+    "curr_size": 15,
+    "jaccard": 0.4666666666666667,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00146",
+    "from_persistent_ids": [
+      "L2_S00146",
+      "L2_S00231"
+    ],
+    "curr_size": 13,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00137",
+    "prev_size": 5,
+    "curr_size": 21,
+    "jaccard": 0.23809523809523808,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00117",
+    "prev_size": 5,
+    "curr_size": 16,
+    "jaccard": 0.3125,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00081",
+    "prev_size": 16,
+    "curr_size": 30,
+    "jaccard": 0.4838709677419355,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00107",
+    "prev_size": 26,
+    "curr_size": 41,
+    "jaccard": 0.5581395348837209,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "shrink",
+    "id": "L2_S00112",
+    "prev_size": 11,
+    "curr_size": 4,
+    "jaccard": 0.15384615384615385,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00115",
+    "prev_size": 5,
+    "curr_size": 11,
+    "jaccard": 0.45454545454545453,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00118",
+    "prev_size": 16,
+    "curr_size": 37,
+    "jaccard": 0.17777777777777778,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00194",
+    "from_persistent_ids": [
+      "L2_S00120",
+      "L2_S00194"
+    ],
+    "curr_size": 17,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00135",
+    "prev_size": 9,
+    "curr_size": 11,
+    "jaccard": 0.6666666666666666,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00233",
+    "prev_size": 8,
+    "curr_size": 9,
+    "jaccard": 0.7,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00133",
+    "prev_size": 10,
+    "curr_size": 16,
+    "jaccard": 0.23809523809523808,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00138",
+    "from_persistent_ids": [
+      "L2_S00138",
+      "L2_S00184"
+    ],
+    "curr_size": 31,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00236",
+    "prev_size": 4,
+    "curr_size": 9,
+    "jaccard": 0.4444444444444444,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00180",
+    "prev_size": 12,
+    "curr_size": 17,
+    "jaccard": 0.5263157894736842,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00144",
+    "prev_size": 11,
+    "curr_size": 17,
+    "jaccard": 0.5555555555555556,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00145",
+    "prev_size": 2,
+    "curr_size": 5,
+    "jaccard": 0.4,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00160",
+    "from_persistent_ids": [
+      "L2_S00160",
+      "L2_S00164"
+    ],
+    "curr_size": 20,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00159",
+    "prev_size": 15,
+    "curr_size": 39,
+    "jaccard": 0.38461538461538464,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00151",
+    "prev_size": 4,
+    "curr_size": 11,
+    "jaccard": 0.25,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00153",
+    "prev_size": 36,
+    "curr_size": 44,
+    "jaccard": 0.8181818181818182,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00155",
+    "prev_size": 10,
+    "curr_size": 14,
+    "jaccard": 0.5,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00237",
+    "prev_size": 5,
+    "curr_size": 10,
+    "jaccard": 0.15384615384615385,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00156",
+    "prev_size": 12,
+    "curr_size": 29,
+    "jaccard": 0.24242424242424243,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "shrink",
+    "id": "L2_S00158",
+    "prev_size": 10,
+    "curr_size": 8,
+    "jaccard": 0.5,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "split",
+    "from": "L2_S00240",
+    "into_local_labels": [
+      32,
+      91
+    ],
+    "jaccard": 0.1875,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00163",
+    "prev_size": 6,
+    "curr_size": 7,
+    "jaccard": 0.8571428571428571,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00241",
+    "prev_size": 8,
+    "curr_size": 21,
+    "jaccard": 0.38095238095238093,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00173",
+    "prev_size": 5,
+    "curr_size": 24,
+    "jaccard": 0.20833333333333334,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00243",
+    "prev_size": 2,
+    "curr_size": 8,
+    "jaccard": 0.25,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00097",
+    "prev_size": 14,
+    "curr_size": 23,
+    "jaccard": 0.23333333333333334,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00125",
+    "prev_size": 5,
+    "curr_size": 9,
+    "jaccard": 0.2727272727272727,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00190",
+    "prev_size": 2,
+    "curr_size": 6,
+    "jaccard": 0.3333333333333333,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00191",
+    "prev_size": 4,
+    "curr_size": 9,
+    "jaccard": 0.18181818181818182,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00246",
+    "curr_size": 12,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00247",
+    "curr_size": 7,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00248",
+    "curr_size": 31,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00249",
+    "curr_size": 7,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00250",
+    "curr_size": 15,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00251",
+    "curr_size": 13,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00252",
+    "curr_size": 9,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00253",
+    "curr_size": 14,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00254",
+    "curr_size": 6,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00255",
+    "curr_size": 24,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00256",
+    "curr_size": 6,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00257",
+    "curr_size": 35,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00258",
+    "curr_size": 18,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00259",
+    "curr_size": 25,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00260",
+    "curr_size": 12,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00261",
+    "curr_size": 15,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00262",
+    "curr_size": 6,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00263",
+    "curr_size": 12,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00264",
+    "curr_size": 55,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00265",
+    "curr_size": 8,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00266",
+    "curr_size": 20,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00267",
+    "curr_size": 24,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00268",
+    "curr_size": 20,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00269",
+    "curr_size": 27,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00270",
+    "curr_size": 12,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00271",
+    "curr_size": 36,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00272",
+    "curr_size": 6,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00273",
+    "curr_size": 5,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00274",
+    "curr_size": 16,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00275",
+    "curr_size": 10,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00276",
+    "curr_size": 31,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00277",
+    "curr_size": 24,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00278",
+    "curr_size": 5,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00279",
+    "curr_size": 16,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00280",
+    "curr_size": 7,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00281",
+    "curr_size": 34,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00282",
+    "curr_size": 6,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00283",
+    "curr_size": 17,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00284",
+    "curr_size": 9,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00285",
+    "curr_size": 18,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00286",
+    "curr_size": 6,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00287",
+    "curr_size": 40,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00288",
+    "curr_size": 6,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00289",
+    "curr_size": 30,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00290",
+    "curr_size": 13,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00291",
+    "curr_size": 14,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00292",
+    "curr_size": 5,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00293",
+    "curr_size": 17,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00294",
+    "curr_size": 4,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00295",
+    "curr_size": 18,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00296",
+    "curr_size": 7,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00297",
+    "curr_size": 15,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00298",
+    "curr_size": 6,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00299",
+    "curr_size": 4,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00300",
+    "curr_size": 9,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00301",
+    "curr_size": 6,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00302",
+    "curr_size": 3,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00303",
+    "curr_size": 11,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00304",
+    "curr_size": 4,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00024",
+    "prev_size": 2,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00027",
+    "prev_size": 4,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00030",
+    "prev_size": 4,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00042",
+    "prev_size": 4,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00070",
+    "prev_size": 4,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00073",
+    "prev_size": 2,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00090",
+    "prev_size": 25,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00094",
+    "prev_size": 4,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00098",
+    "prev_size": 6,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00108",
+    "prev_size": 7,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00110",
+    "prev_size": 5,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00113",
+    "prev_size": 2,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00123",
+    "prev_size": 5,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00128",
+    "prev_size": 3,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00134",
+    "prev_size": 8,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00140",
+    "prev_size": 9,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00143",
+    "prev_size": 4,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00148",
+    "prev_size": 5,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00157",
+    "prev_size": 2,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00169",
+    "prev_size": 5,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00174",
+    "prev_size": 5,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00178",
+    "prev_size": 7,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00181",
+    "prev_size": 3,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00189",
+    "prev_size": 6,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00192",
+    "prev_size": 7,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00196",
+    "prev_size": 2,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00198",
+    "prev_size": 6,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00201",
+    "prev_size": 4,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00213",
+    "prev_size": 8,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00219",
+    "prev_size": 4,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00224",
+    "prev_size": 2,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00228",
+    "prev_size": 4,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00234",
+    "prev_size": 4,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00235",
+    "prev_size": 5,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00238",
+    "prev_size": 2,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00239",
+    "prev_size": 3,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00242",
+    "prev_size": 3,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00245",
+    "prev_size": 2,
+    "year": 2024,
+    "level": 2
+  },
+  {
+    "type": "split",
+    "from": "L2_S00008",
+    "into_local_labels": [
+      23,
+      25
+    ],
+    "jaccard": 0.48214285714285715,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00034",
+    "prev_size": 37,
+    "curr_size": 49,
+    "jaccard": 0.5925925925925926,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "shrink",
+    "id": "L2_S00171",
+    "prev_size": 32,
+    "curr_size": 26,
+    "jaccard": 0.48717948717948717,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00202",
+    "prev_size": 75,
+    "curr_size": 67,
+    "jaccard": 0.5268817204301075,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00010",
+    "prev_size": 56,
+    "curr_size": 79,
+    "jaccard": 0.37755102040816324,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00149",
+    "prev_size": 40,
+    "curr_size": 38,
+    "jaccard": 0.9024390243902439,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "split",
+    "from": "L2_S00036",
+    "into_local_labels": [
+      19,
+      26
+    ],
+    "jaccard": 0.26666666666666666,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00173",
+    "prev_size": 24,
+    "curr_size": 25,
+    "jaccard": 0.96,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00246",
+    "prev_size": 12,
+    "curr_size": 30,
+    "jaccard": 0.2727272727272727,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00002",
+    "prev_size": 39,
+    "curr_size": 66,
+    "jaccard": 0.5441176470588235,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "shrink",
+    "id": "L2_S00247",
+    "prev_size": 7,
+    "curr_size": 3,
+    "jaccard": 0.42857142857142855,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00075",
+    "prev_size": 24,
+    "curr_size": 41,
+    "jaccard": 0.5476190476190477,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00151",
+    "prev_size": 11,
+    "curr_size": 16,
+    "jaccard": 0.35,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00248",
+    "prev_size": 31,
+    "curr_size": 29,
+    "jaccard": 0.8181818181818182,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "split",
+    "from": "L2_S00203",
+    "into_local_labels": [
+      1,
+      198
+    ],
+    "jaccard": 0.2608695652173913,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "shrink",
+    "id": "L2_S00136",
+    "prev_size": 5,
+    "curr_size": 5,
+    "jaccard": 0.42857142857142855,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00020",
+    "prev_size": 9,
+    "curr_size": 17,
+    "jaccard": 0.5294117647058824,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "split",
+    "from": "L2_S00132",
+    "into_local_labels": [
+      139,
+      197
+    ],
+    "jaccard": 0.20833333333333334,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00170",
+    "from_persistent_ids": [
+      "L2_S00170",
+      "L2_S00270"
+    ],
+    "curr_size": 30,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00205",
+    "prev_size": 18,
+    "curr_size": 19,
+    "jaccard": 0.5416666666666666,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00060",
+    "from_persistent_ids": [
+      "L2_S00060",
+      "L2_S00013"
+    ],
+    "curr_size": 74,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "shrink",
+    "id": "L2_S00191",
+    "prev_size": 9,
+    "curr_size": 6,
+    "jaccard": 0.5,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00028",
+    "prev_size": 17,
+    "curr_size": 25,
+    "jaccard": 0.5555555555555556,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "split",
+    "from": "L2_S00194",
+    "into_local_labels": [
+      198,
+      61
+    ],
+    "jaccard": 0.4090909090909091,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00150",
+    "from_persistent_ids": [
+      "L2_S00150",
+      "L2_S00158"
+    ],
+    "curr_size": 24,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00214",
+    "prev_size": 10,
+    "curr_size": 12,
+    "jaccard": 0.4666666666666667,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00249",
+    "prev_size": 7,
+    "curr_size": 12,
+    "jaccard": 0.5833333333333334,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00022",
+    "prev_size": 15,
+    "curr_size": 23,
+    "jaccard": 0.4074074074074074,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00250",
+    "from_persistent_ids": [
+      "L2_S00250",
+      "L2_S00298"
+    ],
+    "curr_size": 8,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "shrink",
+    "id": "L2_S00006",
+    "prev_size": 12,
+    "curr_size": 11,
+    "jaccard": 0.2777777777777778,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00004",
+    "prev_size": 12,
+    "curr_size": 27,
+    "jaccard": 0.3,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "split",
+    "from": "L2_S00011",
+    "into_local_labels": [
+      116,
+      115
+    ],
+    "jaccard": 0.4444444444444444,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00251",
+    "prev_size": 13,
+    "curr_size": 21,
+    "jaccard": 0.5454545454545454,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00017",
+    "prev_size": 14,
+    "curr_size": 24,
+    "jaccard": 0.3103448275862069,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00066",
+    "prev_size": 27,
+    "curr_size": 44,
+    "jaccard": 0.39215686274509803,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00012",
+    "prev_size": 10,
+    "curr_size": 13,
+    "jaccard": 0.6428571428571429,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00114",
+    "from_persistent_ids": [
+      "L2_S00015",
+      "L2_S00109",
+      "L2_S00114"
+    ],
+    "curr_size": 56,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "split",
+    "from": "L2_S00019",
+    "into_local_labels": [
+      98,
+      100
+    ],
+    "jaccard": 0.3333333333333333,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00003",
+    "from_persistent_ids": [
+      "L2_S00003",
+      "L2_S00262"
+    ],
+    "curr_size": 9,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00007",
+    "prev_size": 20,
+    "curr_size": 25,
+    "jaccard": 0.6071428571428571,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00199",
+    "from_persistent_ids": [
+      "L2_S00029",
+      "L2_S00199"
+    ],
+    "curr_size": 10,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00253",
+    "prev_size": 14,
+    "curr_size": 23,
+    "jaccard": 0.6086956521739131,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "split",
+    "from": "L2_S00175",
+    "into_local_labels": [
+      148,
+      150
+    ],
+    "jaccard": 0.4406779661016949,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00254",
+    "prev_size": 6,
+    "curr_size": 8,
+    "jaccard": 0.75,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00160",
+    "prev_size": 20,
+    "curr_size": 31,
+    "jaccard": 0.6451612903225806,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00146",
+    "prev_size": 13,
+    "curr_size": 17,
+    "jaccard": 0.42857142857142855,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00102",
+    "prev_size": 9,
+    "curr_size": 24,
+    "jaccard": 0.17857142857142858,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00255",
+    "prev_size": 24,
+    "curr_size": 22,
+    "jaccard": 0.5333333333333333,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00206",
+    "prev_size": 31,
+    "curr_size": 53,
+    "jaccard": 0.5,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00054",
+    "prev_size": 38,
+    "curr_size": 83,
+    "jaccard": 0.375,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00125",
+    "prev_size": 9,
+    "curr_size": 10,
+    "jaccard": 0.7272727272727273,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00067",
+    "prev_size": 26,
+    "curr_size": 27,
+    "jaccard": 0.5142857142857142,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00023",
+    "prev_size": 9,
+    "curr_size": 17,
+    "jaccard": 0.4444444444444444,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00156",
+    "prev_size": 29,
+    "curr_size": 46,
+    "jaccard": 0.36363636363636365,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00257",
+    "prev_size": 35,
+    "curr_size": 58,
+    "jaccard": 0.2916666666666667,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00218",
+    "from_persistent_ids": [
+      "L2_S00258",
+      "L2_S00218"
+    ],
+    "curr_size": 47,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00220",
+    "prev_size": 15,
+    "curr_size": 39,
+    "jaccard": 0.2857142857142857,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "split",
+    "from": "L2_S00259",
+    "into_local_labels": [
+      161,
+      160
+    ],
+    "jaccard": 0.2564102564102564,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "split",
+    "from": "L2_S00038",
+    "into_local_labels": [
+      192,
+      190
+    ],
+    "jaccard": 0.40476190476190477,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00260",
+    "from_persistent_ids": [
+      "L2_S00260",
+      "L2_S00163"
+    ],
+    "curr_size": 17,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "shrink",
+    "id": "L2_S00077",
+    "prev_size": 46,
+    "curr_size": 32,
+    "jaccard": 0.6956521739130435,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "split",
+    "from": "L2_S00261",
+    "into_local_labels": [
+      28,
+      16
+    ],
+    "jaccard": 0.36363636363636365,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00208",
+    "prev_size": 12,
+    "curr_size": 19,
+    "jaccard": 0.19230769230769232,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00207",
+    "prev_size": 25,
+    "curr_size": 25,
+    "jaccard": 0.9230769230769231,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00099",
+    "prev_size": 39,
+    "curr_size": 64,
+    "jaccard": 0.4927536231884058,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00264",
+    "from_persistent_ids": [
+      "L2_S00072",
+      "L2_S00264"
+    ],
+    "curr_size": 47,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00111",
+    "prev_size": 37,
+    "curr_size": 72,
+    "jaccard": 0.379746835443038,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00052",
+    "prev_size": 34,
+    "curr_size": 78,
+    "jaccard": 0.36585365853658536,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00276",
+    "from_persistent_ids": [
+      "L2_S00083",
+      "L2_S00276"
+    ],
+    "curr_size": 59,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "split",
+    "from": "L2_S00061",
+    "into_local_labels": [
+      47,
+      45
+    ],
+    "jaccard": 0.25,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00032",
+    "prev_size": 20,
+    "curr_size": 25,
+    "jaccard": 0.5,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00105",
+    "prev_size": 16,
+    "curr_size": 27,
+    "jaccard": 0.30303030303030304,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00265",
+    "prev_size": 8,
+    "curr_size": 30,
+    "jaccard": 0.22580645161290322,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00266",
+    "from_persistent_ids": [
+      "L2_S00266",
+      "L2_S00063"
+    ],
+    "curr_size": 40,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00209",
+    "from_persistent_ids": [
+      "L2_S00209",
+      "L2_S00290"
+    ],
+    "curr_size": 35,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00216",
+    "prev_size": 8,
+    "curr_size": 8,
+    "jaccard": 1.0,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00026",
+    "prev_size": 7,
+    "curr_size": 19,
+    "jaccard": 0.3684210526315789,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00153",
+    "prev_size": 44,
+    "curr_size": 40,
+    "jaccard": 0.7872340425531915,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00071",
+    "prev_size": 17,
+    "curr_size": 20,
+    "jaccard": 0.6818181818181818,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "shrink",
+    "id": "L2_S00035",
+    "prev_size": 26,
+    "curr_size": 29,
+    "jaccard": 0.4473684210526316,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "split",
+    "from": "L2_S00116",
+    "into_local_labels": [
+      144,
+      83
+    ],
+    "jaccard": 0.375,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00267",
+    "from_persistent_ids": [
+      "L2_S00267",
+      "L2_S00280"
+    ],
+    "curr_size": 34,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00268",
+    "prev_size": 20,
+    "curr_size": 23,
+    "jaccard": 0.8695652173913043,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00269",
+    "prev_size": 27,
+    "curr_size": 39,
+    "jaccard": 0.5,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00064",
+    "prev_size": 15,
+    "curr_size": 20,
+    "jaccard": 0.75,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00144",
+    "prev_size": 17,
+    "curr_size": 28,
+    "jaccard": 0.5,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "split",
+    "from": "L2_S00159",
+    "into_local_labels": [
+      9,
+      8
+    ],
+    "jaccard": 0.2898550724637681,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00037",
+    "prev_size": 32,
+    "curr_size": 40,
+    "jaccard": 0.6744186046511628,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00271",
+    "from_persistent_ids": [
+      "L2_S00271",
+      "L2_S00014"
+    ],
+    "curr_size": 32,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "split",
+    "from": "L2_S00086",
+    "into_local_labels": [
+      95,
+      3
+    ],
+    "jaccard": 0.45161290322580644,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "shrink",
+    "id": "L2_S00272",
+    "prev_size": 6,
+    "curr_size": 6,
+    "jaccard": 0.3333333333333333,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00223",
+    "prev_size": 22,
+    "curr_size": 28,
+    "jaccard": 0.7857142857142857,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00044",
+    "from_persistent_ids": [
+      "L2_S00044",
+      "L2_S00243"
+    ],
+    "curr_size": 22,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00133",
+    "prev_size": 16,
+    "curr_size": 23,
+    "jaccard": 0.18181818181818182,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00047",
+    "prev_size": 30,
+    "curr_size": 58,
+    "jaccard": 0.375,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "shrink",
+    "id": "L2_S00274",
+    "prev_size": 16,
+    "curr_size": 8,
+    "jaccard": 0.4117647058823529,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00053",
+    "prev_size": 32,
+    "curr_size": 43,
+    "jaccard": 0.5957446808510638,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00048",
+    "from_persistent_ids": [
+      "L2_S00048",
+      "L2_S00225"
+    ],
+    "curr_size": 50,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00051",
+    "from_persistent_ids": [
+      "L2_S00051",
+      "L2_S00078"
+    ],
+    "curr_size": 28,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00130",
+    "prev_size": 12,
+    "curr_size": 22,
+    "jaccard": 0.4782608695652174,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00055",
+    "prev_size": 21,
+    "curr_size": 21,
+    "jaccard": 1.0,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "split",
+    "from": "L2_S00056",
+    "into_local_labels": [
+      70,
+      107
+    ],
+    "jaccard": 0.2571428571428571,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00057",
+    "prev_size": 19,
+    "curr_size": 24,
+    "jaccard": 0.5925925925925926,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00062",
+    "prev_size": 22,
+    "curr_size": 22,
+    "jaccard": 1.0,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "shrink",
+    "id": "L2_S00045",
+    "prev_size": 29,
+    "curr_size": 20,
+    "jaccard": 0.6896551724137931,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00089",
+    "prev_size": 37,
+    "curr_size": 85,
+    "jaccard": 0.23232323232323232,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00277",
+    "prev_size": 24,
+    "curr_size": 45,
+    "jaccard": 0.4375,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00107",
+    "prev_size": 41,
+    "curr_size": 57,
+    "jaccard": 0.6896551724137931,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00279",
+    "prev_size": 16,
+    "curr_size": 50,
+    "jaccard": 0.32,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "shrink",
+    "id": "L2_S00137",
+    "prev_size": 21,
+    "curr_size": 15,
+    "jaccard": 0.5,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "split",
+    "from": "L2_S00081",
+    "into_local_labels": [
+      187,
+      188
+    ],
+    "jaccard": 0.4722222222222222,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00226",
+    "prev_size": 19,
+    "curr_size": 31,
+    "jaccard": 0.6129032258064516,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00211",
+    "prev_size": 39,
+    "curr_size": 50,
+    "jaccard": 0.5892857142857143,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00084",
+    "from_persistent_ids": [
+      "L2_S00229",
+      "L2_S00084"
+    ],
+    "curr_size": 13,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "split",
+    "from": "L2_S00241",
+    "into_local_labels": [
+      150,
+      149
+    ],
+    "jaccard": 0.4,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00076",
+    "prev_size": 23,
+    "curr_size": 23,
+    "jaccard": 0.7692307692307693,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00095",
+    "prev_size": 72,
+    "curr_size": 110,
+    "jaccard": 0.5964912280701754,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00281",
+    "prev_size": 34,
+    "curr_size": 45,
+    "jaccard": 0.5490196078431373,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00100",
+    "from_persistent_ids": [
+      "L2_S00100",
+      "L2_S00285"
+    ],
+    "curr_size": 48,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00227",
+    "prev_size": 25,
+    "curr_size": 31,
+    "jaccard": 0.6470588235294118,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00142",
+    "prev_size": 18,
+    "curr_size": 16,
+    "jaccard": 0.7,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "stable",
+    "id": "L2_S00131",
+    "prev_size": 21,
+    "curr_size": 23,
+    "jaccard": 0.6296296296296297,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00283",
+    "prev_size": 17,
+    "curr_size": 34,
+    "jaccard": 0.24390243902439024,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00284",
+    "prev_size": 9,
+    "curr_size": 21,
+    "jaccard": 0.42857142857142855,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "split",
+    "from": "L2_S00287",
+    "into_local_labels": [
+      44,
+      36
+    ],
+    "jaccard": 0.3389830508474576,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00222",
+    "prev_size": 11,
+    "curr_size": 25,
+    "jaccard": 0.3333333333333333,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00096",
+    "from_persistent_ids": [
+      "L2_S00096",
+      "L2_S00301"
+    ],
+    "curr_size": 19,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00103",
+    "from_persistent_ids": [
+      "L2_S00103",
+      "L2_S00291"
+    ],
+    "curr_size": 47,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00104",
+    "prev_size": 20,
+    "curr_size": 39,
+    "jaccard": 0.475,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "split",
+    "from": "L2_S00289",
+    "into_local_labels": [
+      115,
+      124
+    ],
+    "jaccard": 0.3953488372093023,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "split",
+    "from": "L2_S00118",
+    "into_local_labels": [
+      175,
+      176
+    ],
+    "jaccard": 0.2826086956521739,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00292",
+    "prev_size": 5,
+    "curr_size": 13,
+    "jaccard": 0.2,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00180",
+    "prev_size": 17,
+    "curr_size": 23,
+    "jaccard": 0.7391304347826086,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00240",
+    "prev_size": 12,
+    "curr_size": 27,
+    "jaccard": 0.25806451612903225,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00237",
+    "prev_size": 10,
+    "curr_size": 26,
+    "jaccard": 0.2,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "shrink",
+    "id": "L2_S00293",
+    "prev_size": 17,
+    "curr_size": 11,
+    "jaccard": 0.47368421052631576,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00074",
+    "prev_size": 13,
+    "curr_size": 24,
+    "jaccard": 0.37037037037037035,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00215",
+    "prev_size": 13,
+    "curr_size": 33,
+    "jaccard": 0.3939393939393939,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "shrink",
+    "id": "L2_S00115",
+    "prev_size": 11,
+    "curr_size": 6,
+    "jaccard": 0.4166666666666667,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00097",
+    "prev_size": 23,
+    "curr_size": 46,
+    "jaccard": 0.23214285714285715,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00135",
+    "prev_size": 11,
+    "curr_size": 30,
+    "jaccard": 0.24242424242424243,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00138",
+    "prev_size": 31,
+    "curr_size": 39,
+    "jaccard": 0.627906976744186,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00295",
+    "prev_size": 18,
+    "curr_size": 23,
+    "jaccard": 0.28125,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "shrink",
+    "id": "L2_S00296",
+    "prev_size": 7,
+    "curr_size": 6,
+    "jaccard": 0.18181818181818182,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00236",
+    "prev_size": 9,
+    "curr_size": 15,
+    "jaccard": 0.2,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00088",
+    "prev_size": 8,
+    "curr_size": 19,
+    "jaccard": 0.42105263157894735,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "merge",
+    "into": "L2_S00297",
+    "from_persistent_ids": [
+      "L2_S00297",
+      "L2_S00300"
+    ],
+    "curr_size": 32,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "split",
+    "from": "L2_S00221",
+    "into_local_labels": [
+      132,
+      133
+    ],
+    "jaccard": 0.23529411764705882,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00145",
+    "prev_size": 5,
+    "curr_size": 10,
+    "jaccard": 0.15384615384615385,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00155",
+    "prev_size": 14,
+    "curr_size": 23,
+    "jaccard": 0.48,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "shrink",
+    "id": "L2_S00190",
+    "prev_size": 6,
+    "curr_size": 6,
+    "jaccard": 0.2,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "grow",
+    "id": "L2_S00299",
+    "prev_size": 4,
+    "curr_size": 11,
+    "jaccard": 0.25,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00305",
+    "curr_size": 27,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00306",
+    "curr_size": 17,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00307",
+    "curr_size": 23,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00308",
+    "curr_size": 18,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00309",
+    "curr_size": 15,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00310",
+    "curr_size": 21,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00311",
+    "curr_size": 22,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00312",
+    "curr_size": 10,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00313",
+    "curr_size": 10,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00314",
+    "curr_size": 17,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00315",
+    "curr_size": 21,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00316",
+    "curr_size": 12,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00317",
+    "curr_size": 31,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00318",
+    "curr_size": 18,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00319",
+    "curr_size": 5,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00320",
+    "curr_size": 12,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00321",
+    "curr_size": 28,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00322",
+    "curr_size": 11,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00323",
+    "curr_size": 4,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00324",
+    "curr_size": 11,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00325",
+    "curr_size": 32,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00326",
+    "curr_size": 21,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00327",
+    "curr_size": 15,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00328",
+    "curr_size": 19,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00329",
+    "curr_size": 34,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00330",
+    "curr_size": 16,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00331",
+    "curr_size": 14,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00332",
+    "curr_size": 18,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00333",
+    "curr_size": 27,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00334",
+    "curr_size": 14,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00335",
+    "curr_size": 25,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00336",
+    "curr_size": 8,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00337",
+    "curr_size": 26,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00338",
+    "curr_size": 24,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00339",
+    "curr_size": 6,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00340",
+    "curr_size": 17,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00341",
+    "curr_size": 10,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00342",
+    "curr_size": 10,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00343",
+    "curr_size": 32,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00344",
+    "curr_size": 5,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00345",
+    "curr_size": 17,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00346",
+    "curr_size": 35,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00347",
+    "curr_size": 11,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00348",
+    "curr_size": 11,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00349",
+    "curr_size": 5,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00350",
+    "curr_size": 4,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00351",
+    "curr_size": 23,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "birth",
+    "id": "L2_S00352",
+    "curr_size": 4,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00021",
+    "prev_size": 8,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00210",
+    "prev_size": 15,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00082",
+    "prev_size": 19,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00217",
+    "prev_size": 14,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00092",
+    "prev_size": 6,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00059",
+    "prev_size": 18,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00195",
+    "prev_size": 4,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00230",
+    "prev_size": 7,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00117",
+    "prev_size": 16,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00112",
+    "prev_size": 4,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00233",
+    "prev_size": 9,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00252",
+    "prev_size": 9,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00256",
+    "prev_size": 6,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00263",
+    "prev_size": 12,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00273",
+    "prev_size": 5,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00275",
+    "prev_size": 10,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00278",
+    "prev_size": 5,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00282",
+    "prev_size": 6,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00286",
+    "prev_size": 6,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00288",
+    "prev_size": 6,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00294",
+    "prev_size": 4,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00302",
+    "prev_size": 3,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00303",
+    "prev_size": 11,
+    "year": 2026,
+    "level": 2
+  },
+  {
+    "type": "death",
+    "id": "L2_S00304",
+    "prev_size": 4,
+    "year": 2026,
+    "level": 2
+  }
+]

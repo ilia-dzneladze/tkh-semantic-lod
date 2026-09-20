@@ -1,0 +1,9 @@
+numpy
+scipy
+scikit-learn
+pandas
+sentence-transformers
+matplotlib
+networkx
+pytest
+tqdm
