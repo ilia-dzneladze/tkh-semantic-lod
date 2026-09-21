@@ -211,9 +211,24 @@ the previous snapshot's clustering run to interpret any given snapshot.
 The real cost is that this only MEASURES stability after the fact, it
 doesn't actively push the clustering toward being stable while it runs.
 A warm-started or regularized version would probably produce a smoother
-hierarchy at the cost of being harder to verify independently. Didn't
-build that version, noting it as a real alternative rather than pretending
-matching was the obviously correct choice.
+hierarchy at the cost of being harder to verify independently.
+
+Update: built and tested that version (FIXES.md iteration 4). Added a
+third affinity term, `A_prior(i,j) = 1` iff i and j were in the same
+level-2 cluster in the previous snapshot (0 for nodes that didn't exist
+yet), blended in as `(1-gamma)*A_task + gamma*A_prior` before UPGMA runs.
+Cross-snapshot ARI does rise with gamma, as expected, but coherence
+(measured independently, TF-IDF against a random-labels null, not fed
+into clustering at all) drops at nearly every gamma tried, and drops hard
+at higher gamma, level 2's z-score alone loses 17-41% depending on gamma.
+So the extra stability isn't free, it's bought by pulling nodes back
+toward last snapshot's grouping even where their current semantic content
+has actually drifted, exactly the failure mode "measure, don't force"
+was meant to avoid. Not promoting this version. Confirms the tradeoff was
+real rather than just a plausible-sounding concern, and narrows what an
+actually-better version would need: something like only trusting the
+prior where the current snapshot's own signal roughly agrees with it,
+not blind same-cluster-before bias, untried here.
 
 The matching itself is Jaccard overlap between a snapshot's clusters and
 the next one's, restricted to whatever node ids happen to exist in both
@@ -224,8 +239,33 @@ permissive, so a weak 1-1 match (say Jaccard 0.16) still gets labeled as
 the SAME entity growing or shrinking rather than flagged as a shaky
 match. The raw Jaccard value is saved on every event record, though, so
 this can be filtered or re-weighted downstream by confidence instead of
-trusting the discrete label blindly. Never got to a real sensitivity
-check on these three numbers, that's a gap, not something I verified.
+trusting the discrete label blindly.
+
+Update: ran that sensitivity check (FIXES.md iteration 3). Reran
+`classify_events` over the already-computed hierarchy.json clusterings
+with each threshold swept individually (other two held at shipped), no
+need to touch embeddings or reclustering since T3 only rematches existing
+partitions. STABLE_JACCARD and SIZE_CHANGE_RATIO turned out fine: sweeping
+either one only moves the stable/shrink or stable/grow boundary, gradually
+and monotonically (a few percent of events reclassified per 0.05-0.1 step,
+same shape the whole way), never touches merge, split, birth, or death
+counts at all. The picked-by-feel values weren't doing anything fragile.
+
+MATCH_THRESHOLD is a different story, and the plan's own hunch that it
+"does the most work" was right. It's genuinely sensitive, not gradual:
+going from 0.10 to 0.20 (a small move either side of the shipped 0.15),
+pooled across all 3 levels, death events go from 37 to 174 (nearly 5x) and
+split from 132 to 36 (over 3x down), because raising the bar for "adequate
+match" reclassifies a lot of weak-but-real continuity as clean death+birth
+pairs instead. At the low end (0.05) merge/split explode instead (139/245)
+because almost any nonzero overlap counts as a match, so one real cluster
+can look like it merged or split against several unrelated small ones.
+There's no single value here that's obviously more correct than 0.15,
+it's picking where to draw a fuzzy line, but the line's position matters a
+lot more than I assumed when I picked it by feel. Left the shipped value
+alone (this was a characterization pass, not an optimization one, and
+nothing in the sweep points at a specific better number), but this is now
+a documented real limitation rather than an unchecked worry.
 
 One more thing worth writing down: when a group splits into several
 pieces (the split check inside `classify_events`), only the biggest

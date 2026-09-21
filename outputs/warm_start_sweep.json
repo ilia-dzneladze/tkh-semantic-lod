@@ -1,0 +1,1466 @@
+{
+  "0.0": {
+    "gamma": 0.0,
+    "cross_snapshot": {
+      "by_level": {
+        "0": {
+          "mean_ari": 0.349824300140734,
+          "std_ari": 0.015041775315487137,
+          "ci95": [
+            0.3124584588278572,
+            0.3871901414536108
+          ],
+          "values": [
+            0.3671867517158417,
+            0.34154799547899317,
+            0.3407381532273673
+          ],
+          "n_transitions": 3
+        },
+        "1": {
+          "mean_ari": 0.45296878613618613,
+          "std_ari": 0.07462741713189645,
+          "ci95": [
+            0.26758400490831946,
+            0.6383535673640528
+          ],
+          "values": [
+            0.5199768273571822,
+            0.3725425618629013,
+            0.4663869691884747
+          ],
+          "n_transitions": 3
+        },
+        "2": {
+          "mean_ari": 0.646545340079706,
+          "std_ari": 0.06053243028376909,
+          "ci95": [
+            0.49617444722789744,
+            0.7969162329315145
+          ],
+          "values": [
+            0.71602026891652,
+            0.6184487199900791,
+            0.605167031332519
+          ],
+          "n_transitions": 3
+        }
+      },
+      "detail": [
+        {
+          "from_year": 2020,
+          "to_year": 2022,
+          "level": 0,
+          "n_common_nodes": 1406,
+          "ari": 0.3671867517158417
+        },
+        {
+          "from_year": 2020,
+          "to_year": 2022,
+          "level": 1,
+          "n_common_nodes": 1406,
+          "ari": 0.5199768273571822
+        },
+        {
+          "from_year": 2020,
+          "to_year": 2022,
+          "level": 2,
+          "n_common_nodes": 1406,
+          "ari": 0.71602026891652
+        },
+        {
+          "from_year": 2022,
+          "to_year": 2024,
+          "level": 0,
+          "n_common_nodes": 2046,
+          "ari": 0.34154799547899317
+        },
+        {
+          "from_year": 2022,
+          "to_year": 2024,
+          "level": 1,
+          "n_common_nodes": 2046,
+          "ari": 0.3725425618629013
+        },
+        {
+          "from_year": 2022,
+          "to_year": 2024,
+          "level": 2,
+          "n_common_nodes": 2046,
+          "ari": 0.6184487199900791
+        },
+        {
+          "from_year": 2024,
+          "to_year": 2026,
+          "level": 0,
+          "n_common_nodes": 3895,
+          "ari": 0.3407381532273673
+        },
+        {
+          "from_year": 2024,
+          "to_year": 2026,
+          "level": 1,
+          "n_common_nodes": 3895,
+          "ari": 0.4663869691884747
+        },
+        {
+          "from_year": 2024,
+          "to_year": 2026,
+          "level": 2,
+          "n_common_nodes": 3895,
+          "ari": 0.605167031332519
+        }
+      ]
+    },
+    "coherence_by_year": {
+      "2020": {
+        "0": {
+          "level": 0,
+          "n_clusters_scored": 12,
+          "observed_coherence": 0.01867958971071654,
+          "null_mean": 0.003944736125939977,
+          "null_std": 9.435635723438215e-05,
+          "null_n_trials": 30,
+          "z_score": 156.16174698409603,
+          "null_fraction_at_or_above_observed": 0.0
+        },
+        "1": {
+          "level": 1,
+          "n_clusters_scored": 50,
+          "observed_coherence": 0.05841922042889357,
+          "null_mean": 0.0038961574622445204,
+          "null_std": 0.00020990726612048308,
+          "null_n_trials": 30,
+          "z_score": 259.7483354166205,
+          "null_fraction_at_or_above_observed": 0.0
+        },
+        "2": {
+          "level": 2,
+          "n_clusters_scored": 196,
+          "observed_coherence": 0.13657262067075335,
+          "null_mean": 0.0038360808194854556,
+          "null_std": 0.00038430567917386416,
+          "null_n_trials": 30,
+          "z_score": 345.39312595278204,
+          "null_fraction_at_or_above_observed": 0.0
+        }
+      },
+      "2022": {
+        "0": {
+          "level": 0,
+          "n_clusters_scored": 12,
+          "observed_coherence": 0.01809611006446097,
+          "null_mean": 0.003676606961191556,
+          "null_std": 6.554277049397951e-05,
+          "null_n_trials": 30,
+          "z_score": 220.0014279926408,
+          "null_fraction_at_or_above_observed": 0.0
+        },
+        "1": {
+          "level": 1,
+          "n_clusters_scored": 50,
+          "observed_coherence": 0.05117038749080311,
+          "null_mean": 0.003674428176110622,
+          "null_std": 0.00011840157243804164,
+          "null_n_trials": 30,
+          "z_score": 401.1429775524869,
+          "null_fraction_at_or_above_observed": 0.0
+        },
+        "2": {
+          "level": 2,
+          "n_clusters_scored": 199,
+          "observed_coherence": 0.12569874207975085,
+          "null_mean": 0.003685868077942281,
+          "null_std": 0.00025226382681638437,
+          "null_n_trials": 30,
+          "z_score": 483.67170014676043,
+          "null_fraction_at_or_above_observed": 0.0
+        }
+      },
+      "2024": {
+        "0": {
+          "level": 0,
+          "n_clusters_scored": 12,
+          "observed_coherence": 0.013895171413136717,
+          "null_mean": 0.003247019271466837,
+          "null_std": 2.00075961565855e-05,
+          "null_n_trials": 30,
+          "z_score": 532.2054712787194,
+          "null_fraction_at_or_above_observed": 0.0
+        },
+        "1": {
+          "level": 1,
+          "n_clusters_scored": 50,
+          "observed_coherence": 0.037430516625396,
+          "null_mean": 0.0032261129419475262,
+          "null_std": 5.405276351726425e-05,
+          "null_n_trials": 30,
+          "z_score": 632.7965761181429,
+          "null_fraction_at_or_above_observed": 0.0
+        },
+        "2": {
+          "level": 2,
+          "n_clusters_scored": 200,
+          "observed_coherence": 0.09418652464291906,
+          "null_mean": 0.0032287057373785477,
+          "null_std": 0.00010573489314730198,
+          "null_n_trials": 30,
+          "z_score": 860.244108620083,
+          "null_fraction_at_or_above_observed": 0.0
+        }
+      },
+      "2026": {
+        "0": {
+          "level": 0,
+          "n_clusters_scored": 12,
+          "observed_coherence": 0.012923421206176289,
+          "null_mean": 0.0029995045028165445,
+          "null_std": 1.3989746654845244e-05,
+          "null_n_trials": 30,
+          "z_score": 709.3707233020313,
+          "null_fraction_at_or_above_observed": 0.0
+        },
+        "1": {
+          "level": 1,
+          "n_clusters_scored": 50,
+          "observed_coherence": 0.03417970809881705,
+          "null_mean": 0.0030109159324380763,
+          "null_std": 3.6073495334906276e-05,
+          "null_n_trials": 30,
+          "z_score": 864.0358212312933,
+          "null_fraction_at_or_above_observed": 0.0
+        },
+        "2": {
+          "level": 2,
+          "n_clusters_scored": 200,
+          "observed_coherence": 0.08333278778690008,
+          "null_mean": 0.003008350936145818,
+          "null_std": 5.641168970479371e-05,
+          "null_n_trials": 30,
+          "z_score": 1423.897019768378,
+          "null_fraction_at_or_above_observed": 0.0
+        }
+      }
+    }
+  },
+  "0.05": {
+    "gamma": 0.05,
+    "cross_snapshot": {
+      "by_level": {
+        "0": {
+          "mean_ari": 0.3362040544339986,
+          "std_ari": 0.09629387977605401,
+          "ci95": [
+            0.09699679627155036,
+            0.5754113125964468
+          ],
+          "values": [
+            0.2765210964055005,
+            0.28479918169599033,
+            0.4472918852005051
+          ],
+          "n_transitions": 3
+        },
+        "1": {
+          "mean_ari": 0.5257234696042848,
+          "std_ari": 0.10271690888969337,
+          "ci95": [
+            0.27056052259697483,
+            0.7808864166115949
+          ],
+          "values": [
+            0.5826925378886353,
+            0.40714644234551683,
+            0.5873314285787026
+          ],
+          "n_transitions": 3
+        },
+        "2": {
+          "mean_ari": 0.7979829866723298,
+          "std_ari": 0.06089819928474626,
+          "ci95": [
+            0.6467034732514046,
+            0.949262500093255
+          ],
+          "values": [
+            0.8285641105829734,
+            0.7278546018080333,
+            0.8375302476259826
+          ],
+          "n_transitions": 3
+        }
+      },
+      "detail": [
+        {
+          "from_year": 2020,
+          "to_year": 2022,
+          "level": 0,
+          "n_common_nodes": 1406,
+          "ari": 0.2765210964055005
+        },
+        {
+          "from_year": 2020,
+          "to_year": 2022,
+          "level": 1,
+          "n_common_nodes": 1406,
+          "ari": 0.5826925378886353
+        },
+        {
+          "from_year": 2020,
+          "to_year": 2022,
+          "level": 2,
+          "n_common_nodes": 1406,
+          "ari": 0.8285641105829734
+        },
+        {
+          "from_year": 2022,
+          "to_year": 2024,
+          "level": 0,
+          "n_common_nodes": 2046,
+          "ari": 0.28479918169599033
+        },
+        {
+          "from_year": 2022,
+          "to_year": 2024,
+          "level": 1,
+          "n_common_nodes": 2046,
+          "ari": 0.40714644234551683
+        },
+        {
+          "from_year": 2022,
+          "to_year": 2024,
+          "level": 2,
+          "n_common_nodes": 2046,
+          "ari": 0.7278546018080333
+        },
+        {
+          "from_year": 2024,
+          "to_year": 2026,
+          "level": 0,
+          "n_common_nodes": 3895,
+          "ari": 0.4472918852005051
+        },
+        {
+          "from_year": 2024,
+          "to_year": 2026,
+          "level": 1,
+          "n_common_nodes": 3895,
+          "ari": 0.5873314285787026
+        },
+        {
+          "from_year": 2024,
+          "to_year": 2026,
+          "level": 2,
+          "n_common_nodes": 3895,
+          "ari": 0.8375302476259826
+        }
+      ]
+    },
+    "coherence_by_year": {
+      "2020": {
+        "0": {
+          "level": 0,
+          "n_clusters_scored": 12,
+          "observed_coherence": 0.01867958971071654,
+          "null_mean": 0.003944736125939977,
+          "null_std": 9.435635723438215e-05,
+          "null_n_trials": 30,
+          "z_score": 156.16174698409603,
+          "null_fraction_at_or_above_observed": 0.0
+        },
+        "1": {
+          "level": 1,
+          "n_clusters_scored": 50,
+          "observed_coherence": 0.05841922042889357,
+          "null_mean": 0.0038961574622445204,
+          "null_std": 0.00020990726612048308,
+          "null_n_trials": 30,
+          "z_score": 259.7483354166205,
+          "null_fraction_at_or_above_observed": 0.0
+        },
+        "2": {
+          "level": 2,
+          "n_clusters_scored": 196,
+          "observed_coherence": 0.13657262067075335,
+          "null_mean": 0.0038360808194854556,
+          "null_std": 0.00038430567917386416,
+          "null_n_trials": 30,
+          "z_score": 345.39312595278204,
+          "null_fraction_at_or_above_observed": 0.0
+        }
+      },
+      "2022": {
+        "0": {
+          "level": 0,
+          "n_clusters_scored": 12,
+          "observed_coherence": 0.018036206010203032,
+          "null_mean": 0.0036810137731509178,
+          "null_std": 4.654915535387279e-05,
+          "null_n_trials": 30,
+          "z_score": 308.38781343983703,
+          "null_fraction_at_or_above_observed": 0.0
+        },
+        "1": {
+          "level": 1,
+          "n_clusters_scored": 50,
+          "observed_coherence": 0.05022809562061519,
+          "null_mean": 0.0036404797440879348,
+          "null_std": 0.0001450466518000882,
+          "null_n_trials": 30,
+          "z_score": 321.1905638520842,
+          "null_fraction_at_or_above_observed": 0.0
+        },
+        "2": {
+          "level": 2,
+          "n_clusters_scored": 200,
+          "observed_coherence": 0.12695253077989285,
+          "null_mean": 0.003717168375726348,
+          "null_std": 0.00024198714714033164,
+          "null_n_trials": 30,
+          "z_score": 509.2640822477263,
+          "null_fraction_at_or_above_observed": 0.0
+        }
+      },
+      "2024": {
+        "0": {
+          "level": 0,
+          "n_clusters_scored": 12,
+          "observed_coherence": 0.01400370944590786,
+          "null_mean": 0.0032443157388398714,
+          "null_std": 2.415037376486756e-05,
+          "null_n_trials": 30,
+          "z_score": 445.5166537720454,
+          "null_fraction_at_or_above_observed": 0.0
+        },
+        "1": {
+          "level": 1,
+          "n_clusters_scored": 50,
+          "observed_coherence": 0.036453192311160156,
+          "null_mean": 0.0032578052758663405,
+          "null_std": 5.577092462003962e-05,
+          "null_n_trials": 30,
+          "z_score": 595.2095515978956,
+          "null_fraction_at_or_above_observed": 0.0
+        },
+        "2": {
+          "level": 2,
+          "n_clusters_scored": 200,
+          "observed_coherence": 0.09440715479536652,
+          "null_mean": 0.0032253402603344655,
+          "null_std": 0.00010098050525659699,
+          "null_n_trials": 30,
+          "z_score": 902.9645306619735,
+          "null_fraction_at_or_above_observed": 0.0
+        }
+      },
+      "2026": {
+        "0": {
+          "level": 0,
+          "n_clusters_scored": 12,
+          "observed_coherence": 0.01251513299435169,
+          "null_mean": 0.0029994014951336477,
+          "null_std": 1.6418441560036464e-05,
+          "null_n_trials": 30,
+          "z_score": 579.5758059266684,
+          "null_fraction_at_or_above_observed": 0.0
+        },
+        "1": {
+          "level": 1,
+          "n_clusters_scored": 50,
+          "observed_coherence": 0.033583553147677796,
+          "null_mean": 0.0030032590607010556,
+          "null_std": 3.228438112616095e-05,
+          "null_n_trials": 30,
+          "z_score": 947.2163634630326,
+          "null_fraction_at_or_above_observed": 0.0
+        },
+        "2": {
+          "level": 2,
+          "n_clusters_scored": 199,
+          "observed_coherence": 0.08228296327324641,
+          "null_mean": 0.0030241067710552127,
+          "null_std": 6.119373296076094e-05,
+          "null_n_trials": 30,
+          "z_score": 1295.2119876885774,
+          "null_fraction_at_or_above_observed": 0.0
+        }
+      }
+    }
+  },
+  "0.1": {
+    "gamma": 0.1,
+    "cross_snapshot": {
+      "by_level": {
+        "0": {
+          "mean_ari": 0.4052927634973426,
+          "std_ari": 0.11039222603908388,
+          "ci95": [
+            0.1310632717095876,
+            0.6795222552850977
+          ],
+          "values": [
+            0.3643813375250937,
+            0.3211964081703433,
+            0.5303005447965907
+          ],
+          "n_transitions": 3
+        },
+        "1": {
+          "mean_ari": 0.5750199105864559,
+          "std_ari": 0.09084860852155256,
+          "ci95": [
+            0.34933945609802475,
+            0.800700365074887
+          ],
+          "values": [
+            0.6333526491554476,
+            0.4703456716552566,
+            0.6213614109486635
+          ],
+          "n_transitions": 3
+        },
+        "2": {
+          "mean_ari": 0.8638253177671352,
+          "std_ari": 0.05671845883880738,
+          "ci95": [
+            0.722928855213295,
+            1.0047217803209754
+          ],
+          "values": [
+            0.8905429612248604,
+            0.7986822395591178,
+            0.9022507525174275
+          ],
+          "n_transitions": 3
+        }
+      },
+      "detail": [
+        {
+          "from_year": 2020,
+          "to_year": 2022,
+          "level": 0,
+          "n_common_nodes": 1406,
+          "ari": 0.3643813375250937
+        },
+        {
+          "from_year": 2020,
+          "to_year": 2022,
+          "level": 1,
+          "n_common_nodes": 1406,
+          "ari": 0.6333526491554476
+        },
+        {
+          "from_year": 2020,
+          "to_year": 2022,
+          "level": 2,
+          "n_common_nodes": 1406,
+          "ari": 0.8905429612248604
+        },
+        {
+          "from_year": 2022,
+          "to_year": 2024,
+          "level": 0,
+          "n_common_nodes": 2046,
+          "ari": 0.3211964081703433
+        },
+        {
+          "from_year": 2022,
+          "to_year": 2024,
+          "level": 1,
+          "n_common_nodes": 2046,
+          "ari": 0.4703456716552566
+        },
+        {
+          "from_year": 2022,
+          "to_year": 2024,
+          "level": 2,
+          "n_common_nodes": 2046,
+          "ari": 0.7986822395591178
+        },
+        {
+          "from_year": 2024,
+          "to_year": 2026,
+          "level": 0,
+          "n_common_nodes": 3895,
+          "ari": 0.5303005447965907
+        },
+        {
+          "from_year": 2024,
+          "to_year": 2026,
+          "level": 1,
+          "n_common_nodes": 3895,
+          "ari": 0.6213614109486635
+        },
+        {
+          "from_year": 2024,
+          "to_year": 2026,
+          "level": 2,
+          "n_common_nodes": 3895,
+          "ari": 0.9022507525174275
+        }
+      ]
+    },
+    "coherence_by_year": {
+      "2020": {
+        "0": {
+          "level": 0,
+          "n_clusters_scored": 12,
+          "observed_coherence": 0.01867958971071654,
+          "null_mean": 0.003944736125939977,
+          "null_std": 9.435635723438215e-05,
+          "null_n_trials": 30,
+          "z_score": 156.16174698409603,
+          "null_fraction_at_or_above_observed": 0.0
+        },
+        "1": {
+          "level": 1,
+          "n_clusters_scored": 50,
+          "observed_coherence": 0.05841922042889357,
+          "null_mean": 0.0038961574622445204,
+          "null_std": 0.00020990726612048308,
+          "null_n_trials": 30,
+          "z_score": 259.7483354166205,
+          "null_fraction_at_or_above_observed": 0.0
+        },
+        "2": {
+          "level": 2,
+          "n_clusters_scored": 196,
+          "observed_coherence": 0.13657262067075335,
+          "null_mean": 0.0038360808194854556,
+          "null_std": 0.00038430567917386416,
+          "null_n_trials": 30,
+          "z_score": 345.39312595278204,
+          "null_fraction_at_or_above_observed": 0.0
+        }
+      },
+      "2022": {
+        "0": {
+          "level": 0,
+          "n_clusters_scored": 12,
+          "observed_coherence": 0.01817825861917243,
+          "null_mean": 0.003684654854898168,
+          "null_std": 6.564851059630561e-05,
+          "null_n_trials": 30,
+          "z_score": 220.77582008524493,
+          "null_fraction_at_or_above_observed": 0.0
+        },
+        "1": {
+          "level": 1,
+          "n_clusters_scored": 50,
+          "observed_coherence": 0.05022011885961499,
+          "null_mean": 0.003702738946346407,
+          "null_std": 0.00011414479801252264,
+          "null_n_trials": 30,
+          "z_score": 407.5295652822062,
+          "null_fraction_at_or_above_observed": 0.0
+        },
+        "2": {
+          "level": 2,
+          "n_clusters_scored": 200,
+          "observed_coherence": 0.12816189832909652,
+          "null_mean": 0.0036193506964283533,
+          "null_std": 0.00026303611277603246,
+          "null_n_trials": 30,
+          "z_score": 473.48079439841973,
+          "null_fraction_at_or_above_observed": 0.0
+        }
+      },
+      "2024": {
+        "0": {
+          "level": 0,
+          "n_clusters_scored": 12,
+          "observed_coherence": 0.013627544309294075,
+          "null_mean": 0.003245557419710524,
+          "null_std": 2.6738078370650742e-05,
+          "null_n_trials": 30,
+          "z_score": 388.28470564210096,
+          "null_fraction_at_or_above_observed": 0.0
+        },
+        "1": {
+          "level": 1,
+          "n_clusters_scored": 50,
+          "observed_coherence": 0.03786118475232261,
+          "null_mean": 0.0032729393644893136,
+          "null_std": 5.086356261870173e-05,
+          "null_n_trials": 30,
+          "z_score": 680.0201088375147,
+          "null_fraction_at_or_above_observed": 0.0
+        },
+        "2": {
+          "level": 2,
+          "n_clusters_scored": 200,
+          "observed_coherence": 0.09527165894535504,
+          "null_mean": 0.0032353809514063113,
+          "null_std": 0.0001086228468418902,
+          "null_n_trials": 30,
+          "z_score": 847.3012876187582,
+          "null_fraction_at_or_above_observed": 0.0
+        }
+      },
+      "2026": {
+        "0": {
+          "level": 0,
+          "n_clusters_scored": 12,
+          "observed_coherence": 0.01302161132754951,
+          "null_mean": 0.003001220803899798,
+          "null_std": 1.5509150676572073e-05,
+          "null_n_trials": 30,
+          "z_score": 646.0953750862958,
+          "null_fraction_at_or_above_observed": 0.0
+        },
+        "1": {
+          "level": 1,
+          "n_clusters_scored": 50,
+          "observed_coherence": 0.034397821102396094,
+          "null_mean": 0.0030111219058874105,
+          "null_std": 3.529621855134608e-05,
+          "null_n_trials": 30,
+          "z_score": 889.2368781899357,
+          "null_fraction_at_or_above_observed": 0.0
+        },
+        "2": {
+          "level": 2,
+          "n_clusters_scored": 200,
+          "observed_coherence": 0.08085565103087423,
+          "null_mean": 0.0029922376640649727,
+          "null_std": 6.575285190657153e-05,
+          "null_n_trials": 30,
+          "z_score": 1184.183059883785,
+          "null_fraction_at_or_above_observed": 0.0
+        }
+      }
+    }
+  },
+  "0.2": {
+    "gamma": 0.2,
+    "cross_snapshot": {
+      "by_level": {
+        "0": {
+          "mean_ari": 0.4185647192314101,
+          "std_ari": 0.03056103416287304,
+          "ci95": [
+            0.342646901757327,
+            0.4944825367054932
+          ],
+          "values": [
+            0.3838245826925934,
+            0.44130312002149685,
+            0.43056645498013996
+          ],
+          "n_transitions": 3
+        },
+        "1": {
+          "mean_ari": 0.5875967269874629,
+          "std_ari": 0.04337324790166368,
+          "ci95": [
+            0.47985160619384426,
+            0.6953418477810815
+          ],
+          "values": [
+            0.6282683978196554,
+            0.5419508139869832,
+            0.5925709691557501
+          ],
+          "n_transitions": 3
+        },
+        "2": {
+          "mean_ari": 0.9054737198058866,
+          "std_ari": 0.04984300122716948,
+          "ci95": [
+            0.781656840790657,
+            1.0292905988211163
+          ],
+          "values": [
+            0.9100438953382893,
+            0.8535030215167795,
+            0.9528742425625911
+          ],
+          "n_transitions": 3
+        }
+      },
+      "detail": [
+        {
+          "from_year": 2020,
+          "to_year": 2022,
+          "level": 0,
+          "n_common_nodes": 1406,
+          "ari": 0.3838245826925934
+        },
+        {
+          "from_year": 2020,
+          "to_year": 2022,
+          "level": 1,
+          "n_common_nodes": 1406,
+          "ari": 0.6282683978196554
+        },
+        {
+          "from_year": 2020,
+          "to_year": 2022,
+          "level": 2,
+          "n_common_nodes": 1406,
+          "ari": 0.9100438953382893
+        },
+        {
+          "from_year": 2022,
+          "to_year": 2024,
+          "level": 0,
+          "n_common_nodes": 2046,
+          "ari": 0.44130312002149685
+        },
+        {
+          "from_year": 2022,
+          "to_year": 2024,
+          "level": 1,
+          "n_common_nodes": 2046,
+          "ari": 0.5419508139869832
+        },
+        {
+          "from_year": 2022,
+          "to_year": 2024,
+          "level": 2,
+          "n_common_nodes": 2046,
+          "ari": 0.8535030215167795
+        },
+        {
+          "from_year": 2024,
+          "to_year": 2026,
+          "level": 0,
+          "n_common_nodes": 3895,
+          "ari": 0.43056645498013996
+        },
+        {
+          "from_year": 2024,
+          "to_year": 2026,
+          "level": 1,
+          "n_common_nodes": 3895,
+          "ari": 0.5925709691557501
+        },
+        {
+          "from_year": 2024,
+          "to_year": 2026,
+          "level": 2,
+          "n_common_nodes": 3895,
+          "ari": 0.9528742425625911
+        }
+      ]
+    },
+    "coherence_by_year": {
+      "2020": {
+        "0": {
+          "level": 0,
+          "n_clusters_scored": 12,
+          "observed_coherence": 0.01867958971071654,
+          "null_mean": 0.003944736125939977,
+          "null_std": 9.435635723438215e-05,
+          "null_n_trials": 30,
+          "z_score": 156.16174698409603,
+          "null_fraction_at_or_above_observed": 0.0
+        },
+        "1": {
+          "level": 1,
+          "n_clusters_scored": 50,
+          "observed_coherence": 0.05841922042889357,
+          "null_mean": 0.0038961574622445204,
+          "null_std": 0.00020990726612048308,
+          "null_n_trials": 30,
+          "z_score": 259.7483354166205,
+          "null_fraction_at_or_above_observed": 0.0
+        },
+        "2": {
+          "level": 2,
+          "n_clusters_scored": 196,
+          "observed_coherence": 0.13657262067075335,
+          "null_mean": 0.0038360808194854556,
+          "null_std": 0.00038430567917386416,
+          "null_n_trials": 30,
+          "z_score": 345.39312595278204,
+          "null_fraction_at_or_above_observed": 0.0
+        }
+      },
+      "2022": {
+        "0": {
+          "level": 0,
+          "n_clusters_scored": 12,
+          "observed_coherence": 0.019065176234486413,
+          "null_mean": 0.003685901155813975,
+          "null_std": 5.0676315444164944e-05,
+          "null_n_trials": 30,
+          "z_score": 303.48053018213784,
+          "null_fraction_at_or_above_observed": 0.0
+        },
+        "1": {
+          "level": 1,
+          "n_clusters_scored": 50,
+          "observed_coherence": 0.0500099177158486,
+          "null_mean": 0.0036680704839648064,
+          "null_std": 0.00010575053658073676,
+          "null_n_trials": 30,
+          "z_score": 438.21855406382207,
+          "null_fraction_at_or_above_observed": 0.0
+        },
+        "2": {
+          "level": 2,
+          "n_clusters_scored": 197,
+          "observed_coherence": 0.1226932861430531,
+          "null_mean": 0.00366620022493747,
+          "null_std": 0.0002722478764892564,
+          "null_n_trials": 30,
+          "z_score": 437.20115452512175,
+          "null_fraction_at_or_above_observed": 0.0
+        }
+      },
+      "2024": {
+        "0": {
+          "level": 0,
+          "n_clusters_scored": 12,
+          "observed_coherence": 0.01374648065006323,
+          "null_mean": 0.0032475399896159324,
+          "null_std": 2.6948871488918367e-05,
+          "null_n_trials": 30,
+          "z_score": 389.58739570095037,
+          "null_fraction_at_or_above_observed": 0.0
+        },
+        "1": {
+          "level": 1,
+          "n_clusters_scored": 50,
+          "observed_coherence": 0.03659687524412688,
+          "null_mean": 0.0032574626661670335,
+          "null_std": 4.296651216905248e-05,
+          "null_n_trials": 30,
+          "z_score": 775.939467620396,
+          "null_fraction_at_or_above_observed": 0.0
+        },
+        "2": {
+          "level": 2,
+          "n_clusters_scored": 199,
+          "observed_coherence": 0.0905718910072006,
+          "null_mean": 0.0032014074705791432,
+          "null_std": 0.00010154236127102156,
+          "null_n_trials": 30,
+          "z_score": 860.4338371000191,
+          "null_fraction_at_or_above_observed": 0.0
+        }
+      },
+      "2026": {
+        "0": {
+          "level": 0,
+          "n_clusters_scored": 12,
+          "observed_coherence": 0.012036109902121983,
+          "null_mean": 0.003005204359393091,
+          "null_std": 1.3442953463746059e-05,
+          "null_n_trials": 30,
+          "z_score": 671.7947486081908,
+          "null_fraction_at_or_above_observed": 0.0
+        },
+        "1": {
+          "level": 1,
+          "n_clusters_scored": 50,
+          "observed_coherence": 0.03191168934899712,
+          "null_mean": 0.003009514856870735,
+          "null_std": 3.983733608977561e-05,
+          "null_n_trials": 30,
+          "z_score": 725.5046980800564,
+          "null_fraction_at_or_above_observed": 0.0
+        },
+        "2": {
+          "level": 2,
+          "n_clusters_scored": 199,
+          "observed_coherence": 0.07722543789274962,
+          "null_mean": 0.003007995247508276,
+          "null_std": 8.787665181654784e-05,
+          "null_n_trials": 30,
+          "z_score": 844.5638416012755,
+          "null_fraction_at_or_above_observed": 0.0
+        }
+      }
+    }
+  },
+  "0.3": {
+    "gamma": 0.3,
+    "cross_snapshot": {
+      "by_level": {
+        "0": {
+          "mean_ari": 0.34852496713818365,
+          "std_ari": 0.06708746878901085,
+          "ci95": [
+            0.18187045593352852,
+            0.5151794783428387
+          ],
+          "values": [
+            0.3670374520237262,
+            0.2741250803696731,
+            0.4044123690211517
+          ],
+          "n_transitions": 3
+        },
+        "1": {
+          "mean_ari": 0.6319848654545743,
+          "std_ari": 0.08517990066636602,
+          "ci95": [
+            0.4203862619261074,
+            0.8435834689830413
+          ],
+          "values": [
+            0.7239095436968438,
+            0.5557239186909521,
+            0.616321133975927
+          ],
+          "n_transitions": 3
+        },
+        "2": {
+          "mean_ari": 0.9213879176547933,
+          "std_ari": 0.02036301058184373,
+          "ci95": [
+            0.8708033951436643,
+            0.9719724401659223
+          ],
+          "values": [
+            0.9198512653167318,
+            0.9018367648774972,
+            0.9424757227701512
+          ],
+          "n_transitions": 3
+        }
+      },
+      "detail": [
+        {
+          "from_year": 2020,
+          "to_year": 2022,
+          "level": 0,
+          "n_common_nodes": 1406,
+          "ari": 0.3670374520237262
+        },
+        {
+          "from_year": 2020,
+          "to_year": 2022,
+          "level": 1,
+          "n_common_nodes": 1406,
+          "ari": 0.7239095436968438
+        },
+        {
+          "from_year": 2020,
+          "to_year": 2022,
+          "level": 2,
+          "n_common_nodes": 1406,
+          "ari": 0.9198512653167318
+        },
+        {
+          "from_year": 2022,
+          "to_year": 2024,
+          "level": 0,
+          "n_common_nodes": 2046,
+          "ari": 0.2741250803696731
+        },
+        {
+          "from_year": 2022,
+          "to_year": 2024,
+          "level": 1,
+          "n_common_nodes": 2046,
+          "ari": 0.5557239186909521
+        },
+        {
+          "from_year": 2022,
+          "to_year": 2024,
+          "level": 2,
+          "n_common_nodes": 2046,
+          "ari": 0.9018367648774972
+        },
+        {
+          "from_year": 2024,
+          "to_year": 2026,
+          "level": 0,
+          "n_common_nodes": 3895,
+          "ari": 0.4044123690211517
+        },
+        {
+          "from_year": 2024,
+          "to_year": 2026,
+          "level": 1,
+          "n_common_nodes": 3895,
+          "ari": 0.616321133975927
+        },
+        {
+          "from_year": 2024,
+          "to_year": 2026,
+          "level": 2,
+          "n_common_nodes": 3895,
+          "ari": 0.9424757227701512
+        }
+      ]
+    },
+    "coherence_by_year": {
+      "2020": {
+        "0": {
+          "level": 0,
+          "n_clusters_scored": 12,
+          "observed_coherence": 0.01867958971071654,
+          "null_mean": 0.003944736125939977,
+          "null_std": 9.435635723438215e-05,
+          "null_n_trials": 30,
+          "z_score": 156.16174698409603,
+          "null_fraction_at_or_above_observed": 0.0
+        },
+        "1": {
+          "level": 1,
+          "n_clusters_scored": 50,
+          "observed_coherence": 0.05841922042889357,
+          "null_mean": 0.0038961574622445204,
+          "null_std": 0.00020990726612048308,
+          "null_n_trials": 30,
+          "z_score": 259.7483354166205,
+          "null_fraction_at_or_above_observed": 0.0
+        },
+        "2": {
+          "level": 2,
+          "n_clusters_scored": 196,
+          "observed_coherence": 0.13657262067075335,
+          "null_mean": 0.0038360808194854556,
+          "null_std": 0.00038430567917386416,
+          "null_n_trials": 30,
+          "z_score": 345.39312595278204,
+          "null_fraction_at_or_above_observed": 0.0
+        }
+      },
+      "2022": {
+        "0": {
+          "level": 0,
+          "n_clusters_scored": 12,
+          "observed_coherence": 0.01801271177060044,
+          "null_mean": 0.0036843556920245885,
+          "null_std": 5.175952242018661e-05,
+          "null_n_trials": 30,
+          "z_score": 276.8255078216812,
+          "null_fraction_at_or_above_observed": 0.0
+        },
+        "1": {
+          "level": 1,
+          "n_clusters_scored": 50,
+          "observed_coherence": 0.04958463786318521,
+          "null_mean": 0.0036727663743520394,
+          "null_std": 9.751746383940151e-05,
+          "null_n_trials": 30,
+          "z_score": 470.80666048128586,
+          "null_fraction_at_or_above_observed": 0.0
+        },
+        "2": {
+          "level": 2,
+          "n_clusters_scored": 198,
+          "observed_coherence": 0.1247311827631149,
+          "null_mean": 0.003601933790183683,
+          "null_std": 0.00021504537767660196,
+          "null_n_trials": 30,
+          "z_score": 563.272971879882,
+          "null_fraction_at_or_above_observed": 0.0
+        }
+      },
+      "2024": {
+        "0": {
+          "level": 0,
+          "n_clusters_scored": 12,
+          "observed_coherence": 0.012962412837558921,
+          "null_mean": 0.003248058613200686,
+          "null_std": 2.5755695167027312e-05,
+          "null_n_trials": 30,
+          "z_score": 377.17305478885476,
+          "null_fraction_at_or_above_observed": 0.0
+        },
+        "1": {
+          "level": 1,
+          "n_clusters_scored": 50,
+          "observed_coherence": 0.038357233007198115,
+          "null_mean": 0.0032437873052507606,
+          "null_std": 5.479460126879065e-05,
+          "null_n_trials": 30,
+          "z_score": 640.819440033902,
+          "null_fraction_at_or_above_observed": 0.0
+        },
+        "2": {
+          "level": 2,
+          "n_clusters_scored": 199,
+          "observed_coherence": 0.09081780689436295,
+          "null_mean": 0.003235275537692261,
+          "null_std": 0.00010066724189004007,
+          "null_n_trials": 30,
+          "z_score": 870.0201745105726,
+          "null_fraction_at_or_above_observed": 0.0
+        }
+      },
+      "2026": {
+        "0": {
+          "level": 0,
+          "n_clusters_scored": 12,
+          "observed_coherence": 0.01134888017696358,
+          "null_mean": 0.0030025456606621393,
+          "null_std": 1.4808526552376514e-05,
+          "null_n_trials": 30,
+          "z_score": 563.6168113539964,
+          "null_fraction_at_or_above_observed": 0.0
+        },
+        "1": {
+          "level": 1,
+          "n_clusters_scored": 50,
+          "observed_coherence": 0.031613638968345195,
+          "null_mean": 0.0030097579291198857,
+          "null_std": 3.5963570237681924e-05,
+          "null_n_trials": 30,
+          "z_score": 795.357103040196,
+          "null_fraction_at_or_above_observed": 0.0
+        },
+        "2": {
+          "level": 2,
+          "n_clusters_scored": 200,
+          "observed_coherence": 0.07780543944993353,
+          "null_mean": 0.0029902936550514547,
+          "null_std": 8.482244935775449e-05,
+          "null_n_trials": 30,
+          "z_score": 882.020577822921,
+          "null_fraction_at_or_above_observed": 0.0
+        }
+      }
+    }
+  },
+  "0.5": {
+    "gamma": 0.5,
+    "cross_snapshot": {
+      "by_level": {
+        "0": {
+          "mean_ari": 0.42296724007329045,
+          "std_ari": 0.055271446384815355,
+          "ci95": [
+            0.2856653557257842,
+            0.5602691244207967
+          ],
+          "values": [
+            0.4862715874381435,
+            0.3983401990587947,
+            0.384289933722933
+          ],
+          "n_transitions": 3
+        },
+        "1": {
+          "mean_ari": 0.6118705643584169,
+          "std_ari": 0.07571099027770407,
+          "ci95": [
+            0.4237940382156096,
+            0.7999470905012243
+          ],
+          "values": [
+            0.6862305733007757,
+            0.5348772976320563,
+            0.6145038221424186
+          ],
+          "n_transitions": 3
+        },
+        "2": {
+          "mean_ari": 0.9148534305960236,
+          "std_ari": 0.0035631887919911525,
+          "ci95": [
+            0.9060019789437523,
+            0.923704882248295
+          ],
+          "values": [
+            0.9126343348716496,
+            0.9129624743352476,
+            0.9189634825811741
+          ],
+          "n_transitions": 3
+        }
+      },
+      "detail": [
+        {
+          "from_year": 2020,
+          "to_year": 2022,
+          "level": 0,
+          "n_common_nodes": 1406,
+          "ari": 0.4862715874381435
+        },
+        {
+          "from_year": 2020,
+          "to_year": 2022,
+          "level": 1,
+          "n_common_nodes": 1406,
+          "ari": 0.6862305733007757
+        },
+        {
+          "from_year": 2020,
+          "to_year": 2022,
+          "level": 2,
+          "n_common_nodes": 1406,
+          "ari": 0.9126343348716496
+        },
+        {
+          "from_year": 2022,
+          "to_year": 2024,
+          "level": 0,
+          "n_common_nodes": 2046,
+          "ari": 0.3983401990587947
+        },
+        {
+          "from_year": 2022,
+          "to_year": 2024,
+          "level": 1,
+          "n_common_nodes": 2046,
+          "ari": 0.5348772976320563
+        },
+        {
+          "from_year": 2022,
+          "to_year": 2024,
+          "level": 2,
+          "n_common_nodes": 2046,
+          "ari": 0.9129624743352476
+        },
+        {
+          "from_year": 2024,
+          "to_year": 2026,
+          "level": 0,
+          "n_common_nodes": 3895,
+          "ari": 0.384289933722933
+        },
+        {
+          "from_year": 2024,
+          "to_year": 2026,
+          "level": 1,
+          "n_common_nodes": 3895,
+          "ari": 0.6145038221424186
+        },
+        {
+          "from_year": 2024,
+          "to_year": 2026,
+          "level": 2,
+          "n_common_nodes": 3895,
+          "ari": 0.9189634825811741
+        }
+      ]
+    },
+    "coherence_by_year": {
+      "2020": {
+        "0": {
+          "level": 0,
+          "n_clusters_scored": 12,
+          "observed_coherence": 0.01867958971071654,
+          "null_mean": 0.003944736125939977,
+          "null_std": 9.435635723438215e-05,
+          "null_n_trials": 30,
+          "z_score": 156.16174698409603,
+          "null_fraction_at_or_above_observed": 0.0
+        },
+        "1": {
+          "level": 1,
+          "n_clusters_scored": 50,
+          "observed_coherence": 0.05841922042889357,
+          "null_mean": 0.0038961574622445204,
+          "null_std": 0.00020990726612048308,
+          "null_n_trials": 30,
+          "z_score": 259.7483354166205,
+          "null_fraction_at_or_above_observed": 0.0
+        },
+        "2": {
+          "level": 2,
+          "n_clusters_scored": 196,
+          "observed_coherence": 0.13657262067075335,
+          "null_mean": 0.0038360808194854556,
+          "null_std": 0.00038430567917386416,
+          "null_n_trials": 30,
+          "z_score": 345.39312595278204,
+          "null_fraction_at_or_above_observed": 0.0
+        }
+      },
+      "2022": {
+        "0": {
+          "level": 0,
+          "n_clusters_scored": 12,
+          "observed_coherence": 0.019137799854053113,
+          "null_mean": 0.0036860825299958985,
+          "null_std": 4.292459120596561e-05,
+          "null_n_trials": 30,
+          "z_score": 359.97354639710005,
+          "null_fraction_at_or_above_observed": 0.0
+        },
+        "1": {
+          "level": 1,
+          "n_clusters_scored": 50,
+          "observed_coherence": 0.05034859226864141,
+          "null_mean": 0.0036656713087339643,
+          "null_std": 0.00012635707437844913,
+          "null_n_trials": 30,
+          "z_score": 369.4523728848653,
+          "null_fraction_at_or_above_observed": 0.0
+        },
+        "2": {
+          "level": 2,
+          "n_clusters_scored": 197,
+          "observed_coherence": 0.12405837465044228,
+          "null_mean": 0.003689405443463022,
+          "null_std": 0.0002667536520619314,
+          "null_n_trials": 30,
+          "z_score": 451.2364433497373,
+          "null_fraction_at_or_above_observed": 0.0
+        }
+      },
+      "2024": {
+        "0": {
+          "level": 0,
+          "n_clusters_scored": 12,
+          "observed_coherence": 0.012947749134848063,
+          "null_mean": 0.0032502567313532306,
+          "null_std": 2.696750839502459e-05,
+          "null_n_trials": 30,
+          "z_score": 359.59912430337783,
+          "null_fraction_at_or_above_observed": 0.0
+        },
+        "1": {
+          "level": 1,
+          "n_clusters_scored": 50,
+          "observed_coherence": 0.03814135240160677,
+          "null_mean": 0.0032365019102739145,
+          "null_std": 6.464269821178659e-05,
+          "null_n_trials": 30,
+          "z_score": 539.9658655487326,
+          "null_fraction_at_or_above_observed": 0.0
+        },
+        "2": {
+          "level": 2,
+          "n_clusters_scored": 199,
+          "observed_coherence": 0.08884293735517566,
+          "null_mean": 0.0032006313260670104,
+          "null_std": 0.00011172397341295102,
+          "null_n_trials": 30,
+          "z_score": 766.5526333597173,
+          "null_fraction_at_or_above_observed": 0.0
+        }
+      },
+      "2026": {
+        "0": {
+          "level": 0,
+          "n_clusters_scored": 12,
+          "observed_coherence": 0.011328821151236795,
+          "null_mean": 0.0030039592851572525,
+          "null_std": 1.988443780863078e-05,
+          "null_n_trials": 30,
+          "z_score": 418.6621691897249,
+          "null_fraction_at_or_above_observed": 0.0
+        },
+        "1": {
+          "level": 1,
+          "n_clusters_scored": 50,
+          "observed_coherence": 0.032520357961252765,
+          "null_mean": 0.0030036370799710914,
+          "null_std": 4.035956111149539e-05,
+          "null_n_trials": 30,
+          "z_score": 731.3439509349517,
+          "null_fraction_at_or_above_observed": 0.0
+        },
+        "2": {
+          "level": 2,
+          "n_clusters_scored": 200,
+          "observed_coherence": 0.07619727946408497,
+          "null_mean": 0.0029888913394123017,
+          "null_std": 8.26564359407146e-05,
+          "null_n_trials": 30,
+          "z_score": 885.6949527461051,
+          "null_fraction_at_or_above_observed": 0.0
+        }
+      }
+    }
+  }
+}

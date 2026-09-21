@@ -1,0 +1,847 @@
+{
+  "shipped": {
+    "MATCH_THRESHOLD": 0.15,
+    "STABLE_JACCARD": 0.5,
+    "SIZE_CHANGE_RATIO": 0.2
+  },
+  "shipped_total": {
+    "split": 80,
+    "shrink": 53,
+    "merge": 84,
+    "grow": 281,
+    "birth": 191,
+    "death": 106,
+    "stable": 97
+  },
+  "shipped_per_level": {
+    "0": {
+      "split": 4,
+      "shrink": 4,
+      "merge": 2,
+      "grow": 13,
+      "birth": 11,
+      "death": 9,
+      "stable": 2
+    },
+    "1": {
+      "grow": 59,
+      "shrink": 12,
+      "merge": 13,
+      "split": 13,
+      "stable": 15,
+      "birth": 38,
+      "death": 25
+    },
+    "2": {
+      "shrink": 37,
+      "split": 63,
+      "grow": 209,
+      "merge": 69,
+      "stable": 80,
+      "birth": 142,
+      "death": 72
+    }
+  },
+  "sweeps": {
+    "MATCH_THRESHOLD": [
+      {
+        "value": 0.05,
+        "total": {
+          "merge": 139,
+          "split": 245,
+          "grow": 167,
+          "birth": 158,
+          "stable": 72,
+          "shrink": 5,
+          "death": 5
+        },
+        "per_level": {
+          "0": {
+            "merge": 7,
+            "split": 12,
+            "grow": 8,
+            "birth": 8,
+            "stable": 1
+          },
+          "1": {
+            "split": 49,
+            "grow": 34,
+            "merge": 25,
+            "shrink": 3,
+            "stable": 9,
+            "birth": 30,
+            "death": 3
+          },
+          "2": {
+            "split": 184,
+            "grow": 125,
+            "merge": 107,
+            "stable": 62,
+            "birth": 120,
+            "shrink": 2,
+            "death": 2
+          }
+        }
+      },
+      {
+        "value": 0.1,
+        "total": {
+          "split": 132,
+          "shrink": 31,
+          "merge": 117,
+          "grow": 247,
+          "birth": 166,
+          "death": 37,
+          "stable": 93
+        },
+        "per_level": {
+          "0": {
+            "split": 7,
+            "shrink": 2,
+            "merge": 3,
+            "grow": 13,
+            "birth": 9,
+            "death": 6,
+            "stable": 2
+          },
+          "1": {
+            "split": 25,
+            "grow": 46,
+            "merge": 23,
+            "shrink": 8,
+            "stable": 15,
+            "birth": 33,
+            "death": 8
+          },
+          "2": {
+            "shrink": 21,
+            "split": 100,
+            "grow": 188,
+            "merge": 91,
+            "stable": 76,
+            "birth": 124,
+            "death": 23
+          }
+        }
+      },
+      {
+        "value": 0.15,
+        "total": {
+          "split": 80,
+          "shrink": 53,
+          "merge": 84,
+          "grow": 281,
+          "birth": 191,
+          "death": 106,
+          "stable": 97
+        },
+        "per_level": {
+          "0": {
+            "split": 4,
+            "shrink": 4,
+            "merge": 2,
+            "grow": 13,
+            "birth": 11,
+            "death": 9,
+            "stable": 2
+          },
+          "1": {
+            "grow": 59,
+            "shrink": 12,
+            "merge": 13,
+            "split": 13,
+            "stable": 15,
+            "birth": 38,
+            "death": 25
+          },
+          "2": {
+            "shrink": 37,
+            "split": 63,
+            "grow": 209,
+            "merge": 69,
+            "stable": 80,
+            "birth": 142,
+            "death": 72
+          }
+        }
+      },
+      {
+        "value": 0.2,
+        "total": {
+          "split": 36,
+          "shrink": 71,
+          "grow": 292,
+          "birth": 228,
+          "death": 174,
+          "stable": 105,
+          "merge": 54
+        },
+        "per_level": {
+          "0": {
+            "split": 2,
+            "shrink": 6,
+            "grow": 13,
+            "birth": 13,
+            "death": 13,
+            "stable": 2
+          },
+          "1": {
+            "grow": 56,
+            "shrink": 17,
+            "merge": 7,
+            "stable": 15,
+            "split": 4,
+            "birth": 51,
+            "death": 44
+          },
+          "2": {
+            "shrink": 48,
+            "grow": 223,
+            "merge": 47,
+            "stable": 88,
+            "split": 30,
+            "birth": 164,
+            "death": 117
+          }
+        }
+      },
+      {
+        "value": 0.25,
+        "total": {
+          "grow": 284,
+          "shrink": 79,
+          "birth": 272,
+          "death": 238,
+          "stable": 105,
+          "merge": 34,
+          "split": 12
+        },
+        "per_level": {
+          "0": {
+            "grow": 11,
+            "shrink": 5,
+            "birth": 18,
+            "death": 18,
+            "stable": 2
+          },
+          "1": {
+            "grow": 53,
+            "shrink": 20,
+            "stable": 15,
+            "birth": 61,
+            "death": 60,
+            "merge": 1
+          },
+          "2": {
+            "shrink": 54,
+            "grow": 220,
+            "merge": 33,
+            "stable": 88,
+            "split": 12,
+            "birth": 193,
+            "death": 160
+          }
+        }
+      },
+      {
+        "value": 0.3,
+        "total": {
+          "grow": 257,
+          "shrink": 72,
+          "birth": 336,
+          "death": 322,
+          "stable": 105,
+          "merge": 14,
+          "split": 2
+        },
+        "per_level": {
+          "0": {
+            "grow": 8,
+            "shrink": 4,
+            "birth": 22,
+            "death": 22,
+            "stable": 2
+          },
+          "1": {
+            "grow": 43,
+            "shrink": 17,
+            "stable": 15,
+            "birth": 75,
+            "death": 75
+          },
+          "2": {
+            "shrink": 51,
+            "grow": 206,
+            "merge": 14,
+            "stable": 88,
+            "split": 2,
+            "birth": 239,
+            "death": 225
+          }
+        }
+      },
+      {
+        "value": 0.35,
+        "total": {
+          "shrink": 58,
+          "grow": 214,
+          "birth": 399,
+          "death": 389,
+          "stable": 105,
+          "merge": 10
+        },
+        "per_level": {
+          "0": {
+            "shrink": 2,
+            "grow": 4,
+            "birth": 28,
+            "death": 28,
+            "stable": 2
+          },
+          "1": {
+            "shrink": 14,
+            "grow": 31,
+            "stable": 15,
+            "birth": 90,
+            "death": 90
+          },
+          "2": {
+            "shrink": 42,
+            "merge": 10,
+            "grow": 179,
+            "stable": 88,
+            "birth": 281,
+            "death": 271
+          }
+        }
+      },
+      {
+        "value": 0.4,
+        "total": {
+          "shrink": 46,
+          "grow": 184,
+          "birth": 445,
+          "death": 439,
+          "stable": 105,
+          "merge": 6
+        },
+        "per_level": {
+          "0": {
+            "shrink": 2,
+            "grow": 3,
+            "birth": 29,
+            "death": 29,
+            "stable": 2
+          },
+          "1": {
+            "shrink": 13,
+            "grow": 27,
+            "stable": 15,
+            "birth": 95,
+            "death": 95
+          },
+          "2": {
+            "shrink": 31,
+            "grow": 154,
+            "stable": 88,
+            "merge": 6,
+            "birth": 321,
+            "death": 315
+          }
+        }
+      }
+    ],
+    "STABLE_JACCARD": [
+      {
+        "value": 0.3,
+        "total": {
+          "split": 80,
+          "shrink": 32,
+          "stable": 118,
+          "merge": 84,
+          "grow": 281,
+          "birth": 191,
+          "death": 106
+        },
+        "per_level": {
+          "0": {
+            "split": 4,
+            "shrink": 3,
+            "stable": 3,
+            "merge": 2,
+            "grow": 13,
+            "birth": 11,
+            "death": 9
+          },
+          "1": {
+            "grow": 59,
+            "shrink": 5,
+            "merge": 13,
+            "split": 13,
+            "stable": 22,
+            "birth": 38,
+            "death": 25
+          },
+          "2": {
+            "shrink": 24,
+            "split": 63,
+            "grow": 209,
+            "merge": 69,
+            "stable": 93,
+            "birth": 142,
+            "death": 72
+          }
+        }
+      },
+      {
+        "value": 0.4,
+        "total": {
+          "split": 80,
+          "shrink": 39,
+          "stable": 111,
+          "merge": 84,
+          "grow": 281,
+          "birth": 191,
+          "death": 106
+        },
+        "per_level": {
+          "0": {
+            "split": 4,
+            "shrink": 3,
+            "stable": 3,
+            "merge": 2,
+            "grow": 13,
+            "birth": 11,
+            "death": 9
+          },
+          "1": {
+            "grow": 59,
+            "shrink": 6,
+            "merge": 13,
+            "split": 13,
+            "stable": 21,
+            "birth": 38,
+            "death": 25
+          },
+          "2": {
+            "shrink": 30,
+            "split": 63,
+            "grow": 209,
+            "merge": 69,
+            "stable": 87,
+            "birth": 142,
+            "death": 72
+          }
+        }
+      },
+      {
+        "value": 0.5,
+        "total": {
+          "split": 80,
+          "shrink": 53,
+          "merge": 84,
+          "grow": 281,
+          "birth": 191,
+          "death": 106,
+          "stable": 97
+        },
+        "per_level": {
+          "0": {
+            "split": 4,
+            "shrink": 4,
+            "merge": 2,
+            "grow": 13,
+            "birth": 11,
+            "death": 9,
+            "stable": 2
+          },
+          "1": {
+            "grow": 59,
+            "shrink": 12,
+            "merge": 13,
+            "split": 13,
+            "stable": 15,
+            "birth": 38,
+            "death": 25
+          },
+          "2": {
+            "shrink": 37,
+            "split": 63,
+            "grow": 209,
+            "merge": 69,
+            "stable": 80,
+            "birth": 142,
+            "death": 72
+          }
+        }
+      },
+      {
+        "value": 0.6,
+        "total": {
+          "split": 80,
+          "shrink": 68,
+          "merge": 84,
+          "grow": 281,
+          "birth": 191,
+          "death": 106,
+          "stable": 82
+        },
+        "per_level": {
+          "0": {
+            "split": 4,
+            "shrink": 6,
+            "merge": 2,
+            "grow": 13,
+            "birth": 11,
+            "death": 9
+          },
+          "1": {
+            "grow": 59,
+            "shrink": 16,
+            "merge": 13,
+            "split": 13,
+            "stable": 11,
+            "birth": 38,
+            "death": 25
+          },
+          "2": {
+            "shrink": 46,
+            "split": 63,
+            "grow": 209,
+            "merge": 69,
+            "stable": 71,
+            "birth": 142,
+            "death": 72
+          }
+        }
+      },
+      {
+        "value": 0.7,
+        "total": {
+          "split": 80,
+          "shrink": 82,
+          "merge": 84,
+          "grow": 281,
+          "birth": 191,
+          "death": 106,
+          "stable": 68
+        },
+        "per_level": {
+          "0": {
+            "split": 4,
+            "shrink": 6,
+            "merge": 2,
+            "grow": 13,
+            "birth": 11,
+            "death": 9
+          },
+          "1": {
+            "grow": 59,
+            "shrink": 20,
+            "merge": 13,
+            "split": 13,
+            "stable": 7,
+            "birth": 38,
+            "death": 25
+          },
+          "2": {
+            "shrink": 56,
+            "split": 63,
+            "grow": 209,
+            "merge": 69,
+            "stable": 61,
+            "birth": 142,
+            "death": 72
+          }
+        }
+      },
+      {
+        "value": 0.8,
+        "total": {
+          "split": 80,
+          "shrink": 91,
+          "merge": 84,
+          "grow": 281,
+          "birth": 191,
+          "death": 106,
+          "stable": 59
+        },
+        "per_level": {
+          "0": {
+            "split": 4,
+            "shrink": 6,
+            "merge": 2,
+            "grow": 13,
+            "birth": 11,
+            "death": 9
+          },
+          "1": {
+            "grow": 59,
+            "shrink": 22,
+            "merge": 13,
+            "split": 13,
+            "stable": 5,
+            "birth": 38,
+            "death": 25
+          },
+          "2": {
+            "shrink": 63,
+            "split": 63,
+            "grow": 209,
+            "merge": 69,
+            "stable": 54,
+            "birth": 142,
+            "death": 72
+          }
+        }
+      }
+    ],
+    "SIZE_CHANGE_RATIO": [
+      {
+        "value": 0.1,
+        "total": {
+          "split": 80,
+          "shrink": 52,
+          "merge": 84,
+          "grow": 317,
+          "birth": 191,
+          "death": 106,
+          "stable": 62
+        },
+        "per_level": {
+          "0": {
+            "split": 4,
+            "shrink": 6,
+            "merge": 2,
+            "grow": 13,
+            "birth": 11,
+            "death": 9
+          },
+          "1": {
+            "grow": 68,
+            "shrink": 11,
+            "merge": 13,
+            "split": 13,
+            "stable": 7,
+            "birth": 38,
+            "death": 25
+          },
+          "2": {
+            "shrink": 35,
+            "split": 63,
+            "grow": 236,
+            "merge": 69,
+            "stable": 55,
+            "birth": 142,
+            "death": 72
+          }
+        }
+      },
+      {
+        "value": 0.15,
+        "total": {
+          "split": 80,
+          "shrink": 52,
+          "merge": 84,
+          "grow": 297,
+          "birth": 191,
+          "death": 106,
+          "stable": 82
+        },
+        "per_level": {
+          "0": {
+            "split": 4,
+            "shrink": 5,
+            "merge": 2,
+            "grow": 13,
+            "birth": 11,
+            "death": 9,
+            "stable": 1
+          },
+          "1": {
+            "grow": 64,
+            "shrink": 12,
+            "merge": 13,
+            "split": 13,
+            "stable": 10,
+            "birth": 38,
+            "death": 25
+          },
+          "2": {
+            "shrink": 35,
+            "split": 63,
+            "grow": 220,
+            "merge": 69,
+            "stable": 71,
+            "birth": 142,
+            "death": 72
+          }
+        }
+      },
+      {
+        "value": 0.2,
+        "total": {
+          "split": 80,
+          "shrink": 53,
+          "merge": 84,
+          "grow": 281,
+          "birth": 191,
+          "death": 106,
+          "stable": 97
+        },
+        "per_level": {
+          "0": {
+            "split": 4,
+            "shrink": 4,
+            "merge": 2,
+            "grow": 13,
+            "birth": 11,
+            "death": 9,
+            "stable": 2
+          },
+          "1": {
+            "grow": 59,
+            "shrink": 12,
+            "merge": 13,
+            "split": 13,
+            "stable": 15,
+            "birth": 38,
+            "death": 25
+          },
+          "2": {
+            "shrink": 37,
+            "split": 63,
+            "grow": 209,
+            "merge": 69,
+            "stable": 80,
+            "birth": 142,
+            "death": 72
+          }
+        }
+      },
+      {
+        "value": 0.25,
+        "total": {
+          "split": 80,
+          "shrink": 53,
+          "merge": 84,
+          "grow": 265,
+          "birth": 191,
+          "death": 106,
+          "stable": 113
+        },
+        "per_level": {
+          "0": {
+            "split": 4,
+            "shrink": 4,
+            "merge": 2,
+            "grow": 13,
+            "birth": 11,
+            "death": 9,
+            "stable": 2
+          },
+          "1": {
+            "grow": 55,
+            "shrink": 12,
+            "merge": 13,
+            "split": 13,
+            "stable": 19,
+            "birth": 38,
+            "death": 25
+          },
+          "2": {
+            "stable": 92,
+            "split": 63,
+            "grow": 197,
+            "merge": 69,
+            "shrink": 37,
+            "birth": 142,
+            "death": 72
+          }
+        }
+      },
+      {
+        "value": 0.3,
+        "total": {
+          "split": 80,
+          "shrink": 53,
+          "merge": 84,
+          "grow": 247,
+          "birth": 191,
+          "death": 106,
+          "stable": 131
+        },
+        "per_level": {
+          "0": {
+            "split": 4,
+            "shrink": 4,
+            "merge": 2,
+            "grow": 13,
+            "birth": 11,
+            "death": 9,
+            "stable": 2
+          },
+          "1": {
+            "grow": 53,
+            "shrink": 12,
+            "merge": 13,
+            "split": 13,
+            "stable": 21,
+            "birth": 38,
+            "death": 25
+          },
+          "2": {
+            "stable": 108,
+            "split": 63,
+            "grow": 181,
+            "merge": 69,
+            "shrink": 37,
+            "birth": 142,
+            "death": 72
+          }
+        }
+      },
+      {
+        "value": 0.4,
+        "total": {
+          "split": 80,
+          "shrink": 62,
+          "merge": 84,
+          "grow": 225,
+          "birth": 191,
+          "death": 106,
+          "stable": 144
+        },
+        "per_level": {
+          "0": {
+            "split": 4,
+            "shrink": 4,
+            "merge": 2,
+            "grow": 13,
+            "birth": 11,
+            "death": 9,
+            "stable": 2
+          },
+          "1": {
+            "grow": 49,
+            "shrink": 14,
+            "merge": 13,
+            "split": 13,
+            "stable": 23,
+            "birth": 38,
+            "death": 25
+          },
+          "2": {
+            "stable": 119,
+            "split": 63,
+            "grow": 163,
+            "merge": 69,
+            "shrink": 44,
+            "birth": 142,
+            "death": 72
+          }
+        }
+      }
+    ]
+  }
+}
