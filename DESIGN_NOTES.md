@@ -130,6 +130,19 @@ matters more. Alpha stayed at the default 0.5 for the final run, I never
 found time to run a proper sweep of it, that's a real gap not a checked
 answer.
 
+Update: I went back and ran that sweep. Alpha from 0.05 to 0.95 in steps
+of 0.05, scored by coherence-vs-null and both stability measures, the two
+T6 metrics that don't need hand-written labels, so the sweep didn't need
+new labels for every value it tried. alpha=0.3 was the only value in the
+whole grid that beat the shipped 0.5 on every one of those metrics at
+every level, not just on average, so I moved the default to 0.3 and
+regenerated hierarchy.json and temporal_events.json against it (checked:
+still laminar at all 4 snapshots, all 10 unit tests still pass). Labels,
+faithfulness and the extrinsic eval are now out of date against the new
+clustering and need to be redone before I trust metrics.json or
+report.md's numbers again. That's the next thing to do, not skipped by
+accident.
+
 ## 8. Sparse average-linkage clustering and forced merges
 
 `cluster.py`, `sparse_upgma`.

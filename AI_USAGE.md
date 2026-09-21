@@ -31,8 +31,9 @@ semantic signal would depend on how noisy the hyperedge structure turned
 out to be once I could actually see coherence and stability numbers, not
 something to guess correctly up front, so I flagged it from the start as
 a value to revisit once the evaluation existed rather than something to
-tune blind. I didn't get to that ablation in this pass, it's in
-`report.md`'s next-steps section.
+tune blind. I didn't get to that ablation in the first pass, it went into
+`report.md`'s next-steps section at the time; I came back and ran it
+afterward, see "Alpha ablation and relabeling" below.
 
 ## Feasibility check
 
@@ -134,6 +135,52 @@ numbers, so they can't drift from the underlying data. I reviewed
 `report.md` for accuracy against the actual metrics before treating it as
 final, including re-checking the T4 collapse numbers cited in the text
 against the current `hierarchy.json`.
+
+## Alpha ablation and relabeling
+
+Prompt: "Okay, generate a plan for each fixable iteration, starting with
+alpha ablation, keep them in a seperate ignored file called FIXES.md, and
+if a fix will bring betterment then keep it and commit. generate the plan
+and start the alpha sweep: 5-95, 10-90, 15-85, ..., 95-5"
+
+I had the agent write `scripts/alpha_sweep.py` to sweep alpha in 5% steps
+(19 values), scored by coherence and stability only, the two T6 metrics
+that don't need hand-written labels. Before trusting a 19-value run I had
+it smoke-test the script against alpha=0.5 alone first; it reproduced the
+shipped `metrics.json` numbers to the exact digit, which is what made me
+comfortable letting the full sweep run unattended after that. The decision
+rule (only replace 0.5 if some value beats it on every metric at every
+level, not just on average) went into `FIXES.md` before the sweep ran, not
+chosen after seeing which value happened to look good.
+
+alpha=0.3 was the only value that passed that bar. I had the agent apply
+it to the real pipeline, not just the sweep's lightweight version,
+regenerate `hierarchy.json`, and re-check the structural validator and
+unit tests before doing anything else with it.
+
+Prompt: "Okay, add this to the report.md as a finding, do the relabeling
+for 0.3 and see if the end result is really better with alpha equalling
+0.3 and also provide a logical justification for this in the report.md"
+
+Moving alpha meant the clusters changed, not just their weights, so the
+old labels (248 of them, levels 0-1 across 4 snapshots) no longer
+described the right members. I had the agent relabel from scratch the
+same way as the original T5 pass, four parallel sub-agents, one per
+snapshot, reading real member lists. I independently verified all four
+outputs myself with a word-count script rather than trusting each
+sub-agent's self-report (0 violations across 248 entries), and looked at
+the specific clusters each sub-agent flagged as hard calls rather than
+just taking the "all good" summary at face value.
+
+Re-running the full T6 suite against the new labels surfaced a real
+regression I hadn't anticipated: the branching factor (5,5), exactly right
+under alpha=0.5, no longer matched the flat baseline under alpha=0.3
+(0.027 recall vs. flat's 0.0325). I had the agent re-sweep it the same way
+as the first time rather than assume the old value still held; (8,8)
+matches flat again. That's the clearest illustration in this whole pass of
+why changing one parameter isn't a one-line commit here, it has knock-on
+effects through labels, faithfulness, and the extrinsic eval that all
+needed rechecking, not assuming.
 
 ## Verification habits, generally
 

@@ -95,7 +95,7 @@ def fig_extrinsic_sweep(metrics):
     xs = [r["mean_candidates_scored"] for r in sweep]
     ys = [r["mean_recall"] for r in sweep]
     ax.plot(xs, ys, color=BLUE, linewidth=1.6, marker="o", markersize=5, label="Drill-down (b0, b1 swept)")
-    labeled = {(3, 3), (5, 5)}
+    labeled = {(3, 3), (8, 8)}
     for r in sweep:
         if (r["b0"], r["b1"]) in labeled:
             ax.annotate(f"({r['b0']},{r['b1']})", (r["mean_candidates_scored"], r["mean_recall"]),

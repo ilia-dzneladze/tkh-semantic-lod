@@ -13,7 +13,7 @@ from .collapse import build_coarse_hyperedges
 from .temporal import clusters_from_labels, track_across_snapshots
 
 LEVEL_TARGETS = [12, 50, 200]  # level 0 (coarsest) .. level 2 (finest super-node level)
-ALPHA = 0.5
+ALPHA = 0.3  # see DESIGN_NOTES.md: structural/semantic combination (alpha ablation)
 KNN_K = 15
 
 

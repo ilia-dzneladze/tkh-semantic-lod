@@ -24,7 +24,7 @@ from tkh.eval.extrinsic import (  # noqa: E402
 DATA_PATH = ROOT / "data" / "tkh_collection10.json"
 OUT_DIR = ROOT / "outputs"
 K = 20
-FINAL_B0, FINAL_B1 = 5, 5
+FINAL_B0, FINAL_B1 = 8, 8
 SWEEP = [(3, 3), (5, 5), (8, 8), (5, 10), (8, 15)]
 
 

@@ -27,13 +27,16 @@ DATA_PATH = ROOT / "data" / "tkh_collection10.json"
 OUT_DIR = ROOT / "outputs"
 LEVEL_TARGETS = [12, 50, 200]
 EXTRINSIC_K = 20
-# b0=3,b1=3 was tried first and cut recall roughly in half vs the flat
-# baseline. Swept wider (scripts/t6_extrinsic_sweep.py): b0=5,b1=5 matches
-# flat's recall and precision exactly while scoring ~16% of the candidate
-# pool (497 vs 3104). Going wider than that doesn't help further, recall
-# saturates at the flat baseline's level once branching is wide enough to
-# not exclude the answer up front. See DESIGN_NOTES.md section 14.
-DRILL_B0, DRILL_B1 = 5, 5
+# At alpha=0.5 (original run): b0=3,b1=3 cut recall roughly in half vs
+# flat, b0=5,b1=5 matched flat exactly at ~16% of the candidate pool.
+# After the alpha ablation moved the default to 0.3 (FIXES.md iteration
+# 1), the clustering changed enough that b0=5,b1=5 no longer matches flat
+# (0.027 vs flat's 0.032 recall) -- re-swept via t6_patch_extrinsic.py:
+# b0=8,b1=8 is the narrowest value that matches flat's recall and
+# precision exactly again, at ~25% of the candidate pool (774 vs 3104).
+# Wider than that doesn't help further, same saturation pattern as before.
+# See DESIGN_NOTES.md section 14.
+DRILL_B0, DRILL_B1 = 8, 8
 
 
 def log(msg):
@@ -65,7 +68,7 @@ def run_stability(snapshots, hierarchies):
     cache = dict(zip(ids, vecs))
     log(f"perturbation embeddings ({year}) done")
 
-    pert = perturbation_stability(snap, cache, LEVEL_TARGETS, alpha=0.5,
+    pert = perturbation_stability(snap, cache, LEVEL_TARGETS, alpha=0.3,
                                    original_hierarchy=hierarchies[year],
                                    n_seeds=5, remove_frac=0.10)
     log("perturbation stability done")
