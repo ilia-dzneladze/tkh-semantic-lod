@@ -113,11 +113,41 @@ def fig_extrinsic_sweep(metrics):
     plt.close(fig)
 
 
+def fig_rerank_sweep(metrics):
+    ext = metrics["extrinsic"]
+    sweep = sorted(ext["rerank_beta_sweep"], key=lambda r: r["beta"])
+    flat_recall = ext["summary"]["flat_mean_recall"]
+    shipped_beta = ext["summary"]["branching"]["beta"]
+
+    fig, ax = plt.subplots(figsize=(6, 3.6))
+    xs = [r["beta"] for r in sweep]
+    ys = [r["mean_recall"] for r in sweep]
+    ax.plot(xs, ys, color=BLUE, linewidth=1.6, marker="o", markersize=5,
+            label="Drill-down (b0=8, b1=8), reranked")
+    for r in sweep:
+        if r["beta"] == shipped_beta:
+            ax.scatter([r["beta"]], [r["mean_recall"]], color=ORANGE, s=65, zorder=5,
+                       marker="D", label=f"Shipped (beta={shipped_beta})")
+
+    ax.axhline(flat_recall, color=GRAY, linewidth=0.8, linestyle=":", alpha=0.8)
+    ax.text(0.02, flat_recall + 0.0008, "flat baseline", fontsize=8.5, color=GRAY)
+
+    ax.set_xlabel("beta (0 = own embedding only, 1 = ancestor label+gloss only)")
+    ax.set_ylabel("mean recall@20")
+    ax.set_title("Hierarchy-context reranking vs. flat baseline (2026, 14 questions)", loc="left", fontsize=10.5)
+    ax.legend(frameon=False, loc="upper left", fontsize=9)
+    fig.tight_layout()
+    fig.savefig(OUT_DIR / "rerank_beta_sweep.png", dpi=150)
+    plt.close(fig)
+
+
 def main():
     metrics = json.loads((ROOT / "outputs" / "metrics.json").read_text(encoding="utf-8"))
     fig_coherence(metrics)
     fig_stability(metrics)
     fig_extrinsic_sweep(metrics)
+    if "rerank_beta_sweep" in metrics.get("extrinsic", {}):
+        fig_rerank_sweep(metrics)
     print(f"wrote figures to {OUT_DIR}")
 
 

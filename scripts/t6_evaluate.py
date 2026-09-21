@@ -21,6 +21,7 @@ from tkh.eval.faithfulness import check_hierarchy_faithfulness  # noqa: E402
 from tkh.eval.extrinsic import (  # noqa: E402
     METHOD_LIKE_TYPES, match_ground_truth_methods, flat_baseline,
     hierarchy_drilldown, score_retrieval, build_retrieval_texts,
+    build_level1_ancestor_map,
 )
 
 DATA_PATH = ROOT / "data" / "tkh_collection10.json"
@@ -37,6 +38,14 @@ EXTRINSIC_K = 20
 # Wider than that doesn't help further, same saturation pattern as before.
 # See DESIGN_NOTES.md section 14.
 DRILL_B0, DRILL_B1 = 8, 8
+# Matching flat was the ceiling for pool restriction alone (drill-down can
+# only ever rank a subset of flat's pool with flat's own scoring function,
+# so it can tie flat, never beat it). Blending in each candidate's level-1
+# ancestor label+gloss score gives the ranker real information flat
+# doesn't have. Swept beta 0.0-1.0 (FIXES.md iteration 7): beta=0.6 beats
+# flat's recall and precision outright at the same candidate count as
+# DRILL_B0/B1 above, not just matches it. See DESIGN_NOTES.md section 14.
+DRILL_BETA = 0.6
 
 
 def log(msg):
@@ -104,6 +113,7 @@ def run_extrinsic(snap, hierarchy):
     lg_ids = [sn["id"] for sn in lg_nodes]
     lg_texts = [f"{sn['label']}. {sn['gloss']}" for sn in lg_nodes]
     lg_matrix = encode_semantic(lg_texts, show_progress_bar=False)
+    node_to_level1 = build_level1_ancestor_map(hierarchy)
 
     results = []
     match_coverage = []
@@ -127,7 +137,8 @@ def run_extrinsic(snap, hierarchy):
         flat_retrieved, flat_n = flat_baseline(qvec, method_ids, node_emb_matrix, k=EXTRINSIC_K)
         drill_retrieved, drill_n, drill_detail = hierarchy_drilldown(
             qvec, hierarchy, lg_ids, lg_matrix, node_emb_by_id,
-            b0=DRILL_B0, b1=DRILL_B1, k=EXTRINSIC_K)
+            b0=DRILL_B0, b1=DRILL_B1, k=EXTRINSIC_K,
+            beta=DRILL_BETA, node_to_level1=node_to_level1)
 
         results.append({
             "question_id": qid, "n_gt_node_ids": len(gt_ids),
@@ -143,7 +154,7 @@ def run_extrinsic(snap, hierarchy):
 
     summary = {
         "n_questions_scored": len(results),
-        "k": EXTRINSIC_K, "branching": {"b0": DRILL_B0, "b1": DRILL_B1},
+        "k": EXTRINSIC_K, "branching": {"b0": DRILL_B0, "b1": DRILL_B1, "beta": DRILL_BETA},
         "flat_mean_recall": avg(results, ("flat", "recall_at_k")),
         "flat_mean_precision": avg(results, ("flat", "precision_at_k")),
         "flat_mean_candidates_scored": avg(results, ("flat", "n_candidates_scored")),

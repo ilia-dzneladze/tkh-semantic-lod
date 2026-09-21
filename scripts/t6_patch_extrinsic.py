@@ -1,7 +1,7 @@
 """Recompute just the extrinsic section of metrics.json with the final
-branching factor (b0=5, b1=5), and attach the branching-factor sweep as
-supporting evidence, without re-running the expensive coherence/
-stability/faithfulness stages.
+branching factor and rerank beta (FIXES.md iterations 1 and 7), and
+attach the branching-factor and beta sweeps as supporting evidence,
+without re-running the expensive coherence/stability/faithfulness stages.
 """
 import csv
 import json
@@ -19,13 +19,16 @@ from tkh.embeddings import encode_semantic  # noqa: E402
 from tkh.eval.extrinsic import (  # noqa: E402
     METHOD_LIKE_TYPES, match_ground_truth_methods, flat_baseline,
     hierarchy_drilldown, score_retrieval, build_retrieval_texts,
+    build_level1_ancestor_map,
 )
 
 DATA_PATH = ROOT / "data" / "tkh_collection10.json"
 OUT_DIR = ROOT / "outputs"
 K = 20
 FINAL_B0, FINAL_B1 = 8, 8
+FINAL_BETA = 0.6
 SWEEP = [(3, 3), (5, 5), (8, 8), (5, 10), (8, 15)]
+BETA_SWEEP = [round(0.1 * i, 1) for i in range(11)]
 
 
 def main():
@@ -44,6 +47,7 @@ def main():
     lg_ids = [sn["id"] for sn in lg_nodes]
     lg_texts = [f"{sn['label']}. {sn['gloss']}" for sn in lg_nodes]
     lg_matrix = encode_semantic(lg_texts, show_progress_bar=False)
+    node_to_level1 = build_level1_ancestor_map(hierarchy)
 
     with open(ROOT / "data" / "questions.csv", encoding="utf-8") as f:
         questions = list(csv.DictReader(f, delimiter=";"))
@@ -74,14 +78,15 @@ def main():
         flat_retrieved, flat_n = flat_baseline(qvec, method_ids, node_emb_matrix, k=K)
         drill_retrieved, drill_n, drill_detail = hierarchy_drilldown(
             qvec, hierarchy, lg_ids, lg_matrix, node_emb_by_id,
-            b0=FINAL_B0, b1=FINAL_B1, k=K)
+            b0=FINAL_B0, b1=FINAL_B1, k=K, beta=FINAL_BETA, node_to_level1=node_to_level1)
         results.append({
             "question_id": qid, "n_gt_node_ids": len(gt_ids),
             "flat": {**score_retrieval(flat_retrieved, gt_ids, K), "n_candidates_scored": flat_n},
             "drilldown": {**score_retrieval(drill_retrieved, gt_ids, K),
                           "n_candidates_scored": drill_n, **drill_detail},
         })
-    print(f"[{time.time()-t0:.1f}s] final-branching eval done (b0={FINAL_B0}, b1={FINAL_B1})")
+    print(f"[{time.time()-t0:.1f}s] final-branching eval done "
+          f"(b0={FINAL_B0}, b1={FINAL_B1}, beta={FINAL_BETA})")
 
     def avg(rows, path):
         vals = [r[path[0]][path[1]] for r in rows if r[path[0]].get(path[1]) is not None]
@@ -89,7 +94,7 @@ def main():
 
     summary = {
         "n_questions_scored": len(results),
-        "k": K, "branching": {"b0": FINAL_B0, "b1": FINAL_B1},
+        "k": K, "branching": {"b0": FINAL_B0, "b1": FINAL_B1, "beta": FINAL_BETA},
         "flat_mean_recall": avg(results, ("flat", "recall_at_k")),
         "flat_mean_precision": avg(results, ("flat", "precision_at_k")),
         "flat_mean_candidates_scored": avg(results, ("flat", "n_candidates_scored")),
@@ -98,7 +103,8 @@ def main():
         "drilldown_mean_candidates_scored": avg(results, ("drilldown", "n_candidates_scored")),
     }
 
-    # branching sweep, reusing the already-computed embeddings
+    # branching sweep, reusing the already-computed embeddings (beta=0, pure
+    # node-cosine ranking, matches how this sweep was originally run)
     sweep_rows = []
     for b0, b1 in SWEEP:
         recalls, precisions, scored = [], [], []
@@ -116,12 +122,34 @@ def main():
         })
     print(f"[{time.time()-t0:.1f}s] branching sweep done")
 
+    # rerank beta sweep at the shipped (FINAL_B0, FINAL_B1) pool, FIXES.md
+    # iteration 7: does blending in the level-1 ancestor's label+gloss
+    # score let drill-down beat flat, not just match it?
+    beta_sweep_rows = []
+    for beta in BETA_SWEEP:
+        recalls, precisions, scored = [], [], []
+        for qid, gt_ids, qvec in per_question_ctx:
+            retrieved, n_scored, _ = hierarchy_drilldown(
+                qvec, hierarchy, lg_ids, lg_matrix, node_emb_by_id,
+                b0=FINAL_B0, b1=FINAL_B1, k=K, beta=beta, node_to_level1=node_to_level1)
+            s = score_retrieval(retrieved, gt_ids, K)
+            recalls.append(s["recall_at_k"])
+            precisions.append(s["precision_at_k"])
+            scored.append(n_scored)
+        beta_sweep_rows.append({
+            "beta": beta,
+            "mean_recall": float(np.mean(recalls)), "mean_precision": float(np.mean(precisions)),
+            "mean_candidates_scored": float(np.mean(scored)),
+        })
+    print(f"[{time.time()-t0:.1f}s] rerank beta sweep done")
+
     metrics_path = OUT_DIR / "metrics.json"
     metrics = json.loads(metrics_path.read_text(encoding="utf-8"))
     metrics["extrinsic"] = {
         "summary": summary, "per_question": results,
         "ground_truth_match_coverage": match_coverage,
         "branching_factor_sweep": sweep_rows,
+        "rerank_beta_sweep": beta_sweep_rows,
     }
     metrics_path.write_text(json.dumps(metrics, indent=2), encoding="utf-8")
     print(f"[{time.time()-t0:.1f}s] wrote {metrics_path}")

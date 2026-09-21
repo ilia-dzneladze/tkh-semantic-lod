@@ -1,0 +1,169 @@
+{
+  "flat_summary": {
+    "mean_recall": 0.03245838565311182,
+    "mean_precision": 0.014285714285714287,
+    "mean_candidates_scored": 3104.0
+  },
+  "shipped_drilldown_b0_b1": [
+    8,
+    8
+  ],
+  "full_pool": [
+    {
+      "beta": 0.0,
+      "mean_recall": 0.03245838565311182,
+      "mean_precision": 0.014285714285714287,
+      "mean_candidates_scored": 3104.0,
+      "beats_flat_recall": false
+    },
+    {
+      "beta": 0.1,
+      "mean_recall": 0.029995331465919702,
+      "mean_precision": 0.010714285714285716,
+      "mean_candidates_scored": 3104.0,
+      "beats_flat_recall": false
+    },
+    {
+      "beta": 0.2,
+      "mean_recall": 0.029995331465919702,
+      "mean_precision": 0.010714285714285716,
+      "mean_candidates_scored": 3104.0,
+      "beats_flat_recall": false
+    },
+    {
+      "beta": 0.3,
+      "mean_recall": 0.03245838565311182,
+      "mean_precision": 0.014285714285714287,
+      "mean_candidates_scored": 3104.0,
+      "beats_flat_recall": false
+    },
+    {
+      "beta": 0.4,
+      "mean_recall": 0.03245838565311182,
+      "mean_precision": 0.014285714285714287,
+      "mean_candidates_scored": 3104.0,
+      "beats_flat_recall": false
+    },
+    {
+      "beta": 0.5,
+      "mean_recall": 0.034921439840303936,
+      "mean_precision": 0.017857142857142856,
+      "mean_candidates_scored": 3104.0,
+      "beats_flat_recall": true
+    },
+    {
+      "beta": 0.6,
+      "mean_recall": 0.04231060240188029,
+      "mean_precision": 0.028571428571428574,
+      "mean_candidates_scored": 3104.0,
+      "beats_flat_recall": true
+    },
+    {
+      "beta": 0.7,
+      "mean_recall": 0.04231060240188029,
+      "mean_precision": 0.028571428571428574,
+      "mean_candidates_scored": 3104.0,
+      "beats_flat_recall": true
+    },
+    {
+      "beta": 0.8,
+      "mean_recall": 0.02025177887246853,
+      "mean_precision": 0.02142857142857143,
+      "mean_candidates_scored": 3104.0,
+      "beats_flat_recall": false
+    },
+    {
+      "beta": 0.9,
+      "mean_recall": 0.02025177887246853,
+      "mean_precision": 0.02142857142857143,
+      "mean_candidates_scored": 3104.0,
+      "beats_flat_recall": false
+    },
+    {
+      "beta": 1.0,
+      "mean_recall": 0.03427224116879289,
+      "mean_precision": 0.028571428571428574,
+      "mean_candidates_scored": 3104.0,
+      "beats_flat_recall": true
+    }
+  ],
+  "restricted_pool_8_8": [
+    {
+      "beta": 0.0,
+      "mean_recall": 0.03245838565311182,
+      "mean_precision": 0.014285714285714287,
+      "mean_candidates_scored": 773.7857142857143,
+      "beats_flat_recall": false
+    },
+    {
+      "beta": 0.1,
+      "mean_recall": 0.03245838565311182,
+      "mean_precision": 0.014285714285714287,
+      "mean_candidates_scored": 773.7857142857143,
+      "beats_flat_recall": false
+    },
+    {
+      "beta": 0.2,
+      "mean_recall": 0.03245838565311182,
+      "mean_precision": 0.014285714285714287,
+      "mean_candidates_scored": 773.7857142857143,
+      "beats_flat_recall": false
+    },
+    {
+      "beta": 0.3,
+      "mean_recall": 0.03245838565311182,
+      "mean_precision": 0.014285714285714287,
+      "mean_candidates_scored": 773.7857142857143,
+      "beats_flat_recall": false
+    },
+    {
+      "beta": 0.4,
+      "mean_recall": 0.034921439840303936,
+      "mean_precision": 0.017857142857142856,
+      "mean_candidates_scored": 773.7857142857143,
+      "beats_flat_recall": true
+    },
+    {
+      "beta": 0.5,
+      "mean_recall": 0.034921439840303936,
+      "mean_precision": 0.017857142857142856,
+      "mean_candidates_scored": 773.7857142857143,
+      "beats_flat_recall": true
+    },
+    {
+      "beta": 0.6,
+      "mean_recall": 0.04231060240188029,
+      "mean_precision": 0.028571428571428574,
+      "mean_candidates_scored": 773.7857142857143,
+      "beats_flat_recall": true
+    },
+    {
+      "beta": 0.7,
+      "mean_recall": 0.04231060240188029,
+      "mean_precision": 0.028571428571428574,
+      "mean_candidates_scored": 773.7857142857143,
+      "beats_flat_recall": true
+    },
+    {
+      "beta": 0.8,
+      "mean_recall": 0.03810892172961138,
+      "mean_precision": 0.024999999999999998,
+      "mean_candidates_scored": 773.7857142857143,
+      "beats_flat_recall": true
+    },
+    {
+      "beta": 0.9,
+      "mean_recall": 0.02025177887246853,
+      "mean_precision": 0.02142857142857143,
+      "mean_candidates_scored": 773.7857142857143,
+      "beats_flat_recall": false
+    },
+    {
+      "beta": 1.0,
+      "mean_recall": 0.042901542901542904,
+      "mean_precision": 0.024999999999999998,
+      "mean_candidates_scored": 773.7857142857143,
+      "beats_flat_recall": true
+    }
+  ]
+}

@@ -347,7 +347,41 @@ through the same honesty check: the first value I tried (3, 3) cut recall
 roughly in half compared to the flat baseline, which would have made the
 hierarchy look strictly worse at the one thing it's supposed to help
 with. Swept a few wider values instead of reporting that number, and
-(5, 5) matches the flat baseline's recall and precision exactly while
-still only scoring about 16% of the candidate pool. Going wider than that
+(5, 5) matched the flat baseline's recall and precision exactly while
+still only scoring about 16% of the candidate pool (after the alpha
+ablation moved alpha to 0.3, this specific pair stopped matching and got
+re-swept to (8, 8); see FIXES.md iteration 1). Going wider than that
 doesn't help further, recall saturates at the flat baseline's level once
 the branching is wide enough to not exclude the right answer up front.
+
+Update, beating flat rather than matching it (FIXES.md iteration 7): every
+branching-factor value above has the same ceiling built in, and I didn't
+notice it until I asked myself why nothing had ever beaten flat, only tied
+it. `hierarchy_drilldown` only ever ranks a *subset* of flat's candidate
+pool, using the exact same scoring function flat uses on the full pool
+(cosine similarity to the node's own embedding). A subset ranked by the
+same function as the full set can tie the full set at best, it can't
+systematically do better, because it has strictly less information, not
+different information. Widening the branch just approaches that ceiling
+from below, which is exactly the saturation pattern above.
+
+So I gave the ranker something flat genuinely doesn't have: each
+candidate's level-1 ancestor's label+gloss score, the same score already
+used to pick which branches to descend into, now also blended into the
+final per-node ranking instead of being thrown away after the branching
+decision. `final = (1 - beta) * node_score + beta * ancestor_score`.
+Swept beta from 0.0 (current shipped behavior, exact reproduction was the
+smoke test) to 1.0 in steps of 0.1, at the shipped (8, 8) pool. beta=0.6
+and 0.7 tie for the best result: mean recall 0.0423 against flat's 0.0325
+and mean precision 0.0286 against flat's 0.0143, both clearly above flat,
+still only scoring the same 774 candidates (25% of the pool) as before.
+Checked this wasn't a pool-restriction artifact by rerunning the same beta
+sweep against the full unrestricted 3,104-candidate pool: beta=0.6 still
+beats flat there too, so the gain is really coming from the extra
+information in the blend, not from which nodes the branching happens to
+keep. Picked beta=0.6 over beta=1.0 (which scored marginally higher recall
+but visibly worse precision and throws away the node's own embedding
+signal entirely) and over beta=0.9 (a single-point dip that looks like
+noise from averaging over only 14 questions, not a real effect) because it
+keeps both signals in play and sits at the start of a genuine plateau
+rather than a single lucky point.

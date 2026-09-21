@@ -1,14 +1,16 @@
 """T6 extrinsic task: coarse-to-fine drill-down vs. a flat baseline,
 scored against questions.csv / ground_truth.json's expected_methods.
 
-Both approaches rank their final candidate pool the SAME way (cosine
-similarity between the question embedding and node embeddings), so the
-comparison isolates one variable: how much smaller a pool the hierarchy
-lets you get away with scoring, for the same or better recall. Level 0/1
+Both approaches start from the same per-node cosine similarity (question
+embedding vs. node embedding). Flat ranks by that alone. Drill-down also
+restricts to a hierarchy-selected pool AND blends in each candidate's
+level-1 ancestor's label+gloss score (see `beta` in `hierarchy_drilldown`,
+DESIGN_NOTES.md section 14 "beating flat, not just matching it"), which is
+the one piece of information flat has no access to at all. Level 0/1
 selection uses the label+gloss text (what an agent reading the hierarchy
 would actually see); level 2 has no label (T5 only covers levels 0-1), so
-drill-down falls back to node embeddings for the final pool, a real
-limitation worth stating rather than glossing over.
+drill-down falls back to node embeddings for the candidate pool itself, a
+real limitation worth stating rather than glossing over.
 
 Node embeddings here are NOT the bare surface_form used for clustering.
 Checked that first and it badly underperforms: a method name like "MACE"
@@ -113,8 +115,23 @@ def flat_baseline(question_vec, node_ids, node_emb_matrix, k=20):
     return retrieved, len(node_ids)
 
 
+def build_level1_ancestor_map(hierarchy):
+    """node_id -> its level-1 ancestor's super-node id, via the level-2
+    group it belongs to (level 2 has no label/gloss of its own)."""
+    level1_parent_of_level2 = {sn["id"]: sn["parent_id"]
+                                for sn in hierarchy["super_nodes"] if sn["level"] == 2}
+    node_to_level1 = {}
+    for sn in hierarchy["super_nodes"]:
+        if sn["level"] != 2:
+            continue
+        l1 = level1_parent_of_level2[sn["id"]]
+        for nid in sn["member_ids"]:
+            node_to_level1[nid] = l1
+    return node_to_level1
+
+
 def hierarchy_drilldown(question_vec, hierarchy, label_gloss_ids, label_gloss_matrix,
-                          node_emb_by_id, b0=3, b1=3, k=20):
+                          node_emb_by_id, b0=3, b1=3, k=20, beta=0.0, node_to_level1=None):
     lg_sims = _cos_matrix(label_gloss_matrix, question_vec)
     lg_score = dict(zip(label_gloss_ids, lg_sims))
 
@@ -137,7 +154,13 @@ def hierarchy_drilldown(question_vec, hierarchy, label_gloss_ids, label_gloss_ma
                         "n_level2_groups_selected": len(level2)}
 
     cand_matrix = np.stack([node_emb_by_id[nid] for nid in candidate_pool])
-    sims = _cos_matrix(cand_matrix, question_vec)
+    node_sims = _cos_matrix(cand_matrix, question_vec)
+    if beta:
+        ancestor_sims = np.array([lg_score.get((node_to_level1 or {}).get(nid), 0.0)
+                                   for nid in candidate_pool])
+        sims = (1 - beta) * node_sims + beta * ancestor_sims
+    else:
+        sims = node_sims
     order = np.argsort(-sims)[:k]
     retrieved = [candidate_pool[i] for i in order]
 

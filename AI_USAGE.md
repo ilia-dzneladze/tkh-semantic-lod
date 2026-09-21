@@ -182,6 +182,40 @@ why changing one parameter isn't a one-line commit here, it has knock-on
 effects through labels, faithfulness, and the extrinsic eval that all
 needed rechecking, not assuming.
 
+## Beating flat baseline, not just matching it
+
+Prompt: "Okay, now on to the next likely fix that will increase the
+retreival efficiency compares to baseline, it's really interesting that
+none of the last two could beat it, only match it. Try a new fix, test,
+and conclude"
+
+Before writing any code I had the agent work out why every branching-factor
+value tried so far could only tie flat baseline recall, never beat it: the
+drill-down eval only ever ranks a subset of flat's candidate pool using
+flat's own scoring function, which structurally caps it at parity. I had it
+write `scripts/rerank_sweep.py` to test a different mechanism, blending
+each candidate's own embedding score with its level-1 ancestor's
+label+gloss score before ranking, information flat has no access to at
+all. Decision rule went into `FIXES.md` before running it: only keep this
+if some beta value beats flat's recall outright, not just ties it, at no
+more candidates than the shipped (8,8) pool.
+
+beta=0.6 did: mean recall 0.0423 against flat's 0.0325, mean precision
+0.0286 against flat's 0.0143, same 774 candidates. Before accepting that, I
+had the agent rerun the same beta sweep against the full unrestricted pool
+to check the gain wasn't just an artifact of which nodes the (8,8)
+restriction happens to keep, it held there too. I picked beta=0.6 over
+beta=1.0 myself even though beta=1.0 scored marginally higher recall,
+since it came with visibly worse precision and meant discarding the node's
+own embedding signal entirely, and over beta=0.9's single-point dip, which
+reads as noise from averaging over only 14 questions rather than a real
+effect. I had the agent wire the result into the real pipeline (not just
+the sweep script): `beta` added to `hierarchy_drilldown` in
+`src/tkh/eval/extrinsic.py`, `outputs/metrics.json` regenerated through the
+actual shipped code path (not the standalone sweep) as a second check that
+the numbers held, and a new figure added rather than silently dropping the
+finding into text only.
+
 ## Verification habits, generally
 
 Every module has unit tests (10 total) and the pipeline output is checked
