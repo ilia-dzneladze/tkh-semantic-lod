@@ -1,0 +1,178 @@
+{
+  "alpha": 0.3,
+  "n_seeds": 5,
+  "base_seed": 1000,
+  "remove_frac": 0.1,
+  "clusters": [
+    {
+      "id": "L0_S00005",
+      "label": "Classical and ML interatomic potentials",
+      "size": 831,
+      "mean_jaccard": 0.48855163654537026,
+      "jaccards": [
+        0.5758793969849246,
+        0.40273972602739727,
+        0.5722543352601156,
+        0.45226811103588355,
+        0.43961661341853037
+      ]
+    },
+    {
+      "id": "L0_S00007",
+      "label": "Graph neural network architectures",
+      "size": 679,
+      "mean_jaccard": 0.8308278868164619,
+      "jaccards": [
+        0.7870370370370371,
+        0.7983539094650206,
+        0.8729508196721312,
+        0.7858117326057299,
+        0.909985935302391
+      ]
+    },
+    {
+      "id": "L0_S00004",
+      "label": "Materials databases and phase transitions",
+      "size": 651,
+      "mean_jaccard": 0.681153445987517,
+      "jaccards": [
+        0.92992700729927,
+        0.6580844490216272,
+        0.9772036474164134,
+        0.4224965706447188,
+        0.41805555555555557
+      ]
+    },
+    {
+      "id": "L0_S00021",
+      "label": "Diverse machine-learned potential techniques",
+      "size": 645,
+      "mean_jaccard": 0.5975591430107621,
+      "jaccards": [
+        0.5478887744593203,
+        0.7146853146853147,
+        0.21193666260657734,
+        0.7584269662921348,
+        0.7548579970104634
+      ]
+    },
+    {
+      "id": "L0_S00003",
+      "label": "General ML tools and methods",
+      "size": 625,
+      "mean_jaccard": 0.531415229638981,
+      "jaccards": [
+        0.6078740157480315,
+        0.4064245810055866,
+        0.5091623036649214,
+        0.8096,
+        0.3240152477763659
+      ]
+    },
+    {
+      "id": "L0_S00001",
+      "label": "Foundation ML interatomic potentials and methods",
+      "size": 616,
+      "mean_jaccard": 0.7757022375848754,
+      "jaccards": [
+        0.8068006182380216,
+        0.7623906705539358,
+        0.7447988904299584,
+        0.7831325301204819,
+        0.7813884785819794
+      ]
+    },
+    {
+      "id": "L0_S00020",
+      "label": "Materials ML software and benchmarks",
+      "size": 501,
+      "mean_jaccard": 0.6390273411168741,
+      "jaccards": [
+        0.6514745308310992,
+        0.7216494845360825,
+        0.6152758132956153,
+        0.6226912928759895,
+        0.584045584045584
+      ]
+    },
+    {
+      "id": "L0_S00015",
+      "label": "DFT variants and magnetic skyrmion prediction",
+      "size": 322,
+      "mean_jaccard": 0.29325877782488724,
+      "jaccards": [
+        0.4465811965811966,
+        0.24787363304981774,
+        0.4833759590792839,
+        0.14485654303708886,
+        0.1436065573770492
+      ]
+    },
+    {
+      "id": "L0_S00022",
+      "label": "Monte Carlo sampling and uncertainty",
+      "size": 232,
+      "mean_jaccard": 0.2690785858058532,
+      "jaccards": [
+        0.1450653983353151,
+        0.24313725490196078,
+        0.19917582417582416,
+        0.45741324921135645,
+        0.30060120240480964
+      ]
+    },
+    {
+      "id": "L0_S00011",
+      "label": "Phonon prediction with ML models",
+      "size": 143,
+      "mean_jaccard": 0.8456767589664974,
+      "jaccards": [
+        0.4028169014084507,
+        0.9861111111111112,
+        0.9727891156462585,
+        1.0,
+        0.8666666666666667
+      ]
+    },
+    {
+      "id": "L0_S00018",
+      "label": "Atomic descriptors and basis representations",
+      "size": 133,
+      "mean_jaccard": 0.39117054666010664,
+      "jaccards": [
+        0.5423728813559322,
+        0.34657039711191334,
+        0.16991150442477876,
+        0.5748502994011976,
+        0.3221476510067114
+      ]
+    },
+    {
+      "id": "L0_S00023",
+      "label": "Author citations and DFT corrections",
+      "size": 50,
+      "mean_jaccard": 0.8799999999999999,
+      "jaccards": [
+        1.0,
+        1.0,
+        0.8,
+        0.8,
+        0.8
+      ]
+    }
+  ],
+  "pearson_r_size_vs_stability": 0.05805884111856804,
+  "trend_fit_excl_largest": {
+    "slope": 0.00013750026460103887,
+    "intercept": 0.5547982942765307,
+    "resid_std": 0.21678554244682252
+  },
+  "largest_cluster": {
+    "id": "L0_S00005",
+    "size": 831,
+    "actual_mean_jaccard": 0.48855163654537026,
+    "predicted_by_trend": 0.669061014159994,
+    "residual": -0.1805093776146237,
+    "residual_in_std_devs": -0.8326633574233976
+  }
+}
