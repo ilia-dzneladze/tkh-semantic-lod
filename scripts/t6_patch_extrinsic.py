@@ -1,7 +1,12 @@
-"""Recompute just the extrinsic section of metrics.json with the final
-branching factor and rerank beta (DESIGN_NOTES.md sections 14 and 15), and
-attach the branching-factor and beta sweeps as supporting evidence,
-without re-running the expensive coherence/stability/faithfulness stages.
+"""Recompute the extrinsic section of metrics.json without re-running the
+expensive coherence/stability/faithfulness stages:
+
+- the shipped drill-down setting vs flat (settings picked in-sample),
+- leave-one-out drill-down vs flat with a paired bootstrap CI and
+  sign-flip test (the headline number, DESIGN_NOTES.md section 15),
+- routing: ground truth kept in the routed pool vs a same-size random pool,
+  for label and centroid routing at every budget,
+- the branching-factor and beta sweeps as supporting detail.
 """
 import csv
 import json
@@ -16,10 +21,12 @@ sys.path.insert(0, str(ROOT / "src"))
 
 from tkh.io import load_tkh, build_snapshot  # noqa: E402
 from tkh.embeddings import encode_semantic  # noqa: E402
+from tkh.pipeline import embed_concepts  # noqa: E402
 from tkh.eval.extrinsic import (  # noqa: E402
     METHOD_LIKE_TYPES, match_ground_truth_methods, flat_baseline,
     hierarchy_drilldown, score_retrieval, build_retrieval_texts,
-    build_level1_ancestor_map,
+    build_level1_ancestor_map, leave_one_out_select, paired_comparison,
+    routing_pool_recall, centroid_vectors,
 )
 
 DATA_PATH = ROOT / "data" / "tkh_collection10.json"
@@ -143,10 +150,55 @@ def main():
         })
     print(f"[{time.time()-t0:.1f}s] rerank beta sweep done")
 
+    # leave-one-out over the full branching x beta grid (DESIGN_NOTES.md section 15)
+    flat_recall = np.array([r["flat"]["recall_at_k"] for r in results])
+    grid_recall, grid_cost = {}, {}
+    for b0, b1 in SWEEP:
+        for beta in BETA_SWEEP:
+            recalls, scored = [], []
+            for qid, gt_ids, qvec in per_question_ctx:
+                retrieved, n_scored, _ = hierarchy_drilldown(
+                    qvec, hierarchy, lg_ids, lg_matrix, node_emb_by_id,
+                    b0=b0, b1=b1, k=K, beta=beta, node_to_level1=node_to_level1)
+                recalls.append(score_retrieval(retrieved, gt_ids, K)["recall_at_k"])
+                scored.append(n_scored)
+            grid_recall[(b0, b1, beta)] = np.array(recalls)
+            grid_cost[(b0, b1, beta)] = (float(np.mean(scored)), beta)
+    loo_recall, loo_chosen = leave_one_out_select(grid_recall, grid_cost)
+    rng = np.random.default_rng(0)
+    shipped = grid_recall[(FINAL_B0, FINAL_B1, FINAL_BETA)]
+    comparison = {
+        "leave_one_out_vs_flat": {
+            **paired_comparison(loo_recall, flat_recall, rng),
+            "loo_mean_recall": float(loo_recall.mean()), "flat_mean_recall": float(flat_recall.mean()),
+            "chosen_config_per_question": [
+                {"question_id": q[0], "b0": c[0], "b1": c[1], "beta": c[2], "held_out_recall": float(s)}
+                for q, c, s in zip(per_question_ctx, loo_chosen, loo_recall)],
+        },
+        "shipped_in_sample_vs_flat": paired_comparison(shipped, flat_recall, rng),
+    }
+    print(f"[{time.time()-t0:.1f}s] leave-one-out: drill {loo_recall.mean():.4f} vs flat {flat_recall.mean():.4f}, "
+          f"diff CI {np.round(comparison['leave_one_out_vs_flat']['ci95'], 4).tolist()}, "
+          f"p={comparison['leave_one_out_vs_flat']['p_sign_flip']:.3f}")
+
+    # routing: label vs centroid, every budget (the main extrinsic metric)
+    routing_questions = [(qid, qvec, gt_ids) for qid, gt_ids, qvec in per_question_ctx]
+    label_vecs = dict(zip(lg_ids, lg_matrix))
+    cache = {}
+    embed_concepts(snap, cache)
+    cent_vecs = centroid_vectors(hierarchy, cache)
+    routing = {}
+    for name, vecs in (("label", label_vecs), ("centroid", cent_vecs)):
+        rrng = np.random.default_rng(0)
+        routing[name] = [routing_pool_recall(hierarchy, snap, routing_questions, vecs, b0, b1, rrng)
+                         for b0, b1 in [(2, 2), (3, 3), (4, 4), (6, 6), (8, 8)]]
+    print(f"[{time.time()-t0:.1f}s] routing done")
+
     metrics_path = OUT_DIR / "metrics.json"
     metrics = json.loads(metrics_path.read_text(encoding="utf-8"))
     metrics["extrinsic"] = {
         "summary": summary, "per_question": results,
+        "comparison_vs_flat": comparison, "routing": routing,
         "ground_truth_match_coverage": match_coverage,
         "branching_factor_sweep": sweep_rows,
         "rerank_beta_sweep": beta_sweep_rows,

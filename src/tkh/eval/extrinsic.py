@@ -301,3 +301,38 @@ def centroid_vectors(hierarchy, emb_by_id, levels=(0, 1)):
             v = np.mean([emb_by_id[n] for n in sn["member_ids"]], axis=0)
             out[sn["id"]] = v / np.linalg.norm(v)
     return out
+
+
+def leave_one_out_select(scores_by_config, cost_by_config):
+    """For each question, pick the config with the best mean score on the
+    OTHER questions and score it on this one. scores_by_config: {config:
+    per-question score array}. Ties go to lower cost_by_config[config]
+    (compared as tuples). Returns (held-out scores, chosen config per
+    question). See DESIGN_NOTES.md section 15."""
+    configs = list(scores_by_config)
+    n = len(scores_by_config[configs[0]])
+    held_out, chosen = [], []
+    for i in range(n):
+        others = np.arange(n) != i
+        best = min(configs, key=lambda c: (-scores_by_config[c][others].mean(), cost_by_config[c]))
+        held_out.append(float(scores_by_config[best][i]))
+        chosen.append(best)
+    return np.array(held_out), chosen
+
+
+def paired_comparison(a, b, rng, n_boot=10000):
+    """Per-question paired comparison of a against b: mean difference,
+    bootstrap 95% CI over questions, two-sided sign-flip p-value, and how
+    many questions each side wins."""
+    d = np.asarray(a, dtype=float) - np.asarray(b, dtype=float)
+    idx = rng.integers(0, len(d), size=(n_boot, len(d)))
+    boot = d[idx].mean(axis=1)
+    flips = rng.choice([-1.0, 1.0], size=(n_boot, len(d)))
+    null = np.abs((flips * d).mean(axis=1))
+    return {
+        "mean_diff": float(d.mean()),
+        "ci95": [float(np.percentile(boot, 2.5)), float(np.percentile(boot, 97.5))],
+        "p_sign_flip": float((np.sum(null >= abs(d.mean()) - 1e-12) + 1) / (n_boot + 1)),
+        "n_a_better": int((d > 0).sum()), "n_b_better": int((d < 0).sum()),
+        "n_tied": int((d == 0).sum()), "n": int(len(d)),
+    }
