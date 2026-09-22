@@ -106,3 +106,31 @@ def coherence_vs_null(hierarchy, level, X, id_to_row, n_trials=30, seed=0):
         "null_fraction_at_or_above_observed": percentile_at_or_above,
         "per_cluster": {k: v[0] for k, v in coh.items()},
     }
+
+
+def heldout_edge_cohesion(labels, ids, heldout_edges):
+    """How often members of hyperedges the clustering never saw land in the
+    same cluster, against a random partition with the same cluster sizes.
+
+    labels: cluster label per id. heldout_edges: lists of member ids; only
+    members in ids count, and edges with fewer than 2 of them are skipped.
+    Each edge contributes the fraction of its member pairs that share a
+    cluster, and edges are averaged with equal weight. Under a random
+    partition any pair shares a cluster with probability
+    sum n_c(n_c-1) / (N(N-1)), which is the expected value. Returns
+    (observed, expected, lift = observed / expected).
+    See DESIGN_NOTES.md section 13."""
+    lab = dict(zip(ids, labels))
+    fractions = []
+    for e in heldout_edges:
+        members = [lab[m] for m in e if m in lab]
+        k = len(members)
+        if k < 2:
+            continue
+        same = sum(1 for i in range(k) for j in range(i + 1, k) if members[i] == members[j])
+        fractions.append(same / (k * (k - 1) / 2))
+    sizes = np.bincount(np.asarray(labels))
+    n = len(labels)
+    expected = float((sizes * (sizes - 1)).sum() / (n * (n - 1)))
+    observed = float(np.mean(fractions)) if fractions else float("nan")
+    return observed, expected, observed / expected if expected else float("nan")

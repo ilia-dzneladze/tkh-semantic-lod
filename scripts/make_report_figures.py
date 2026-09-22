@@ -1,4 +1,4 @@
-"""Generate the three report figures from outputs/metrics.json. Palette
+"""Generate the report figures from outputs/metrics.json. Palette
 validated via the dataviz skill's validate_palette.js (blue/orange pair,
 all checks pass, light mode)."""
 import json
@@ -141,6 +141,72 @@ def fig_rerank_sweep(metrics):
     plt.close(fig)
 
 
+def fig_routing(metrics):
+    """Share of ground truth kept in the routed pool vs the pool's size.
+    Error bars are the bootstrap 95% CI of the lift over chance (over
+    questions), drawn around each point."""
+    routing = metrics["extrinsic"]["routing"]
+    fig, ax = plt.subplots(figsize=(6, 3.6))
+    for name, color, marker, text in (("label", BLUE, "o", "label+gloss routing"),
+                                      ("centroid", ORANGE, "s", "centroid routing (no labels)")):
+        rows = sorted(routing[name], key=lambda r: r["mean_pool_fraction"])
+        xs = [r["mean_pool_fraction"] for r in rows]
+        ys = [r["gt_in_pool_rate"] for r in rows]
+        err = [[r["lift_over_chance"] - r["lift_ci95"][0] for r in rows],
+               [r["lift_ci95"][1] - r["lift_over_chance"] for r in rows]]
+        ax.errorbar(xs, ys, yerr=err, color=color, linewidth=1.6, marker=marker, markersize=5,
+                    capsize=3, elinewidth=1, label=text)
+        last = rows[-1]
+        ax.annotate(f"({last['b0']},{last['b1']})", (xs[-1], ys[-1]), textcoords="offset points",
+                    xytext=(6, -3), fontsize=8.5, color=TEXT)
+    lim = 0.3
+    ax.plot([0, lim], [0, lim], color=GRAY, linewidth=0.9, linestyle="--", label="random pool (chance)")
+    ax.set_xlim(0, lim)
+    ax.set_ylim(0, 1.0)
+    ax.set_xlabel("share of candidates in the routed pool")
+    ax.set_ylabel("share of ground-truth nodes kept")
+    ax.set_title("Coarse-to-fine routing vs. chance (2026, 14 questions)", loc="left", fontsize=10.5)
+    ax.legend(frameon=False, loc="upper left", fontsize=9)
+    fig.tight_layout()
+    fig.savefig(OUT_DIR / "routing_vs_chance.png", dpi=150)
+    plt.close(fig)
+
+
+def fig_tradeoff(metrics):
+    """Structure-vs-meaning trade-off across alpha: held-out hyperedge lift
+    (structure side) against TF-IDF coherence over its random null (meaning
+    side), one panel per level, one line per holdout scheme."""
+    sh = metrics["structural_holdout"]
+    levels = sorted(sh["summary"]["edge"], key=lambda k: int(k))
+    fig, axes = plt.subplots(1, len(levels), figsize=(9, 3.3))
+    for ax, level in zip(axes, levels):
+        for scheme, color, marker, text in (("edge", BLUE, "o", "random edges held out"),
+                                            ("paper", ORANGE, "s", "whole papers held out")):
+            # alpha=1.0 is degenerate (structure-only graph too sparse: ~1100
+            # forced merges, one cluster), so it's left out of the plot
+            rows = [r for r in sh["summary"][scheme][level]["by_alpha"] if r["forced_merges_mean"] == 0]
+            xs = [r["tfidf_ratio"] for r in rows]
+            ys = [r["heldout_lift"] for r in rows]
+            ax.plot(xs, ys, color=color, linewidth=1.6, marker=marker, markersize=5, label=text)
+            for r in rows:
+                if r["alpha"] == sh["shipped_alpha"]:
+                    ax.scatter([r["tfidf_ratio"]], [r["heldout_lift"]], s=120, facecolors="none",
+                               edgecolors=TEXT, linewidths=1.2, zorder=5,
+                               label=f"shipped α={r['alpha']:g}" if scheme == "edge" else None)
+                if scheme == "edge" and r["alpha"] in (0.0, 0.7):
+                    ax.annotate(f"α={r['alpha']:g}", (r["tfidf_ratio"], r["heldout_lift"]),
+                                textcoords="offset points", xytext=(5, 4), fontsize=8, color=TEXT)
+        ax.set_title(f"level {level}", loc="left", fontsize=10)
+        ax.set_xlabel("TF-IDF coherence / null")
+    axes[0].set_ylabel("held-out edge lift over chance")
+    axes[0].legend(frameon=False, loc="best", fontsize=8)
+    fig.suptitle("Structure vs. meaning across alpha (2026, 5 seeds, 20% held out)",
+                 x=0.01, ha="left", fontsize=10.5)
+    fig.tight_layout()
+    fig.savefig(OUT_DIR / "structure_meaning_tradeoff.png", dpi=150)
+    plt.close(fig)
+
+
 def main():
     metrics = json.loads((ROOT / "outputs" / "metrics.json").read_text(encoding="utf-8"))
     fig_coherence(metrics)
@@ -148,6 +214,10 @@ def main():
     fig_extrinsic_sweep(metrics)
     if "rerank_beta_sweep" in metrics.get("extrinsic", {}):
         fig_rerank_sweep(metrics)
+    if "routing" in metrics.get("extrinsic", {}):
+        fig_routing(metrics)
+    if "structural_holdout" in metrics:
+        fig_tradeoff(metrics)
     print(f"wrote figures to {OUT_DIR}")
 
 
