@@ -460,3 +460,41 @@ levels 1 and 2. The docs label that measure post hoc, and the
 pre-registered verdict ("not localised") stands. The explanation that
 fixed cluster counts force global reshuffling is the agent's hypothesis
 and is marked untested.
+
+## UPGMA check, clean reproduction and stale-number pass
+
+Tool: Claude Code on Opus 5.
+
+Prompt: "continue with the original list of tasks so we finish first and
+then we can experiment"
+
+The agent added `tests/test_upgma_vs_scipy.py`, which compares
+`sparse_upgma` with scipy's dense average linkage on random graphs:
+merge heights, cuts, forced merges and point weights. It also checked
+that the comparison fails against weighted average linkage, so the test
+isn't passing trivially.
+
+For the reproduction it copied exactly the files git would ship into a
+scratch folder, built a fresh venv from `requirements.txt` and ran every
+README step in order. Everything ran. The hierarchies, temporal events
+and hypergraph-shuffle null came out byte-identical, and every aggregate
+number in `metrics.json` matched. The run found three problems, and the
+agent fixed each one:
+- The README didn't say that a full `t6_evaluate.py` run rewrites
+  `metrics.json` from scratch, so following it silently dropped figure 6.
+  It now lists `structural_holdout.py` and `localisation.py` as required
+  steps after it.
+- The committed `metrics.json` held per-cluster coherence under persistent
+  ids from before the temporal-matching fix. The values were right but
+  51 keys at 2026 level 2 pointed at clusters that no longer exist. The
+  agent replaced it with the reproduced file after confirming the values
+  were the same under the new ids and that every aggregate matched.
+- The T1 quality-note sample depended on set iteration order. `io.py`,
+  `build_snapshot` now iterates in sorted order, and `t1_describe.py`
+  output is byte-identical across runs.
+
+The README timings were optimistic, so the agent replaced them with the
+measured ranges. It then checked every number in `report.md` against
+`metrics.json`. They matched, and it updated two stale passages: the
+verified list, and a next step asking for an alpha=1.0 run that had
+already been done.

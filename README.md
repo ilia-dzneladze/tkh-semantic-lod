@@ -14,8 +14,9 @@ py -3.11 -m venv .venv
 .venv\Scripts\python.exe -m pip install -r requirements.txt
 ```
 
-`requirements.txt` is the full pinned set (55 packages, resolved from the
-loose `requirements.in`). Includes a CPU-only build of torch, no GPU
+Installing takes about 15 minutes, mostly torch. `requirements.txt` is
+the full pinned set (55 packages, resolved from the loose
+`requirements.in`). Includes a CPU-only build of torch, no GPU
 needed. First run downloads two models from Hugging Face and caches them
 locally: `sentence-transformers/all-mpnet-base-v2` (~420MB, drives
 clustering and retrieval) and `cross-encoder/nli-deberta-v3-base`
@@ -31,8 +32,8 @@ rather than relying on activation:
 .venv\Scripts\python.exe scripts\t1_describe.py
 
 # T2+T3+T4: build the laminar hierarchy at every snapshot, with
-# cross-snapshot identity tracking and hyperedge collapse. ~85s on the
-# reference machine (embedding pass dominates).
+# cross-snapshot identity tracking and hyperedge collapse. 1.5 to 5 minutes
+# on a laptop CPU (embedding pass dominates).
 .venv\Scripts\python.exe scripts\run_pipeline.py
 
 # Check the output's structural invariants (laminarity, no id collisions,
@@ -81,7 +82,8 @@ and the retrieval candidate-pool embedding. Passing section names reruns
 only those and updates them in place, e.g.
 `scripts\t6_evaluate.py faithfulness`.
 
-Two more steps add to `metrics.json` and must run after it, in this order:
+Four more steps add to `metrics.json` and must run after it, in this order
+(a full `t6_evaluate.py` run starts `metrics.json` from scratch):
 
 ```
 # extrinsic: leave-one-out drill-down vs flat with a paired CI, routing vs
@@ -89,14 +91,20 @@ Two more steps add to `metrics.json` and must run after it, in this order:
 .venv\Scripts\python.exe scripts\t6_patch_extrinsic.py
 
 # degree/arity-preserving hypergraph shuffle null for coherence
-# (DESIGN_NOTES.md section 13), ~4 minutes
+# (DESIGN_NOTES.md section 13), 4 to 10 minutes
 .venv\Scripts\python.exe scripts\hypergraph_shuffle_null.py
+
+# structural held-out coherence across alpha (section 13), 4 to 16 minutes;
+# figure 6 needs this
+.venv\Scripts\python.exe scripts\structural_holdout.py
+
+# whether change between snapshots is localised (section 10), about 3 minutes
+.venv\Scripts\python.exe scripts\localisation.py
 ```
 
 The other scripts in `scripts\` (`alpha_sweep`, `level0_skew_check`,
 `temporal_threshold_sweep`, `warm_start_sweep`, `rerank_sweep`,
-`coarsening_compare`, `label_routing`, `structural_holdout`,
-`pair_overlap`, `localisation`) are the
+`coarsening_compare`, `label_routing`, `pair_overlap`) are the
 follow-up experiments described in `DESIGN_NOTES.md` section 15. Each
 writes its own JSON in `outputs\` and none of them change the shipped
 pipeline.
@@ -121,7 +129,8 @@ src/tkh/eval/            T6: coherence, stability, faithfulness, extrinsic
 scripts/                 runnable entry points, one per pipeline stage
 tests/                   unit tests (T4 collapse, T3 matching, faithfulness
                           held-out split, multilevel laminarity,
-                          leave-one-out and paired statistics)
+                          leave-one-out and paired statistics, held-out
+                          cohesion, sparse UPGMA against scipy)
 outputs/                 generated: hierarchy.json + labeling per
                           snapshot, temporal_events.json, metrics.json,
                           figures/

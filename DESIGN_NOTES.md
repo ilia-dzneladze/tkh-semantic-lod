@@ -204,6 +204,17 @@ If a missing edge got filled with something more optimistic than 0, a
 later merge could end up with a smaller distance than an earlier one,
 which would break the nesting guarantee (P1) silently.
 
+I also checked the implementation against scipy instead of trusting it
+(`tests/test_upgma_vs_scipy.py`). On random sparse graphs, `sparse_upgma`
+gives the same merge heights as scipy's dense average linkage, where a
+missing edge is distance 1, down to floating-point error, and the same
+cuts at k = 2, 5 and 12. On graphs sparse enough to need forced merges
+the heights still match and never decrease, and a super-node with weight
+w behaves like w identical copies of one point, which is what the
+`sizes` argument is for. The test does fail against weighted average
+linkage (WPGMA), the easy variant to implement by accident, so it isn't
+passing trivially.
+
 ## 9. Hyperedge collapse rule (T4)
 
 `collapse.py`, `collapse_hyperedge` for the rule,
