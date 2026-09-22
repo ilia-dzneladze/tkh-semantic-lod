@@ -212,11 +212,16 @@ weight count and a relation-type breakdown, so you can see how many
 edges and what kinds contributed, but not which original edge asserted
 which specific pairing of underlying nodes.
 
-Two limits I need to state. First, the collapsed hypergraph is an output
-only. `pipeline.py`, `build_hierarchy_json`, writes it into hierarchy.json
-but nothing reads it back, because all three levels are cuts of one
-dendrogram built on the fine-level affinity. The brief wants the rule to
-be used by the method, and right now it isn't. Second, articles and
+Two limits I need to state. First, in the shipped pipeline the collapsed
+hypergraph is an output only. `pipeline.py`, `build_hierarchy_json`,
+writes it into hierarchy.json but nothing reads it back, because all
+three levels are cuts of one dendrogram built on the fine-level
+affinity. The brief wants the rule to be used by the method. I built that
+version (`pipeline.py`, `coarsen_one_level`, and
+`collapse.py`, `coarse_structural_affinity`): each coarser level clusters
+the super-nodes below it on the T4-collapsed hypergraph plus centroid
+embeddings. It was clearly worse on coherence and didn't ship (section
+15). It's still in the code as `coarsening="multilevel"`. Second, articles and
 authors pass through as their own singleton super-nodes, so any edge
 touching an article can never become fully internal. That's why only 7 of
 1429 edges end up internal at level 0. The coarse hypergraph is mostly
@@ -360,19 +365,31 @@ sub-agents, one per snapshot, read the dumped prompts and wrote labels
 back into the same file format an API response would have produced.
 `write_labeling_input` writes out exactly the prompt each label was
 written from, so you can see what information went into it. The catch is
-that this step isn't a script anyone can rerun, and the sub-agents were
-running inside this repo, where `questions.csv` and `ground_truth.json`
-also live. I don't think they read those, but I can't rule it out, and
-the labels feed the extrinsic reranker (section 14).
+that this step isn't a script anyone can rerun, and the first set of
+labels was written by sub-agents running inside this repo, where
+`questions.csv` and `ground_truth.json` also live. I couldn't rule out
+that they'd seen those, and the labels feed the extrinsic routing
+(section 14), so I relabelled (below).
 
 The labeller sees `labeller_sample_ids` in `labeling.py`: the first 25
 member ids in sorted order. I only noticed later that ids are
 type-prefixed (`cite_...`, `claim_...`, `comp_...`), so sorted order is
 not a neutral sample. On the 2026 snapshot the labeller's input was 40%
 cited works, 26% claims and 23% components, while techniques and tasks,
-about 31% of the actual members, barely showed up. Fixing this properly
-means a seeded random sample and relabelling everything, which I haven't
-done.
+about 31% of the actual members, barely showed up. Now the default is a
+random sample seeded from the member list itself, so it's reproducible
+and the faithfulness check can rebuild exactly what the labeller saw. The
+prompt also lists the node-type counts of all members, which it had
+claimed to include but never did. `sampling="first"` still reproduces the
+old input, and the first labels are kept in `outputs/labels_v1/`.
+
+The relabel (`scripts/t5_import_labels.py` merges and checks a reply) was
+done by four fresh agents, one per snapshot. Each got only the path to a
+batch file in a scratch directory holding nothing else, told to read that
+one file and write one output file. No tool was actually blocked, so
+afterwards I read their tool logs: each made two reads of its own batch
+and one write, and none of the logs mentions the question files. That's
+the strongest isolation I could get without an API call.
 
 Faithfulness (`eval/faithfulness.py`) had a worse version of the same
 problem. The NLI premise was built from the first 15 sorted members, a
@@ -384,18 +401,20 @@ with fewer than 5 such members are skipped and counted instead of
 graded. That skips a lot at 2020 (33 of 62, since early clusters are
 small) and only 4 of 62 at 2026.
 
-The numbers moved a lot. Under the circular version the contradiction
-rate was 5-11% per snapshot. Against held-out members it's 14-21%
-(control, same gloss against a random other cluster: 62-69%). Contradiction
-still separates real from random clearly. Not-entailed is 84-93% for real
-glosses against 95-98% for control, so entailment barely separates them.
-I think that's mostly because a list of 15 surface forms rarely entails a
-summary sentence even when the summary is fair. I report both rates.
-Contradiction is the one that actually discriminates, and not-entailed is
-the stricter reading of "over-claim". My guess is that the type-biased
-labeller sample explains a good part of the jump, since a gloss written
-from cited works and claims is being tested on techniques and tasks. That
-guess isn't tested.
+The numbers moved a lot. For the first labels, the circular version gave
+a contradiction rate of 5-11% per snapshot, and against held-out members
+it was 14-21% (control, same gloss against a random other cluster:
+62-69%), with not-entailed at 84-93% against 95-98% for control. The
+relabelled set does clearly better: contradiction 5-14% (control 45-63%)
+and not-entailed 60-79% (control 90-97%), so both rates now separate
+real from random. The old numbers are in
+`outputs/labels_v1/faithfulness_v1.json`. The two sets were checked against
+different held-out samples, so the comparison isn't exact. I read the
+improvement as mostly the biased sample going away: a gloss written from
+cited works and claims was being tested on techniques and tasks. The
+not-entailed rate is still high, and I think that's mostly because a list
+of 15 surface forms rarely entails a summary sentence even when the
+summary is fair. I report both rates.
 
 ## 13. Coherence measured with a signal clustering never saw
 
@@ -556,13 +575,26 @@ tuned on these same 14 questions, and there's no confidence interval. So
 "beats flat" is one question after tuning on the test set. It needs
 held-out tuning and a paired test before I claim it.
 
-A quick side check suggests the hierarchy is doing better than recall@20
-shows. At (8, 8), the drill-down pool holds 80% of all ground-truth nodes
-while covering 25% of candidates, where a random pool of that size would
-hold about 25%. The level-0 cluster containing a ground-truth node ranks
-2.5 out of 12 on average, against 5.5 for chance. So routing works and
-the final node ranker is what fails. That check isn't in metrics.json yet
-and has no CI, but it's the direction the extrinsic eval should go.
+After relabelling (section 12) and with the same settings, not retuned,
+drill-down gets 0.0341 recall against flat's 0.0325. Q14's gain shrank
+from 4 extra hits to 1, and one question now goes flat's way. So drill-down
+ties flat on recall@20 at a quarter of the candidates, and that's the
+claim I can make.
+
+Routing is where the hierarchy shows up (`routing_pool_recall` in
+`eval/extrinsic.py`, `scripts/label_routing.py`): the share of each
+question's ground-truth nodes that survives into the routed pool, against
+a random pool of the same size, with a bootstrap CI over questions. With
+the first labels, label+gloss routing at (8, 8) kept 80% of ground-truth
+nodes in 25% of candidates. Routing on member-centroid embeddings instead
+gives no lift at all: 14% in a 12% pool, lift 0.02, CI -0.05 to 0.08. So
+the signal comes from the labels, and with the first labels it could have
+been leakage. With the clean relabel it's 65% in 23%, lift 0.42, CI 0.23
+to 0.57, which meets the rule I wrote down beforehand (section 15). The
+labels carry real information. Whether the drop from 0.55 is leakage in
+the first set or just different wording I can't say, since the CIs
+overlap. My read of the whole picture: hierarchy plus labels finds the
+right region well, and the per-node ranker inside it is the weak part.
 
 ## 15. Decision rules I wrote down before each follow-up experiment
 
@@ -615,3 +647,72 @@ Rerank (`rerank_sweep.py`). Keep the blend only if some beta gets mean
 recall strictly above flat's 0.03246 at no more than the (8, 8) pool's
 774 candidates. Result: passed at beta=0.6, but see the end of section 14
 on why that pass is weaker than it looks.
+
+Multilevel coarsening (`coarsening_compare.py`, written before running).
+The alternative builds level 2 exactly as now, then collapses the
+hyperedges onto level-2 super-nodes with the T4 rule and clusters the
+super-nodes on that collapsed hypergraph plus centroid embeddings to get
+level 1, and repeats from level 1 to get level 0. Level 2 is the same in
+both variants, so only levels 0 and 1 are compared. The brief requires the
+T4 rule to be used by the method, so I lean toward shipping this. It
+replaces the single-dendrogram version unless it's clearly worse at
+levels 0 or 1, averaged over the four snapshots, on any of these:
+TF-IDF coherence more than 10% below the dendrogram's, mean perturbation
+ARI below the dendrogram's 95% CI lower bound, or mean cross-snapshot ARI
+more than 0.05 lower. Label-free routing recall on the extrinsic questions
+gets reported too, but it isn't part of the rule. The questions are what
+I'd tune on later, so I don't want them deciding the method.
+
+Multilevel, second attempt (written after the first attempt failed, before
+running this one). The first multilevel variant failed the rule above: 40%
+lower coherence at level 0, worse on all three checks at level 1, and one
+level-0 cluster holding 39% of nodes. My guess at the cause is that coarse
+structural weight is a sum over collapsed edges, so big super-nodes attract
+more weight and snowball. The second variant divides the coarse structural
+weight between S and T by |S||T| and runs average linkage weighted by
+member counts, which makes the coarse step the super-node analogue of
+average linkage on the node graph. Same rule, same thresholds. This is a
+second try picked after seeing a failure, so a pass needs to be clear on
+all three checks, not marginal, and if it fails too I stop and keep the
+dendrogram.
+
+Multilevel result (both attempts). Both failed and the shipped pipeline
+stays on the single dendrogram. Averaged over the four snapshots, level-0
+TF-IDF coherence was 0.0159 for the dendrogram, 0.0096 for the first
+multilevel variant and 0.0107 for the size-normalised one. Level 1 was
+0.0453, 0.0373 and 0.0368. Both multilevel variants also had lower
+perturbation ARI at level 1 (0.58 and 0.61 against 0.78). The one place
+multilevel did better is cross-snapshot ARI at level 0 (0.43 and 0.51
+against 0.35), so it does buy temporal stability at the top, but at the
+cost of coherence, which is the same trade the warm start made. Size
+normalisation didn't touch the imbalance (one level-0 cluster held 42% of
+nodes, against 15% for the dendrogram), so my guess at the cause was wrong.
+My next guess is the semantic side: the centroid of a big mixed super-node
+sits near the average of everything, so it looks similar to every other
+big mixed super-node and they keep merging. I haven't tested that.
+Numbers are in `outputs/coarsening_compare.json`.
+
+Relabelling (`label_routing.py`, written before any new labels existed).
+The first labels have two problems: the labeller only saw the first 25
+members by sorted id, which is type-biased, and the sub-agents that wrote
+them could see the question files. The relabel uses a seeded random
+25-member sample plus the full type breakdown in the prompt. It's done by
+fresh agents that get the prompts pasted in, with no repo access and no
+knowledge of the questions. The first labels are kept in
+`outputs/labels_v1/` for comparison. What I'll read from it, decided now:
+if label routing with the new labels still clearly beats centroid routing
+(bootstrap CI on the lift over chance above zero at the shipped (8, 8)
+budget), the labels carry real information and the earlier routing
+result wasn't just leakage. If the lift falls to within the centroid-routing
+CI, I treat the earlier result as unexplained and possibly leaked, and the
+report says so. For faithfulness, the new labels replace the old ones
+whatever the rates turn out to be, because the old ones were written from
+a biased sample. Both sets of rates get reported. No settings (beta,
+branching) get retuned on the new labels in this step.
+
+Relabelling result. The rule above is met. Label routing with the clean
+labels at (8, 8) keeps 65% of ground-truth nodes in 23% of candidates
+(lift 0.42, CI 0.23 to 0.57), well clear of centroid routing (lift 0.02,
+CI -0.05 to 0.08). The first labels scored 0.55 (CI 0.48 to 0.63). The new
+labels replace the old ones. Recall@20 with the new labels and unchanged
+settings: drill-down 0.0341, flat 0.0325.

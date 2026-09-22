@@ -53,14 +53,18 @@ each of 2020/2022/2024/2026 and one `outputs/temporal_events.json`.
 ```
 
 writes `outputs/snapshots/<year>/labeling_input.json`, one prompt per
-level-0/1 super-node with its real member text. The labeling step itself
-is not a deterministic script: it needs something (an LLM, in this case
-the coding agent reading the dumped files directly, see `AI_USAGE.md`) to
-actually read the member lists and write a label and gloss. The already-
-labeled `labeling_output.json` for each snapshot is checked into
-`outputs/`. To re-merge labels into the hierarchy after regenerating them:
+level-0/1 super-node with a seeded random sample of 25 members and the
+node-type counts of all members. The labeling step itself is not a
+deterministic script: it needs an LLM to read the prompts and write a
+label and gloss (here, fresh agents with no repo access, see
+`AI_USAGE.md` and `DESIGN_NOTES.md` section 12). The labeled
+`labeling_output.json` for each snapshot is checked into `outputs/`; the
+first, superseded label set is in `outputs/labels_v1/`. To import a
+labeller's replies (a folder of `labels_<year>.json` arrays), check them,
+and merge them into the hierarchy:
 
 ```
+.venv\Scripts\python.exe scripts\t5_import_labels.py <folder>
 .venv\Scripts\python.exe scripts\t5_apply_labels.py
 ```
 
@@ -89,7 +93,8 @@ Two more steps add to `metrics.json` and must run after it, in this order:
 ```
 
 The other scripts in `scripts\` (`alpha_sweep`, `level0_skew_check`,
-`temporal_threshold_sweep`, `warm_start_sweep`, `rerank_sweep`) are the
+`temporal_threshold_sweep`, `warm_start_sweep`, `rerank_sweep`,
+`coarsening_compare`, `label_routing`) are the
 follow-up experiments described in `DESIGN_NOTES.md` section 15. Each
 writes its own JSON in `outputs\` and none of them change the shipped
 pipeline.
@@ -112,7 +117,8 @@ src/tkh/                 the actual method: io, hypergraph, embeddings,
                           cluster, collapse, temporal, pipeline, labeling
 src/tkh/eval/            T6: coherence, stability, faithfulness, extrinsic
 scripts/                 runnable entry points, one per pipeline stage
-tests/                   unit tests (T4 collapse rule, T3 event matching)
+tests/                   unit tests (T4 collapse, T3 matching, faithfulness
+                          held-out split, multilevel laminarity)
 outputs/                 generated: hierarchy.json + labeling per
                           snapshot, temporal_events.json, metrics.json,
                           figures/
@@ -133,12 +139,14 @@ sensitivity, the level-0 size-skew hypothesis and a warm-started variant
 have all been checked (`DESIGN_NOTES.md` sections 10 and 15). Known open
 gaps, each discussed in `DESIGN_NOTES.md`:
 
-- The structural term is a weighted clique expansion, and the T4
-  collapsed hypergraph is written out but not used to build coarser
-  levels (sections 3, 4, 9).
-- The labeller's member sample is type-biased and labelling is not a
-  rerunnable script (section 12).
-- The extrinsic "beats flat" result rests on one question and was tuned
-  on the test questions (section 14).
+- The structural term is a weighted clique expansion, and in the shipped
+  pipeline the T4 collapsed hypergraph is written out but not used to
+  build coarser levels. A variant that uses it
+  (`coarsening="multilevel"` in `pipeline.py`) was tested and lost on
+  coherence (sections 3, 4, 9, 15; `scripts\coarsening_compare.py`).
+- Labelling is not a rerunnable script, since it needs an LLM (section 12).
+- On recall@20, drill-down only ties flat. Routing with labels beats
+  chance clearly, routing on centroids doesn't (section 14,
+  `scripts\label_routing.py`).
 - Nothing measures whether change between snapshots is localised yet
   (section 10).

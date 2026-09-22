@@ -265,6 +265,7 @@ Findings where docs and code disagreed:
 
 It also ran one new diagnostic: the (8, 8) drill-down pool holds 80% of
 ground-truth nodes at 25% of candidates, against about 25% for chance.
+(Later found to depend on the labels; see the next section.)
 
 Prompt: "yes, start with the P0 fixes"
 
@@ -293,3 +294,73 @@ Verification: 16/16 tests pass, `validate_hierarchy.py` passes on all four
 snapshots, all 248 labels re-applied. The type bias in the labeller's
 sample was found and documented but not fixed, because that needs
 relabelling.
+
+## Multilevel coarsening (T4 driving the coarser levels)
+
+Tool: Claude Code on Opus 5.
+
+Prompt: "now start on P1, make T4 drive the coarser levels"
+
+The agent wrote the keep-or-discard rule into DESIGN_NOTES section 15
+before running anything. Then it implemented `coarsen_one_level` in
+`pipeline.py` and `coarse_structural_affinity` in `collapse.py`: each
+coarser level clusters the super-nodes below it on the T4-collapsed
+hypergraph plus centroid embeddings. It refactored clustering into one
+`build_levels` function so the pipeline and the perturbation check share
+code. Before comparing anything, `scripts/coarsening_compare.py` checks
+that the refactored dendrogram path reproduces the shipped hierarchy.json
+member sets exactly. It does.
+
+The first multilevel variant failed the rule. The agent proposed one
+principled fix (size-normalised coarse affinity with count-weighted
+average linkage), wrote a second rule for it before running, and noted
+that it was chosen after seeing a failure. That also failed, so per the
+rule the shipped pipeline stays on the dendrogram and the multilevel code
+stays in as a non-default option. I accepted stopping there instead of
+trying more variants until one passed.
+
+The same script found that routing on member centroids instead of labels
+gives no lift over chance, so the earlier 80%-at-25% routing result
+depends on the labels. The agent corrected DESIGN_NOTES section 14 and
+the report.
+
+Verification: 21 tests pass, including laminarity and the size budget for
+both multilevel variants on a toy hypergraph, and a check of the weighted
+UPGMA arithmetic. The laminarity validator passes on the shipped outputs,
+which didn't change.
+
+## Relabelling without access to the questions
+
+Tool: Claude Code on Opus 5 for setup and evaluation; four fresh Claude
+Code sub-agents on Sonnet 5 (the same model as the original labels) for
+the labelling.
+
+Prompt: "start with step 1, the relabelling"
+
+The main agent had read the question files earlier in the session, so it
+didn't write labels itself, and it didn't use forked agents because they
+would inherit that context. It asked me how to run the labelling, and I
+chose fresh sub-agents. Before any new labels existed, it wrote the
+decision rule into DESIGN_NOTES section 15, archived the first labels in
+`outputs/labels_v1/`, and measured their routing as a baseline.
+
+Code changes: `labeller_sample_ids` now draws a seeded random sample
+(`sampling="first"` reproduces the old one), the prompt includes the
+node-type counts it had always claimed to include, faithfulness takes the
+sampling mode so its held-out set matches the labels being checked,
+`routing_pool_recall` is shared by `scripts/label_routing.py` and
+`scripts/coarsening_compare.py`, and `scripts/t5_import_labels.py`
+validates and merges replies. Two new tests.
+
+Each sub-agent got a prompt with only the path to its batch file (in a
+scratch directory holding nothing else) and an output path, and was told
+to use no other files or tools. No tool was technically blocked, so the
+main agent then read the sub-agents' tool logs: each made two reads of its
+own batch file and one write, and no log mentions the question files. All
+248 labels passed the id and word-limit checks with no edits.
+
+Results, run through the pre-registered rule: label routing still clearly
+beats chance (lift 0.42, CI 0.23 to 0.57, against 0.55 for the old labels),
+faithfulness improved (contradiction 5-14% against 14-21%), and recall@20
+now ties flat instead of beating it. Settings were not retuned. I accepted
+the new labels as the shipped set.
