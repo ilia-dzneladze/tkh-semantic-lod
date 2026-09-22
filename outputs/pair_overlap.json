@@ -1,0 +1,30 @@
+{
+  "2020": {
+    "n_pairs": 12066,
+    "share_pairs_in_multiple_edges": 0.006795955577656224,
+    "share_weight_in_multiple_edges": 0.07417219751547426,
+    "share_pairs_in_multiple_papers": 0.0020719376761147027,
+    "share_weight_in_multiple_papers": 0.006040329383606565
+  },
+  "2022": {
+    "n_pairs": 18917,
+    "share_pairs_in_multiple_edges": 0.014801501295131364,
+    "share_weight_in_multiple_edges": 0.08707584753805472,
+    "share_pairs_in_multiple_papers": 0.009779563355711793,
+    "share_weight_in_multiple_papers": 0.01574524485793043
+  },
+  "2024": {
+    "n_pairs": 43539,
+    "share_pairs_in_multiple_edges": 0.015893796366476032,
+    "share_weight_in_multiple_edges": 0.09045846578886095,
+    "share_pairs_in_multiple_papers": 0.011438021084544892,
+    "share_weight_in_multiple_papers": 0.02009525866548415
+  },
+  "2026": {
+    "n_pairs": 65679,
+    "share_pairs_in_multiple_edges": 0.02146804914812954,
+    "share_weight_in_multiple_edges": 0.09670421004831031,
+    "share_pairs_in_multiple_papers": 0.017311469419449138,
+    "share_weight_in_multiple_papers": 0.03088981732539769
+  }
+}
