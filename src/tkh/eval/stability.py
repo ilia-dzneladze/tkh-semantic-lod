@@ -8,9 +8,7 @@ import numpy as np
 from scipy import stats as scipy_stats
 from sklearn.metrics import adjusted_rand_score
 
-from tkh.hypergraph import build_structural_affinity
 from tkh.embeddings import semantic_knn_graph
-from tkh.cluster import combine_affinities, sparse_upgma, cut_to_k_clusters
 
 
 def labels_from_hierarchy(hierarchy, level, ids):
@@ -53,13 +51,15 @@ def _mean_ci95(values):
 
 def perturbation_stability(snap, embedding_cache, level_targets, alpha,
                             original_hierarchy, n_seeds=5, remove_frac=0.10,
-                            base_seed=1000):
+                            base_seed=1000, coarsening="dendrogram"):
     """Rebuild the clustering n_seeds times, each time with remove_frac of
     the snapshot's hyperedges dropped at random, and compare each rebuild
     to the original via ARI. Node set is held fixed (only edges are
     perturbed), so label arrays line up index-for-index with no need to
     restrict to a common subset."""
-    A_struct0, ids, _ = build_structural_affinity(snap, weighted=True)
+    from tkh.pipeline import build_levels
+
+    ids = sorted(snap.concept_ids)
     original_labels = {
         level_idx: labels_from_hierarchy(original_hierarchy, level_idx, ids)
         for level_idx in range(len(level_targets))
@@ -73,15 +73,11 @@ def perturbation_stability(snap, embedding_cache, level_targets, alpha,
 
     for s in range(n_seeds):
         pert = perturb_snapshot(snap, remove_frac=remove_frac, seed=base_seed + s)
-        A_struct, pert_ids, _ = build_structural_affinity(pert, weighted=True)
-        assert pert_ids == ids, "perturbation must not change the node set"
+        built = build_levels(pert, ids, emb, alpha=alpha, level_targets=level_targets,
+                             coarsening=coarsening, A_sem=A_sem)
+        n_forced_by_seed.append(built["forced_by_level"])
 
-        A_combined = combine_affinities(A_struct, A_sem, alpha=alpha)
-        Z, forced = sparse_upgma(A_combined, len(ids))
-        n_forced_by_seed.append(int(forced.sum()))
-
-        for level_idx, k in enumerate(level_targets):
-            labels = cut_to_k_clusters(Z, len(ids), k)
+        for level_idx, labels in built["labels_by_level"].items():
             ari = adjusted_rand_score(original_labels[level_idx], labels)
             per_level_aris[level_idx].append(float(ari))
 

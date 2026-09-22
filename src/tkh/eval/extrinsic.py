@@ -236,3 +236,68 @@ def summarize_extrinsic(results):
         "drilldown_mean_precision_at_k": avg(["drilldown", "precision_at_k"]),
         "drilldown_mean_candidates_scored": avg(["drilldown", "n_candidates_scored"]),
     }
+
+
+def routing_pool_recall(hierarchy, snap, questions, sn_vectors, b0, b1, rng, n_boot=2000):
+    """How much of each question's ground truth survives coarse-to-fine
+    routing, against a random pool of the same size.
+
+    questions: [(question_id, unit question vector, ground-truth node ids)].
+    sn_vectors: {super_node_id: unit vector} for level 0 and 1 super-nodes,
+    e.g. label+gloss embeddings or member centroids. Route to the top b0
+    level-0 super-nodes, then the top b1 of their level-1 children; the pool
+    is the method-like nodes under those. Chance = the pool's share of all
+    method-like nodes. Returns the pooled ground-truth-in-pool rate, the mean
+    pool fraction, and a bootstrap CI (over questions) on their difference.
+    See DESIGN_NOTES.md section 14."""
+    method_ids = {n for n in snap.concept_ids if snap.nodes[n]["type"] in METHOD_LIKE_TYPES}
+    l0 = [sn for sn in hierarchy["super_nodes"] if sn["level"] == 0]
+    l1 = [sn for sn in hierarchy["super_nodes"] if sn["level"] == 1]
+    hits, totals, fracs = [], [], []
+    for _, qv, gt_ids in questions:
+        sel0 = {sn["id"] for sn in sorted(l0, key=lambda s: -(sn_vectors[s["id"]] @ qv))[:b0]}
+        kids = [sn for sn in l1 if sn["parent_id"] in sel0]
+        sel1 = sorted(kids, key=lambda s: -(sn_vectors[s["id"]] @ qv))[:b1]
+        pool = {n for sn in sel1 for n in sn["member_ids"] if n in method_ids}
+        hits.append(sum(1 for n in gt_ids if n in pool))
+        totals.append(len(gt_ids))
+        fracs.append(len(pool) / len(method_ids))
+    hits, totals, fracs = map(np.array, (hits, totals, fracs))
+    boot = []
+    for _ in range(n_boot):
+        i = rng.integers(0, len(hits), len(hits))
+        boot.append(hits[i].sum() / totals[i].sum() - fracs[i].mean())
+    rate = hits.sum() / totals.sum()
+    return {"b0": b0, "b1": b1, "gt_in_pool_rate": float(rate),
+            "mean_pool_fraction": float(fracs.mean()),
+            "lift_over_chance": float(rate - fracs.mean()),
+            "lift_ci95": [float(np.percentile(boot, 2.5)), float(np.percentile(boot, 97.5))]}
+
+
+def load_type_a_questions(root, snap, encode_fn):
+    """[(question_id, question vector, ground-truth node ids)] for the
+    type-A questions whose expected methods match at least one node."""
+    import csv
+    import json
+    with open(root / "data" / "questions.csv", encoding="utf-8") as f:
+        questions = list(csv.DictReader(f, delimiter=";"))
+    gt = json.loads((root / "data" / "ground_truth.json").read_text(encoding="utf-8"))
+    out = []
+    for q in questions:
+        g = gt.get(q["question_id"])
+        if not g or g.get("type") != "A":
+            continue
+        ids = sorted({n for m in match_ground_truth_methods(snap, g["expected_methods"]).values()
+                      for n in m["node_ids"]})
+        if ids:
+            out.append((q["question_id"], encode_fn([q["question"]])[0], ids))
+    return out
+
+
+def centroid_vectors(hierarchy, emb_by_id, levels=(0, 1)):
+    out = {}
+    for sn in hierarchy["super_nodes"]:
+        if sn["level"] in levels:
+            v = np.mean([emb_by_id[n] for n in sn["member_ids"]], axis=0)
+            out[sn["id"]] = v / np.linalg.norm(v)
+    return out

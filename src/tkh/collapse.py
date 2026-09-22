@@ -100,6 +100,37 @@ def build_coarse_hyperedges(hyperedges, mapping, snap):
     return coarse_edges, dict(internal_stats), summary
 
 
+def coarse_structural_affinity(coarse_edges, super_ids):
+    """Structural affinity between super-nodes, computed from the output of
+    build_coarse_hyperedges. Each coarse edge is restricted to its
+    super-node members (context singletons dropped, as at the fine level),
+    and one spanning k super-nodes adds weight/(k-1) to each of its pairs.
+    Edges touching fewer than 2 super-nodes are internal and add nothing.
+    Returns a symmetric sparse matrix indexed like super_ids.
+    See DESIGN_NOTES.md section 9."""
+    import scipy.sparse as sp
+
+    idx = {s: i for i, s in enumerate(super_ids)}
+    pair_weight = defaultdict(float)
+    for c in coarse_edges:
+        members = [idx[m] for m in c["members"] if m in idx]
+        k = len(members)
+        if k < 2:
+            continue
+        share = c["weight"] / (k - 1)
+        for i in range(k):
+            for j in range(i + 1, k):
+                a, b = sorted((members[i], members[j]))
+                pair_weight[(a, b)] += share
+    n = len(super_ids)
+    rows, cols, vals = [], [], []
+    for (a, b), w in pair_weight.items():
+        rows += [a, b]
+        cols += [b, a]
+        vals += [w, w]
+    return sp.csr_matrix((vals, (rows, cols)), shape=(n, n))
+
+
 def clique_explosion_comparison(coarse_edges):
     """Pairwise edges a clique expansion would add vs. the 1 coarse
     hyperedge kept per group. See DESIGN_NOTES.md section 9."""

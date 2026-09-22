@@ -5,46 +5,102 @@ assemble the final per-snapshot, multi-level, temporally-tracked hierarchy.
 from collections import defaultdict
 
 import numpy as np
+import scipy.sparse as sp
 
 from .hypergraph import build_structural_affinity
 from .embeddings import encode_semantic, semantic_knn_graph
 from .cluster import combine_affinities, sparse_upgma, cut_to_k_clusters
-from .collapse import build_coarse_hyperedges
+from .collapse import build_coarse_hyperedges, coarse_structural_affinity
 from .temporal import clusters_from_labels, track_across_snapshots
 
 LEVEL_TARGETS = [12, 50, 200]  # level 0 (coarsest) .. level 2 (finest super-node level)
 ALPHA = 0.3  # see DESIGN_NOTES.md: structural/semantic combination (alpha ablation)
 KNN_K = 15
+COARSENING = "dendrogram"  # or "multilevel"; see DESIGN_NOTES.md section 9
 
 
-def run_single_snapshot(snap, embedding_cache, alpha=ALPHA, level_targets=LEVEL_TARGETS):
-    """Returns dict: ids, Z, forced, labels_by_level {level_idx: np.array},
-    struct_stats, sem_nnz."""
-    A_struct, ids, struct_stats = build_structural_affinity(snap, weighted=True)
+def coarsen_one_level(snap, ids, emb, fine_labels, k_target, alpha=ALPHA, size_normalize=False):
+    """Cluster the super-nodes of one level into at most k_target groups,
+    using the T4-collapsed hypergraph for structure and member-centroid
+    embeddings for semantics. Returns (node-level labels, n_forced_merges).
+    Laminar by construction: each fine super-node moves as one unit.
 
+    size_normalize: divide structural weight between S and T by |S||T| and
+    weight the linkage by member counts (average linkage over nodes).
+    See DESIGN_NOTES.md section 15."""
+    m = int(fine_labels.max()) + 1
+    super_ids = [f"__super_{i}" for i in range(m)]
+    mapping = {nid: super_ids[lab] for nid, lab in zip(ids, fine_labels)}
+    coarse_edges, _, _ = build_coarse_hyperedges(snap.hyperedges, mapping, snap)
+    A_struct = coarse_structural_affinity(coarse_edges, super_ids)
+    counts = np.bincount(fine_labels, minlength=m).astype(float)
+    if size_normalize:
+        inv = sp.diags(1.0 / counts)
+        A_struct = (inv @ A_struct @ inv).tocsr()
+
+    centroids = np.zeros((m, emb.shape[1]))
+    np.add.at(centroids, fine_labels, emb)
+    centroids /= np.linalg.norm(centroids, axis=1, keepdims=True)
+    A_sem = semantic_knn_graph(centroids, k=min(KNN_K, m - 1))
+
+    Z, forced = sparse_upgma(combine_affinities(A_struct, A_sem, alpha=alpha), m,
+                             sizes=counts if size_normalize else None)
+    super_labels = cut_to_k_clusters(Z, m, k_target)
+    return super_labels[fine_labels], int(forced.sum())
+
+
+def build_levels(snap, ids, emb, alpha=ALPHA, level_targets=LEVEL_TARGETS,
+                 coarsening=COARSENING, A_sem=None):
+    """Laminar labels for every level. The finest level is always a cut of
+    the node-level dendrogram. With coarsening="dendrogram" the coarser
+    levels are cuts of that same dendrogram; with "multilevel" each coarser
+    level clusters the super-nodes of the level below via
+    coarsen_one_level. ids must be sorted(snap.concept_ids), row-aligned
+    with emb."""
+    A_struct, struct_ids, struct_stats = build_structural_affinity(snap, weighted=True)
+    assert struct_ids == list(ids), "ids must match build_structural_affinity's ordering"
+    if A_sem is None:
+        A_sem = semantic_knn_graph(emb, k=KNN_K)
+    n = len(ids)
+    Z, forced = sparse_upgma(combine_affinities(A_struct, A_sem, alpha=alpha), n)
+
+    finest = len(level_targets) - 1
+    labels_by_level = {finest: cut_to_k_clusters(Z, n, level_targets[finest])}
+    forced_by_level = {finest: int(forced.sum())}
+    for level_idx in range(finest - 1, -1, -1):
+        if coarsening == "dendrogram":
+            labels_by_level[level_idx] = cut_to_k_clusters(Z, n, level_targets[level_idx])
+            forced_by_level[level_idx] = int(forced.sum())
+        elif coarsening in ("multilevel", "multilevel_sizenorm"):
+            labels_by_level[level_idx], forced_by_level[level_idx] = coarsen_one_level(
+                snap, ids, emb, labels_by_level[level_idx + 1], level_targets[level_idx], alpha,
+                size_normalize=(coarsening == "multilevel_sizenorm"))
+        else:
+            raise ValueError(f"unknown coarsening {coarsening!r}")
+    return {"labels_by_level": dict(sorted(labels_by_level.items())),
+            "forced_by_level": dict(sorted(forced_by_level.items())),
+            "struct_stats": struct_stats, "n_sem_edges": A_sem.nnz}
+
+
+def embed_concepts(snap, embedding_cache):
+    """Sorted concept ids and their embedding matrix, filling the cache."""
+    ids = sorted(snap.concept_ids)
     missing = [nid for nid in ids if nid not in embedding_cache]
     if missing:
         texts = [snap.nodes[nid]["surface_form"] or "" for nid in missing]
-        vecs = encode_semantic(texts)
-        for nid, v in zip(missing, vecs):
+        for nid, v in zip(missing, encode_semantic(texts)):
             embedding_cache[nid] = v
-    emb = np.stack([embedding_cache[nid] for nid in ids])
+    return ids, np.stack([embedding_cache[nid] for nid in ids])
 
-    A_sem = semantic_knn_graph(emb, k=KNN_K)
-    A_combined = combine_affinities(A_struct, A_sem, alpha=alpha)
 
-    n = len(ids)
-    Z, forced = sparse_upgma(A_combined, n)
-
-    labels_by_level = {}
-    for level_idx, k in enumerate(level_targets):
-        labels_by_level[level_idx] = cut_to_k_clusters(Z, n, k)
-
-    return {
-        "ids": ids, "Z": Z, "forced": forced, "labels_by_level": labels_by_level,
-        "struct_stats": struct_stats, "n_sem_edges": A_sem.nnz,
-        "n_forced_merges": int(forced.sum()),
-    }
+def run_single_snapshot(snap, embedding_cache, alpha=ALPHA, level_targets=LEVEL_TARGETS,
+                        coarsening=COARSENING):
+    """Returns dict: ids, labels_by_level {level_idx: np.array},
+    forced_by_level, struct_stats, n_sem_edges."""
+    ids, emb = embed_concepts(snap, embedding_cache)
+    out = build_levels(snap, ids, emb, alpha=alpha, level_targets=level_targets,
+                       coarsening=coarsening)
+    return {"ids": ids, **out}
 
 
 def _laminar_parents(labels_by_level, ids):
@@ -71,15 +127,17 @@ def _laminar_parents(labels_by_level, ids):
     return parents
 
 
-def run_all_snapshots(snapshots_by_year, alpha=ALPHA, level_targets=LEVEL_TARGETS):
+def run_all_snapshots(snapshots_by_year, alpha=ALPHA, level_targets=LEVEL_TARGETS,
+                      coarsening=COARSENING, embedding_cache=None):
     """snapshots_by_year: {year: Snapshot}. Returns everything needed to
     write hierarchy.json per year + one temporal_events.json."""
-    embedding_cache = {}
+    embedding_cache = {} if embedding_cache is None else embedding_cache
     years = sorted(snapshots_by_year)
     per_year = {}
     for year in years:
         per_year[year] = run_single_snapshot(
-            snapshots_by_year[year], embedding_cache, alpha=alpha, level_targets=level_targets)
+            snapshots_by_year[year], embedding_cache, alpha=alpha, level_targets=level_targets,
+            coarsening=coarsening)
         per_year[year]["parents"] = _laminar_parents(per_year[year]["labels_by_level"], per_year[year]["ids"])
 
     n_levels = len(level_targets)

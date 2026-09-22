@@ -33,8 +33,11 @@ def combine_affinities(A_struct, A_sem, alpha=0.5):
     return combined
 
 
-def sparse_upgma(A, n):
+def sparse_upgma(A, n, sizes=None):
     """Average-linkage agglomerative clustering on a sparse similarity graph.
+
+    sizes: optional initial weight per point (default 1 each). With member
+    counts here, clustering super-nodes averages over underlying nodes.
 
     Returns (Z, forced_mask):
       Z: (n-1, 4) scipy linkage matrix [id1, id2, distance, cluster_size].
@@ -53,7 +56,8 @@ def sparse_upgma(A, n):
             adjacency[i][j] = A.data[jj]
 
     alive = set(range(n))
-    size = {i: 1 for i in range(n)}
+    size = {i: (1 if sizes is None else sizes[i]) for i in range(n)}  # linkage weights
+    npts = {i: 1 for i in range(n)}  # point counts, for Z's 4th column
     next_id = n
     heap = []
     for i in range(n):
@@ -84,7 +88,8 @@ def sparse_upgma(A, n):
             is_forced = False
 
         new_size = size[a] + size[b]
-        Z.append([a, b, 1.0 - sim, new_size])
+        npts[next_id] = npts[a] + npts[b]
+        Z.append([a, b, 1.0 - sim, npts[next_id]])
         forced.append(is_forced)
 
         # Lance-Williams average-linkage update. Missing edge = similarity 0,
