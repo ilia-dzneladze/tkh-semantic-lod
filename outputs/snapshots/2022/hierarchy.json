@@ -232,8 +232,8 @@
         "tech_00930"
       ],
       "member_count": 224,
-      "label": "ML potentials, DFT codes, and descriptors",
-      "gloss": "A mix of molecular ML potential models (ANI, GemNet, DimeNet), DFT/MD simulation codes (VASP, LAMMPS), molecular descriptors, and generic sequence models."
+      "label": "ML potentials and materials databases",
+      "gloss": "Mix of cited works, datasets, and methods spanning interatomic potentials, DFT codes, and materials databases; no single tight theme evident."
     },
     {
       "id": "L0_S00007",
@@ -471,8 +471,8 @@
         "tech_00610"
       ],
       "member_count": 229,
-      "label": "Equivariant graph neural network architectures",
-      "gloss": "Members are almost all graph neural network variants, especially equivariant/message-passing architectures for molecules and crystals, though Pauling File appears as an outlier."
+      "label": "Graph neural networks for crystal representation",
+      "gloss": "Cited works, methods, and components centered on graph neural network architectures (GCN, MPNN, equivariant nets) for representing atoms/crystals as graphs."
     },
     {
       "id": "L0_S00013",
@@ -546,8 +546,8 @@
         "tech_00601"
       ],
       "member_count": 65,
-      "label": "MD-17 benchmark datasets for ML potentials",
-      "gloss": "Mostly MD-17 molecular dynamics benchmark datasets used to test ML potentials like SchNet and NequIP, plus a few DFT k-point sampling methods."
+      "label": "MD-17 molecular dynamics benchmark datasets",
+      "gloss": "Dominated by MD-17 and related small-molecule/CCSD(T) benchmark datasets used to test machine-learned force fields like SchNet and NequIP."
     },
     {
       "id": "L0_S00004",
@@ -893,8 +893,8 @@
         "tech_00929"
       ],
       "member_count": 337,
-      "label": "Materials Project database and property screening",
-      "gloss": "A broad mix centered on the Materials Project database and high-throughput screening, plus separate threads on superconductivity formulas and ML melting-temperature prediction."
+      "label": "Materials property prediction and discovery tasks",
+      "gloss": "A large, diverse mix of tasks, claims, and problems spanning materials property prediction, high-throughput discovery workflows, and specific case studies; no single tight theme."
     },
     {
       "id": "L0_S00006",
@@ -1023,8 +1023,8 @@
         "tech_00921"
       ],
       "member_count": 120,
-      "label": "Optimizers and force-based potential training",
-      "gloss": "A mix of optimization algorithms (Adam, conjugate gradients), JARVIS force-field data, and training methodology for force-based ML interatomic potentials like SchNet."
+      "label": "Energy/force/stress fitting and optimization",
+      "gloss": "Optimizers (Adam, conjugate gradient), loss-function design, and tasks/problems around jointly fitting energies, forces, and stresses in interatomic models."
     },
     {
       "id": "L0_S00005",
@@ -1379,8 +1379,8 @@
         "tech_00927"
       ],
       "member_count": 346,
-      "label": "Neural network potentials and CGCNN accuracy",
-      "gloss": "Behler-Parrinello-style and Deep Potential neural network interatomic potentials, classical empirical potentials (Tersoff, Brenner), plus claims about CGCNN's formation-energy prediction accuracy."
+      "label": "ML interatomic potentials applied to materials",
+      "gloss": "A large, diverse set of claims and tasks applying machine-learned potentials (GAP, Deep Potential, M3GNet, etc.) to varied materials simulations; no single tight theme."
     },
     {
       "id": "L0_S00003",
@@ -1544,8 +1544,8 @@
         "tech_00919"
       ],
       "member_count": 155,
-      "label": "Automated ML pipelines and workflow tools",
-      "gloss": "A mix of Automatminer's AutoML pipeline, STM-image analysis pipelines, DFT workflow validation tools, and scattered technique/component nodes with no single tight theme."
+      "label": "ML pipeline techniques and training-set curation",
+      "gloss": "Techniques and tools for feature engineering, training-set curation, and evaluation in materials ML pipelines (scikit-learn, Automatminer, cross-validation)."
     },
     {
       "id": "L0_S00008",
@@ -1630,8 +1630,8 @@
         "tech_00922"
       ],
       "member_count": 76,
-      "label": "DFT+U corrections and relaxation automation",
-      "gloss": "A mix of DFT+U exchange-correlation correction schemes (LDA+U, GGA+U, Dudarev), neural-network activation functions (GELU, softplus, GRU), and AFLOW/M3GNet relaxation automation."
+      "label": "High-throughput DFT workflow management (DFT+U)",
+      "gloss": "DFT+U variants and problems/techniques around automating and scaling high-throughput DFT calculation campaigns."
     },
     {
       "id": "L0_S00009",
@@ -1811,8 +1811,8 @@
         "tech_00928"
       ],
       "member_count": 171,
-      "label": "ML potential descriptors and basis expansions",
-      "gloss": "Building-block components and techniques for ML interatomic potentials: radial/angular/many-body descriptors, spherical harmonics, and kernel methods like GAP, ACE, and SNAP."
+      "label": "Structural descriptors and regularization techniques",
+      "gloss": "Many-body structural descriptors (SOAP, two/three-body) plus regularization and kernel techniques used in building ML interatomic potentials."
     },
     {
       "id": "L0_S00014",
@@ -1929,8 +1929,8 @@
         "tech_00926"
       ],
       "member_count": 108,
-      "label": "Coulomb matrix features and DFT convergence",
-      "gloss": "A diverse mix: Coulomb-matrix molecular featurizers, AFLOW DFT convergence/k-point conventions, convex-hull stability screening, and a formate-on-copper surface study, no single topic."
+      "label": "Elastic-property prediction and DFT convergence settings",
+      "gloss": "Mix of elastic-constant/modulus prediction tasks and DFT convergence parameters (k-point grids, energy/ionic thresholds); two loosely related themes."
     },
     {
       "id": "L0_S00011",
@@ -2032,8 +2032,8 @@
         "tech_00648"
       ],
       "member_count": 93,
-      "label": "JARVIS infrastructure and phonon prediction",
-      "gloss": "Mostly the JARVIS materials-informatics infrastructure (DFT, FF, ML, Tools, REST-API), plus a smaller thread on phonon/electronic-structure prediction via M3GNet and AFLOW."
+      "label": "JARVIS/AFLOW electronic structure and phonon tools",
+      "gloss": "JARVIS and AFLOW infrastructure, workflows, and tasks for electronic-structure, band-gap, and phonon property calculation and data access."
     },
     {
       "id": "L0_S00015",
@@ -2164,8 +2164,8 @@
         "tech_00653"
       ],
       "member_count": 122,
-      "label": "DeepH Hamiltonian prediction and extended ACE",
-      "gloss": "Mostly DeepH's deep-learning prediction of DFT Hamiltonians for graphene, MoS2, and twisted bilayer systems, plus a separate thread generalizing the atomic cluster expansion (ACE)."
+      "label": "DeepH Hamiltonian prediction for twisted materials",
+      "gloss": "Mostly DeepH deep-learning DFT Hamiltonian prediction for twisted van der Waals materials, plus related equivariant (ACE) representations and GNN stress-prediction work in graphene."
     },
     {
       "id": "L1_S00001",
@@ -2260,8 +2260,8 @@
         "tech_00642"
       ],
       "member_count": 86,
-      "label": "ML molecular potentials and DFT/MD codes",
-      "gloss": "A mix of ML potentials for molecules (ANI, FCHL, sGDML), molecular descriptors (ECFP4, BAML), and DFT/MD simulation codes (VASP, LAMMPS, CP2K, AFLOW)."
+      "label": "Diverse DFT/ML methods and codes",
+      "gloss": "A broad, heterogeneous list of cited DFT functionals, codes, and ML-potential methods (PBE, CP2K, AFLOW, sGDML, etc.) without one unifying theme."
     },
     {
       "id": "L1_S00002",
@@ -2299,8 +2299,8 @@
         "meth_00195"
       ],
       "member_count": 29,
-      "label": "Neural network architectures for molecular properties",
-      "gloss": "Mostly equivariant/graph neural network models for molecules and crystals (GemNet, DimeNet, PaiNN, MEGNet, CGCNN), plus some generic architectures like ResNet and WaveNet."
+      "label": "Neural network architectures for molecular/materials ML",
+      "gloss": "Named deep-learning architectures (MEGNet, DimeNet, GemNet, CGCNN, PaiNN, etc.) used for molecular and materials property prediction."
     },
     {
       "id": "L1_S00051",
@@ -2374,8 +2374,8 @@
         "tech_00610"
       ],
       "member_count": 65,
-      "label": "E(3)-equivariant neural network architectures",
-      "gloss": "E(3)/SE(3)-equivariant graph neural network architectures, including tensor field networks, steerable CNNs, and continuous-filter convolutions used in DeepH-E3."
+      "label": "E(3)/SE(3)-equivariant neural network architectures",
+      "gloss": "Equivariant network designs (Tensor-Field Networks, SE(3)-Transformer, steerable CNNs) and techniques for building rotation-equivariant molecular/materials models."
     },
     {
       "id": "L1_S00022",
@@ -2449,8 +2449,8 @@
         "tech_00601"
       ],
       "member_count": 65,
-      "label": "MD-17 benchmark datasets for ML potentials",
-      "gloss": "Mostly MD-17 molecular dynamics benchmark datasets used to test ML potentials like SchNet and NequIP, plus a few DFT k-point sampling methods."
+      "label": "MD-17 molecular dynamics benchmark datasets",
+      "gloss": "Dominated by MD-17 and related small-molecule benchmark datasets (aspirin, ethanol, etc.) used to evaluate ML force fields like SchNet and NequIP."
     },
     {
       "id": "L1_S00008",
@@ -2516,8 +2516,8 @@
         "tech_00498"
       ],
       "member_count": 57,
-      "label": "Graph neural networks for materials",
-      "gloss": "Graph neural network architectures for molecules and crystals, from early graph convolutions (Kipf & Welling, Duvenaud) to crystal-specific models like CGCNN and MPNN."
+      "label": "Graph neural networks for crystal properties",
+      "gloss": "Crystal/molecular graph neural network architectures (CGCNN, graph attention networks, MPNN) and claims about their scalability and performance."
     },
     {
       "id": "L1_S00004",
@@ -2636,8 +2636,8 @@
         "tech_00407"
       ],
       "member_count": 110,
-      "label": "High-throughput materials databases and workflows",
-      "gloss": "High-throughput DFT materials databases and their automated workflows: Materials Project, AFLOW/AFLOWLIB, OQMD, JARVIS, and the Matbench benchmark suite."
+      "label": "High-throughput materials discovery databases",
+      "gloss": "Materials discovery databases (Materials Project, OQMD) and high-throughput screening tasks including superconductor and general candidate discovery."
     },
     {
       "id": "L1_S00005",
@@ -2670,8 +2670,8 @@
         "meth_00386"
       ],
       "member_count": 24,
-      "label": "DFT correction methods and cited authors",
-      "gloss": "A diverse mix of DFT numerical correction schemes (PAW, Harris-Foulkes, Blochl, Grimme-D2) and various named author citations for unspecified statistical/ML methods, no tight theme."
+      "label": "Named DFT correction methods and citations",
+      "gloss": "A heterogeneous list of named cited works and correction methods (PAW, Harris-Foulkes, Blochl, Grimme-D2, various author-named methods) with no single unifying topic."
     },
     {
       "id": "L1_S00007",
@@ -2729,8 +2729,8 @@
         "tech_00912"
       ],
       "member_count": 49,
-      "label": "Optimization algorithms for structure design",
-      "gloss": "Optimization algorithms, gradient-based (Adam, AdamW) and evolutionary (genetic algorithms, TPOT), applied to inverse design and geometry optimization of low-stress structures."
+      "label": "Optimization algorithms for training and design",
+      "gloss": "Optimizers and optimization techniques (Adam variants, genetic algorithms, geometry relaxation) used for model training and inverse materials design."
     },
     {
       "id": "L1_S00052",
@@ -2782,8 +2782,8 @@
         "tech_00336"
       ],
       "member_count": 43,
-      "label": "Message-passing neural network architecture components",
-      "gloss": "The building blocks of message-passing neural networks: edge/vertex update blocks, message functions, and specific MPNN variants like directional and local-coordinate message passing."
+      "label": "Message-passing neural network architectures",
+      "gloss": "Message-passing GNN variants (directional, edge-update, vertex-update) and their component blocks for molecular/materials property prediction."
     },
     {
       "id": "L1_S00006",
@@ -2845,8 +2845,8 @@
         "tech_00893"
       ],
       "member_count": 53,
-      "label": "Behler-Parrinello and Deep Potential NN potentials",
-      "gloss": "Neural network interatomic potentials, mainly Behler-Parrinello-style and Deep Potential/DeepMD variants, plus classical empirical potentials (Tersoff, Brenner) and NASICON training convergence claims."
+      "label": "Neural network and empirical interatomic potentials",
+      "gloss": "Named interatomic potential methods, both neural-network (Behler-Parrinello, Deep Potential) and empirical (Tersoff, Brenner), plus related MD barostats and training problems."
     },
     {
       "id": "L1_S00023",
@@ -2890,7 +2890,7 @@
       ],
       "member_count": 34,
       "label": "Automatminer AutoML pipeline for materials",
-      "gloss": "The Automatminer automated machine-learning pipeline for materials property prediction: its featurizers, presets (Express, Debug, Heavy), and Set2Set readout component."
+      "gloss": "Components, presets, and claims specifically about the Automatminer automated machine-learning pipeline for materials property prediction."
     },
     {
       "id": "L1_S00018",
@@ -2962,8 +2962,8 @@
         "tech_00651"
       ],
       "member_count": 63,
-      "label": "DFT+U exchange-correlation methods and AFLOW automation",
-      "gloss": "DFT+U exchange-correlation correction schemes (LDA+U, GGA+U, Dudarev, Liechtenstein) and the AFLOW standard's automated high-throughput DFT+U calculation protocol."
+      "label": "High-throughput DFT+U calculation management",
+      "gloss": "DFT+U method variants and problems/techniques around automating, standardizing, and scaling high-throughput DFT calculation campaigns."
     },
     {
       "id": "L1_S00011",
@@ -3011,8 +3011,8 @@
         "tech_00928"
       ],
       "member_count": 39,
-      "label": "Normalization techniques for ML potential kernels",
-      "gloss": "A mix of normalization techniques (batch, layer, kernel), neighbor-list/scaling methods for ML potentials, and kernel-based approaches like SNAP and power-spectrum kernels."
+      "label": "Kernel and neighbor-aggregation techniques for potentials",
+      "gloss": "Normalization, kernel, and neighbor-aggregation techniques (power spectrum kernels, batch/layer norm, pooling) used in atomistic machine-learning models."
     },
     {
       "id": "L1_S00012",
@@ -3041,8 +3041,8 @@
         "tech_00902"
       ],
       "member_count": 20,
-      "label": "Coulomb matrix features and CUR decomposition",
-      "gloss": "Coulomb/Sine-Coulomb matrix molecular representations and CUR matrix decomposition/sparsification techniques, alongside a formate-on-copper surface study and PyTorch tooling."
+      "label": "Coulomb matrix and CUR featurization methods",
+      "gloss": "Matrix-based structure representations (Coulomb matrix variants, CUR decomposition) and related implementation tools (PyTorch Geometric), plus a Formate-on-Cu dataset."
     },
     {
       "id": "L1_S00013",
@@ -3102,8 +3102,8 @@
         "tech_00648"
       ],
       "member_count": 51,
-      "label": "Phonon and electronic band structure prediction",
-      "gloss": "Phonon spectra and electronic band-structure calculation and prediction, via methods like frozen-phonon and linear-response phonon theory, and models like M3GNet and AFLOW."
+      "label": "Phonon and electronic band-structure prediction",
+      "gloss": "Tasks, techniques, and components for predicting phonon spectra, density of states, and electronic band structure/band gaps."
     },
     {
       "id": "L1_S00028",
@@ -3199,8 +3199,8 @@
         "tech_00387"
       ],
       "member_count": 87,
-      "label": "Benchmark accuracy claims for ML potentials",
-      "gloss": "Mostly quantitative benchmark-accuracy claims (MAE, RMSE) for ML property-prediction models like CGCNN, SchNet, MPNN, NequIP, GAP, DeePMD, and MEGNet on QM9/MD-17/Matbench."
+      "label": "ML potential benchmark performance claims",
+      "gloss": "Claims about accuracy, scaling, and transferability of specific ML interatomic potentials (SchNet, NequIP, GAP, DeePMD, M3GNet) on benchmark tasks."
     },
     {
       "id": "L1_S00042",
@@ -3229,7 +3229,7 @@
       ],
       "member_count": 19,
       "label": "Convex hull stability and volume prediction",
-      "gloss": "Convex-hull phase-stability analysis and construction, plus unit-cell volume prediction, used to filter and screen candidate crystal structures."
+      "gloss": "Tasks and techniques for constructing convex hulls, predicting hull distance, and predicting unit cell volume for phase-stability assessment."
     },
     {
       "id": "L1_S00038",
@@ -3288,8 +3288,8 @@
         "tech_00650"
       ],
       "member_count": 50,
-      "label": "Extended ACE for magnetic tensor properties",
-      "gloss": "The generalized atomic cluster expansion (ACE) extended to magnetic, charge, and tensorial atomic properties, plus related tensor-product and local-coordinate equivariant components."
+      "label": "Atomic Cluster Expansion for tensorial properties",
+      "gloss": "The Atomic Cluster Expansion (ACE) formalism generalized to vectorial, tensorial, magnetic, and charge degrees of freedom, with related equivariance and basis-function claims."
     },
     {
       "id": "L1_S00031",
@@ -3361,8 +3361,8 @@
         "tech_00927"
       ],
       "member_count": 63,
-      "label": "Molecular dynamics simulation tools and training",
-      "gloss": "Molecular dynamics simulation infrastructure (ASE, VASP, atomate) and protocols for training ML interatomic potentials like NequIP and GAP from MD trajectories."
+      "label": "Molecular dynamics simulation methods and tools",
+      "gloss": "Methods and tools (ASE, VASP, ab initio/first-principles MD) plus problems and tasks around running and validating atomistic molecular dynamics simulations."
     },
     {
       "id": "L1_S00053",
@@ -3384,8 +3384,8 @@
         "tech_00692"
       ],
       "member_count": 13,
-      "label": "Atomic cluster expansion method details",
-      "gloss": "The Atomic Cluster Expansion (ACE) method and its implementation details: hierarchical body-order expansion, bond-distance terms, and a multiple-tower speedup architecture."
+      "label": "Atomic Cluster Expansion and multi-tower decomposition",
+      "gloss": "Atomic Cluster Expansion method variants plus multiple-tower architecture techniques for reducing computational complexity in body-order expansions."
     },
     {
       "id": "L1_S00030",
@@ -3438,8 +3438,8 @@
         "tech_00255"
       ],
       "member_count": 44,
-      "label": "Solid-state electrolyte and battery screening",
-      "gloss": "High-throughput screening and ML-potential simulation of solid-state electrolytes and battery materials: ionic conductivity, diffusion, anode candidates, and cathode HF-scavenging coatings."
+      "label": "Li-ion battery electrolyte and cathode screening",
+      "gloss": "Tasks and claims around screening and simulating solid-state electrolytes and cathode materials for lithium-ion batteries, including ionic diffusion prediction."
     },
     {
       "id": "L1_S00015",
@@ -3504,8 +3504,8 @@
         "tech_00917"
       ],
       "member_count": 56,
-      "label": "Gaussian basis descriptors and GAP potentials",
-      "gloss": "Gaussian/spherical-harmonic basis-expansion descriptor components and Gaussian Approximation Potentials (GAP), including uncertainty estimation and extrapolation problems for ML potentials."
+      "label": "Radial-basis and spherical-harmonic feature expansions",
+      "gloss": "Gaussian process/GAP-related techniques for expanding distances and angles into radial-basis and spherical-harmonic features, plus uncertainty-estimation problems."
     },
     {
       "id": "L1_S00017",
@@ -3550,8 +3550,8 @@
         "tech_00373"
       ],
       "member_count": 36,
-      "label": "Benchmark datasets: OC20, OQMD, QM9",
-      "gloss": "Materials/molecular ML benchmark datasets, dominated by the Open Catalyst (OC20/OC22) sets, OQMD, QM9, and solid-electrolyte structures, plus a few DFT codes."
+      "label": "OC20/OC22 catalysis and solid-electrolyte datasets",
+      "gloss": "Mainly benchmark datasets, including the OC20/OC22 catalysis datasets and solid-electrolyte materials (LLZO, NASICON, LGPS), plus a few DFT codes and functionals."
     },
     {
       "id": "L1_S00041",
@@ -3586,8 +3586,8 @@
         "tech_00404"
       ],
       "member_count": 26,
-      "label": "Crystal graph representation and interstitial sites",
-      "gloss": "Crystal-graph representations of atomic structures and AFLOW's topological search for interstitial sites and cages in crystal lattices."
+      "label": "Interstitial site identification via topological methods",
+      "gloss": "Problems, tasks, and techniques for identifying interstitial sites and cages in crystal structures using topological search and graph representations."
     },
     {
       "id": "L1_S00033",
@@ -3667,8 +3667,8 @@
         "tech_00921"
       ],
       "member_count": 71,
-      "label": "Force/stress training methodology for potentials",
-      "gloss": "Training methodology for force- and stress-aware ML interatomic potentials (energy conservation, loss weighting), plus JARVIS force-field data and classical force fields like AMBER."
+      "label": "Energy-conserving force prediction and benchmarking",
+      "gloss": "JARVIS-related claims and tasks around energy-conserving force prediction, force-field benchmarking, and scaling of ML potential accuracy with dataset size."
     },
     {
       "id": "L1_S00054",
@@ -3702,8 +3702,8 @@
         "tech_00370"
       ],
       "member_count": 25,
-      "label": "Matbench/Matminer benchmarking tools and HSE06",
-      "gloss": "Mostly the Matbench benchmark suite and Matminer data-mining/featurization tools, plus a separate thread on HSE06 hybrid-functional band-gap calculations for ZnO."
+      "label": "Matbench benchmark suite and materials tools",
+      "gloss": "The Matbench benchmark suite, related tools (Matminer, BoltzTraP, PseudoDojo), and a HSE06 ZnO band-gap case study."
     },
     {
       "id": "L1_S00024",
@@ -3748,8 +3748,8 @@
         "tech_00919"
       ],
       "member_count": 36,
-      "label": "Tree-ensemble ML for STM image analysis",
-      "gloss": "Tree-ensemble machine learning methods (Random Forest, gradient boosting, LightGBM) applied to classifying and analyzing scanning tunneling microscopy (STM) images."
+      "label": "Tree-based ML for STM image classification",
+      "gloss": "Tree-ensemble ML methods (Random Forest, GBDT, LightGBM) and feature-selection/reduction techniques, applied largely to STM image classification tasks."
     },
     {
       "id": "L1_S00016",
@@ -3771,8 +3771,8 @@
         "tech_00638"
       ],
       "member_count": 13,
-      "label": "DFT methods and hybrid functionals",
-      "gloss": "Core density functional theory methods and exchange-correlation functional variants, including Kohn-Sham DFT, local density approximation, and hybrid functionals like HSE06."
+      "label": "DFT and hybrid exchange-correlation functionals",
+      "gloss": "Core density functional theory methods and hybrid functional variants (HSE06, LDA) plus density-of-states tasks."
     },
     {
       "id": "L1_S00055",
@@ -3807,8 +3807,8 @@
         "tech_00602"
       ],
       "member_count": 26,
-      "label": "MAE/RMSE error metrics for ML models",
-      "gloss": "Almost entirely MAE and RMSE error metrics (energy, force, formation-energy) used to evaluate ML models, plus the unrelated McMillan/Allen-Dynes superconductivity formulas."
+      "label": "Error metrics and McMillan superconductivity formulas",
+      "gloss": "Mostly MAE/RMSE error metrics for energy prediction, plus the McMillan and Allen-Dynes formulas used for superconducting transition temperature."
     },
     {
       "id": "L1_S00056",
@@ -3842,8 +3842,8 @@
         "tech_00925"
       ],
       "member_count": 25,
-      "label": "Elastic modulus prediction and calculation",
-      "gloss": "Elastic-property prediction tasks (bulk, shear, Young's modulus) and calculation techniques like Voigt-Reuss-Hill averaging and finite-difference elastic tensor extraction."
+      "label": "Elastic modulus prediction and averaging schemes",
+      "gloss": "Tasks and techniques for predicting elastic constants/moduli (bulk, shear, Young's) including Voigt-Reuss-Hill and composition-weighted averaging methods."
     },
     {
       "id": "L1_S00043",
@@ -3943,8 +3943,8 @@
         "tech_00923"
       ],
       "member_count": 91,
-      "label": "GAP potential accuracy validated against DFT",
-      "gloss": "Mostly claims validating the Gaussian Approximation Potential (GAP) for silicon against DFT across many properties, plus scattered claims on formation energy and superconductor screening."
+      "label": "GAP potentials for silicon and carbon",
+      "gloss": "Claims and tasks around the Gaussian Approximation Potential (GAP) for silicon and carbon, validated against DFT for structural and energetic properties."
     },
     {
       "id": "L1_S00029",
@@ -3992,8 +3992,8 @@
         "tech_00624"
       ],
       "member_count": 39,
-      "label": "Automated workflow and model selection issues",
-      "gloss": "Problems and infrastructure around automating high-throughput DFT workflows (AFLOW, FireWorks) and materials ML model/pipeline selection, like bias and reproducibility."
+      "label": "Workflow automation and bias mitigation",
+      "gloss": "Problems and techniques around automating high-throughput workflows and reducing selection/element bias in materials ML pipelines."
     },
     {
       "id": "L1_S00039",
@@ -4059,8 +4059,8 @@
         "tech_00402"
       ],
       "member_count": 57,
-      "label": "Formation energy prediction across ML methods",
-      "gloss": "Formation-energy and activation-energy prediction accuracy across methods: graph networks (CGCNN, MEGNet), Automatminer, and a heuristic-plus-ML model for ternary compounds."
+      "label": "Formation and activation energy prediction",
+      "gloss": "Tasks and claims about predicting formation energies and ionic activation energies, including heuristic-ML and graph-network models compared to experiment."
     },
     {
       "id": "L1_S00032",
@@ -4094,8 +4094,8 @@
         "tech_00620"
       ],
       "member_count": 25,
-      "label": "ConvLSTM fracture and hardness prediction",
-      "gloss": "A ConvLSTM-based model predicting dynamic brittle fracture patterns, crack paths, fracture toughness, and Vickers hardness from crystal orientation data."
+      "label": "ConvLSTM prediction of fracture patterns",
+      "gloss": "A ConvLSTM model that predicts crack patterns, fracture toughness, and hardness from image-based representations of molecular dynamics simulations."
     },
     {
       "id": "L1_S00057",
@@ -4176,8 +4176,8 @@
         "tech_00653"
       ],
       "member_count": 72,
-      "label": "DeepH Hamiltonian prediction for 2D materials",
-      "gloss": "Mostly DeepH/DeepH-E3's deep-learning prediction of DFT Hamiltonians for graphene, MoS2, and twisted bilayer systems, plus GNN stress prediction in graphene."
+      "label": "DeepH Hamiltonian prediction for graphene/vdW materials",
+      "gloss": "Claims and tasks about DeepH deep-learning prediction of DFT Hamiltonians for graphene, twisted bilayer materials, and related GNN stress-prediction work."
     },
     {
       "id": "L1_S00034",
@@ -4246,8 +4246,8 @@
         "tech_00607"
       ],
       "member_count": 60,
-      "label": "Materials property prediction and Matbench",
-      "gloss": "Materials property-prediction tasks and problems, from Matbench benchmarking to crystal structural relaxation, property screening, and challenges like polymorph differentiation."
+      "label": "General materials property prediction tasks",
+      "gloss": "A broad set of tasks and problems around predicting diverse material properties (structure, dielectric, glass formation) using JARVIS-ML/Matbench-style models."
     },
     {
       "id": "L1_S00035",
@@ -4285,8 +4285,8 @@
         "tech_00360"
       ],
       "member_count": 29,
-      "label": "JARVIS integrated materials design infrastructure",
-      "gloss": "The JARVIS integrated materials-design infrastructure: its DFT, force-field, ML, and Tools components, REST-API, and heterostructure/Wannier tight-binding apps."
+      "label": "JARVIS materials design infrastructure components",
+      "gloss": "Components and apps of the JARVIS integrated materials design platform (DFT, FF, ML, Wannier, heterostructure tools) and its REST-API access."
     },
     {
       "id": "L1_S00058",
@@ -4326,8 +4326,8 @@
         "tech_00503"
       ],
       "member_count": 31,
-      "label": "Neural network layers and interpretability",
-      "gloss": "Building-block neural network layers (embedding, pooling, equivariant convolution) for materials models like EquiformerV2, plus interpretability of learned chemical trends."
+      "label": "Neural network layers and embedding interpretability",
+      "gloss": "Network-architecture components (embedding, pooling, equivariant conv layers, skip connections) and problems around interpretability of learned elemental embeddings."
     },
     {
       "id": "L1_S00049",
@@ -4372,8 +4372,8 @@
         "tech_00929"
       ],
       "member_count": 36,
-      "label": "Melting temperature prediction via ML",
-      "gloss": "Machine-learning prediction of melting temperature for binary/inorganic compounds using clustering plus symbolic regression, with elastic moduli as key features."
+      "label": "Melting temperature prediction via melt-quench",
+      "gloss": "Datasets, claims, and techniques for predicting inorganic compound melting temperatures using melt-quench MD simulations and gradient-boosted tree models."
     },
     {
       "id": "L1_S00047",
@@ -4400,8 +4400,8 @@
         "tech_00500"
       ],
       "member_count": 18,
-      "label": "Cross-validation methods and evaluation metrics",
-      "gloss": "Cross-validation methodology (k-fold, nested, stratified, leave-one-cluster-out) and evaluation metrics (MAE, ROC-AUC) for assessing ML model generalization."
+      "label": "Cross-validation techniques and evaluation metrics",
+      "gloss": "Various cross-validation schemes (k-fold, nested, stratified, leave-one-cluster-out) and evaluation metrics (ROC-AUC, MAE) for model validation."
     },
     {
       "id": "L1_S00026",
@@ -4423,8 +4423,8 @@
         "tech_00922"
       ],
       "member_count": 13,
-      "label": "M3GNet pre-relaxation and softplus activation",
-      "gloss": "M3GNet's learned-potential pre-relaxation pipeline for speeding up DFT structural relaxation, built around shifted-softplus activation functions."
+      "label": "Softplus activations and ML-accelerated pre-relaxation",
+      "gloss": "Shifted-softplus activation functions for smooth potential energy surfaces, plus M3GNet-based pre-relaxation that speeds up DFT structure relaxation."
     },
     {
       "id": "L1_S00036",
@@ -4467,8 +4467,8 @@
         "tech_00926"
       ],
       "member_count": 34,
-      "label": "K-point sampling and DFT convergence",
-      "gloss": "DFT k-point sampling and convergence techniques, mainly Monkhorst-Pack and NKPPRA-based grids, with some unrelated Voronoi tessellation and spatial-data problems mixed in."
+      "label": "K-point sampling and DFT convergence criteria",
+      "gloss": "Techniques and parameters for k-point grid sampling (Monkhorst-Pack, Gamma-centered) and electronic/ionic convergence criteria in high-throughput DFT."
     },
     {
       "id": "L1_S00059",
@@ -4487,8 +4487,8 @@
         "tech_00691"
       ],
       "member_count": 10,
-      "label": "Cutoff functions and convex hull screening",
-      "gloss": "Cutoff-function parameters (plane-wave energy cutoff, smooth radial cutoff) used in DFT and ML potentials, plus convex-hull screening for stiffness-tensor calculations."
+      "label": "Cutoff functions and convex-hull screening",
+      "gloss": "Plane-wave energy cutoffs, smooth cutoff functions, and screening of near-hull compounds for follow-up DFT stiffness-tensor calculations."
     },
     {
       "id": "L1_S00003",
@@ -4525,8 +4525,8 @@
         "tech_00903"
       ],
       "member_count": 28,
-      "label": "Active learning for ML potential training",
-      "gloss": "Iterative active-learning workflows for building training sets for ML interatomic potentials: data cleaning, phase-space sampling, and self-consistent retraining cycles."
+      "label": "Iterative training-set construction and cleaning",
+      "gloss": "Components, problems, and techniques for iteratively building, cleaning, and expanding training datasets for generalizable ML potentials."
     },
     {
       "id": "L1_S00009",
@@ -4559,8 +4559,8 @@
         "tech_00930"
       ],
       "member_count": 24,
-      "label": "CGAT network series and datasets",
-      "gloss": "The CGAT/DCGAT graph-network series and its training and test datasets (CSP Blind Test, Togo Database, G2 molecules), focused on generalization accuracy."
+      "label": "CGAT/DCGAT model series and test datasets",
+      "gloss": "The CGAT and DCGAT model series and the datasets (Togo Database, CSP Blind Test, dimer/trimer sets) used to test their generalization."
     },
     {
       "id": "L1_S00014",
@@ -4601,8 +4601,8 @@
         "tech_00909"
       ],
       "member_count": 32,
-      "label": "Two-body and three-body SOAP descriptors",
-      "gloss": "Body-order structural descriptors (two-body, three-body, many-body) for ML potentials, especially SOAP and CFID descriptor variants used as model inputs."
+      "label": "SOAP and many-body structural descriptors",
+      "gloss": "SOAP kernel variants and two-/three-body structural descriptors used to represent atomic environments while preserving symmetry."
     },
     {
       "id": "L1_S00040",
@@ -4642,8 +4642,8 @@
         "tech_00913"
       ],
       "member_count": 31,
-      "label": "Uncertainty quantification and error handling",
-      "gloss": "Uncertainty quantification (Bayesian, GP variance, Monte-Carlo dropout) and error handling/self-healing techniques for ML predictions and automated calculation failures."
+      "label": "Uncertainty quantification and failure handling",
+      "gloss": "Techniques and problems around estimating prediction uncertainty and detecting, correcting, or recovering from calculation errors and failures."
     },
     {
       "id": "L1_S00060",
@@ -4659,8 +4659,8 @@
         "tech_00302"
       ],
       "member_count": 7,
-      "label": "Global state conditioning and sp-chains",
-      "gloss": "Global-state/context vector conditioning for modeling state-dependent properties, plus a specific problem of over-predicting linear sp-bonded atomic chains."
+      "label": "Global-state conditioning for state-dependent properties",
+      "gloss": "A small cluster about using global state/context vectors to model state-dependent properties and avoid overpredicting linear sp-bonded chains."
     },
     {
       "id": "L1_S00045",
@@ -4696,8 +4696,8 @@
         "tech_00924"
       ],
       "member_count": 27,
-      "label": "Surface slab generation and surface energy",
-      "gloss": "Building and evaluating surface slabs (catalysis, corrosion, reconstruction), including surface-energy prediction and generalization to unseen crystal orientations and bicrystal interfaces."
+      "label": "Surface slab construction and surface energy",
+      "gloss": "Tools and tasks for constructing surface slabs/nanoparticles and predicting surface energy and reconstruction, including empirical potential limitations."
     },
     {
       "id": "L1_S00020",
@@ -4710,8 +4710,8 @@
         "meth_00361"
       ],
       "member_count": 4,
-      "label": "DFT charge mixing and PAW method",
-      "gloss": "Mostly Pulay charge-mixing for DFT self-consistency and the projector-augmented wave (PAW) method, plus an unrelated 'Phase-Field Hub' entry."
+      "label": "Charge mixing and phase-field methods",
+      "gloss": "A small, mixed group covering Pulay charge-density mixing, the projector-augmented wave method, and a Phase-Field Hub tool."
     },
     {
       "id": "L2_S00001",

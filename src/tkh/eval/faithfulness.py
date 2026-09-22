@@ -17,7 +17,7 @@ See DESIGN_NOTES.md section 12.
 """
 import numpy as np
 
-from tkh.labeling import labeller_sample_ids
+from tkh.labeling import labeller_sample_ids, LABELLER_SAMPLING
 
 _model = None
 _MODEL_NAME = "cross-encoder/nli-deberta-v3-base"
@@ -31,8 +31,8 @@ def _get_model():
     return _model
 
 
-def held_out_member_ids(member_ids):
-    shown = set(labeller_sample_ids(member_ids))
+def held_out_member_ids(member_ids, sampling=LABELLER_SAMPLING):
+    shown = set(labeller_sample_ids(member_ids, sampling=sampling))
     return [nid for nid in member_ids if nid not in shown]
 
 
@@ -52,14 +52,16 @@ def build_premise(snap, member_ids, max_members, rng):
 
 
 def check_hierarchy_faithfulness(hierarchy, snap, levels=(0, 1), max_members=15,
-                                 min_held_out=5, seed=0):
+                                 min_held_out=5, seed=0, sampling=LABELLER_SAMPLING):
+    """sampling must match how the labels being checked were produced
+    (see labeling.labeller_sample_ids)."""
     model = _get_model()
     rng = np.random.default_rng(seed)
     id2label = model.config.id2label
 
     targets = [sn for sn in hierarchy["super_nodes"]
                if sn["level"] in levels and sn.get("gloss")]
-    held_out = {sn["id"]: held_out_member_ids(sn["member_ids"]) for sn in targets}
+    held_out = {sn["id"]: held_out_member_ids(sn["member_ids"], sampling) for sn in targets}
     checkable = [sn for sn in targets if len(held_out[sn["id"]]) >= min_held_out]
     skipped = [sn["id"] for sn in targets if len(held_out[sn["id"]]) < min_held_out]
 
@@ -81,7 +83,7 @@ def check_hierarchy_faithfulness(hierarchy, snap, levels=(0, 1), max_members=15,
                 meta.append({"super_node_id": sn["id"], "level": sn["level"], "kind": "control",
                              "control_source": control_sn["id"]})
 
-    base = {"n_labelled": len(targets), "n_skipped_too_few_held_out": len(skipped),
+    base = {"labeller_sampling": sampling, "n_labelled": len(targets), "n_skipped_too_few_held_out": len(skipped),
             "skipped_super_node_ids": skipped, "min_held_out": min_held_out,
             "max_premise_members": max_members}
     if not pairs:

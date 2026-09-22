@@ -34,3 +34,19 @@ def test_premise_only_uses_held_out_members():
 def test_small_cluster_has_no_held_out():
     members = [f"n{i}" for i in range(20)]
     assert held_out_member_ids(members) == []
+
+
+def test_random_sample_is_deterministic_and_type_mixed():
+    members = sorted([f"cite_{i:03d}" for i in range(50)] + [f"tech_{i:03d}" for i in range(50)])
+    a = labeller_sample_ids(members, sampling="random")
+    assert a == labeller_sample_ids(list(members), sampling="random")
+    assert len(a) == 25 and len(set(a)) == 25
+    assert any(x.startswith("tech_") for x in a)
+    assert all(x.startswith("cite_") for x in labeller_sample_ids(members, sampling="first"))
+
+
+def test_held_out_respects_sampling_mode():
+    members = sorted(f"n{i:03d}" for i in range(60))
+    for mode in ("first", "random"):
+        shown = set(labeller_sample_ids(members, sampling=mode))
+        assert shown.isdisjoint(held_out_member_ids(members, sampling=mode))

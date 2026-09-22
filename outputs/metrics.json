@@ -1373,6 +1373,7 @@
   },
   "faithfulness": {
     "2020": {
+      "labeller_sampling": "random",
       "n_labelled": 62,
       "n_skipped_too_few_held_out": 33,
       "skipped_super_node_ids": [
@@ -1414,26 +1415,26 @@
       "max_premise_members": 15,
       "n_checked": 29,
       "real_contradiction_rate": 0.13793103448275862,
-      "real_not_entailed_rate": 0.9310344827586207,
-      "real_entailment_rate": 0.06896551724137931,
-      "control_contradiction_rate": 0.6206896551724138,
+      "real_not_entailed_rate": 0.7931034482758621,
+      "real_entailment_rate": 0.20689655172413793,
+      "control_contradiction_rate": 0.5172413793103449,
       "control_not_entailed_rate": 0.9655172413793104,
       "control_entailment_rate": 0.034482758620689655,
       "real_label_distribution": {
-        "neutral": 23,
-        "entailment": 2,
+        "neutral": 19,
+        "entailment": 6,
         "contradiction": 4
       },
       "control_label_distribution": {
-        "neutral": 10,
-        "contradiction": 18,
+        "neutral": 13,
+        "contradiction": 15,
         "entailment": 1
       },
       "contradicted_super_node_ids": [
-        "L1_S00001",
+        "L0_S00006",
+        "L1_S00003",
         "L1_S00006",
-        "L1_S00029",
-        "L1_S00034"
+        "L1_S00028"
       ],
       "per_entry": [
         {
@@ -1453,27 +1454,27 @@
           "super_node_id": "L0_S00003",
           "level": 0,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L0_S00003",
           "level": 0,
           "kind": "control",
           "control_source": "L1_S00028",
-          "nli_label": "neutral"
+          "nli_label": "contradiction"
         },
         {
           "super_node_id": "L0_S00004",
           "level": 0,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L0_S00004",
           "level": 0,
           "kind": "control",
           "control_source": "L1_S00031",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L0_S00005",
@@ -1486,13 +1487,13 @@
           "level": 0,
           "kind": "control",
           "control_source": "L0_S00006",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L0_S00006",
           "level": 0,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "contradiction"
         },
         {
           "super_node_id": "L0_S00006",
@@ -1505,7 +1506,7 @@
           "super_node_id": "L0_S00007",
           "level": 0,
           "kind": "real",
-          "nli_label": "entailment"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L0_S00007",
@@ -1544,33 +1545,33 @@
           "super_node_id": "L0_S00012",
           "level": 0,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L0_S00012",
           "level": 0,
           "kind": "control",
           "control_source": "L1_S00015",
-          "nli_label": "neutral"
+          "nli_label": "contradiction"
         },
         {
           "super_node_id": "L1_S00001",
           "level": 1,
           "kind": "real",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00001",
           "level": 1,
           "kind": "control",
           "control_source": "L0_S00004",
-          "nli_label": "entailment"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00003",
           "level": 1,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "contradiction"
         },
         {
           "super_node_id": "L1_S00003",
@@ -1583,14 +1584,14 @@
           "super_node_id": "L1_S00004",
           "level": 1,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L1_S00004",
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00029",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00006",
@@ -1603,7 +1604,7 @@
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00043",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00008",
@@ -1616,13 +1617,13 @@
           "level": 1,
           "kind": "control",
           "control_source": "L0_S00005",
-          "nli_label": "neutral"
+          "nli_label": "contradiction"
         },
         {
           "super_node_id": "L1_S00014",
           "level": 1,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L1_S00014",
@@ -1661,7 +1662,7 @@
           "super_node_id": "L1_S00023",
           "level": 1,
           "kind": "real",
-          "nli_label": "entailment"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00023",
@@ -1681,13 +1682,13 @@
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00006",
-          "nli_label": "neutral"
+          "nli_label": "contradiction"
         },
         {
           "super_node_id": "L1_S00028",
           "level": 1,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "contradiction"
         },
         {
           "super_node_id": "L1_S00028",
@@ -1700,14 +1701,14 @@
           "super_node_id": "L1_S00029",
           "level": 1,
           "kind": "real",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00029",
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00027",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00030",
@@ -1733,7 +1734,7 @@
           "level": 1,
           "kind": "control",
           "control_source": "L0_S00012",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00033",
@@ -1746,20 +1747,20 @@
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00004",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00034",
           "level": 1,
           "kind": "real",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00034",
           "level": 1,
           "kind": "control",
           "control_source": "L0_S00001",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00038",
@@ -1778,7 +1779,7 @@
           "super_node_id": "L1_S00039",
           "level": 1,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L1_S00039",
@@ -1816,6 +1817,7 @@
       ]
     },
     "2022": {
+      "labeller_sampling": "random",
       "n_labelled": 62,
       "n_skipped_too_few_held_out": 20,
       "skipped_super_node_ids": [
@@ -1843,59 +1845,54 @@
       "min_held_out": 5,
       "max_premise_members": 15,
       "n_checked": 42,
-      "real_contradiction_rate": 0.21428571428571427,
-      "real_not_entailed_rate": 0.8809523809523809,
-      "real_entailment_rate": 0.11904761904761904,
-      "control_contradiction_rate": 0.6428571428571429,
-      "control_not_entailed_rate": 0.9761904761904762,
-      "control_entailment_rate": 0.023809523809523808,
+      "real_contradiction_rate": 0.09523809523809523,
+      "real_not_entailed_rate": 0.7380952380952381,
+      "real_entailment_rate": 0.2619047619047619,
+      "control_contradiction_rate": 0.5476190476190477,
+      "control_not_entailed_rate": 0.9523809523809523,
+      "control_entailment_rate": 0.047619047619047616,
       "real_label_distribution": {
-        "entailment": 5,
-        "neutral": 28,
-        "contradiction": 9
+        "neutral": 27,
+        "entailment": 11,
+        "contradiction": 4
       },
       "control_label_distribution": {
-        "contradiction": 27,
-        "neutral": 14,
-        "entailment": 1
+        "entailment": 2,
+        "neutral": 17,
+        "contradiction": 23
       },
       "contradicted_super_node_ids": [
-        "L0_S00005",
-        "L0_S00003",
+        "L0_S00006",
         "L0_S00014",
         "L1_S00001",
-        "L1_S00004",
-        "L1_S00031",
-        "L1_S00024",
-        "L1_S00029",
-        "L1_S00036"
+        "L1_S00033"
       ],
       "per_entry": [
         {
           "super_node_id": "L0_S00001",
           "level": 0,
           "kind": "real",
-          "nli_label": "entailment"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L0_S00001",
           "level": 0,
           "kind": "control",
           "control_source": "L1_S00033",
-          "nli_label": "contradiction"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L0_S00007",
           "level": 0,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L0_S00007",
           "level": 0,
           "kind": "control",
           "control_source": "L1_S00043",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L0_S00013",
@@ -1914,20 +1911,20 @@
           "super_node_id": "L0_S00004",
           "level": 0,
           "kind": "real",
-          "nli_label": "entailment"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L0_S00004",
           "level": 0,
           "kind": "control",
           "control_source": "L0_S00005",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L0_S00006",
           "level": 0,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "contradiction"
         },
         {
           "super_node_id": "L0_S00006",
@@ -1940,40 +1937,40 @@
           "super_node_id": "L0_S00005",
           "level": 0,
           "kind": "real",
-          "nli_label": "contradiction"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L0_S00005",
           "level": 0,
           "kind": "control",
           "control_source": "L1_S00039",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L0_S00003",
           "level": 0,
           "kind": "real",
-          "nli_label": "contradiction"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L0_S00003",
           "level": 0,
           "kind": "control",
           "control_source": "L1_S00011",
-          "nli_label": "neutral"
+          "nli_label": "contradiction"
         },
         {
           "super_node_id": "L0_S00008",
           "level": 0,
           "kind": "real",
-          "nli_label": "entailment"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L0_S00008",
           "level": 0,
           "kind": "control",
           "control_source": "L1_S00024",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L0_S00009",
@@ -2044,7 +2041,7 @@
           "super_node_id": "L1_S00051",
           "level": 1,
           "kind": "real",
-          "nli_label": "entailment"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00051",
@@ -2083,7 +2080,7 @@
           "super_node_id": "L1_S00004",
           "level": 1,
           "kind": "real",
-          "nli_label": "contradiction"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L1_S00004",
@@ -2109,7 +2106,7 @@
           "super_node_id": "L1_S00052",
           "level": 1,
           "kind": "real",
-          "nli_label": "entailment"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00052",
@@ -2122,20 +2119,20 @@
           "super_node_id": "L1_S00006",
           "level": 1,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L1_S00006",
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00043",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00023",
           "level": 1,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L1_S00023",
@@ -2155,7 +2152,7 @@
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00007",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00011",
@@ -2168,13 +2165,13 @@
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00034",
-          "nli_label": "neutral"
+          "nli_label": "contradiction"
         },
         {
           "super_node_id": "L1_S00013",
           "level": 1,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L1_S00013",
@@ -2187,20 +2184,20 @@
           "super_node_id": "L1_S00028",
           "level": 1,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L1_S00028",
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00014",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00038",
           "level": 1,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L1_S00038",
@@ -2213,20 +2210,20 @@
           "super_node_id": "L1_S00031",
           "level": 1,
           "kind": "real",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00031",
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00030",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00030",
           "level": 1,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L1_S00030",
@@ -2246,7 +2243,7 @@
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00057",
-          "nli_label": "entailment"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00017",
@@ -2265,20 +2262,20 @@
           "super_node_id": "L1_S00033",
           "level": 1,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "contradiction"
         },
         {
           "super_node_id": "L1_S00033",
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00034",
-          "nli_label": "neutral"
+          "nli_label": "contradiction"
         },
         {
           "super_node_id": "L1_S00024",
           "level": 1,
           "kind": "real",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00024",
@@ -2298,20 +2295,20 @@
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00001",
-          "nli_label": "neutral"
+          "nli_label": "contradiction"
         },
         {
           "super_node_id": "L1_S00029",
           "level": 1,
           "kind": "real",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00029",
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00001",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00039",
@@ -2324,20 +2321,20 @@
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00014",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00057",
           "level": 1,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L1_S00057",
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00007",
-          "nli_label": "neutral"
+          "nli_label": "contradiction"
         },
         {
           "super_node_id": "L1_S00034",
@@ -2382,7 +2379,7 @@
           "super_node_id": "L1_S00036",
           "level": 1,
           "kind": "real",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00036",
@@ -2415,11 +2412,12 @@
           "level": 1,
           "kind": "control",
           "control_source": "L0_S00015",
-          "nli_label": "neutral"
+          "nli_label": "contradiction"
         }
       ]
     },
     "2024": {
+      "labeller_sampling": "random",
       "n_labelled": 62,
       "n_skipped_too_few_held_out": 5,
       "skipped_super_node_ids": [
@@ -2432,42 +2430,33 @@
       "min_held_out": 5,
       "max_premise_members": 15,
       "n_checked": 57,
-      "real_contradiction_rate": 0.21052631578947367,
-      "real_not_entailed_rate": 0.8421052631578947,
-      "real_entailment_rate": 0.15789473684210525,
-      "control_contradiction_rate": 0.6666666666666666,
-      "control_not_entailed_rate": 0.9649122807017544,
-      "control_entailment_rate": 0.03508771929824561,
+      "real_contradiction_rate": 0.05263157894736842,
+      "real_not_entailed_rate": 0.5964912280701754,
+      "real_entailment_rate": 0.40350877192982454,
+      "control_contradiction_rate": 0.631578947368421,
+      "control_not_entailed_rate": 0.9298245614035088,
+      "control_entailment_rate": 0.07017543859649122,
       "real_label_distribution": {
-        "contradiction": 12,
-        "neutral": 36,
-        "entailment": 9
+        "entailment": 23,
+        "neutral": 31,
+        "contradiction": 3
       },
       "control_label_distribution": {
-        "entailment": 2,
+        "entailment": 4,
         "neutral": 17,
-        "contradiction": 38
+        "contradiction": 36
       },
       "contradicted_super_node_ids": [
-        "L0_S00001",
-        "L0_S00008",
-        "L0_S00017",
         "L0_S00018",
-        "L1_S00002",
-        "L1_S00049",
-        "L1_S00061",
-        "L1_S00031",
-        "L1_S00020",
-        "L1_S00039",
-        "L1_S00032",
-        "L1_S00069"
+        "L1_S00004",
+        "L1_S00009"
       ],
       "per_entry": [
         {
           "super_node_id": "L0_S00001",
           "level": 0,
           "kind": "real",
-          "nli_label": "contradiction"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L0_S00001",
@@ -2480,7 +2469,7 @@
           "super_node_id": "L0_S00007",
           "level": 0,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L0_S00007",
@@ -2506,7 +2495,7 @@
           "super_node_id": "L0_S00004",
           "level": 0,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L0_S00004",
@@ -2519,7 +2508,7 @@
           "super_node_id": "L0_S00003",
           "level": 0,
           "kind": "real",
-          "nli_label": "entailment"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L0_S00003",
@@ -2532,7 +2521,7 @@
           "super_node_id": "L0_S00008",
           "level": 0,
           "kind": "real",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L0_S00008",
@@ -2552,26 +2541,26 @@
           "level": 0,
           "kind": "control",
           "control_source": "L1_S00065",
-          "nli_label": "neutral"
+          "nli_label": "contradiction"
         },
         {
           "super_node_id": "L0_S00005",
           "level": 0,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L0_S00005",
           "level": 0,
           "kind": "control",
           "control_source": "L1_S00008",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L0_S00017",
           "level": 0,
           "kind": "real",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L0_S00017",
@@ -2610,33 +2599,33 @@
           "super_node_id": "L0_S00015",
           "level": 0,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L0_S00015",
           "level": 0,
           "kind": "control",
           "control_source": "L1_S00023",
-          "nli_label": "contradiction"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L1_S00001",
           "level": 1,
           "kind": "real",
-          "nli_label": "entailment"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00001",
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00058",
-          "nli_label": "entailment"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00002",
           "level": 1,
           "kind": "real",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00002",
@@ -2662,7 +2651,7 @@
           "super_node_id": "L1_S00060",
           "level": 1,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L1_S00060",
@@ -2675,40 +2664,40 @@
           "super_node_id": "L1_S00008",
           "level": 1,
           "kind": "real",
-          "nli_label": "entailment"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00008",
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00017",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00049",
           "level": 1,
           "kind": "real",
-          "nli_label": "contradiction"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L1_S00049",
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00015",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00061",
           "level": 1,
           "kind": "real",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00061",
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00032",
-          "nli_label": "neutral"
+          "nli_label": "contradiction"
         },
         {
           "super_node_id": "L1_S00024",
@@ -2721,20 +2710,20 @@
           "level": 1,
           "kind": "control",
           "control_source": "L0_S00011",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00004",
           "level": 1,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "contradiction"
         },
         {
           "super_node_id": "L1_S00004",
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00060",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00062",
@@ -2753,7 +2742,7 @@
           "super_node_id": "L1_S00063",
           "level": 1,
           "kind": "real",
-          "nli_label": "entailment"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00063",
@@ -2773,13 +2762,13 @@
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00062",
-          "nli_label": "neutral"
+          "nli_label": "contradiction"
         },
         {
           "super_node_id": "L1_S00007",
           "level": 1,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L1_S00007",
@@ -2799,7 +2788,7 @@
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00017",
-          "nli_label": "contradiction"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L1_S00018",
@@ -2812,7 +2801,7 @@
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00030",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00064",
@@ -2851,7 +2840,7 @@
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00041",
-          "nli_label": "neutral"
+          "nli_label": "contradiction"
         },
         {
           "super_node_id": "L1_S00065",
@@ -2870,7 +2859,7 @@
           "super_node_id": "L1_S00009",
           "level": 1,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "contradiction"
         },
         {
           "super_node_id": "L1_S00009",
@@ -2883,7 +2872,7 @@
           "super_node_id": "L1_S00017",
           "level": 1,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L1_S00017",
@@ -2896,14 +2885,14 @@
           "super_node_id": "L1_S00038",
           "level": 1,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L1_S00038",
           "level": 1,
           "kind": "control",
           "control_source": "L0_S00013",
-          "nli_label": "neutral"
+          "nli_label": "contradiction"
         },
         {
           "super_node_id": "L1_S00036",
@@ -2922,7 +2911,7 @@
           "super_node_id": "L1_S00056",
           "level": 1,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L1_S00056",
@@ -2935,14 +2924,14 @@
           "super_node_id": "L1_S00029",
           "level": 1,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L1_S00029",
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00009",
-          "nli_label": "neutral"
+          "nli_label": "contradiction"
         },
         {
           "super_node_id": "L1_S00066",
@@ -2961,7 +2950,7 @@
           "super_node_id": "L1_S00031",
           "level": 1,
           "kind": "real",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00031",
@@ -2974,7 +2963,7 @@
           "super_node_id": "L1_S00020",
           "level": 1,
           "kind": "real",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00020",
@@ -3000,7 +2989,7 @@
           "super_node_id": "L1_S00030",
           "level": 1,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L1_S00030",
@@ -3013,7 +3002,7 @@
           "super_node_id": "L1_S00011",
           "level": 1,
           "kind": "real",
-          "nli_label": "entailment"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00011",
@@ -3039,79 +3028,79 @@
           "super_node_id": "L1_S00023",
           "level": 1,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L1_S00023",
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00039",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00033",
           "level": 1,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L1_S00033",
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00045",
-          "nli_label": "neutral"
+          "nli_label": "contradiction"
         },
         {
           "super_node_id": "L1_S00041",
           "level": 1,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L1_S00041",
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00004",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00028",
           "level": 1,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L1_S00028",
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00020",
-          "nli_label": "neutral"
+          "nli_label": "contradiction"
         },
         {
           "super_node_id": "L1_S00003",
           "level": 1,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L1_S00003",
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00017",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00039",
           "level": 1,
           "kind": "real",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00039",
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00002",
-          "nli_label": "neutral"
+          "nli_label": "contradiction"
         },
         {
           "super_node_id": "L1_S00015",
@@ -3143,7 +3132,7 @@
           "super_node_id": "L1_S00032",
           "level": 1,
           "kind": "real",
-          "nli_label": "contradiction"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L1_S00032",
@@ -3169,7 +3158,7 @@
           "super_node_id": "L1_S00069",
           "level": 1,
           "kind": "real",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00069",
@@ -3189,7 +3178,7 @@
           "level": 1,
           "kind": "control",
           "control_source": "L0_S00011",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00045",
@@ -3207,6 +3196,7 @@
       ]
     },
     "2026": {
+      "labeller_sampling": "random",
       "n_labelled": 62,
       "n_skipped_too_few_held_out": 4,
       "skipped_super_node_ids": [
@@ -3218,35 +3208,30 @@
       "min_held_out": 5,
       "max_premise_members": 15,
       "n_checked": 58,
-      "real_contradiction_rate": 0.20689655172413793,
-      "real_not_entailed_rate": 0.8448275862068966,
-      "real_entailment_rate": 0.15517241379310345,
-      "control_contradiction_rate": 0.6896551724137931,
-      "control_not_entailed_rate": 0.9482758620689655,
-      "control_entailment_rate": 0.05172413793103448,
+      "real_contradiction_rate": 0.1206896551724138,
+      "real_not_entailed_rate": 0.6551724137931034,
+      "real_entailment_rate": 0.3448275862068966,
+      "control_contradiction_rate": 0.4482758620689655,
+      "control_not_entailed_rate": 0.896551724137931,
+      "control_entailment_rate": 0.10344827586206896,
       "real_label_distribution": {
-        "neutral": 37,
-        "contradiction": 12,
-        "entailment": 9
+        "neutral": 31,
+        "entailment": 20,
+        "contradiction": 7
       },
       "control_label_distribution": {
-        "contradiction": 40,
-        "neutral": 15,
-        "entailment": 3
+        "contradiction": 26,
+        "neutral": 26,
+        "entailment": 6
       },
       "contradicted_super_node_ids": [
-        "L0_S00004",
-        "L0_S00020",
+        "L0_S00019",
         "L0_S00021",
-        "L1_S00071",
+        "L1_S00070",
         "L1_S00051",
-        "L1_S00042",
-        "L1_S00065",
-        "L1_S00009",
-        "L1_S00011",
-        "L1_S00041",
-        "L1_S00079",
-        "L1_S00014"
+        "L1_S00073",
+        "L1_S00013",
+        "L1_S00078"
       ],
       "per_entry": [
         {
@@ -3266,7 +3251,7 @@
           "super_node_id": "L0_S00007",
           "level": 0,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L0_S00007",
@@ -3292,40 +3277,40 @@
           "super_node_id": "L0_S00004",
           "level": 0,
           "kind": "real",
-          "nli_label": "contradiction"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L0_S00004",
           "level": 0,
           "kind": "control",
           "control_source": "L0_S00011",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L0_S00019",
           "level": 0,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "contradiction"
         },
         {
           "super_node_id": "L0_S00019",
           "level": 0,
           "kind": "control",
           "control_source": "L1_S00011",
-          "nli_label": "neutral"
+          "nli_label": "contradiction"
         },
         {
           "super_node_id": "L0_S00020",
           "level": 0,
           "kind": "real",
-          "nli_label": "contradiction"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L0_S00020",
           "level": 0,
           "kind": "control",
           "control_source": "L1_S00060",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L0_S00015",
@@ -3344,14 +3329,14 @@
           "super_node_id": "L0_S00005",
           "level": 0,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L0_S00005",
           "level": 0,
           "kind": "control",
           "control_source": "L1_S00051",
-          "nli_label": "neutral"
+          "nli_label": "contradiction"
         },
         {
           "super_node_id": "L0_S00011",
@@ -3377,7 +3362,7 @@
           "level": 0,
           "kind": "control",
           "control_source": "L1_S00018",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L0_S00021",
@@ -3422,7 +3407,7 @@
           "super_node_id": "L1_S00002",
           "level": 1,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L1_S00002",
@@ -3435,7 +3420,7 @@
           "super_node_id": "L1_S00070",
           "level": 1,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "contradiction"
         },
         {
           "super_node_id": "L1_S00070",
@@ -3448,14 +3433,14 @@
           "super_node_id": "L1_S00071",
           "level": 1,
           "kind": "real",
-          "nli_label": "contradiction"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L1_S00071",
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00014",
-          "nli_label": "contradiction"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L1_S00051",
@@ -3468,13 +3453,13 @@
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00006",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00008",
           "level": 1,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L1_S00008",
@@ -3487,7 +3472,7 @@
           "super_node_id": "L1_S00060",
           "level": 1,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L1_S00060",
@@ -3500,20 +3485,20 @@
           "super_node_id": "L1_S00024",
           "level": 1,
           "kind": "real",
-          "nli_label": "entailment"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00024",
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00065",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00004",
           "level": 1,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L1_S00004",
@@ -3526,7 +3511,7 @@
           "super_node_id": "L1_S00017",
           "level": 1,
           "kind": "real",
-          "nli_label": "entailment"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00017",
@@ -3546,13 +3531,13 @@
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00002",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00007",
           "level": 1,
           "kind": "real",
-          "nli_label": "entailment"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00007",
@@ -3565,20 +3550,20 @@
           "super_node_id": "L1_S00018",
           "level": 1,
           "kind": "real",
-          "nli_label": "entailment"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00018",
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00064",
-          "nli_label": "neutral"
+          "nli_label": "contradiction"
         },
         {
           "super_node_id": "L1_S00069",
           "level": 1,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L1_S00069",
@@ -3591,7 +3576,7 @@
           "super_node_id": "L1_S00063",
           "level": 1,
           "kind": "real",
-          "nli_label": "entailment"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00063",
@@ -3604,92 +3589,92 @@
           "super_node_id": "L1_S00042",
           "level": 1,
           "kind": "real",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00042",
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00041",
-          "nli_label": "contradiction"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L1_S00023",
           "level": 1,
           "kind": "real",
-          "nli_label": "entailment"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00023",
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00068",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00073",
           "level": 1,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "contradiction"
         },
         {
           "super_node_id": "L1_S00073",
           "level": 1,
           "kind": "control",
           "control_source": "L0_S00005",
-          "nli_label": "contradiction"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L1_S00033",
           "level": 1,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L1_S00033",
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00071",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00013",
           "level": 1,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "contradiction"
         },
         {
           "super_node_id": "L1_S00013",
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00073",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00006",
           "level": 1,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L1_S00006",
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00033",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00036",
           "level": 1,
           "kind": "real",
-          "nli_label": "entailment"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00036",
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00003",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00022",
@@ -3708,7 +3693,7 @@
           "super_node_id": "L1_S00052",
           "level": 1,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L1_S00052",
@@ -3721,7 +3706,7 @@
           "super_node_id": "L1_S00065",
           "level": 1,
           "kind": "real",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00065",
@@ -3734,14 +3719,14 @@
           "super_node_id": "L1_S00038",
           "level": 1,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L1_S00038",
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00077",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00075",
@@ -3760,7 +3745,7 @@
           "super_node_id": "L1_S00068",
           "level": 1,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L1_S00068",
@@ -3773,40 +3758,40 @@
           "super_node_id": "L1_S00009",
           "level": 1,
           "kind": "real",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00009",
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00022",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00039",
           "level": 1,
           "kind": "real",
-          "nli_label": "entailment"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00039",
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00043",
-          "nli_label": "neutral"
+          "nli_label": "contradiction"
         },
         {
           "super_node_id": "L1_S00062",
           "level": 1,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L1_S00062",
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00070",
-          "nli_label": "neutral"
+          "nli_label": "contradiction"
         },
         {
           "super_node_id": "L1_S00031",
@@ -3819,13 +3804,13 @@
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00069",
-          "nli_label": "entailment"
+          "nli_label": "contradiction"
         },
         {
           "super_node_id": "L1_S00064",
           "level": 1,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L1_S00064",
@@ -3851,40 +3836,40 @@
           "super_node_id": "L1_S00030",
           "level": 1,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L1_S00030",
           "level": 1,
           "kind": "control",
           "control_source": "L0_S00017",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00011",
           "level": 1,
           "kind": "real",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00011",
           "level": 1,
           "kind": "control",
           "control_source": "L0_S00007",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L1_S00057",
           "level": 1,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L1_S00057",
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00065",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00003",
@@ -3910,13 +3895,13 @@
           "level": 1,
           "kind": "control",
           "control_source": "L0_S00003",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00078",
           "level": 1,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "contradiction"
         },
         {
           "super_node_id": "L1_S00078",
@@ -3929,7 +3914,7 @@
           "super_node_id": "L1_S00020",
           "level": 1,
           "kind": "real",
-          "nli_label": "entailment"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00020",
@@ -3942,7 +3927,7 @@
           "super_node_id": "L1_S00041",
           "level": 1,
           "kind": "real",
-          "nli_label": "contradiction"
+          "nli_label": "entailment"
         },
         {
           "super_node_id": "L1_S00041",
@@ -3962,13 +3947,13 @@
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00002",
-          "nli_label": "neutral"
+          "nli_label": "contradiction"
         },
         {
           "super_node_id": "L1_S00079",
           "level": 1,
           "kind": "real",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00079",
@@ -3981,14 +3966,14 @@
           "super_node_id": "L1_S00014",
           "level": 1,
           "kind": "real",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00014",
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00033",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00029",
@@ -4001,7 +3986,7 @@
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00070",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         }
       ]
     }
@@ -4018,9 +4003,9 @@
       "flat_mean_recall": 0.03245838565311182,
       "flat_mean_precision": 0.014285714285714287,
       "flat_mean_candidates_scored": 3104.0,
-      "drilldown_mean_recall": 0.04231060240188029,
-      "drilldown_mean_precision": 0.028571428571428574,
-      "drilldown_mean_candidates_scored": 773.7857142857143
+      "drilldown_mean_recall": 0.03412111971225272,
+      "drilldown_mean_precision": 0.017857142857142856,
+      "drilldown_mean_candidates_scored": 726.7142857142857
     },
     "per_question": [
       {
@@ -4038,10 +4023,10 @@
           "precision_at_k": 0.0,
           "n_gt": 13,
           "n_hit": 0,
-          "n_candidates_scored": 750,
+          "n_candidates_scored": 833,
           "n_level0_scored": 12,
-          "n_level1_scored": 30,
-          "n_level2_groups_selected": 43
+          "n_level1_scored": 31,
+          "n_level2_groups_selected": 47
         }
       },
       {
@@ -4059,10 +4044,10 @@
           "precision_at_k": 0.0,
           "n_gt": 6,
           "n_hit": 0,
-          "n_candidates_scored": 785,
+          "n_candidates_scored": 692,
           "n_level0_scored": 12,
-          "n_level1_scored": 33,
-          "n_level2_groups_selected": 48
+          "n_level1_scored": 28,
+          "n_level2_groups_selected": 42
         }
       },
       {
@@ -4080,10 +4065,10 @@
           "precision_at_k": 0.0,
           "n_gt": 3,
           "n_hit": 0,
-          "n_candidates_scored": 744,
+          "n_candidates_scored": 695,
           "n_level0_scored": 12,
-          "n_level1_scored": 31,
-          "n_level2_groups_selected": 44
+          "n_level1_scored": 30,
+          "n_level2_groups_selected": 40
         }
       },
       {
@@ -4101,10 +4086,10 @@
           "precision_at_k": 0.0,
           "n_gt": 9,
           "n_hit": 0,
-          "n_candidates_scored": 703,
+          "n_candidates_scored": 812,
           "n_level0_scored": 12,
-          "n_level1_scored": 33,
-          "n_level2_groups_selected": 46
+          "n_level1_scored": 31,
+          "n_level2_groups_selected": 52
         }
       },
       {
@@ -4122,10 +4107,10 @@
           "precision_at_k": 0.0,
           "n_gt": 4,
           "n_hit": 0,
-          "n_candidates_scored": 833,
+          "n_candidates_scored": 733,
           "n_level0_scored": 12,
-          "n_level1_scored": 36,
-          "n_level2_groups_selected": 47
+          "n_level1_scored": 28,
+          "n_level2_groups_selected": 54
         }
       },
       {
@@ -4143,10 +4128,10 @@
           "precision_at_k": 0.05,
           "n_gt": 9,
           "n_hit": 1,
-          "n_candidates_scored": 765,
+          "n_candidates_scored": 814,
           "n_level0_scored": 12,
-          "n_level1_scored": 35,
-          "n_level2_groups_selected": 50
+          "n_level1_scored": 31,
+          "n_level2_groups_selected": 60
         }
       },
       {
@@ -4164,10 +4149,10 @@
           "precision_at_k": 0.0,
           "n_gt": 6,
           "n_hit": 0,
-          "n_candidates_scored": 775,
+          "n_candidates_scored": 766,
           "n_level0_scored": 12,
-          "n_level1_scored": 35,
-          "n_level2_groups_selected": 51
+          "n_level1_scored": 31,
+          "n_level2_groups_selected": 52
         }
       },
       {
@@ -4185,10 +4170,10 @@
           "precision_at_k": 0.05,
           "n_gt": 4,
           "n_hit": 1,
-          "n_candidates_scored": 800,
+          "n_candidates_scored": 671,
           "n_level0_scored": 12,
-          "n_level1_scored": 35,
-          "n_level2_groups_selected": 51
+          "n_level1_scored": 37,
+          "n_level2_groups_selected": 45
         }
       },
       {
@@ -4206,10 +4191,10 @@
           "precision_at_k": 0.0,
           "n_gt": 11,
           "n_hit": 0,
-          "n_candidates_scored": 656,
+          "n_candidates_scored": 805,
           "n_level0_scored": 12,
-          "n_level1_scored": 30,
-          "n_level2_groups_selected": 46
+          "n_level1_scored": 35,
+          "n_level2_groups_selected": 48
         }
       },
       {
@@ -4227,10 +4212,10 @@
           "precision_at_k": 0.0,
           "n_gt": 8,
           "n_hit": 0,
-          "n_candidates_scored": 790,
+          "n_candidates_scored": 797,
           "n_level0_scored": 12,
-          "n_level1_scored": 34,
-          "n_level2_groups_selected": 52
+          "n_level1_scored": 31,
+          "n_level2_groups_selected": 49
         }
       },
       {
@@ -4248,10 +4233,10 @@
           "precision_at_k": 0.0,
           "n_gt": 7,
           "n_hit": 0,
-          "n_candidates_scored": 692,
+          "n_candidates_scored": 380,
           "n_level0_scored": 12,
-          "n_level1_scored": 41,
-          "n_level2_groups_selected": 46
+          "n_level1_scored": 38,
+          "n_level2_groups_selected": 22
         }
       },
       {
@@ -4265,13 +4250,13 @@
           "n_candidates_scored": 3104
         },
         "drilldown": {
-          "recall_at_k": 0.0,
-          "precision_at_k": 0.0,
+          "recall_at_k": 0.047619047619047616,
+          "precision_at_k": 0.05,
           "n_gt": 21,
-          "n_hit": 0,
-          "n_candidates_scored": 883,
+          "n_hit": 1,
+          "n_candidates_scored": 854,
           "n_level0_scored": 12,
-          "n_level1_scored": 36,
+          "n_level1_scored": 31,
           "n_level2_groups_selected": 48
         }
       },
@@ -4286,14 +4271,14 @@
           "n_candidates_scored": 3104
         },
         "drilldown": {
-          "recall_at_k": 0.058823529411764705,
-          "precision_at_k": 0.05,
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
           "n_gt": 17,
-          "n_hit": 1,
-          "n_candidates_scored": 806,
+          "n_hit": 0,
+          "n_candidates_scored": 567,
           "n_level0_scored": 12,
-          "n_level1_scored": 32,
-          "n_level2_groups_selected": 46
+          "n_level1_scored": 34,
+          "n_level2_groups_selected": 33
         }
       },
       {
@@ -4307,13 +4292,13 @@
           "n_candidates_scored": 3104
         },
         "drilldown": {
-          "recall_at_k": 0.1724137931034483,
-          "precision_at_k": 0.25,
+          "recall_at_k": 0.06896551724137931,
+          "precision_at_k": 0.1,
           "n_gt": 29,
-          "n_hit": 5,
-          "n_candidates_scored": 851,
+          "n_hit": 2,
+          "n_candidates_scored": 755,
           "n_level0_scored": 12,
-          "n_level1_scored": 38,
+          "n_level1_scored": 37,
           "n_level2_groups_selected": 51
         }
       }
@@ -4485,105 +4470,105 @@
       {
         "b0": 3,
         "b1": 3,
-        "mean_recall": 0.012862616310892172,
-        "mean_precision": 0.010714285714285716,
-        "mean_candidates_scored": 332.07142857142856
+        "mean_recall": 0.017788724685276407,
+        "mean_precision": 0.017857142857142856,
+        "mean_candidates_scored": 342.35714285714283
       },
       {
         "b0": 5,
         "b1": 5,
-        "mean_recall": 0.026984931903796004,
-        "mean_precision": 0.014285714285714287,
-        "mean_candidates_scored": 538.0714285714286
+        "mean_recall": 0.012862616310892172,
+        "mean_precision": 0.010714285714285716,
+        "mean_candidates_scored": 497.57142857142856
       },
       {
         "b0": 8,
         "b1": 8,
-        "mean_recall": 0.03245838565311182,
-        "mean_precision": 0.014285714285714287,
-        "mean_candidates_scored": 773.7857142857143
+        "mean_recall": 0.02825670498084291,
+        "mean_precision": 0.010714285714285716,
+        "mean_candidates_scored": 726.7142857142857
       },
       {
         "b0": 5,
         "b1": 10,
-        "mean_recall": 0.024521877716603885,
-        "mean_precision": 0.010714285714285716,
-        "mean_candidates_scored": 869.0
+        "mean_recall": 0.010399562123700055,
+        "mean_precision": 0.0071428571428571435,
+        "mean_candidates_scored": 780.5
       },
       {
         "b0": 8,
         "b1": 15,
-        "mean_recall": 0.03245838565311182,
+        "mean_recall": 0.030719759168035026,
         "mean_precision": 0.014285714285714287,
-        "mean_candidates_scored": 1136.142857142857
+        "mean_candidates_scored": 1114.357142857143
       }
     ],
     "rerank_beta_sweep": [
       {
         "beta": 0.0,
-        "mean_recall": 0.03245838565311182,
-        "mean_precision": 0.014285714285714287,
-        "mean_candidates_scored": 773.7857142857143
+        "mean_recall": 0.02825670498084291,
+        "mean_precision": 0.010714285714285716,
+        "mean_candidates_scored": 726.7142857142857
       },
       {
         "beta": 0.1,
-        "mean_recall": 0.03245838565311182,
-        "mean_precision": 0.014285714285714287,
-        "mean_candidates_scored": 773.7857142857143
+        "mean_recall": 0.02825670498084291,
+        "mean_precision": 0.010714285714285716,
+        "mean_candidates_scored": 726.7142857142857
       },
       {
         "beta": 0.2,
-        "mean_recall": 0.03245838565311182,
-        "mean_precision": 0.014285714285714287,
-        "mean_candidates_scored": 773.7857142857143
+        "mean_recall": 0.02825670498084291,
+        "mean_precision": 0.010714285714285716,
+        "mean_candidates_scored": 726.7142857142857
       },
       {
         "beta": 0.3,
-        "mean_recall": 0.03245838565311182,
-        "mean_precision": 0.014285714285714287,
-        "mean_candidates_scored": 773.7857142857143
+        "mean_recall": 0.025793650793650792,
+        "mean_precision": 0.0071428571428571435,
+        "mean_candidates_scored": 726.7142857142857
       },
       {
         "beta": 0.4,
-        "mean_recall": 0.034921439840303936,
-        "mean_precision": 0.017857142857142856,
-        "mean_candidates_scored": 773.7857142857143
+        "mean_recall": 0.02919501133786848,
+        "mean_precision": 0.010714285714285716,
+        "mean_candidates_scored": 726.7142857142857
       },
       {
         "beta": 0.5,
-        "mean_recall": 0.034921439840303936,
+        "mean_recall": 0.03412111971225272,
         "mean_precision": 0.017857142857142856,
-        "mean_candidates_scored": 773.7857142857143
+        "mean_candidates_scored": 726.7142857142857
       },
       {
         "beta": 0.6,
-        "mean_recall": 0.04231060240188029,
-        "mean_precision": 0.028571428571428574,
-        "mean_candidates_scored": 773.7857142857143
+        "mean_recall": 0.03412111971225272,
+        "mean_precision": 0.017857142857142856,
+        "mean_candidates_scored": 726.7142857142857
       },
       {
         "beta": 0.7,
-        "mean_recall": 0.04231060240188029,
-        "mean_precision": 0.028571428571428574,
-        "mean_candidates_scored": 773.7857142857143
+        "mean_recall": 0.01626397685510986,
+        "mean_precision": 0.014285714285714287,
+        "mean_candidates_scored": 726.7142857142857
       },
       {
         "beta": 0.8,
-        "mean_recall": 0.03810892172961138,
-        "mean_precision": 0.024999999999999998,
-        "mean_candidates_scored": 773.7857142857143
+        "mean_recall": 0.01626397685510986,
+        "mean_precision": 0.014285714285714287,
+        "mean_candidates_scored": 726.7142857142857
       },
       {
         "beta": 0.9,
-        "mean_recall": 0.02025177887246853,
-        "mean_precision": 0.02142857142857143,
-        "mean_candidates_scored": 773.7857142857143
+        "mean_recall": 0.01626397685510986,
+        "mean_precision": 0.014285714285714287,
+        "mean_candidates_scored": 726.7142857142857
       },
       {
         "beta": 1.0,
-        "mean_recall": 0.042901542901542904,
-        "mean_precision": 0.024999999999999998,
-        "mean_candidates_scored": 773.7857142857143
+        "mean_recall": 0.025379382522239667,
+        "mean_precision": 0.017857142857142856,
+        "mean_candidates_scored": 726.7142857142857
       }
     ]
   },
