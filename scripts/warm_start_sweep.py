@@ -1,4 +1,4 @@
-"""FIXES.md iteration 4: does biasing each snapshot's clustering toward the
+"""Warm-start check (DESIGN_NOTES.md sections 10 and 15): does biasing each snapshot's clustering toward the
 PREVIOUS snapshot's own level-2 (finest) partition, instead of clustering
 independently and matching after the fact, actually buy real cross-snapshot
 stability, without quietly hurting coherence?

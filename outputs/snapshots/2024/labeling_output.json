@@ -99,7 +99,7 @@
     "gloss": "A broad toolkit of ML/statistical methods (regression, clustering, SHAP), DFT approximations (GGA, GW), interatomic potential expansions (ACE, SNAP), and software libraries (scikit-learn, Matminer)."
   },
   {
-    "super_node_id": "L0_S00017",
+    "super_node_id": "L0_S00008",
     "level": 0,
     "total_members": 255,
     "type_breakdown": {
@@ -159,7 +159,7 @@
     "gloss": "Centers on neural-network interatomic potentials, especially the Behler-Parrinello and Deep Potential (DeePMD) families plus NequIP, used to run molecular dynamics simulations of materials."
   },
   {
-    "super_node_id": "L0_S00018",
+    "super_node_id": "L0_S00017",
     "level": 0,
     "total_members": 273,
     "type_breakdown": {
@@ -193,7 +193,7 @@
     "gloss": "Almost entirely benchmark datasets of small organic molecules (MD-17, CCSD(T) sets: aspirin, benzene, ethanol, malonaldehyde) used to test interatomic potentials like MACE and SOAP."
   },
   {
-    "super_node_id": "L0_S00019",
+    "super_node_id": "L0_S00018",
     "level": 0,
     "total_members": 78,
     "type_breakdown": {
@@ -282,7 +282,7 @@
     "gloss": "Equivariant and tensor-field network architectures (Tensor Field Networks, Steerable CNNs, eSCN, Clebsch-Gordan Nets) for 3D geometric prediction, plus ML frameworks like PyTorch and TensorFlow."
   },
   {
-    "super_node_id": "L1_S00062",
+    "super_node_id": "L1_S00060",
     "level": 1,
     "total_members": 86,
     "type_breakdown": {
@@ -339,7 +339,7 @@
     "gloss": "Centers on machine-learning models, especially gradient-boosted trees and VS-SISSO symbolic regression, predicting melting temperatures of ionic and covalent compounds from features like cohesive energy."
   },
   {
-    "super_node_id": "L1_S00063",
+    "super_node_id": "L1_S00061",
     "level": 1,
     "total_members": 52,
     "type_breakdown": {
@@ -391,7 +391,7 @@
     "gloss": "Mostly about Materials Project and JARVIS infrastructure (database, pymatgen, screening) plus molecular property benchmarks (QM9, ISO17) where the MPNN model set state of the art."
   },
   {
-    "super_node_id": "L1_S00064",
+    "super_node_id": "L1_S00062",
     "level": 1,
     "total_members": 55,
     "type_breakdown": {
@@ -411,7 +411,7 @@
     "gloss": "Centers on computational performance and parallel scaling of ML interatomic potentials: GPU training speed, FP32/FP64 precision tradeoffs, and multi-GPU communication algorithms."
   },
   {
-    "super_node_id": "L1_S00065",
+    "super_node_id": "L1_S00063",
     "level": 1,
     "total_members": 77,
     "type_breakdown": {
@@ -534,7 +534,7 @@
     "gloss": "About the computational cost and automation of DFT: database growth (GNoME), efficient SCF algorithms (D4FT), and AFLOW's auto-correction and workflow management."
   },
   {
-    "super_node_id": "L1_S00066",
+    "super_node_id": "L1_S00064",
     "level": 1,
     "total_members": 59,
     "type_breakdown": {
@@ -581,7 +581,7 @@
     "gloss": "Almost entirely benchmark datasets of small organic molecules (MD-17, CCSD(T) sets: aspirin, benzene, ethanol, malonaldehyde) used to test interatomic potentials like MACE and SOAP."
   },
   {
-    "super_node_id": "L1_S00067",
+    "super_node_id": "L1_S00065",
     "level": 1,
     "total_members": 150,
     "type_breakdown": {
@@ -601,7 +601,7 @@
     "gloss": "Centers on NequIP and the DeePMD-kit/Deep Potential family of neural network potentials, especially their data efficiency and accuracy on molecular dynamics benchmarks."
   },
   {
-    "super_node_id": "L1_S00047",
+    "super_node_id": "L1_S00009",
     "level": 1,
     "total_members": 52,
     "type_breakdown": {
@@ -638,7 +638,7 @@
     "gloss": "A mix of DFT simulation packages (Quantum ESPRESSO, CP2K, CPMD), materials and molecular databases (OQMD, QM9, Open Catalyst), and carbon-cluster datasets (C20 through C180)."
   },
   {
-    "super_node_id": "L1_S00068",
+    "super_node_id": "L1_S00038",
     "level": 1,
     "total_members": 95,
     "type_breakdown": {
@@ -657,7 +657,7 @@
     "gloss": "Centers on the Atomic Cluster Expansion (ACE) framework generalized to vector, tensor, and magnetic properties, related descriptors (Moment Tensor Potentials, Coulomb Matrix), and Gaussian-quadrature issues."
   },
   {
-    "super_node_id": "L1_S00069",
+    "super_node_id": "L1_S00036",
     "level": 1,
     "total_members": 47,
     "type_breakdown": {
@@ -709,7 +709,7 @@
     "gloss": "Mixes high-throughput workflow automation and error handling (FireWorks, AFLOW, REST-APIs) with model uncertainty quantification via ensemble disagreement, two related but distinct sub-themes."
   },
   {
-    "super_node_id": "L1_S00070",
+    "super_node_id": "L1_S00066",
     "level": 1,
     "total_members": 32,
     "type_breakdown": {
@@ -746,7 +746,7 @@
     "gloss": "Mixes general atomistic simulation software (ASE, atomate) with GAP-based studies of amorphous carbon (ta-C) surface energies, a somewhat loose combination."
   },
   {
-    "super_node_id": "L1_S00071",
+    "super_node_id": "L1_S00020",
     "level": 1,
     "total_members": 33,
     "type_breakdown": {
@@ -803,7 +803,7 @@
     "gloss": "Tightly about using ML interatomic potentials (CHGNet, DeePMD, M3GNet) to simulate Li-ion conductivity, diffusion, and phase behavior in battery electrode and electrolyte materials."
   },
   {
-    "super_node_id": "L1_S00072",
+    "super_node_id": "L1_S00011",
     "level": 1,
     "total_members": 108,
     "type_breakdown": {
@@ -842,7 +842,7 @@
     "gloss": "Centers on DeepH and xDeepH models predicting DFT Hamiltonians and electronic structure for magnetic and twisted 2D materials, including CrI3, MoS2, graphene, and skyrmion systems."
   },
   {
-    "super_node_id": "L1_S00073",
+    "super_node_id": "L1_S00067",
     "level": 1,
     "total_members": 11,
     "type_breakdown": {
@@ -911,7 +911,7 @@
     "gloss": "Tightly focused on symmetry-adapted structural representations: atom-centered symmetry functions, Reynolds-operator invariant features, and topological methods for finding interstitial sites."
   },
   {
-    "super_node_id": "L1_S00074",
+    "super_node_id": "L1_S00028",
     "level": 1,
     "total_members": 82,
     "type_breakdown": {
@@ -966,7 +966,7 @@
     "gloss": "Mostly about benchmarking formation-energy and related property prediction across ML models (SchNet, CGCNN, MEGNet, Automatminer), plus the unrelated McMillan superconductivity formula."
   },
   {
-    "super_node_id": "L1_S00075",
+    "super_node_id": "L1_S00015",
     "level": 1,
     "total_members": 57,
     "type_breakdown": {
@@ -1048,7 +1048,7 @@
     "gloss": "Tightly focused on atomic descriptor types (DeepPot-SE, SOAP, two-body, three-body, and many-body embeddings) used in DeePMD-kit interatomic potentials, and their relative accuracy."
   },
   {
-    "super_node_id": "L1_S00076",
+    "super_node_id": "L1_S00068",
     "level": 1,
     "total_members": 18,
     "type_breakdown": {
@@ -1062,7 +1062,7 @@
     "gloss": "Tightly about fitting networks for potential energy and force prediction and assorted curve-fitting techniques (Arrhenius, spline, polynomial) used in model calibration."
   },
   {
-    "super_node_id": "L1_S00077",
+    "super_node_id": "L1_S00069",
     "level": 1,
     "total_members": 48,
     "type_breakdown": {
@@ -1079,7 +1079,7 @@
     "gloss": "Tightly focused on the HamGNN architecture for predicting DFT Hamiltonians, covering its local-coordinate message passing, equivariance properties, and Wigner-Eckart layers."
   },
   {
-    "super_node_id": "L1_S00078",
+    "super_node_id": "L1_S00058",
     "level": 1,
     "total_members": 53,
     "type_breakdown": {

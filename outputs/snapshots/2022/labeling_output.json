@@ -960,7 +960,7 @@
     "gloss": "Iterative active-learning workflows for building training sets for ML interatomic potentials: data cleaning, phase-space sampling, and self-consistent retraining cycles."
   },
   {
-    "super_node_id": "L1_S00060",
+    "super_node_id": "L1_S00009",
     "level": 1,
     "total_members": 24,
     "type_breakdown": {
@@ -1007,7 +1007,7 @@
     "gloss": "Uncertainty quantification (Bayesian, GP variance, Monte-Carlo dropout) and error handling/self-healing techniques for ML predictions and automated calculation failures."
   },
   {
-    "super_node_id": "L1_S00061",
+    "super_node_id": "L1_S00060",
     "level": 1,
     "total_members": 7,
     "type_breakdown": {

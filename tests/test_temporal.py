@@ -54,6 +54,46 @@ def test_merge_detected():
     assert len(merge_events[0]["from_persistent_ids"]) == 2
 
 
+def test_new_nodes_do_not_dilute_match():
+    # A = {a..d} keeps all its old members and gains 12 new ones. Full-union
+    # Jaccard would be 4/16 = 0.25; on shared nodes it's 1.0 -> same entity.
+    old = ["a", "b", "c", "d", "e", "f"]
+    new_nodes = [f"n{i}" for i in range(12)]
+    labels_by_year = {
+        2020: ([0, 0, 0, 0, 1, 1], old),
+        2021: ([0] * 4 + [1, 1] + [0] * 12, old + new_nodes),
+    }
+    ids_by_year = {y: ids for y, (_, ids) in labels_by_year.items()}
+    persistent_by_year, events = track_across_snapshots(labels_by_year, ids_by_year)
+    assert persistent_by_year[2020][0] == persistent_by_year[2021][0]
+    grow = [e for e in events if e["type"] == "grow" and e.get("year") == 2021]
+    assert len(grow) == 1 and grow[0]["jaccard"] == 1.0
+
+
+def test_cluster_of_only_new_nodes_is_birth():
+    labels_by_year = {
+        2020: ([0, 0], ["a", "b"]),
+        2021: ([0, 0, 1, 1], ["a", "b", "x", "y"]),
+    }
+    ids_by_year = {y: ids for y, (_, ids) in labels_by_year.items()}
+    persistent_by_year, events = track_across_snapshots(labels_by_year, ids_by_year)
+    births = [e for e in events if e["type"] == "birth" and e.get("year") == 2021]
+    assert [e["id"] for e in births] == [persistent_by_year[2021][1]]
+
+
+def test_split_event_references_persistent_ids():
+    labels_by_year = {
+        2020: ([0, 0, 0, 0], ["a", "b", "c", "d"]),
+        2021: ([0, 0, 1, 1], ["a", "b", "c", "d"]),
+    }
+    ids_by_year = {y: ids for y, (_, ids) in labels_by_year.items()}
+    persistent_by_year, events = track_across_snapshots(labels_by_year, ids_by_year)
+    split = [e for e in events if e["type"] == "split"]
+    assert len(split) == 1
+    assert sorted(split[0]["into"]) == sorted(persistent_by_year[2021].values())
+    assert "_into_local" not in split[0]
+
+
 def test_stable_when_membership_unchanged():
     labels_y1 = [0, 0, 0]
     ids_y1 = ["a", "b", "c"]

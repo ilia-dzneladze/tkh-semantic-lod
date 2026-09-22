@@ -30,8 +30,8 @@ LEVEL_TARGETS = [12, 50, 200]
 EXTRINSIC_K = 20
 # At alpha=0.5 (original run): b0=3,b1=3 cut recall roughly in half vs
 # flat, b0=5,b1=5 matched flat exactly at ~16% of the candidate pool.
-# After the alpha ablation moved the default to 0.3 (FIXES.md iteration
-# 1), the clustering changed enough that b0=5,b1=5 no longer matches flat
+# After the alpha ablation moved the default to 0.3 (DESIGN_NOTES.md section
+# 7), the clustering changed enough that b0=5,b1=5 no longer matches flat
 # (0.027 vs flat's 0.032 recall) -- re-swept via t6_patch_extrinsic.py:
 # b0=8,b1=8 is the narrowest value that matches flat's recall and
 # precision exactly again, at ~25% of the candidate pool (774 vs 3104).
@@ -42,7 +42,7 @@ DRILL_B0, DRILL_B1 = 8, 8
 # only ever rank a subset of flat's pool with flat's own scoring function,
 # so it can tie flat, never beat it). Blending in each candidate's level-1
 # ancestor label+gloss score gives the ranker real information flat
-# doesn't have. Swept beta 0.0-1.0 (FIXES.md iteration 7): beta=0.6 beats
+# doesn't have. Swept beta 0.0-1.0 (DESIGN_NOTES.md section 14): beta=0.6 beats
 # flat's recall and precision outright at the same candidate count as
 # DRILL_B0/B1 above, not just matches it. See DESIGN_NOTES.md section 14.
 DRILL_BETA = 0.6
@@ -88,9 +88,10 @@ def run_faithfulness(snapshots, hierarchies):
     out = {}
     for year, snap in snapshots.items():
         out[year] = check_hierarchy_faithfulness(hierarchies[year], snap, levels=(0, 1), seed=0)
-        log(f"faithfulness {year} done "
-            f"(real_contradiction_rate={out[year]['real_contradiction_rate']:.3f}, "
-            f"control={out[year]['control_contradiction_rate']:.3f})")
+        r = out[year]
+        log(f"faithfulness {year} done: checked {r['n_checked']}/{r['n_labelled']} "
+            f"(contradiction real={r['real_contradiction_rate']:.3f} control={r['control_contradiction_rate']:.3f}; "
+            f"not-entailed real={r['real_not_entailed_rate']:.3f} control={r['control_not_entailed_rate']:.3f})")
     return out
 
 
@@ -165,9 +166,19 @@ def run_extrinsic(snap, hierarchy):
     return {"summary": summary, "per_question": results, "ground_truth_match_coverage": match_coverage}
 
 
+SECTIONS = ("coherence", "stability", "faithfulness", "extrinsic")
+
+
 def main():
+    """Usage: t6_evaluate.py [section ...]. With no arguments, runs every
+    section and writes a fresh metrics.json. With section names, reruns only
+    those and updates them in the existing metrics.json, leaving other keys."""
     global T0
     T0 = time.time()
+    only = sys.argv[1:] or list(SECTIONS)
+    unknown = [s for s in only if s not in SECTIONS]
+    if unknown:
+        sys.exit(f"unknown section(s) {unknown}, expected any of {SECTIONS}")
 
     data = load_tkh(DATA_PATH)
     snapshots = {y: build_snapshot(data, y) for y in SNAPSHOT_CUTOFFS}
@@ -175,13 +186,20 @@ def main():
                    for y in SNAPSHOT_CUTOFFS}
     log("loaded snapshots and hierarchies")
 
+    metrics_path = OUT_DIR / "metrics.json"
     metrics = {}
-    metrics["coherence"] = run_coherence(snapshots, hierarchies)
-    metrics["stability"] = run_stability(snapshots, hierarchies)
-    metrics["faithfulness"] = run_faithfulness(snapshots, hierarchies)
-    metrics["extrinsic"] = run_extrinsic(snapshots[2026], hierarchies[2026])
+    if sys.argv[1:] and metrics_path.exists():
+        metrics = json.loads(metrics_path.read_text(encoding="utf-8"))
+    if "coherence" in only:
+        metrics["coherence"] = run_coherence(snapshots, hierarchies)
+    if "stability" in only:
+        metrics["stability"] = run_stability(snapshots, hierarchies)
+    if "faithfulness" in only:
+        metrics["faithfulness"] = run_faithfulness(snapshots, hierarchies)
+    if "extrinsic" in only:
+        metrics["extrinsic"] = run_extrinsic(snapshots[2026], hierarchies[2026])
 
-    (OUT_DIR / "metrics.json").write_text(json.dumps(metrics, indent=2), encoding="utf-8")
+    metrics_path.write_text(json.dumps(metrics, indent=2), encoding="utf-8")
     log(f"wrote {OUT_DIR / 'metrics.json'}")
 
 

@@ -1,4 +1,4 @@
-"""FIXES.md iteration 2: does the largest level-0 cluster move MORE under
+"""Level-0 size-skew check (DESIGN_NOTES.md section 15). Does the largest level-0 cluster move MORE under
 perturbation than its size alone would predict, or is it just as (un)stable
 as any cluster its size would be? Reuses the exact same perturbation
 methodology as the shipped stability number (perturb_snapshot, 5 seeds,

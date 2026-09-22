@@ -1,7 +1,8 @@
 """T3: temporal coupling -- persistent super-node identity across snapshots.
 
 Each snapshot is clustered independently, then matched to the next one by
-Jaccard overlap. Why matching instead of warm-starting, and what the
+Jaccard overlap on the nodes both snapshots share. Why matching instead of
+warm-starting, and what the
 thresholds below mean in practice: DESIGN_NOTES.md section 10.
 
 Event types: birth, death, stable, grow, shrink, merge, split.
@@ -29,23 +30,30 @@ def _jaccard(a, b):
     return inter / union if union else 0.0
 
 
-def match_snapshots(prev_clusters, curr_clusters):
+def match_snapshots(prev_clusters, curr_clusters, common_ids=None):
     """prev_clusters, curr_clusters: {local_label: frozenset(node_ids)}.
 
-    Returns a similarity dict {(prev_label, curr_label): jaccard} for every
-    pair with nonzero overlap, restricted implicitly to whatever node ids
-    both sets happen to share (frozensets already only contain real ids).
+    Returns {(prev_label, curr_label): jaccard} for every pair with nonzero
+    overlap. Jaccard is computed on nodes present in both snapshots
+    (common_ids), so nodes new at t+1 don't dilute the match. If
+    common_ids is None, the union of all prev-cluster members is used.
+    See DESIGN_NOTES.md section 10.
     """
+    if common_ids is None:
+        common_ids = frozenset().union(*prev_clusters.values()) if prev_clusters else frozenset()
+    prev_r = {pl: pset & common_ids for pl, pset in prev_clusters.items()}
+    curr_r = {cl: cset & common_ids for cl, cset in curr_clusters.items()}
     sims = {}
-    for pl, pset in prev_clusters.items():
-        for cl, cset in curr_clusters.items():
+    for pl, pset in prev_r.items():
+        for cl, cset in curr_r.items():
             j = _jaccard(pset, cset)
             if j > 0:
                 sims[(pl, cl)] = j
     return sims
 
 
-def classify_events(prev_clusters, curr_clusters, prev_persistent_ids, next_id_counter, prefix=""):
+def classify_events(prev_clusters, curr_clusters, prev_persistent_ids, next_id_counter, prefix="",
+                    common_ids=None):
     """Assign persistent ids to curr_clusters and log events.
 
     prev_persistent_ids: {prev_local_label: persistent_id}
@@ -54,10 +62,11 @@ def classify_events(prev_clusters, curr_clusters, prev_persistent_ids, next_id_c
         multiple levels MUST use a distinct prefix per level, otherwise
         ids minted independently at different levels collide (same string,
         different entities).
+    common_ids: node ids present in both snapshots, passed to match_snapshots.
 
     Returns (curr_persistent_ids, events) where events is a list of dicts.
     """
-    sims = match_snapshots(prev_clusters, curr_clusters)
+    sims = match_snapshots(prev_clusters, curr_clusters, common_ids)
 
     best_succ = defaultdict(lambda: (None, 0.0))   # prev_label -> (curr_label, jaccard)
     best_pred = defaultdict(lambda: (None, 0.0))   # curr_label -> (prev_label, jaccard)
@@ -96,7 +105,7 @@ def classify_events(prev_clusters, curr_clusters, prev_persistent_ids, next_id_c
             if split_targets:
                 curr_persistent_ids[cl] = pid
                 events.append({"type": "split", "from": pid,
-                                "into_local_labels": [cl] + split_targets, "jaccard": j})
+                                "_into_local": [cl] + split_targets, "jaccard": j})
             else:
                 ratio = (curr_size - prev_size) / prev_size if prev_size else 1.0
                 if j >= STABLE_JACCARD and abs(ratio) < SIZE_CHANGE_RATIO:
@@ -129,6 +138,11 @@ def classify_events(prev_clusters, curr_clusters, prev_persistent_ids, next_id_c
         if pl not in handled_prev:
             events.append({"type": "death", "id": pid, "prev_size": len(prev_clusters[pl])})
 
+    # split targets are only known by local label until every curr cluster has an id
+    for e in events:
+        if e["type"] == "split":
+            e["into"] = [curr_persistent_ids[c] for c in e.pop("_into_local")]
+
     return curr_persistent_ids, events
 
 
@@ -160,14 +174,17 @@ def track_across_snapshots(labels_by_year, ids_by_year, prefix=""):
 
     prev_clusters = clusters0
     prev_persistent = persistent0
+    prev_year = first_year
     for year in years[1:]:
         curr_clusters = clusters_from_labels(*labels_by_year[year])
+        common = frozenset(ids_by_year[prev_year]) & frozenset(ids_by_year[year])
         curr_persistent, events = classify_events(
-            prev_clusters, curr_clusters, prev_persistent, next_id_counter, prefix=prefix)
+            prev_clusters, curr_clusters, prev_persistent, next_id_counter, prefix=prefix,
+            common_ids=common)
         for e in events:
             e["year"] = year
         all_events.extend(events)
         persistent_by_year[year] = curr_persistent
-        prev_clusters, prev_persistent = curr_clusters, curr_persistent
+        prev_clusters, prev_persistent, prev_year = curr_clusters, curr_persistent, year
 
     return persistent_by_year, all_events

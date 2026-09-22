@@ -1373,852 +1373,67 @@
   },
   "faithfulness": {
     "2020": {
-      "n_checked": 62,
-      "real_contradiction_rate": 0.06451612903225806,
-      "control_contradiction_rate": 0.532258064516129,
-      "real_label_distribution": {
-        "neutral": 34,
-        "contradiction": 4,
-        "entailment": 24
-      },
-      "control_label_distribution": {
-        "contradiction": 33,
-        "neutral": 28,
-        "entailment": 1
-      },
-      "contradicted_super_node_ids": [
+      "n_labelled": 62,
+      "n_skipped_too_few_held_out": 33,
+      "skipped_super_node_ids": [
         "L0_S00002",
-        "L0_S00006",
-        "L1_S00006",
-        "L1_S00019"
+        "L0_S00010",
+        "L0_S00011",
+        "L1_S00002",
+        "L1_S00005",
+        "L1_S00007",
+        "L1_S00009",
+        "L1_S00010",
+        "L1_S00011",
+        "L1_S00012",
+        "L1_S00013",
+        "L1_S00016",
+        "L1_S00017",
+        "L1_S00019",
+        "L1_S00020",
+        "L1_S00021",
+        "L1_S00022",
+        "L1_S00024",
+        "L1_S00025",
+        "L1_S00026",
+        "L1_S00032",
+        "L1_S00035",
+        "L1_S00036",
+        "L1_S00037",
+        "L1_S00041",
+        "L1_S00042",
+        "L1_S00044",
+        "L1_S00045",
+        "L1_S00046",
+        "L1_S00047",
+        "L1_S00048",
+        "L1_S00049",
+        "L1_S00050"
       ],
-      "per_entry": [
-        {
-          "super_node_id": "L0_S00001",
-          "level": 0,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L0_S00001",
-          "level": 0,
-          "kind": "control",
-          "control_source": "L1_S00041",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L0_S00002",
-          "level": 0,
-          "kind": "real",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L0_S00002",
-          "level": 0,
-          "kind": "control",
-          "control_source": "L1_S00028",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L0_S00003",
-          "level": 0,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L0_S00003",
-          "level": 0,
-          "kind": "control",
-          "control_source": "L1_S00021",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L0_S00004",
-          "level": 0,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L0_S00004",
-          "level": 0,
-          "kind": "control",
-          "control_source": "L1_S00006",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L0_S00005",
-          "level": 0,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L0_S00005",
-          "level": 0,
-          "kind": "control",
-          "control_source": "L1_S00008",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L0_S00006",
-          "level": 0,
-          "kind": "real",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L0_S00006",
-          "level": 0,
-          "kind": "control",
-          "control_source": "L0_S00003",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L0_S00007",
-          "level": 0,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L0_S00007",
-          "level": 0,
-          "kind": "control",
-          "control_source": "L0_S00005",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L0_S00008",
-          "level": 0,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L0_S00008",
-          "level": 0,
-          "kind": "control",
-          "control_source": "L0_S00002",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L0_S00009",
-          "level": 0,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L0_S00009",
-          "level": 0,
-          "kind": "control",
-          "control_source": "L0_S00012",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L0_S00010",
-          "level": 0,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L0_S00010",
-          "level": 0,
-          "kind": "control",
-          "control_source": "L1_S00039",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L0_S00011",
-          "level": 0,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L0_S00011",
-          "level": 0,
-          "kind": "control",
-          "control_source": "L1_S00029",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L0_S00012",
-          "level": 0,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L0_S00012",
-          "level": 0,
-          "kind": "control",
-          "control_source": "L1_S00045",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00001",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00001",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00020",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00002",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00002",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00027",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00003",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00003",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00049",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00004",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00004",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00034",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00005",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00005",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00028",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00006",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00006",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00023",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00007",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00007",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00024",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00008",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00008",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00047",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00009",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00009",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00005",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00010",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00010",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00039",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00011",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00011",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00030",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00012",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00012",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L0_S00001",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00013",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00013",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00014",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00014",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00014",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00042",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00015",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00015",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00023",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00016",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00016",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L0_S00003",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00017",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00017",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00036",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00018",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00018",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00034",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00019",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00019",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00041",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00020",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00020",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L0_S00011",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00021",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00021",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L0_S00006",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00022",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00022",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00042",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00023",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00023",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L0_S00002",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00024",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00024",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00022",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00025",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00025",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L0_S00005",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00026",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00026",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00007",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00027",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00027",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00018",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00028",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00028",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00014",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00029",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00029",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00013",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00030",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00030",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L0_S00002",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00031",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00031",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L0_S00001",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00032",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00032",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L0_S00008",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00033",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00033",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L0_S00001",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00034",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00034",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00029",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00035",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00035",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00021",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00036",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00036",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00028",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00037",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00037",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00004",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00038",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00038",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00026",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00039",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00039",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00035",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00040",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00040",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00012",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00041",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00041",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00017",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00042",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00042",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00050",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00043",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00043",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00038",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00044",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00044",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00049",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00045",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00045",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00012",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00046",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00046",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00030",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00047",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00047",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00046",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00048",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00048",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00028",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00049",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00049",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00040",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00050",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00050",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00030",
-          "nli_label": "neutral"
-        }
-      ]
-    },
-    "2022": {
-      "n_checked": 62,
-      "real_contradiction_rate": 0.04838709677419355,
-      "control_contradiction_rate": 0.5806451612903226,
+      "min_held_out": 5,
+      "max_premise_members": 15,
+      "n_checked": 29,
+      "real_contradiction_rate": 0.13793103448275862,
+      "real_not_entailed_rate": 0.9310344827586207,
+      "real_entailment_rate": 0.06896551724137931,
+      "control_contradiction_rate": 0.6206896551724138,
+      "control_not_entailed_rate": 0.9655172413793104,
+      "control_entailment_rate": 0.034482758620689655,
       "real_label_distribution": {
-        "neutral": 35,
-        "contradiction": 3,
-        "entailment": 24
+        "neutral": 23,
+        "entailment": 2,
+        "contradiction": 4
       },
       "control_label_distribution": {
-        "contradiction": 36,
-        "neutral": 25,
+        "neutral": 10,
+        "contradiction": 18,
         "entailment": 1
       },
       "contradicted_super_node_ids": [
-        "L0_S00006",
-        "L0_S00005",
-        "L1_S00033"
+        "L1_S00001",
+        "L1_S00006",
+        "L1_S00029",
+        "L1_S00034"
       ],
       "per_entry": [
         {
@@ -2231,36 +1446,23 @@
           "super_node_id": "L0_S00001",
           "level": 0,
           "kind": "control",
-          "control_source": "L1_S00026",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L0_S00007",
-          "level": 0,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L0_S00007",
-          "level": 0,
-          "kind": "control",
-          "control_source": "L1_S00016",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L0_S00013",
-          "level": 0,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L0_S00013",
-          "level": 0,
-          "kind": "control",
           "control_source": "L1_S00030",
           "nli_label": "neutral"
         },
         {
+          "super_node_id": "L0_S00003",
+          "level": 0,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L0_S00003",
+          "level": 0,
+          "kind": "control",
+          "control_source": "L1_S00028",
+          "nli_label": "neutral"
+        },
+        {
           "super_node_id": "L0_S00004",
           "level": 0,
           "kind": "real",
@@ -2270,671 +1472,99 @@
           "super_node_id": "L0_S00004",
           "level": 0,
           "kind": "control",
-          "control_source": "L1_S00004",
+          "control_source": "L1_S00031",
           "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L0_S00006",
-          "level": 0,
-          "kind": "real",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L0_S00006",
-          "level": 0,
-          "kind": "control",
-          "control_source": "L1_S00007",
-          "nli_label": "contradiction"
         },
         {
           "super_node_id": "L0_S00005",
           "level": 0,
           "kind": "real",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L0_S00005",
-          "level": 0,
-          "kind": "control",
-          "control_source": "L0_S00013",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L0_S00003",
-          "level": 0,
-          "kind": "real",
           "nli_label": "neutral"
         },
         {
-          "super_node_id": "L0_S00003",
+          "super_node_id": "L0_S00005",
           "level": 0,
           "kind": "control",
           "control_source": "L0_S00006",
           "nli_label": "contradiction"
         },
         {
-          "super_node_id": "L0_S00008",
+          "super_node_id": "L0_S00006",
+          "level": 0,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L0_S00006",
+          "level": 0,
+          "kind": "control",
+          "control_source": "L1_S00014",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L0_S00007",
           "level": 0,
           "kind": "real",
           "nli_label": "entailment"
         },
         {
+          "super_node_id": "L0_S00007",
+          "level": 0,
+          "kind": "control",
+          "control_source": "L0_S00003",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L0_S00008",
+          "level": 0,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
           "super_node_id": "L0_S00008",
           "level": 0,
           "kind": "control",
-          "control_source": "L0_S00007",
-          "nli_label": "contradiction"
+          "control_source": "L1_S00014",
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L0_S00009",
           "level": 0,
           "kind": "real",
-          "nli_label": "entailment"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L0_S00009",
           "level": 0,
-          "kind": "control",
-          "control_source": "L0_S00015",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L0_S00014",
-          "level": 0,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L0_S00014",
-          "level": 0,
-          "kind": "control",
-          "control_source": "L1_S00049",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L0_S00011",
-          "level": 0,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L0_S00011",
-          "level": 0,
-          "kind": "control",
-          "control_source": "L1_S00055",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L0_S00015",
-          "level": 0,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L0_S00015",
-          "level": 0,
-          "kind": "control",
-          "control_source": "L1_S00060",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00001",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00001",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00053",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00002",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00002",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00024",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00051",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00051",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00045",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00022",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00022",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00032",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00008",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00008",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00016",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00004",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00004",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00017",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00005",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00005",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00041",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00007",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00007",
-          "level": 1,
           "kind": "control",
           "control_source": "L1_S00040",
           "nli_label": "contradiction"
         },
         {
-          "super_node_id": "L1_S00052",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00052",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00008",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00006",
-          "level": 1,
+          "super_node_id": "L0_S00012",
+          "level": 0,
           "kind": "real",
           "nli_label": "neutral"
         },
         {
-          "super_node_id": "L1_S00006",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00049",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00023",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00023",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00056",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00018",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00018",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L0_S00001",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00011",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00011",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00012",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00012",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00012",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00036",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00013",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00013",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00017",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00028",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00028",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L0_S00013",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00042",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00042",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00034",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00038",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00038",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00032",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00031",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00031",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00026",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00053",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00053",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L0_S00011",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00030",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00030",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L0_S00005",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00015",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00015",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00036",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00017",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00017",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L0_S00007",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00041",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00041",
-          "level": 1,
+          "super_node_id": "L0_S00012",
+          "level": 0,
           "kind": "control",
           "control_source": "L1_S00015",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
-          "super_node_id": "L1_S00033",
+          "super_node_id": "L1_S00001",
           "level": 1,
           "kind": "real",
           "nli_label": "contradiction"
         },
         {
-          "super_node_id": "L1_S00033",
+          "super_node_id": "L1_S00001",
           "level": 1,
           "kind": "control",
-          "control_source": "L0_S00006",
+          "control_source": "L0_S00004",
           "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00054",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00054",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00005",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00024",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00024",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00038",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00016",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00016",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00012",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00055",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00055",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00011",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00056",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00056",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L0_S00007",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00043",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00043",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L0_S00001",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00029",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00029",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L0_S00008",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00039",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00039",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L0_S00001",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00032",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00032",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00055",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00057",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00057",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00030",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00034",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00034",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00016",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00035",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00035",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00022",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00058",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00058",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00054",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00049",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00049",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00057",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00047",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00047",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00018",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00026",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00026",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00042",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00036",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00036",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00020",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00059",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00059",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00058",
-          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00003",
@@ -2946,905 +1576,1622 @@
           "super_node_id": "L1_S00003",
           "level": 1,
           "kind": "control",
-          "control_source": "L1_S00045",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00060",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00060",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00018",
+          "control_source": "L0_S00004",
           "nli_label": "neutral"
         },
         {
-          "super_node_id": "L1_S00014",
+          "super_node_id": "L1_S00004",
           "level": 1,
           "kind": "real",
           "nli_label": "neutral"
         },
         {
-          "super_node_id": "L1_S00014",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00056",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00040",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00040",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00014",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00061",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00061",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00016",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00045",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00045",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00047",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00020",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00020",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00056",
-          "nli_label": "contradiction"
-        }
-      ]
-    },
-    "2024": {
-      "n_checked": 62,
-      "real_contradiction_rate": 0.08064516129032258,
-      "control_contradiction_rate": 0.532258064516129,
-      "real_label_distribution": {
-        "entailment": 16,
-        "contradiction": 5,
-        "neutral": 41
-      },
-      "control_label_distribution": {
-        "neutral": 26,
-        "contradiction": 33,
-        "entailment": 3
-      },
-      "contradicted_super_node_ids": [
-        "L0_S00007",
-        "L0_S00019",
-        "L1_S00002",
-        "L1_S00008",
-        "L1_S00033"
-      ],
-      "per_entry": [
-        {
-          "super_node_id": "L0_S00001",
-          "level": 0,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L0_S00001",
-          "level": 0,
-          "kind": "control",
-          "control_source": "L1_S00039",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L0_S00007",
-          "level": 0,
-          "kind": "real",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L0_S00007",
-          "level": 0,
-          "kind": "control",
-          "control_source": "L1_S00070",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L0_S00016",
-          "level": 0,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L0_S00016",
-          "level": 0,
-          "kind": "control",
-          "control_source": "L1_S00067",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L0_S00004",
-          "level": 0,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L0_S00004",
-          "level": 0,
-          "kind": "control",
-          "control_source": "L1_S00049",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L0_S00003",
-          "level": 0,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L0_S00003",
-          "level": 0,
-          "kind": "control",
-          "control_source": "L1_S00024",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L0_S00017",
-          "level": 0,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L0_S00017",
-          "level": 0,
-          "kind": "control",
-          "control_source": "L0_S00016",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L0_S00011",
-          "level": 0,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L0_S00011",
-          "level": 0,
-          "kind": "control",
-          "control_source": "L0_S00003",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L0_S00005",
-          "level": 0,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L0_S00005",
-          "level": 0,
-          "kind": "control",
-          "control_source": "L0_S00007",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L0_S00018",
-          "level": 0,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L0_S00018",
-          "level": 0,
-          "kind": "control",
-          "control_source": "L0_S00015",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L0_S00013",
-          "level": 0,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L0_S00013",
-          "level": 0,
-          "kind": "control",
-          "control_source": "L1_S00074",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L0_S00019",
-          "level": 0,
-          "kind": "real",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L0_S00019",
-          "level": 0,
-          "kind": "control",
-          "control_source": "L1_S00031",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L0_S00015",
-          "level": 0,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L0_S00015",
-          "level": 0,
-          "kind": "control",
-          "control_source": "L1_S00032",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00001",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00001",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00022",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00002",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00002",
+          "super_node_id": "L1_S00004",
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00029",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00051",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00051",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00078",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00062",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00062",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00057",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00008",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00008",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00070",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00049",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00049",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00017",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00063",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00063",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00068",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00024",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00024",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00076",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00004",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00004",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00008",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00064",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00064",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00074",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00065",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00065",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00071",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00005",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00005",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L0_S00001",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00035",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00035",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00006",
           "nli_label": "contradiction"
         },
         {
           "super_node_id": "L1_S00006",
           "level": 1,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "contradiction"
         },
         {
           "super_node_id": "L1_S00006",
           "level": 1,
           "kind": "control",
-          "control_source": "L1_S00075",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00007",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00007",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00017",
+          "control_source": "L1_S00043",
           "nli_label": "contradiction"
         },
         {
-          "super_node_id": "L1_S00052",
+          "super_node_id": "L1_S00008",
           "level": 1,
           "kind": "real",
           "nli_label": "neutral"
         },
         {
-          "super_node_id": "L1_S00052",
+          "super_node_id": "L1_S00008",
           "level": 1,
           "kind": "control",
-          "control_source": "L0_S00016",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00018",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00018",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00023",
+          "control_source": "L0_S00005",
           "nli_label": "neutral"
         },
         {
-          "super_node_id": "L1_S00066",
+          "super_node_id": "L1_S00014",
           "level": 1,
           "kind": "real",
           "nli_label": "neutral"
         },
         {
-          "super_node_id": "L1_S00066",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00057",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00042",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00042",
+          "super_node_id": "L1_S00014",
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00039",
           "nli_label": "contradiction"
         },
         {
-          "super_node_id": "L1_S00022",
+          "super_node_id": "L1_S00015",
           "level": 1,
           "kind": "real",
           "nli_label": "neutral"
         },
         {
-          "super_node_id": "L1_S00022",
+          "super_node_id": "L1_S00015",
           "level": 1,
           "kind": "control",
-          "control_source": "L0_S00019",
+          "control_source": "L1_S00040",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00018",
+          "level": 1,
+          "kind": "real",
           "nli_label": "neutral"
         },
         {
-          "super_node_id": "L1_S00067",
+          "super_node_id": "L1_S00018",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L0_S00012",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00023",
           "level": 1,
           "kind": "real",
           "nli_label": "entailment"
         },
         {
-          "super_node_id": "L1_S00067",
+          "super_node_id": "L1_S00023",
           "level": 1,
           "kind": "control",
-          "control_source": "L0_S00017",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00047",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00047",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00075",
+          "control_source": "L1_S00033",
           "nli_label": "contradiction"
         },
         {
-          "super_node_id": "L1_S00017",
+          "super_node_id": "L1_S00027",
           "level": 1,
           "kind": "real",
           "nli_label": "neutral"
         },
         {
-          "super_node_id": "L1_S00017",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L0_S00007",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00068",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00068",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00047",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00069",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00069",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L0_S00003",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00056",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00056",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00063",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00029",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00029",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00066",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00070",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00070",
+          "super_node_id": "L1_S00027",
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00006",
-          "nli_label": "contradiction"
+          "nli_label": "neutral"
         },
         {
-          "super_node_id": "L1_S00031",
+          "super_node_id": "L1_S00028",
           "level": 1,
           "kind": "real",
           "nli_label": "neutral"
         },
         {
-          "super_node_id": "L1_S00031",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00035",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00071",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00071",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L0_S00007",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00013",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00013",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L0_S00001",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00030",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00030",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L0_S00005",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00072",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00072",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L0_S00001",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00057",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00057",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00031",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00073",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00073",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00067",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00023",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00023",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00070",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00033",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00033",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00062",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00041",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00041",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00056",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00074",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00074",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00073",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00003",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00003",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00005",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00039",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00039",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00018",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00075",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00075",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00045",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00026",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00026",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00041",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00043",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00043",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00078",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00032",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00032",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00005",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00014",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00014",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00071",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00076",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00076",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00014",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00077",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00077",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00070",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00078",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00078",
+          "super_node_id": "L1_S00028",
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00003",
           "nli_label": "contradiction"
         },
         {
+          "super_node_id": "L1_S00029",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00029",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00027",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00030",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00030",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00001",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00031",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00031",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L0_S00012",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00033",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00033",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00004",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00034",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00034",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L0_S00001",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00038",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00038",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00023",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00039",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00039",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00018",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00040",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00040",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00031",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00043",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00043",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L0_S00012",
+          "nli_label": "neutral"
+        }
+      ]
+    },
+    "2022": {
+      "n_labelled": 62,
+      "n_skipped_too_few_held_out": 20,
+      "skipped_super_node_ids": [
+        "L1_S00002",
+        "L1_S00005",
+        "L1_S00012",
+        "L1_S00042",
+        "L1_S00053",
+        "L1_S00041",
+        "L1_S00054",
+        "L1_S00016",
+        "L1_S00055",
+        "L1_S00056",
+        "L1_S00032",
+        "L1_S00035",
+        "L1_S00047",
+        "L1_S00026",
+        "L1_S00059",
+        "L1_S00003",
+        "L1_S00009",
+        "L1_S00060",
+        "L1_S00045",
+        "L1_S00020"
+      ],
+      "min_held_out": 5,
+      "max_premise_members": 15,
+      "n_checked": 42,
+      "real_contradiction_rate": 0.21428571428571427,
+      "real_not_entailed_rate": 0.8809523809523809,
+      "real_entailment_rate": 0.11904761904761904,
+      "control_contradiction_rate": 0.6428571428571429,
+      "control_not_entailed_rate": 0.9761904761904762,
+      "control_entailment_rate": 0.023809523809523808,
+      "real_label_distribution": {
+        "entailment": 5,
+        "neutral": 28,
+        "contradiction": 9
+      },
+      "control_label_distribution": {
+        "contradiction": 27,
+        "neutral": 14,
+        "entailment": 1
+      },
+      "contradicted_super_node_ids": [
+        "L0_S00005",
+        "L0_S00003",
+        "L0_S00014",
+        "L1_S00001",
+        "L1_S00004",
+        "L1_S00031",
+        "L1_S00024",
+        "L1_S00029",
+        "L1_S00036"
+      ],
+      "per_entry": [
+        {
+          "super_node_id": "L0_S00001",
+          "level": 0,
+          "kind": "real",
+          "nli_label": "entailment"
+        },
+        {
+          "super_node_id": "L0_S00001",
+          "level": 0,
+          "kind": "control",
+          "control_source": "L1_S00033",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L0_S00007",
+          "level": 0,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L0_S00007",
+          "level": 0,
+          "kind": "control",
+          "control_source": "L1_S00043",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L0_S00013",
+          "level": 0,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L0_S00013",
+          "level": 0,
+          "kind": "control",
+          "control_source": "L1_S00014",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L0_S00004",
+          "level": 0,
+          "kind": "real",
+          "nli_label": "entailment"
+        },
+        {
+          "super_node_id": "L0_S00004",
+          "level": 0,
+          "kind": "control",
+          "control_source": "L0_S00005",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L0_S00006",
+          "level": 0,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L0_S00006",
+          "level": 0,
+          "kind": "control",
+          "control_source": "L1_S00018",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L0_S00005",
+          "level": 0,
+          "kind": "real",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L0_S00005",
+          "level": 0,
+          "kind": "control",
+          "control_source": "L1_S00039",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L0_S00003",
+          "level": 0,
+          "kind": "real",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L0_S00003",
+          "level": 0,
+          "kind": "control",
+          "control_source": "L1_S00011",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L0_S00008",
+          "level": 0,
+          "kind": "real",
+          "nli_label": "entailment"
+        },
+        {
+          "super_node_id": "L0_S00008",
+          "level": 0,
+          "kind": "control",
+          "control_source": "L1_S00024",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L0_S00009",
+          "level": 0,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L0_S00009",
+          "level": 0,
+          "kind": "control",
+          "control_source": "L0_S00004",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L0_S00014",
+          "level": 0,
+          "kind": "real",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L0_S00014",
+          "level": 0,
+          "kind": "control",
+          "control_source": "L0_S00009",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L0_S00011",
+          "level": 0,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L0_S00011",
+          "level": 0,
+          "kind": "control",
+          "control_source": "L1_S00052",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L0_S00015",
+          "level": 0,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L0_S00015",
+          "level": 0,
+          "kind": "control",
+          "control_source": "L1_S00038",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00001",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00001",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L0_S00009",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00051",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "entailment"
+        },
+        {
+          "super_node_id": "L1_S00051",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L0_S00005",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00022",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00022",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00007",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00008",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00008",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00028",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00004",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00004",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L0_S00007",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00007",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00007",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00013",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00052",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "entailment"
+        },
+        {
+          "super_node_id": "L1_S00052",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00006",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00006",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00006",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00043",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00023",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00023",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L0_S00015",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00018",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00018",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00007",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00011",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00011",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00034",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00013",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00013",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00015",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00028",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00028",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00014",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00038",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00038",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00052",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00031",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00031",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00030",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00030",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00030",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00033",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00015",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00015",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00057",
+          "nli_label": "entailment"
+        },
+        {
+          "super_node_id": "L1_S00017",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00017",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00043",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00033",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00033",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00034",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00024",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00024",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L0_S00007",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00043",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00043",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00001",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00029",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00029",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00001",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00039",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00039",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00014",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00057",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00057",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00007",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00034",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00034",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00015",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00058",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00058",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00013",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00049",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00049",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00018",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00036",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00036",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00031",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00014",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00014",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00022",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00040",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00040",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L0_S00015",
+          "nli_label": "neutral"
+        }
+      ]
+    },
+    "2024": {
+      "n_labelled": 62,
+      "n_skipped_too_few_held_out": 5,
+      "skipped_super_node_ids": [
+        "L1_S00005",
+        "L1_S00035",
+        "L1_S00067",
+        "L1_S00026",
+        "L1_S00068"
+      ],
+      "min_held_out": 5,
+      "max_premise_members": 15,
+      "n_checked": 57,
+      "real_contradiction_rate": 0.21052631578947367,
+      "real_not_entailed_rate": 0.8421052631578947,
+      "real_entailment_rate": 0.15789473684210525,
+      "control_contradiction_rate": 0.6666666666666666,
+      "control_not_entailed_rate": 0.9649122807017544,
+      "control_entailment_rate": 0.03508771929824561,
+      "real_label_distribution": {
+        "contradiction": 12,
+        "neutral": 36,
+        "entailment": 9
+      },
+      "control_label_distribution": {
+        "entailment": 2,
+        "neutral": 17,
+        "contradiction": 38
+      },
+      "contradicted_super_node_ids": [
+        "L0_S00001",
+        "L0_S00008",
+        "L0_S00017",
+        "L0_S00018",
+        "L1_S00002",
+        "L1_S00049",
+        "L1_S00061",
+        "L1_S00031",
+        "L1_S00020",
+        "L1_S00039",
+        "L1_S00032",
+        "L1_S00069"
+      ],
+      "per_entry": [
+        {
+          "super_node_id": "L0_S00001",
+          "level": 0,
+          "kind": "real",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L0_S00001",
+          "level": 0,
+          "kind": "control",
+          "control_source": "L1_S00030",
+          "nli_label": "entailment"
+        },
+        {
+          "super_node_id": "L0_S00007",
+          "level": 0,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L0_S00007",
+          "level": 0,
+          "kind": "control",
+          "control_source": "L1_S00057",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L0_S00016",
+          "level": 0,
+          "kind": "real",
+          "nli_label": "entailment"
+        },
+        {
+          "super_node_id": "L0_S00016",
+          "level": 0,
+          "kind": "control",
+          "control_source": "L1_S00069",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L0_S00004",
+          "level": 0,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L0_S00004",
+          "level": 0,
+          "kind": "control",
+          "control_source": "L0_S00017",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L0_S00003",
+          "level": 0,
+          "kind": "real",
+          "nli_label": "entailment"
+        },
+        {
+          "super_node_id": "L0_S00003",
+          "level": 0,
+          "kind": "control",
+          "control_source": "L1_S00041",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L0_S00008",
+          "level": 0,
+          "kind": "real",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L0_S00008",
+          "level": 0,
+          "kind": "control",
+          "control_source": "L1_S00061",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L0_S00011",
+          "level": 0,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L0_S00011",
+          "level": 0,
+          "kind": "control",
+          "control_source": "L1_S00065",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L0_S00005",
+          "level": 0,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L0_S00005",
+          "level": 0,
+          "kind": "control",
+          "control_source": "L1_S00008",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L0_S00017",
+          "level": 0,
+          "kind": "real",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L0_S00017",
+          "level": 0,
+          "kind": "control",
+          "control_source": "L1_S00063",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L0_S00013",
+          "level": 0,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L0_S00013",
+          "level": 0,
+          "kind": "control",
+          "control_source": "L1_S00007",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L0_S00018",
+          "level": 0,
+          "kind": "real",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L0_S00018",
+          "level": 0,
+          "kind": "control",
+          "control_source": "L1_S00004",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L0_S00015",
+          "level": 0,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L0_S00015",
+          "level": 0,
+          "kind": "control",
+          "control_source": "L1_S00023",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00001",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "entailment"
+        },
+        {
+          "super_node_id": "L1_S00001",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00058",
+          "nli_label": "entailment"
+        },
+        {
+          "super_node_id": "L1_S00002",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00002",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L0_S00013",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00051",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00051",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00009",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00060",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00060",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00058",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00008",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "entailment"
+        },
+        {
+          "super_node_id": "L1_S00008",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00017",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00049",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00049",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00015",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00061",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00061",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00032",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00024",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00024",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L0_S00011",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00004",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00004",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00060",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00062",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00062",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L0_S00005",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00063",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "entailment"
+        },
+        {
+          "super_node_id": "L1_S00063",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00002",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00006",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00006",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00062",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00007",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00007",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00023",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00052",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00052",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00017",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00018",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "entailment"
+        },
+        {
+          "super_node_id": "L1_S00018",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00030",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00064",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00064",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00032",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00042",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00042",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00014",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00022",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00022",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00041",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00065",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00065",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00009",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00009",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00009",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00024",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00017",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00017",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00014",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00038",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00038",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L0_S00013",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00036",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00036",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00022",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00056",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00056",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00013",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00029",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00029",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00009",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00066",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00066",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00018",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00031",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00031",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L0_S00011",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00020",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00020",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00024",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00013",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00013",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L0_S00003",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00030",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00030",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00062",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00011",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "entailment"
+        },
+        {
+          "super_node_id": "L1_S00011",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00032",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00057",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "entailment"
+        },
+        {
+          "super_node_id": "L1_S00057",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00014",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00023",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00023",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00039",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00033",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00033",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00045",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00041",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00041",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00004",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00028",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00028",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00020",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00003",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00003",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00017",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00039",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00039",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00002",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00015",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00015",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00036",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00043",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "entailment"
+        },
+        {
+          "super_node_id": "L1_S00043",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00004",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00032",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00032",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00061",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00014",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00014",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00003",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00069",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00069",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L0_S00011",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00058",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00058",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L0_S00011",
+          "nli_label": "contradiction"
+        },
+        {
           "super_node_id": "L1_S00045",
           "level": 1,
           "kind": "real",
@@ -3854,32 +3201,51 @@
           "super_node_id": "L1_S00045",
           "level": 1,
           "kind": "control",
-          "control_source": "L1_S00071",
+          "control_source": "L1_S00032",
           "nli_label": "contradiction"
         }
       ]
     },
     "2026": {
-      "n_checked": 62,
-      "real_contradiction_rate": 0.11290322580645161,
-      "control_contradiction_rate": 0.532258064516129,
+      "n_labelled": 62,
+      "n_skipped_too_few_held_out": 4,
+      "skipped_super_node_ids": [
+        "L1_S00035",
+        "L1_S00074",
+        "L1_S00005",
+        "L1_S00032"
+      ],
+      "min_held_out": 5,
+      "max_premise_members": 15,
+      "n_checked": 58,
+      "real_contradiction_rate": 0.20689655172413793,
+      "real_not_entailed_rate": 0.8448275862068966,
+      "real_entailment_rate": 0.15517241379310345,
+      "control_contradiction_rate": 0.6896551724137931,
+      "control_not_entailed_rate": 0.9482758620689655,
+      "control_entailment_rate": 0.05172413793103448,
       "real_label_distribution": {
-        "neutral": 35,
-        "entailment": 20,
-        "contradiction": 7
+        "neutral": 37,
+        "contradiction": 12,
+        "entailment": 9
       },
       "control_label_distribution": {
-        "contradiction": 33,
-        "neutral": 27,
-        "entailment": 2
+        "contradiction": 40,
+        "neutral": 15,
+        "entailment": 3
       },
       "contradicted_super_node_ids": [
-        "L1_S00080",
+        "L0_S00004",
+        "L0_S00020",
+        "L0_S00021",
+        "L1_S00071",
+        "L1_S00051",
         "L1_S00042",
-        "L1_S00033",
-        "L1_S00083",
-        "L1_S00005",
-        "L1_S00087",
+        "L1_S00065",
+        "L1_S00009",
+        "L1_S00011",
+        "L1_S00041",
+        "L1_S00079",
         "L1_S00014"
       ],
       "per_entry": [
@@ -3893,7 +3259,7 @@
           "super_node_id": "L0_S00001",
           "level": 0,
           "kind": "control",
-          "control_source": "L1_S00003",
+          "control_source": "L1_S00062",
           "nli_label": "contradiction"
         },
         {
@@ -3906,59 +3272,59 @@
           "super_node_id": "L0_S00007",
           "level": 0,
           "kind": "control",
-          "control_source": "L1_S00068",
+          "control_source": "L1_S00064",
           "nli_label": "neutral"
         },
         {
           "super_node_id": "L0_S00003",
           "level": 0,
           "kind": "real",
-          "nli_label": "entailment"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L0_S00003",
           "level": 0,
           "kind": "control",
-          "control_source": "L1_S00013",
+          "control_source": "L1_S00079",
           "nli_label": "neutral"
         },
         {
           "super_node_id": "L0_S00004",
           "level": 0,
           "kind": "real",
-          "nli_label": "entailment"
+          "nli_label": "contradiction"
         },
         {
           "super_node_id": "L0_S00004",
           "level": 0,
           "kind": "control",
-          "control_source": "L1_S00008",
+          "control_source": "L0_S00011",
           "nli_label": "contradiction"
         },
         {
-          "super_node_id": "L0_S00020",
+          "super_node_id": "L0_S00019",
           "level": 0,
           "kind": "real",
           "nli_label": "neutral"
         },
         {
-          "super_node_id": "L0_S00020",
+          "super_node_id": "L0_S00019",
           "level": 0,
           "kind": "control",
-          "control_source": "L1_S00024",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L0_S00021",
-          "level": 0,
-          "kind": "real",
+          "control_source": "L1_S00011",
           "nli_label": "neutral"
         },
         {
-          "super_node_id": "L0_S00021",
+          "super_node_id": "L0_S00020",
+          "level": 0,
+          "kind": "real",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L0_S00020",
           "level": 0,
           "kind": "control",
-          "control_source": "L0_S00003",
+          "control_source": "L1_S00060",
           "nli_label": "contradiction"
         },
         {
@@ -3971,7 +3337,7 @@
           "super_node_id": "L0_S00015",
           "level": 0,
           "kind": "control",
-          "control_source": "L0_S00020",
+          "control_source": "L1_S00033",
           "nli_label": "neutral"
         },
         {
@@ -3984,8 +3350,8 @@
           "super_node_id": "L0_S00005",
           "level": 0,
           "kind": "control",
-          "control_source": "L0_S00007",
-          "nli_label": "contradiction"
+          "control_source": "L1_S00051",
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L0_S00011",
@@ -3995,61 +3361,61 @@
         },
         {
           "super_node_id": "L0_S00011",
-          "level": 0,
-          "kind": "control",
-          "control_source": "L0_S00018",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L0_S00022",
-          "level": 0,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L0_S00022",
           "level": 0,
           "kind": "control",
           "control_source": "L1_S00072",
           "nli_label": "contradiction"
         },
         {
-          "super_node_id": "L0_S00023",
+          "super_node_id": "L0_S00018",
           "level": 0,
           "kind": "real",
           "nli_label": "neutral"
         },
         {
-          "super_node_id": "L0_S00023",
+          "super_node_id": "L0_S00018",
           "level": 0,
           "kind": "control",
-          "control_source": "L1_S00084",
+          "control_source": "L1_S00018",
           "nli_label": "contradiction"
         },
         {
-          "super_node_id": "L0_S00018",
+          "super_node_id": "L0_S00021",
+          "level": 0,
+          "kind": "real",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L0_S00021",
+          "level": 0,
+          "kind": "control",
+          "control_source": "L1_S00060",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L0_S00017",
           "level": 0,
           "kind": "real",
           "nli_label": "neutral"
         },
         {
-          "super_node_id": "L0_S00018",
+          "super_node_id": "L0_S00017",
           "level": 0,
           "kind": "control",
-          "control_source": "L1_S00041",
-          "nli_label": "entailment"
+          "control_source": "L1_S00009",
+          "nli_label": "contradiction"
         },
         {
           "super_node_id": "L1_S00001",
           "level": 1,
           "kind": "real",
-          "nli_label": "entailment"
+          "nli_label": "neutral"
         },
         {
           "super_node_id": "L1_S00001",
           "level": 1,
           "kind": "control",
-          "control_source": "L1_S00033",
+          "control_source": "L1_S00020",
           "nli_label": "contradiction"
         },
         {
@@ -4062,400 +3428,361 @@
           "super_node_id": "L1_S00002",
           "level": 1,
           "kind": "control",
-          "control_source": "L1_S00067",
-          "nli_label": "neutral"
+          "control_source": "L0_S00018",
+          "nli_label": "contradiction"
         },
         {
-          "super_node_id": "L1_S00051",
+          "super_node_id": "L1_S00070",
           "level": 1,
           "kind": "real",
           "nli_label": "neutral"
         },
         {
-          "super_node_id": "L1_S00051",
+          "super_node_id": "L1_S00070",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00013",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00071",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00071",
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00014",
           "nli_label": "contradiction"
         },
         {
-          "super_node_id": "L1_S00079",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00079",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00064",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00080",
+          "super_node_id": "L1_S00051",
           "level": 1,
           "kind": "real",
           "nli_label": "contradiction"
         },
         {
-          "super_node_id": "L1_S00080",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00068",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00008",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00008",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00069",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00062",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00062",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00083",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00024",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00024",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00088",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00004",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00004",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00080",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00017",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00017",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00072",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00081",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00081",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00005",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00035",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00035",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L0_S00001",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00007",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00007",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00018",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00018",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00018",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00086",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00077",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00077",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00069",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00065",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00065",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L0_S00003",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00042",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00042",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00066",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00023",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00023",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00064",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00082",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00082",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00003",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00033",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00033",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L0_S00023",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00013",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00013",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L0_S00021",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00006",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00006",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00086",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00069",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00069",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L0_S00007",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00083",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00083",
+          "super_node_id": "L1_S00051",
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00006",
           "nli_label": "contradiction"
         },
         {
-          "super_node_id": "L1_S00022",
+          "super_node_id": "L1_S00008",
           "level": 1,
           "kind": "real",
           "nli_label": "neutral"
         },
         {
-          "super_node_id": "L1_S00022",
+          "super_node_id": "L1_S00008",
           "level": 1,
           "kind": "control",
-          "control_source": "L0_S00020",
+          "control_source": "L1_S00077",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00060",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00060",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00020",
           "nli_label": "contradiction"
         },
         {
-          "super_node_id": "L1_S00052",
+          "super_node_id": "L1_S00024",
           "level": 1,
           "kind": "real",
           "nli_label": "entailment"
         },
         {
-          "super_node_id": "L1_S00052",
+          "super_node_id": "L1_S00024",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00065",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00004",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00004",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00076",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00017",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "entailment"
+        },
+        {
+          "super_node_id": "L1_S00017",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L0_S00005",
+          "nli_label": "entailment"
+        },
+        {
+          "super_node_id": "L1_S00072",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00072",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00002",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00007",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "entailment"
+        },
+        {
+          "super_node_id": "L1_S00007",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00017",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00018",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "entailment"
+        },
+        {
+          "super_node_id": "L1_S00018",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00064",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00069",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00069",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00036",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00063",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "entailment"
+        },
+        {
+          "super_node_id": "L1_S00063",
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00062",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00067",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00067",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00023",
           "nli_label": "contradiction"
         },
         {
-          "super_node_id": "L1_S00068",
+          "super_node_id": "L1_S00042",
           "level": 1,
           "kind": "real",
-          "nli_label": "neutral"
+          "nli_label": "contradiction"
         },
         {
-          "super_node_id": "L1_S00068",
+          "super_node_id": "L1_S00042",
           "level": 1,
           "kind": "control",
-          "control_source": "L1_S00018",
-          "nli_label": "neutral"
+          "control_source": "L1_S00041",
+          "nli_label": "contradiction"
         },
         {
-          "super_node_id": "L1_S00084",
+          "super_node_id": "L1_S00023",
           "level": 1,
           "kind": "real",
           "nli_label": "entailment"
         },
         {
-          "super_node_id": "L1_S00084",
+          "super_node_id": "L1_S00023",
           "level": 1,
           "kind": "control",
-          "control_source": "L1_S00007",
+          "control_source": "L1_S00068",
           "nli_label": "contradiction"
         },
         {
-          "super_node_id": "L1_S00005",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00005",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L0_S00007",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00076",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00076",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L0_S00001",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00047",
+          "super_node_id": "L1_S00073",
           "level": 1,
           "kind": "real",
           "nli_label": "neutral"
         },
         {
-          "super_node_id": "L1_S00047",
+          "super_node_id": "L1_S00073",
           "level": 1,
           "kind": "control",
           "control_source": "L0_S00005",
           "nli_label": "contradiction"
         },
         {
+          "super_node_id": "L1_S00033",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00033",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00071",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00013",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00013",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00073",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00006",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00006",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00033",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00036",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "entailment"
+        },
+        {
+          "super_node_id": "L1_S00036",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00003",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00022",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00022",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00071",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00052",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00052",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00018",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00065",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00065",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00073",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00038",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00038",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00077",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00075",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00075",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00071",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00068",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00068",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00033",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00009",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00009",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00022",
+          "nli_label": "contradiction"
+        },
+        {
           "super_node_id": "L1_S00039",
           "level": 1,
           "kind": "real",
@@ -4463,204 +3790,191 @@
         },
         {
           "super_node_id": "L1_S00039",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L0_S00001",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00064",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00064",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00084",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00031",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00031",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00013",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00066",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00066",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00068",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00085",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00085",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00079",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00030",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00030",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00052",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00072",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00072",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00031",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00057",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00057",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00035",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00003",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00003",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00042",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00086",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00086",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00029",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00087",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00087",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00030",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00071",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00071",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00014",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00041",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00041",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00035",
-          "nli_label": "entailment"
-        },
-        {
-          "super_node_id": "L1_S00043",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00043",
-          "level": 1,
-          "kind": "control",
-          "control_source": "L1_S00005",
-          "nli_label": "contradiction"
-        },
-        {
-          "super_node_id": "L1_S00088",
-          "level": 1,
-          "kind": "real",
-          "nli_label": "neutral"
-        },
-        {
-          "super_node_id": "L1_S00088",
           "level": 1,
           "kind": "control",
           "control_source": "L1_S00043",
           "nli_label": "neutral"
         },
         {
-          "super_node_id": "L1_S00032",
+          "super_node_id": "L1_S00062",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00062",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00070",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00031",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00031",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00069",
+          "nli_label": "entailment"
+        },
+        {
+          "super_node_id": "L1_S00064",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00064",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00024",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00076",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00076",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L0_S00021",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00030",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00030",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L0_S00017",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00011",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00011",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L0_S00007",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00057",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00057",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00065",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00003",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00003",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00007",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00077",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00077",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L0_S00003",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00078",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00078",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L0_S00001",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00020",
           "level": 1,
           "kind": "real",
           "nli_label": "entailment"
         },
         {
-          "super_node_id": "L1_S00032",
+          "super_node_id": "L1_S00020",
           "level": 1,
           "kind": "control",
-          "control_source": "L1_S00068",
+          "control_source": "L0_S00007",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00041",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00041",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00006",
+          "nli_label": "entailment"
+        },
+        {
+          "super_node_id": "L1_S00043",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00043",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L1_S00002",
+          "nli_label": "neutral"
+        },
+        {
+          "super_node_id": "L1_S00079",
+          "level": 1,
+          "kind": "real",
+          "nli_label": "contradiction"
+        },
+        {
+          "super_node_id": "L1_S00079",
+          "level": 1,
+          "kind": "control",
+          "control_source": "L0_S00017",
           "nli_label": "contradiction"
         },
         {
@@ -4673,8 +3987,8 @@
           "super_node_id": "L1_S00014",
           "level": 1,
           "kind": "control",
-          "control_source": "L1_S00057",
-          "nli_label": "neutral"
+          "control_source": "L1_S00033",
+          "nli_label": "contradiction"
         },
         {
           "super_node_id": "L1_S00029",
@@ -4686,8 +4000,8 @@
           "super_node_id": "L1_S00029",
           "level": 1,
           "kind": "control",
-          "control_source": "L1_S00005",
-          "nli_label": "neutral"
+          "control_source": "L1_S00070",
+          "nli_label": "contradiction"
         }
       ]
     }
@@ -5272,5 +4586,123 @@
         "mean_candidates_scored": 773.7857142857143
       }
     ]
+  },
+  "coherence_hypergraph_shuffle_null": {
+    "year": 2026,
+    "alpha": 0.3,
+    "n_trials": 20,
+    "swap_multiplier": 10,
+    "mean_swap_success_rate": 0.9739728891286754,
+    "n_forced_merges_by_trial": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "by_level": {
+      "0": {
+        "real_observed_coherence": 0.012923421206176289,
+        "shuffled_null_mean": 0.012789389254429392,
+        "shuffled_null_std": 0.00045364944151399055,
+        "shuffled_null_values": [
+          0.01317280060504801,
+          0.01306948796134452,
+          0.013415737011067647,
+          0.012800887656162495,
+          0.013119324057519395,
+          0.012245720302642357,
+          0.013490316636245291,
+          0.012219056821869976,
+          0.013385562861663303,
+          0.01306842591412337,
+          0.01261200480863665,
+          0.012558629566868268,
+          0.013194705896707412,
+          0.012321663798335427,
+          0.012435452993504749,
+          0.013117973585030909,
+          0.012534167856860777,
+          0.011916834356724809,
+          0.01254625776181916,
+          0.012562774636413313
+        ],
+        "z_score": 0.2954526986731951,
+        "n_trials": 20
+      },
+      "1": {
+        "real_observed_coherence": 0.03417970809881705,
+        "shuffled_null_mean": 0.03395253434543467,
+        "shuffled_null_std": 0.0005171108186898256,
+        "shuffled_null_values": [
+          0.034801750606309176,
+          0.034270633559808576,
+          0.03423464703408303,
+          0.03417413016919371,
+          0.03457534680404862,
+          0.033551404843180976,
+          0.034536775568282926,
+          0.033490690637173005,
+          0.03388579147175615,
+          0.03410206255893843,
+          0.03435639123238753,
+          0.033283001812250565,
+          0.033985060259574644,
+          0.032486727211817425,
+          0.03365445646285945,
+          0.03392402192585011,
+          0.0339732256398,
+          0.03419891071560976,
+          0.0339052109609532,
+          0.03366044743481623
+        ],
+        "z_score": 0.43931348015102795,
+        "n_trials": 20
+      },
+      "2": {
+        "real_observed_coherence": 0.08333278778690008,
+        "shuffled_null_mean": 0.08225376890367958,
+        "shuffled_null_std": 0.0003712886645237899,
+        "shuffled_null_values": [
+          0.08244343629667764,
+          0.08239519396186101,
+          0.0817734037753899,
+          0.0822759025870504,
+          0.08221011155250127,
+          0.08227268737062184,
+          0.08299674157839856,
+          0.08229141331585464,
+          0.08206641633527864,
+          0.08223741077565642,
+          0.08180047488099704,
+          0.08213680395946474,
+          0.08191959406543663,
+          0.0817789519703135,
+          0.08218842935706419,
+          0.08218889608157501,
+          0.08194142611930845,
+          0.08322101697714834,
+          0.08262797695561042,
+          0.08230909015738293
+        ],
+        "z_score": 2.9061455043461497,
+        "n_trials": 20
+      }
+    }
   }
 }

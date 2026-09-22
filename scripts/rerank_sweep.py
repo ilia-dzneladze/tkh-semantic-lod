@@ -1,4 +1,4 @@
-"""FIXES.md iteration 7: does blending a candidate's own cosine score with
+"""Rerank check (DESIGN_NOTES.md sections 14 and 15): does blending a candidate's own cosine score with
 its level-1 ancestor's label+gloss cosine score let drill-down retrieval
 beat flat baseline (not just tie it)? Reuses the same embeddings/questions
 as t6_patch_extrinsic.py. Writes outputs/rerank_sweep.json.

@@ -1,5 +1,7 @@
-"""Hypergraph-native structural affinity (T2).
+"""Structural affinity from hyperedges (T2): a weighted clique expansion.
 
+This is a pairwise projection of the hypergraph, with each hyperedge's
+weight spread over its pairs so large hyperedges don't dominate.
 Weighting rationale: DESIGN_NOTES.md section 3.
 Naive-projection comparison rationale: DESIGN_NOTES.md section 4.
 """
@@ -11,9 +13,10 @@ import scipy.sparse as sp
 def build_structural_affinity(snap, weighted=True):
     """Sparse |concept_ids| x |concept_ids| structural affinity matrix.
 
-    weighted=True -> native weighting (1/(arity-1) per pair).
-    weighted=False -> naive clique expansion (1.0 per pair), for comparison.
-    Only edges whose members are all concept nodes contribute.
+    weighted=True -> 1/(arity-1) per pair, arity counted over concept members.
+    weighted=False -> unweighted clique expansion (1.0 per pair), for comparison.
+    Every edge with at least 2 concept members contributes, restricted to
+    those members; article/author members are dropped from the edge.
     """
     ids = sorted(snap.concept_ids)
     idx = {nid: i for i, nid in enumerate(ids)}
@@ -63,9 +66,10 @@ def build_structural_affinity(snap, weighted=True):
 
 
 def projection_loss_report(snap):
-    """Compare native vs. naive affinity by how much pairwise weight comes
-    from high-arity (>10) hyperedges under each. See DESIGN_NOTES.md
-    section 4."""
+    """Compare weighted vs. unweighted clique expansion by how much pairwise
+    weight comes from high-arity (>10) hyperedges under each. Both are
+    projections; this measures weight distribution, not clustering quality.
+    See DESIGN_NOTES.md section 4."""
     A_native, ids, stats_native = build_structural_affinity(snap, weighted=True)
     A_naive, _, stats_naive = build_structural_affinity(snap, weighted=False)
 
@@ -97,8 +101,8 @@ def projection_loss_report(snap):
         "high_arity_share_of_total_mass_native": (
             high_arity_native_mass / total_native_mass if total_native_mass else 0.0),
         "interpretation": (
-            "Under naive unweighted projection, hyperedges of arity>10 hold "
-            "most of the pairwise weight. Native weighting caps each "
-            "hyperedge's contribution regardless of arity."
+            "Under the unweighted clique expansion, hyperedges of arity>10 hold "
+            "most of the pairwise weight. The 1/(arity-1) weighting keeps each "
+            "hyperedge's total contribution linear in arity instead of quadratic."
         ),
     }

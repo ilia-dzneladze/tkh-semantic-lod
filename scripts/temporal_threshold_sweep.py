@@ -1,4 +1,4 @@
-"""FIXES.md iteration 3: how much do event counts (birth/death/merge/split/
+"""Threshold sensitivity (DESIGN_NOTES.md sections 10 and 15): how much do event counts (birth/death/merge/split/
 grow/shrink/stable) move as STABLE_JACCARD, MATCH_THRESHOLD, and
 SIZE_CHANGE_RATIO vary? T3 only rematches the already-computed per-snapshot
 clusterings, it doesn't re-embed or re-cluster, so this sweep just reloads

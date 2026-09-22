@@ -1,5 +1,5 @@
 """Recompute just the extrinsic section of metrics.json with the final
-branching factor and rerank beta (FIXES.md iterations 1 and 7), and
+branching factor and rerank beta (DESIGN_NOTES.md sections 14 and 15), and
 attach the branching-factor and beta sweeps as supporting evidence,
 without re-running the expensive coherence/stability/faithfulness stages.
 """
@@ -122,8 +122,8 @@ def main():
         })
     print(f"[{time.time()-t0:.1f}s] branching sweep done")
 
-    # rerank beta sweep at the shipped (FINAL_B0, FINAL_B1) pool, FIXES.md
-    # iteration 7: does blending in the level-1 ancestor's label+gloss
+    # rerank beta sweep at the shipped (FINAL_B0, FINAL_B1) pool, DESIGN_NOTES.md
+    # section 15: does blending in the level-1 ancestor's label+gloss
     # score let drill-down beat flat, not just match it?
     beta_sweep_rows = []
     for beta in BETA_SWEEP:

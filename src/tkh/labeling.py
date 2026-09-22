@@ -1,8 +1,8 @@
 """T5: label + one-sentence gloss per super-node at levels 0-1.
 
-No LLM API is called, labels are written by hand from the dumped prompt
-file instead. Why, and how temporal honesty (P6) still holds: see
-DESIGN_NOTES.md section 12 and AI_USAGE.md.
+This code makes no LLM API call. The labels were written by Claude Code
+sub-agents reading the dumped prompt files. Why, and how temporal honesty
+(P6) still holds: see DESIGN_NOTES.md section 12 and AI_USAGE.md.
 """
 import json
 
@@ -30,6 +30,18 @@ Members (type: surface_form):
 """
 
 
+LABELLER_SAMPLE_N = 25
+
+
+def labeller_sample_ids(member_ids, n=LABELLER_SAMPLE_N):
+    """The member ids the labeller is shown: the first n of the sorted
+    member list. The faithfulness check excludes exactly these, so it must
+    stay the single definition of the labeller's input. Sorted ids are
+    type-prefixed, so this sample is type-biased; see DESIGN_NOTES.md
+    section 12."""
+    return list(member_ids[:n])
+
+
 def write_labeling_input(hierarchy, snap, year, out_path, levels=(0, 1)):
     """member_ids are raw concept node ids at every level (see
     pipeline.build_hierarchy_json), so the labelling prompt can read them
@@ -47,14 +59,15 @@ def write_labeling_input(hierarchy, snap, year, out_path, levels=(0, 1)):
                 continue
             t = node.get("type")
             type_counts[t] = type_counts.get(t, 0) + 1
-        for nid in raw_ids[:25]:
+        sample_ids = labeller_sample_ids(raw_ids)
+        for nid in sample_ids:
             node = snap.nodes.get(nid)
             if node is None:
                 continue
             sample_lines.append(f"  - {node.get('type')}: {node.get('surface_form')}")
 
         prompt = LABEL_PROMPT_TEMPLATE.format(
-            year=year, sample_n=min(25, len(raw_ids)), total_n=len(raw_ids),
+            year=year, sample_n=len(sample_ids), total_n=len(raw_ids),
             member_lines="\n".join(sample_lines),
         )
         entries.append({

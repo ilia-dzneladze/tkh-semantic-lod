@@ -1,4 +1,4 @@
-"""Alpha ablation sweep (FIXES.md, iteration 1).
+"""Alpha ablation sweep (DESIGN_NOTES.md sections 7 and 15).
 
 Sweeps alpha across the structural/semantic split in 5% steps: 0.05
 through 0.95. Structural affinity, semantic embeddings, and the semantic
@@ -13,7 +13,7 @@ those functions actually read (level, id, member_ids) -- T4 collapse, T3
 persistent-id tracking, and T5 labels are all skipped here on purpose.
 Labels were hand-written once, for the alpha=0.5 hierarchy; faithfulness
 and the extrinsic eval both need gloss text, so this sweep doesn't touch
-either of them, see FIXES.md for why.
+either of them.
 
 Usage:
     python scripts\\alpha_sweep.py                  # full 19-value sweep
