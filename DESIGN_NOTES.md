@@ -377,10 +377,42 @@ name. The split event's `into` field lists the persistent ids of every
 piece, so the two views can be joined. It used to store local cluster
 labels, which mean nothing outside one run.
 
-Not measured yet: P5 also asks that change be localised to where the
-corpus changed. Nothing here checks that. The obvious test is to
-correlate each cluster's churn with the share of new nodes and edges in
-its region.
+P5 also asks that change be localised to where the corpus changed. I
+tested that (`scripts/localisation.py`, rule in section 15) and it isn't,
+at least not in the sense I pre-registered. For each cluster I took its
+churn (1 minus its best Jaccard match at the next snapshot, on nodes
+present in both) and its exposure (the share of hyperedges touching its
+members that are new). At no level does churn rise with exposure. The
+pooled Spearman correlation is -0.32 at level 0 (CI -0.63 to 0.02), +0.03
+at level 1 and -0.01 at level 2, with CIs around zero, and partialling out
+cluster size doesn't change that. The clearest way to see it: 351
+fine-level clusters gained under 2% new edges, and their mean churn is
+0.44, the same as everyone else's. Structurally untouched regions get
+reorganised as much as the ones where new papers landed.
+
+After it failed I looked for another route by which new material could
+reach an old cluster, and this part is exploratory, not pre-registered.
+At alpha=0.3 the clustering is 70% semantic k-NN graph, and a new concept
+can enter an old concept's neighbour list without sharing any hyperedge
+with it. On average about 30% of an old node's k-NN neighbours at t+1
+are new nodes, against only 5 to 13% new edges. Measured that way, churn
+does follow exposure at the two finer levels: Spearman +0.42 at level 1
+(CI 0.27 to 0.55, 0.40 with size partialled out) and +0.18 at level 2
+(CI 0.10 to 0.27), and the quarter of level-1 clusters with the most
+semantic exposure churn 0.67 against 0.41 for the least. Level 0 shows
+nothing either way. So there is some localisation, but it's to where the
+corpus changed in meaning, not in structure, and I only found it by
+looking after the first test failed, so I'd treat it as a lead.
+
+Even the least exposed clusters churn 0.36 to 0.41, so a large part of
+the change isn't local on either measure. My guess, untested, is the
+fixed cut sizes. Every snapshot is cut at exactly 12, 50 and 200
+clusters, and the concept set grows about fourfold from 2020 to 2026, so
+when a new region needs its own cluster, some other clusters elsewhere
+have to merge to keep the count fixed. Cutting at a fixed merge height
+instead of a fixed count would avoid that, but then the number of
+clusters per level would drift between snapshots, which has its own cost
+for the report and the labelling. I haven't tried it.
 
 ## 11. member_ids are raw node ids at every level, not child ids
 
@@ -878,3 +910,34 @@ alpha=0 is above zero under both schemes at level 0 only (edge +0.47, CI
 0.31 to 0.64; paper +0.13, CI 0.01 to 0.25). At levels 1 and 2 the paper
 scheme shows no gain. alpha=0.3 isn't dominated by any other alpha. Alpha
 stays at 0.3.
+
+Localisation of change (`localisation.py`, written before running). P5
+asks that change between snapshots be localised to where the corpus
+changed. For each cluster C at snapshot t (every level, every
+transition 2020 to 2022, 2022 to 2024, 2024 to 2026), churn is 1 minus
+the best Jaccard between C and any cluster at t+1, computed on nodes
+present in both snapshots, so a cluster that only gained new members
+has churn 0. Exposure is the share of hyperedges touching C's members at
+t+1 that are new at t+1 (not in snapshot t). This uses only the
+hierarchies already written and the raw edges, so it doesn't depend on
+the event thresholds in section 10. Clusters under 3 members are
+skipped, since their Jaccard only takes a few values. Change counts as
+localised at a level if the Spearman correlation between exposure and
+churn, pooled over the three transitions, is positive with a 95%
+bootstrap CI (resampling clusters) above zero, and stays positive when
+cluster size is partialled out, since big clusters could plausibly get
+both more new edges and more churn. As a second, descriptive check I
+report mean churn for the quarter of clusters with the least and most
+exposure. If it fails, I report that change isn't localised and don't
+try to fix it here.
+
+Localisation result. Fails at every level. Pooled Spearman between
+new-edge exposure and churn: level 0 -0.32 (CI -0.63 to 0.02), level 1
++0.03 (CI -0.14 to 0.19), level 2 -0.01 (CI -0.09 to 0.07), and none
+turn positive with size partialled out. Mean churn in the least and most
+exposed quarters is 0.73 and 0.54 at level 0, 0.55 and 0.57 at level 1,
+0.44 and 0.44 at level 2. Change is not localised in the pre-registered
+sense. An exploratory measure I added afterwards, the share of new
+nodes among an old node's k-NN neighbours, does correlate with churn at
+levels 1 and 2 (section 10). That's post hoc, and it doesn't change the
+verdict.

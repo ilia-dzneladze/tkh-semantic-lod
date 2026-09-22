@@ -96,7 +96,7 @@ Two more steps add to `metrics.json` and must run after it, in this order:
 The other scripts in `scripts\` (`alpha_sweep`, `level0_skew_check`,
 `temporal_threshold_sweep`, `warm_start_sweep`, `rerank_sweep`,
 `coarsening_compare`, `label_routing`, `structural_holdout`,
-`pair_overlap`) are the
+`pair_overlap`, `localisation`) are the
 follow-up experiments described in `DESIGN_NOTES.md` section 15. Each
 writes its own JSON in `outputs\` and none of them change the shipped
 pipeline.
@@ -151,8 +151,9 @@ gaps, each discussed in `DESIGN_NOTES.md`:
 - On recall@20, leave-one-out drill-down shows no detectable difference
   from flat at 14 questions. Routing with labels beats chance at every
   budget, routing on centroids doesn't (section 14).
-- Nothing measures whether change between snapshots is localised yet
-  (section 10).
+- Change between snapshots is not localised to where new hyperedges
+  landed. Churn partly follows new semantic neighbours (exploratory), and
+  much of it is global (section 10, `scripts\localisation.py`).
 - The structure term predicts held-out hyperedges from papers it has
   seen, but generalises weakly to unseen papers; at alpha=0.3 it only
   clearly earns its place at level 0 (section 13).

@@ -439,3 +439,24 @@ rewrote that as connection through the paper's other edges. The other
 used "transformer" as an example concept, which isn't in the corpus, so
 it replaced it with MAE after checking. All papers are cited by arXiv id.
 The agent did not verify published venues, so that's on me to check.
+
+## Localisation of change (P5)
+
+Tool: Claude Code on Opus 5.
+
+Prompt: "yes, start with the localisation test"
+
+The agent wrote the decision rule into DESIGN_NOTES section 15 before
+writing any code: per-cluster churn against the share of new hyperedges
+around the cluster, Spearman with a bootstrap CI, with cluster size
+partialled out. It then wrote `scripts/localisation.py`, which reads
+the shipped hierarchies and doesn't depend on the section 10 event
+thresholds. The test failed at every level. Before writing that up, the
+agent broke the result down by transition and checked the exposure
+ranges, to rule out a bug or a pooling artefact. It then added one
+exploratory measure after seeing the failure, the share of new nodes
+among an old node's k-NN neighbours, which does correlate with churn at
+levels 1 and 2. The docs label that measure post hoc, and the
+pre-registered verdict ("not localised") stands. The explanation that
+fixed cluster counts force global reshuffling is the agent's hypothesis
+and is marked untested.
