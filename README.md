@@ -71,16 +71,28 @@ labeled `labeling_output.json` for each snapshot is checked into
 ```
 
 Runs coherence-vs-null, both stability measurements, label faithfulness,
-and the extrinsic drill-down eval, and writes `outputs/metrics.json`. Takes
-15-20 minutes on CPU, mostly the NLI faithfulness pass (4 snapshots) and
-the retrieval candidate-pool embedding. The extrinsic section's final
-branching factor was chosen after a parameter sweep documented in
-`DESIGN_NOTES.md` section 14; to reproduce just that patch without
-re-running the expensive stages:
+and the extrinsic drill-down eval, and writes a fresh `outputs/metrics.json`.
+Takes 15-20 minutes on CPU, mostly the NLI faithfulness pass (4 snapshots)
+and the retrieval candidate-pool embedding. Passing section names reruns
+only those and updates them in place, e.g.
+`scripts\t6_evaluate.py faithfulness`.
+
+Two more steps add to `metrics.json` and must run after it, in this order:
 
 ```
+# branching-factor and rerank-beta sweeps (DESIGN_NOTES.md section 14)
 .venv\Scripts\python.exe scripts\t6_patch_extrinsic.py
+
+# degree/arity-preserving hypergraph shuffle null for coherence
+# (DESIGN_NOTES.md section 13), ~4 minutes
+.venv\Scripts\python.exe scripts\hypergraph_shuffle_null.py
 ```
+
+The other scripts in `scripts\` (`alpha_sweep`, `level0_skew_check`,
+`temporal_threshold_sweep`, `warm_start_sweep`, `rerank_sweep`) are the
+follow-up experiments described in `DESIGN_NOTES.md` section 15. Each
+writes its own JSON in `outputs\` and none of them change the shipped
+pipeline.
 
 ### Figures
 
@@ -116,8 +128,17 @@ reference rather than as part of the reproduction path.
 
 ## Status
 
-This is a first draft, not a finished/tuned result: alpha sits at its
-default 0.5 with no ablation yet, the temporal-matching thresholds are
-picked by feel, and the level-0 cluster-size skew noted in `report.pdf`
-hasn't been addressed. See `report.pdf` section 5 for the specific list of
-what's next.
+alpha = 0.3 was chosen by ablation. The temporal-matching threshold
+sensitivity, the level-0 size-skew hypothesis and a warm-started variant
+have all been checked (`DESIGN_NOTES.md` sections 10 and 15). Known open
+gaps, each discussed in `DESIGN_NOTES.md`:
+
+- The structural term is a weighted clique expansion, and the T4
+  collapsed hypergraph is written out but not used to build coarser
+  levels (sections 3, 4, 9).
+- The labeller's member sample is type-biased and labelling is not a
+  rerunnable script (section 12).
+- The extrinsic "beats flat" result rests on one question and was tuned
+  on the test questions (section 14).
+- Nothing measures whether change between snapshots is localised yet
+  (section 10).

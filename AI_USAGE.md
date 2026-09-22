@@ -1,7 +1,8 @@
 # AI usage
 
-Tool: Claude Code, running on Sonnet 5, for the entire project. No other AI
-tool was used. Below is every phase where it did real work, the prompt that
+Tool: Claude Code, running on Sonnet 5 for the build and follow-up
+experiments, and on Opus 5 for the final review and correctness fixes (last
+section). No other AI tool was used. Below is every phase where it did real work, the prompt that
 kicked each one off, what I accepted or changed, and what I checked before
 trusting the output.
 
@@ -105,7 +106,9 @@ This phase had two points I worked through directly rather than accept the
 first result: the label-faithfulness check initially returned "neutral" on
 nearly every pair including obvious mismatches, which needed real diagnosis
 (traced to bare short phrases not giving the NLI model enough context, fixed
-by aggregating full member lists into sentence-style premises); and the
+by aggregating members into sentence-style premises; the premise turned out
+to use a subset of the labeller's own input, which was caught and fixed in
+the final review, see the last section); and the
 extrinsic retrieval eval initially returned zero recall on every question,
 which I didn't accept as "the corpus is just this hard" without checking,
 and which turned out to be a real embedding problem (bare acronyms don't
@@ -149,11 +152,13 @@ that don't need hand-written labels. Before trusting a 19-value run I had
 it smoke-test the script against alpha=0.5 alone first; it reproduced the
 shipped `metrics.json` numbers to the exact digit, which is what made me
 comfortable letting the full sweep run unattended after that. The decision
-rule (only replace 0.5 if some value beats it on every metric at every
-level, not just on average) went into `FIXES.md` before the sweep ran, not
-chosen after seeing which value happened to look good.
-
-alpha=0.3 was the only value that passed that bar. I had the agent apply
+rule written down before the sweep (in a private working file, copied into
+`DESIGN_NOTES.md` section 15) was: replace 0.5 only if some value beats it
+on both averaged coherence z-score and averaged stability ARI. Several
+values passed that. After seeing the results I added a stricter check,
+beating 0.5 on each of the nine per-level numbers separately, and
+alpha=0.3 was the only value that passed it. That stricter check came
+after the results, so it's a robustness check, not the pre-registered rule. I had the agent apply
 it to the real pipeline, not just the sweep's lightweight version,
 regenerate `hierarchy.json`, and re-check the structural validator and
 unit tests before doing anything else with it.
@@ -218,10 +223,73 @@ finding into text only.
 
 ## Verification habits, generally
 
-Every module has unit tests (10 total) and the pipeline output is checked
-by a structural validator (`scripts/validate_hierarchy.py`) that verifies
-the laminar-partition property exactly, not by assumption. I re-ran both
+There are 16 unit tests, covering the T4 collapse rule, T3 temporal
+matching, and the faithfulness held-out split. The other modules
+(clustering, affinity construction, coherence, stability, extrinsic) have
+no unit tests. The pipeline output is checked by a structural validator
+(`scripts/validate_hierarchy.py`) that verifies the laminar-partition
+property exactly, not by assumption. I re-ran both
 after every non-trivial code change, including purely cosmetic ones, to
 confirm they didn't silently change behavior. I take responsibility for
 every number and claim in `report.pdf` and `DESIGN_NOTES.md`, whether I
 typed the underlying code or not.
+
+## Final review and correctness fixes
+
+Tool: Claude Code on Opus 5.
+
+Prompt: "Look at my current version of the project. Do you think it is
+sufficient to land me the job? ... I want your honest opinion, and if you
+think we can iterate on some things, make some things better, than tell me
+what specifically and how. Be thorough"
+
+The agent read the brief, all source, the docs and `metrics.json`, and
+checked several claims against the code instead of trusting the docs.
+Findings where docs and code disagreed:
+
+- The faithfulness NLI premise was built from the first 15 sorted members,
+  a strict subset of the 25 the labeller saw, while the docstring and
+  report said it used the full member list.
+- Temporal Jaccard used the full union including nodes new at t+1, while
+  the docstring and DESIGN_NOTES said it was restricted to shared nodes.
+  The agent measured the effect first: at level 1, 2022 to 2024, 14 of 50
+  clusters fell below MATCH_THRESHOLD, against 3 of 50 restricted.
+- The structural affinity was described as hypergraph-native and following
+  Zhou et al.'s spectral method. In the code it's a weighted clique
+  expansion with no spectral step.
+- The T4 collapsed hypergraph is computed but never used by the method.
+- The extrinsic "beats flat" result comes from a single question (Q14),
+  after tuning on the same questions.
+- This file said every module had unit tests, and it misstated the alpha
+  decision rule (both fixed above).
+
+It also ran one new diagnostic: the (8, 8) drill-down pool holds 80% of
+ground-truth nodes at 25% of candidates, against about 25% for chance.
+
+Prompt: "yes, start with the P0 fixes"
+
+What the agent changed, and what I accepted:
+
+- `temporal.py`: Jaccard on shared nodes only, and split events now record
+  persistent ids. Three new tests. The pipeline was rerun and every
+  snapshot's cluster member sets were checked identical before and after,
+  so only matching changed. Persistent ids that got reassigned were remapped
+  in the label files by exact member-set match, not relabelled. The
+  threshold sweep was rerun: MATCH_THRESHOLD is still sensitive.
+- `labeling.py`, `eval/faithfulness.py`: one function defines the
+  labeller's input, and the NLI premise is now a seeded sample of held-out
+  members only. Clusters with fewer than 5 held-out members are skipped and
+  counted. Now reports both contradiction and not-entailed rates. Three
+  new tests check the held-out set is disjoint from the labeller's input.
+  Contradiction rose from 5-11% to 14-21%.
+- `t6_evaluate.py` can rerun single sections. The shuffle-null script also
+  writes into `metrics.json`, and it reproduced its earlier values
+  exactly.
+- Docstrings, DESIGN_NOTES (sections 3, 4, 7, 9, 10, 12, 13, 14, new 15),
+  README and this file corrected to match the code. Dangling references to
+  my private working file were replaced with DESIGN_NOTES pointers.
+
+Verification: 16/16 tests pass, `validate_hierarchy.py` passes on all four
+snapshots, all 248 labels re-applied. The type bias in the labeller's
+sample was found and documented but not fixed, because that needs
+relabelling.

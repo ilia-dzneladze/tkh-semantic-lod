@@ -48,7 +48,7 @@ exactly). If this pipeline were ever run on a different export where that
 isn't true, a node could disappear from a snapshot without any warning,
 which would be worth fixing then.
 
-## 3. Structural affinity weighting (Zhou et al. hypergraph cut)
+## 3. Structural affinity weighting (weighted clique expansion)
 
 `hypergraph.py`, `build_structural_affinity`, the `share` weight formula.
 
@@ -58,10 +58,22 @@ For two concept nodes that co-occur in the same hyperedge, how much
 arity-65 hyperedge produces C(65,2) = 2080 pairs, versus 1 pair for an
 arity-2 edge, so one big table in one paper would dominate the whole
 structural signal. Instead each hyperedge of arity n contributes
-1/(n-1) to each of its C(n,2) pairs. This comes from Zhou, Huang and
-Schoelkopf's 2006 paper on hypergraph spectral clustering, and the effect
-is that the TOTAL weight a hyperedge contributes across all its pairs
-stays bounded regardless of arity, instead of growing quadratically.
+1/(n-1) to each of its C(n,2) pairs. Each member then gets a total of 1
+from every hyperedge it's in, split evenly over its co-members, and the
+hyperedge's total weight is n/2, linear in arity instead of quadratic.
+
+I want to be straight about what this is. It's a weighted clique
+expansion, so the clustering runs on a pairwise projection of the
+hypergraph, not on the hypergraph itself. An earlier version of these
+notes said this weighting "comes from" Zhou, Huang and Schoelkopf (2006).
+That overstated it. Their normalized hypergraph Laplacian works out to a
+clique expansion with weight w(e)/|e| per pair, which is close to mine but
+not the same, and I don't use a Laplacian or any spectral step at all.
+Agarwal, Branson and Belongie (2006) showed that several hypergraph
+Laplacians reduce to clique or star expansions anyway, so the honest claim
+is "a projection with arity-aware weights", not "hypergraph-native". The
+parts of the pipeline that really do keep k-ary structure are the T4
+collapse (section 9) and the retrieval enrichment (section 14).
 
 I checked this actually matters on the real data (see section 4 below):
 under the naive unweighted version, edges of arity > 10 end up holding
@@ -81,6 +93,12 @@ the total pairwise "mass" comes from high-arity edges under each. This
 function doesn't feed into clustering at all, it only exists to produce
 that comparison number for the report.
 
+This doesn't really answer the question the brief asks. Both sides are
+projections (section 3), and the number describes how weight is spread,
+not what the clustering loses. A real answer needs a hypergraph-native
+variant to compare against, scored on something like how many hyperedges
+each clustering cuts. I haven't built that yet.
+
 ## 5. Keeping the semantic signal separate from the coherence-check signal
 
 `embeddings.py`, the split between `encode_semantic` and
@@ -92,7 +110,7 @@ guaranteed and proves nothing, since the clusters were built to be
 similar under exactly that measure. This is the circularity problem T6
 warns about. To avoid it, `encode_semantic` (the MPNet embeddings that
 drive clustering) and `encode_lexical_tfidf` (plain bag-of-words TF-IDF,
-used only for the coherence check) need to come from genuinely different
+used only for the coherence check) need to come from different
 signal families, not just two different neural embedding models that
 were both trained the same way. TF-IDF has no notion of synonymy or
 pretraining at all, so it can't just be rediscovering what MPNet already
@@ -126,22 +144,19 @@ graph. I picked this over a two-stage approach (structure decides the
 coarse level, semantics only refines within it) mainly because a single
 combined graph lets alpha be a literal, sweepable knob that shows up in
 the eval section, rather than a qualitative statement about which stage
-matters more. Alpha stayed at the default 0.5 for the final run, I never
-found time to run a proper sweep of it, that's a real gap not a checked
-answer.
+matters more.
 
-Update: I went back and ran that sweep. Alpha from 0.05 to 0.95 in steps
-of 0.05, scored by coherence-vs-null and both stability measures, the two
-T6 metrics that don't need hand-written labels, so the sweep didn't need
-new labels for every value it tried. alpha=0.3 was the only value in the
-whole grid that beat the shipped 0.5 on every one of those metrics at
-every level, not just on average, so I moved the default to 0.3 and
-regenerated hierarchy.json and temporal_events.json against it (checked:
-still laminar at all 4 snapshots, all 10 unit tests still pass). Labels,
-faithfulness and the extrinsic eval are now out of date against the new
-clustering and need to be redone before I trust metrics.json or
-report.md's numbers again. That's the next thing to do, not skipped by
-accident.
+Alpha started at 0.5 as a placeholder. I swept it from 0.05 to 0.95 in
+steps of 0.05 (`scripts/alpha_sweep.py`), scored by coherence-vs-null and
+both stability measures. Those are the T6 metrics that don't need labels,
+so the sweep didn't need 19 rounds of relabelling. alpha=0.3 was the only
+value that beat 0.5 on every one of those metrics at every level, so it's
+the shipped default now. Labels, faithfulness and the extrinsic eval were
+all redone against the alpha=0.3 clustering afterwards.
+
+One thing the sweep can't tell me is whether the structural term matters.
+The shuffle null in section 13 says that at alpha=0.3 it barely does,
+at least by lexical coherence.
 
 ## 8. Sparse average-linkage clustering and forced merges
 
@@ -197,6 +212,17 @@ weight count and a relation-type breakdown, so you can see how many
 edges and what kinds contributed, but not which original edge asserted
 which specific pairing of underlying nodes.
 
+Two limits I need to state. First, the collapsed hypergraph is an output
+only. `pipeline.py`, `build_hierarchy_json`, writes it into hierarchy.json
+but nothing reads it back, because all three levels are cuts of one
+dendrogram built on the fine-level affinity. The brief wants the rule to
+be used by the method, and right now it isn't. Second, articles and
+authors pass through as their own singleton super-nodes, so any edge
+touching an article can never become fully internal. That's why only 7 of
+1429 edges end up internal at level 0. The coarse hypergraph is mostly
+article-centred edges, which says more about the node-type choice in
+section 1 than about the clustering.
+
 ## 10. Temporal matching instead of warm-starting
 
 `temporal.py`, whole file, especially the threshold constants near the
@@ -213,7 +239,8 @@ doesn't actively push the clustering toward being stable while it runs.
 A warm-started or regularized version would probably produce a smoother
 hierarchy at the cost of being harder to verify independently.
 
-Update: built and tested that version (FIXES.md iteration 4). Added a
+Update: built and tested that version (`scripts/warm_start_sweep.py`,
+decision rule in section 15). Added a
 third affinity term, `A_prior(i,j) = 1` iff i and j were in the same
 level-2 cluster in the previous snapshot (0 for nodes that didn't exist
 yet), blended in as `(1-gamma)*A_task + gamma*A_prior` before UPGMA runs.
@@ -231,8 +258,24 @@ prior where the current snapshot's own signal roughly agrees with it,
 not blind same-cluster-before bias, untried here.
 
 The matching itself is Jaccard overlap between a snapshot's clusters and
-the next one's, restricted to whatever node ids happen to exist in both
-snapshots. Three thresholds control how it's read: STABLE_JACCARD=0.5,
+the next one's, computed only on node ids that exist in both snapshots
+(`match_snapshots`, the `common_ids` argument). An earlier version of
+these notes said that too, but the code actually used the full union, so
+every new node at t+1 counted against the match. A cluster that kept all
+its old members and doubled with new ones scored at most 0.5 when it
+should score 1.0. I measured it before fixing it: at level 1, 2022 to
+2024, 14 of 50 clusters had no match above MATCH_THRESHOLD under the old
+code and 3 of 50 under the shared-node version. After the fix, death
+events at the shipped thresholds went from 106 to 43 across all levels.
+The clusters themselves didn't change, only the matching, and I checked
+that every snapshot's member sets were identical before and after. Some
+persistent ids did get reassigned, so I remapped the label files by
+member set rather than relabelling. Sizes for grow/shrink still use full
+membership, since new members are real growth. A cluster made only of
+new nodes now has zero overlap with everything and is logged as a birth,
+which is what it is.
+
+Three thresholds control how it's read: STABLE_JACCARD=0.5,
 MATCH_THRESHOLD=0.15, SIZE_CHANGE_RATIO=0.2. These are picked by feel,
 not fit to anything. In particular MATCH_THRESHOLD=0.15 is fairly
 permissive, so a weak 1-1 match (say Jaccard 0.16) still gets labeled as
@@ -241,25 +284,28 @@ match. The raw Jaccard value is saved on every event record, though, so
 this can be filtered or re-weighted downstream by confidence instead of
 trusting the discrete label blindly.
 
-Update: ran that sensitivity check (FIXES.md iteration 3). Reran
-`classify_events` over the already-computed hierarchy.json clusterings
-with each threshold swept individually (other two held at shipped), no
-need to touch embeddings or reclustering since T3 only rematches existing
-partitions. STABLE_JACCARD and SIZE_CHANGE_RATIO turned out fine: sweeping
-either one only moves the stable/shrink or stable/grow boundary, gradually
-and monotonically (a few percent of events reclassified per 0.05-0.1 step,
-same shape the whole way), never touches merge, split, birth, or death
-counts at all. The picked-by-feel values weren't doing anything fragile.
+Update: ran that sensitivity check (`scripts/temporal_threshold_sweep.py`).
+Reran `classify_events` over the already-computed hierarchy.json
+clusterings with each threshold swept individually (other two held at
+shipped), no need to touch embeddings or reclustering since T3 only
+rematches existing partitions. The numbers below are from the rerun after
+the shared-node Jaccard fix above. STABLE_JACCARD and SIZE_CHANGE_RATIO
+turned out fine: sweeping either one only moves the stable/shrink or
+stable/grow boundary, gradually and monotonically, and never touches
+merge, split, birth, or death counts at all. The picked-by-feel values
+weren't doing anything fragile.
 
-MATCH_THRESHOLD is a different story, and the plan's own hunch that it
-"does the most work" was right. It's genuinely sensitive, not gradual:
-going from 0.10 to 0.20 (a small move either side of the shipped 0.15),
-pooled across all 3 levels, death events go from 37 to 174 (nearly 5x) and
-split from 132 to 36 (over 3x down), because raising the bar for "adequate
-match" reclassifies a lot of weak-but-real continuity as clean death+birth
-pairs instead. At the low end (0.05) merge/split explode instead (139/245)
-because almost any nonzero overlap counts as a match, so one real cluster
-can look like it merged or split against several unrelated small ones.
+MATCH_THRESHOLD is a different story. It's sensitive, not
+gradual: going from 0.10 to 0.20 (a small move either side of the shipped
+0.15), pooled across all 3 levels, death events go from 12 to 78 and
+split from 192 to 84, because raising the bar for "adequate match"
+reclassifies a lot of weak-but-real continuity as clean death+birth pairs
+instead. At the low end (0.05) splits explode instead (296) because almost
+any nonzero overlap counts as a match, so one real cluster can look like
+it split against several unrelated small ones. I'd hoped the Jaccard fix
+would take most of this sensitivity away, since part of it looked like
+new-node dilution pushing real matches under the line. It lowered the
+counts but the shape is the same, so the sensitivity is real.
 There's no single value here that's obviously more correct than 0.15,
 it's picking where to draw a fuzzy line, but the line's position matters a
 lot more than I assumed when I picked it by feel. Left the shipped value
@@ -268,15 +314,22 @@ nothing in the sweep points at a specific better number), but this is now
 a documented real limitation rather than an unchecked worry.
 
 One more thing worth writing down: when a group splits into several
-pieces (the split check inside `classify_events`), only the biggest
-piece keeps the original persistent id, the smaller pieces get treated
-as new births even though the event log records that they came from a
-split. I think this is actually the right way to think about a split
+pieces (the split check inside `classify_events`), only the piece that
+was the parent's best match keeps the original persistent id, and the
+other pieces get new ids (logged as births) or ids from whatever else
+they matched. I think that's the right way to think about a split
 (something can't keep two identities at once), but it does mean a single
 real-world reorganization can show up in the event log from two
 different angles: as a "split" from the parent's point of view and
 separately as a "birth" or "merge" for the piece that didn't keep the
-name.
+name. The split event's `into` field lists the persistent ids of every
+piece, so the two views can be joined. It used to store local cluster
+labels, which mean nothing outside one run.
+
+Not measured yet: P5 also asks that change be localised to where the
+corpus changed. Nothing here checks that. The obvious test is to
+correlate each cluster's churn with the share of new nodes and edges in
+its region.
 
 ## 11. member_ids are raw node ids at every level, not child ids
 
@@ -302,12 +355,47 @@ just assuming the construction got it right.
 Labeling needs something that reads a cluster's member list and writes a
 label and gloss. Calling out to an LLM API was the obvious way to do it,
 but that costs money that isn't covered by a Claude Pro subscription (API
-billing is separate), so instead the same role gets filled by whoever is
-working on this repo (me, writing this) reading the dumped member lists
-directly and writing labels back into the same file format an API
-response would have produced. `write_labeling_input` writes out exactly
-the prompt an API call would have gotten, so the process is still
-auditable, you can see precisely what information went into each label.
+billing is separate). So I had the coding agent do it instead: Claude Code
+sub-agents, one per snapshot, read the dumped prompts and wrote labels
+back into the same file format an API response would have produced.
+`write_labeling_input` writes out exactly the prompt each label was
+written from, so you can see what information went into it. The catch is
+that this step isn't a script anyone can rerun, and the sub-agents were
+running inside this repo, where `questions.csv` and `ground_truth.json`
+also live. I don't think they read those, but I can't rule it out, and
+the labels feed the extrinsic reranker (section 14).
+
+The labeller sees `labeller_sample_ids` in `labeling.py`: the first 25
+member ids in sorted order. I only noticed later that ids are
+type-prefixed (`cite_...`, `claim_...`, `comp_...`), so sorted order is
+not a neutral sample. On the 2026 snapshot the labeller's input was 40%
+cited works, 26% claims and 23% components, while techniques and tasks,
+about 31% of the actual members, barely showed up. Fixing this properly
+means a seeded random sample and relabelling everything, which I haven't
+done.
+
+Faithfulness (`eval/faithfulness.py`) had a worse version of the same
+problem. The NLI premise was built from the first 15 sorted members, a
+strict subset of what the labeller had seen, so each gloss was being
+checked against its own input. The code comment and my report both said
+the opposite. Now the premise is a seeded random sample of up to 15
+members the labeller was NOT shown (`held_out_member_ids`), and clusters
+with fewer than 5 such members are skipped and counted instead of
+graded. That skips a lot at 2020 (33 of 62, since early clusters are
+small) and only 4 of 62 at 2026.
+
+The numbers moved a lot. Under the circular version the contradiction
+rate was 5-11% per snapshot. Against held-out members it's 14-21%
+(control, same gloss against a random other cluster: 62-69%). Contradiction
+still separates real from random clearly. Not-entailed is 84-93% for real
+glosses against 95-98% for control, so entailment barely separates them.
+I think that's mostly because a list of 15 surface forms rarely entails a
+summary sentence even when the summary is fair. I report both rates.
+Contradiction is the one that actually discriminates, and not-entailed is
+the stricter reading of "over-claim". My guess is that the type-biased
+labeller sample explains a good part of the jump, since a gloss written
+from cited works and claims is being tested on techniques and tasks. That
+guess isn't tested.
 
 ## 13. Coherence measured with a signal clustering never saw
 
@@ -320,7 +408,7 @@ clustering optimized for. So the coherence check here uses TF-IDF
 (`encode_lexical_tfidf` in embeddings.py) instead of the MPNet embeddings
 that actually drove clustering. TF-IDF is plain bag-of-words with no
 neural pretraining behind it, so it isn't just a second opinion from a
-similar model, it's a genuinely different way of representing the text.
+similar model, it's a different way of representing the text.
 
 Coherence itself is the mean pairwise cosine similarity among a cluster's
 members under TF-IDF, weighted by cluster size when averaging across
@@ -340,6 +428,39 @@ snapshot). That's expected, smaller groups are easier to keep lexically
 tight, so this isn't evidence the coarse level is "worse," just that
 coherence at different granularities isn't directly comparable to each
 other, only each level's number against its own null.
+
+Update: built the harder null the random-labels one doesn't cover
+(`scripts/hypergraph_shuffle_null.py`, result in metrics.json under
+`coherence_hypergraph_shuffle_null`). Random-labels only controls for cluster size, it
+says nothing about whether the specific hyperedge structure matters versus
+some other clustering built from a structurally-similar random hypergraph.
+So I shuffled the 2026 hypergraph via bipartite double-edge-swaps that
+exactly preserve each concept node's hyperedge-degree and each qualifying
+edge's concept-arity (checked programmatically, not assumed), rebuilt
+structural affinity on the shuffled hypergraph, kept the real semantic
+embeddings unchanged, clustered the same way, and scored that clustering's
+coherence the same way. The z-scores collapse hard under this null: 0.30
+(level 0), 0.44 (level 1), 2.91 (level 2), against 709/864/1424 under
+random-labels. The real clustering's coherence (0.01292, 0.03418, 0.08333)
+is nearly identical to a random-structure hypergraph's clustering
+(0.01279, 0.03395, 0.08225) at the same degree/arity statistics, run
+through the exact same shipped alpha=0.3 pipeline.
+
+That's not the method failing, it's a sharper diagnosis than the first
+null could give: at alpha=0.3, semantic gets 70% of the affinity weight,
+so a clustering built on the real semantic embeddings looks about equally
+TF-IDF-coherent whether the structural 30% comes from the real hypergraph
+or a degree/arity-matched random one. The coherence check was always
+measuring "is this partition better than chance," and it still says yes
+against random-labels, but it can't actually tell you SEMANTIC vs.
+STRUCTURE is doing that work, and it turns out it's overwhelmingly
+semantic, at least by this lexical measure. Net effect: I
+believe the clusters are lexically non-random more confidently than
+before (two independent nulls agree on that), but I believe less than I
+did that the hypergraph structure specifically, as opposed to the
+semantic embeddings, is what's driving that lexical coherence, at least
+at the coarse and mid levels. `report.md` section 3 updated with this,
+it's a real qualification, not a footnote to bury.
 
 ## 14. Fixing embedding-based retrieval for short method names
 
@@ -390,11 +511,12 @@ with. Swept a few wider values instead of reporting that number, and
 (5, 5) matched the flat baseline's recall and precision exactly while
 still only scoring about 16% of the candidate pool (after the alpha
 ablation moved alpha to 0.3, this specific pair stopped matching and got
-re-swept to (8, 8); see FIXES.md iteration 1). Going wider than that
+re-swept to (8, 8); see section 7). Going wider than that
 doesn't help further, recall saturates at the flat baseline's level once
 the branching is wide enough to not exclude the right answer up front.
 
-Update, beating flat rather than matching it (FIXES.md iteration 7): every
+Update, beating flat rather than matching it (`scripts/rerank_sweep.py`,
+decision rule in section 15): every
 branching-factor value above has the same ceiling built in, and I didn't
 notice it until I asked myself why nothing had ever beaten flat, only tied
 it. `hierarchy_drilldown` only ever ranks a *subset* of flat's candidate
@@ -405,7 +527,7 @@ systematically do better, because it has strictly less information, not
 different information. Widening the branch just approaches that ceiling
 from below, which is exactly the saturation pattern above.
 
-So I gave the ranker something flat genuinely doesn't have: each
+So I gave the ranker something flat doesn't have: each
 candidate's level-1 ancestor's label+gloss score, the same score already
 used to pick which branches to descend into, now also blended into the
 final per-node ranking instead of being thrown away after the branching
@@ -423,5 +545,73 @@ keep. Picked beta=0.6 over beta=1.0 (which scored marginally higher recall
 but visibly worse precision and throws away the node's own embedding
 signal entirely) and over beta=0.9 (a single-point dip that looks like
 noise from averaging over only 14 questions, not a real effect) because it
-keeps both signals in play and sits at the start of a genuine plateau
+keeps both signals in play and sits at the start of a plateau
 rather than a single lucky point.
+
+Looking at it per question, I overstated this. In 10 of the 14 questions
+both flat and drill-down retrieve zero ground-truth nodes. Of the other
+four, three tie, and the whole gap comes from one question (Q14, 1 hit
+for flat against 5 for drill-down). Beta and the branching factor were also
+tuned on these same 14 questions, and there's no confidence interval. So
+"beats flat" is one question after tuning on the test set. It needs
+held-out tuning and a paired test before I claim it.
+
+A quick side check suggests the hierarchy is doing better than recall@20
+shows. At (8, 8), the drill-down pool holds 80% of all ground-truth nodes
+while covering 25% of candidates, where a random pool of that size would
+hold about 25%. The level-0 cluster containing a ground-truth node ranks
+2.5 out of 12 on average, against 5.5 for chance. So routing works and
+the final node ranker is what fails. That check isn't in metrics.json yet
+and has no CI, but it's the direction the extrinsic eval should go.
+
+## 15. Decision rules I wrote down before each follow-up experiment
+
+The scripts named here: `alpha_sweep.py`, `level0_skew_check.py`,
+`temporal_threshold_sweep.py`, `warm_start_sweep.py`,
+`hypergraph_shuffle_null.py`, `rerank_sweep.py`.
+
+After the first draft I ran a series of follow-up experiments. For each
+one I wrote the keep-or-discard rule into a private working file before
+running it, so I couldn't pick the rule after seeing which result looked
+good. That file isn't part of the repo, so the rules are copied here as
+they were written. The general rule was that a change only replaces the
+shipped default if it clearly improves the metric it's about. A wash or a
+trade-off gets reported and the default stays.
+
+Alpha (`alpha_sweep.py`). Replace 0.5 only if some alpha beats it on both
+mean coherence z-score (averaged over 3 levels and 4 snapshots) and mean
+stability ARI (perturbation and cross-snapshot, averaged over levels).
+Several values passed that. After the sweep I also checked a stricter
+bar, beating 0.5 on each of the nine per-level numbers separately, and
+0.3 was the only one that passed. That stricter bar was added after
+seeing results, so it's a robustness check, not part of the
+pre-registered rule.
+
+Level-0 size skew (`level0_skew_check.py`). Track each level-0 cluster
+through the same 5-seed perturbation, fit a stability-vs-size trend on
+the 11 non-largest clusters, and see where the largest falls. Clearly
+below the trend means the big cluster is the problem and I'd try a
+balance constraint. On or above means no special skew effect. Result: 0.8
+standard deviations below, size vs stability r = 0.058, not "clearly
+below", so nothing changed.
+
+Temporal thresholds (`temporal_threshold_sweep.py`). Not a keep/discard
+call. Sweep each threshold with the other two fixed and check whether the
+event mix near the shipped value is on a shallow part of the curve or a
+steep one. Result: STABLE_JACCARD and SIZE_CHANGE_RATIO shallow,
+MATCH_THRESHOLD steep (section 10).
+
+Warm start (`warm_start_sweep.py`). Promote only if cross-snapshot ARI
+improves at every level and coherence-vs-null doesn't meaningfully drop
+at any level. Result: ARI up, coherence down, not promoted (section 10).
+
+Hypergraph shuffle null (`hypergraph_shuffle_null.py`). A robustness
+check, nothing ships either way. Verify that degree and arity sequences
+are exactly preserved first. If z stays in the hundreds, the structure
+carries real signal. If z collapses to single digits, report it as a
+weakening of the coherence claim. Result: it collapsed (section 13).
+
+Rerank (`rerank_sweep.py`). Keep the blend only if some beta gets mean
+recall strictly above flat's 0.03246 at no more than the (8, 8) pool's
+774 candidates. Result: passed at beta=0.6, but see the end of section 14
+on why that pass is weaker than it looks.
