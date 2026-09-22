@@ -84,7 +84,8 @@ only those and updates them in place, e.g.
 Two more steps add to `metrics.json` and must run after it, in this order:
 
 ```
-# branching-factor and rerank-beta sweeps (DESIGN_NOTES.md section 14)
+# extrinsic: leave-one-out drill-down vs flat with a paired CI, routing vs
+# chance, and the branching/beta sweeps (DESIGN_NOTES.md section 14)
 .venv\Scripts\python.exe scripts\t6_patch_extrinsic.py
 
 # degree/arity-preserving hypergraph shuffle null for coherence
@@ -94,7 +95,8 @@ Two more steps add to `metrics.json` and must run after it, in this order:
 
 The other scripts in `scripts\` (`alpha_sweep`, `level0_skew_check`,
 `temporal_threshold_sweep`, `warm_start_sweep`, `rerank_sweep`,
-`coarsening_compare`, `label_routing`) are the
+`coarsening_compare`, `label_routing`, `structural_holdout`,
+`pair_overlap`) are the
 follow-up experiments described in `DESIGN_NOTES.md` section 15. Each
 writes its own JSON in `outputs\` and none of them change the shipped
 pipeline.
@@ -105,7 +107,7 @@ pipeline.
 .venv\Scripts\python.exe scripts\make_report_figures.py
 ```
 
-Regenerates the three PNGs in `outputs/figures/` directly from
+Regenerates the PNGs in `outputs/figures/` directly from
 `outputs/metrics.json`, so a figure can't drift from the number it's
 illustrating.
 
@@ -118,7 +120,8 @@ src/tkh/                 the actual method: io, hypergraph, embeddings,
 src/tkh/eval/            T6: coherence, stability, faithfulness, extrinsic
 scripts/                 runnable entry points, one per pipeline stage
 tests/                   unit tests (T4 collapse, T3 matching, faithfulness
-                          held-out split, multilevel laminarity)
+                          held-out split, multilevel laminarity,
+                          leave-one-out and paired statistics)
 outputs/                 generated: hierarchy.json + labeling per
                           snapshot, temporal_events.json, metrics.json,
                           figures/
@@ -145,8 +148,11 @@ gaps, each discussed in `DESIGN_NOTES.md`:
   (`coarsening="multilevel"` in `pipeline.py`) was tested and lost on
   coherence (sections 3, 4, 9, 15; `scripts\coarsening_compare.py`).
 - Labelling is not a rerunnable script, since it needs an LLM (section 12).
-- On recall@20, drill-down only ties flat. Routing with labels beats
-  chance clearly, routing on centroids doesn't (section 14,
-  `scripts\label_routing.py`).
+- On recall@20, leave-one-out drill-down shows no detectable difference
+  from flat at 14 questions. Routing with labels beats chance at every
+  budget, routing on centroids doesn't (section 14).
 - Nothing measures whether change between snapshots is localised yet
   (section 10).
+- The structure term predicts held-out hyperedges from papers it has
+  seen, but generalises weakly to unseen papers; at alpha=0.3 it only
+  clearly earns its place at level 0 (section 13).

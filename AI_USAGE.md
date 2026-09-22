@@ -364,3 +364,78 @@ beats chance (lift 0.42, CI 0.23 to 0.57, against 0.55 for the old labels),
 faithfulness improved (contradiction 5-14% against 14-21%), and recall@20
 now ties flat instead of beating it. Settings were not retuned. I accepted
 the new labels as the shipped set.
+
+## Extrinsic re-evaluation with leave-one-out
+
+Tool: Claude Code on Opus 5.
+
+Prompt: "Continye with step 2"
+
+The agent wrote the decision rule into DESIGN_NOTES section 15 first,
+then added `leave_one_out_select` and `paired_comparison` to
+`eval/extrinsic.py` (four new tests, including one checking that a
+held-out question's own score can't influence the setting chosen for it),
+extended `scripts/t6_patch_extrinsic.py` to write the leave-one-out result,
+the in-sample comparison and the routing curves into metrics.json, and
+added a routing figure. It checked the figure's two colours with the
+dataviz skill's palette validator and looked at the rendered image before
+using it.
+
+Result, read through the pre-registered rule: leave-one-out drill-down
+against flat is -1.5 points of recall@20 (CI -6.3 to +2.9, p = 0.59), so
+no detectable difference, and label routing beats chance at every budget.
+I accepted reporting it that way. Nothing in the hierarchy or labels
+changed.
+
+## Structural held-out coherence
+
+Tool: Claude Code on Opus 5.
+
+Prompt: "continue with step 3"
+
+The agent wrote the decision rule into DESIGN_NOTES section 15 first. It
+checked the data for a way to hold out whole papers (every edge has a
+`provenance.article_id`) and added that as a stricter second scheme next to
+random-edge holdout, since edges from one paper are correlated. It added
+`heldout_edge_cohesion` to `eval/coherence.py` with two tests, wrote
+`scripts/structural_holdout.py` (7 alphas, 2 schemes, 5 seeds, TF-IDF
+coherence on the same clusterings), and added a trade-off figure. After
+rendering the figure it replaced an alpha label that sat next to the
+wrong series with a ring on the shipped alpha. It also found that
+alpha=1.0 is degenerate (about 1,100 forced merges, one cluster) and left
+it out of the figure with a note, rather than reading it as "structure
+carries nothing".
+
+Result, read through the pre-registered rule: at alpha=0.3 structure
+earns its place only at level 0, most of its predictive power doesn't
+survive holding out whole papers, and no alpha dominates 0.3. I kept
+alpha at 0.3.
+
+## Newer literature
+
+Tool: Claude Code on Opus 5.
+
+Prompt: "I got new literature under literature/new/, see if anything
+could be useful for our case from there and cite the most important
+ones, maybe there is something that can help more than the current stuff"
+
+I collected the eight PDFs myself (the agent had earlier written a search
+prompt I could give another LLM). The agent extracted their text with PyMuPDF and read
+the abstracts, method sections and conclusions. It picked five to cite,
+each tied to one design choice: Ruggeri et al. (pair overlap and
+detectability), Ma et al. AdE (feature-aware clique expansion), Asgari et
+al. (No-Smoothing vs smoothed dynamic community detection), SHyPar
+(local vs spectral coarsening) and DeWolfe and Theberge (edge clustering,
+overlapping communities). It left out Gong et al. (spectral hypergraph
+embedding), Kirkley (choosing snapshot windows) and FeClustRE (LLM
+labels for app-review clusters) as less directly relevant. Since Ruggeri
+et al. make a testable claim, it wrote `scripts/pair_overlap.py` to count
+how often concept pairs recur across hyperedges and papers (1.7% across
+papers in 2026) and used that to explain the weak paper-level held-out
+result. Two of its drafts claimed more than the data showed, and it fixed
+both before I saw them. One said held-out pairs were "covered by the same
+paper's other edges", but the exact pair almost never repeats, so it
+rewrote that as connection through the paper's other edges. The other
+used "transformer" as an example concept, which isn't in the corpus, so
+it replaced it with MAE after checking. All papers are cited by arXiv id.
+The agent did not verify published venues, so that's on me to check.
