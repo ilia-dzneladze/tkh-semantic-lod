@@ -5665,5 +5665,128 @@
       "1": false,
       "2": false
     }
+  },
+  "localisation": {
+    "years": [
+      2020,
+      2022,
+      2024,
+      2026
+    ],
+    "min_size": 3,
+    "n_boot": 2000,
+    "summary": {
+      "0": {
+        "n_clusters": 36,
+        "spearman": -0.31824336659515395,
+        "spearman_ci95": [
+          -0.6295054940871423,
+          0.024607618861792222
+        ],
+        "partial_spearman_given_size": -0.22748785273876393,
+        "partial_ci95": [
+          -0.5804872634513963,
+          0.1335017520830177
+        ],
+        "mean_churn_low_exposure_quartile": 0.730229103304783,
+        "mean_churn_high_exposure_quartile": 0.5400681206914011,
+        "mean_churn": 0.6302018837792503,
+        "mean_exposure": 0.09959935833071855,
+        "localised": false,
+        "n_clusters_under_2pct_new_edges": 5,
+        "mean_churn_under_2pct_new_edges": 0.7743257336890613,
+        "exploratory_semantic_exposure": {
+          "n_clusters": 36,
+          "spearman": -0.021621621621621623,
+          "spearman_ci95": [
+            -0.40390554210024965,
+            0.33756624834907945
+          ],
+          "partial_spearman_given_size": 0.04489404719776023,
+          "partial_ci95": [
+            -0.30960219998637617,
+            0.3870705851489731
+          ],
+          "mean_churn_low_exposure_quartile": 0.6510048466088674,
+          "mean_churn_high_exposure_quartile": 0.6730119860119227,
+          "mean_churn": 0.6302018837792503,
+          "mean_exposure": 0.27305093676903947
+        }
+      },
+      "1": {
+        "n_clusters": 150,
+        "spearman": 0.029355637073235945,
+        "spearman_ci95": [
+          -0.13686457515319084,
+          0.1901413367053931
+        ],
+        "partial_spearman_given_size": 0.06478066318720944,
+        "partial_ci95": [
+          -0.10225645899755069,
+          0.22142662522688072
+        ],
+        "mean_churn_low_exposure_quartile": 0.5507291211843873,
+        "mean_churn_high_exposure_quartile": 0.5675160752141253,
+        "mean_churn": 0.5479982434000923,
+        "mean_exposure": 0.08793858611603264,
+        "localised": false,
+        "n_clusters_under_2pct_new_edges": 51,
+        "mean_churn_under_2pct_new_edges": 0.5526215079803395,
+        "exploratory_semantic_exposure": {
+          "n_clusters": 150,
+          "spearman": 0.41884301079212577,
+          "spearman_ci95": [
+            0.271925400268477,
+            0.5501670545005013
+          ],
+          "partial_spearman_given_size": 0.4027597211536354,
+          "partial_ci95": [
+            0.25215330025674537,
+            0.5399182279706433
+          ],
+          "mean_churn_low_exposure_quartile": 0.40613271546643814,
+          "mean_churn_high_exposure_quartile": 0.6733166743386008,
+          "mean_churn": 0.5479982434000923,
+          "mean_exposure": 0.294746041956017
+        }
+      },
+      "2": {
+        "n_clusters": 553,
+        "spearman": -0.01407862170019073,
+        "spearman_ci95": [
+          -0.08718471809441704,
+          0.06901336137837268
+        ],
+        "partial_spearman_given_size": 0.0501680905527553,
+        "partial_ci95": [
+          -0.025873381149939725,
+          0.13016684485792274
+        ],
+        "mean_churn_low_exposure_quartile": 0.4430952820426768,
+        "mean_churn_high_exposure_quartile": 0.4390821769380681,
+        "mean_churn": 0.4421054047352497,
+        "mean_exposure": 0.06485124974203078,
+        "localised": false,
+        "n_clusters_under_2pct_new_edges": 351,
+        "mean_churn_under_2pct_new_edges": 0.44371203186046143,
+        "exploratory_semantic_exposure": {
+          "n_clusters": 553,
+          "spearman": 0.18295875006671317,
+          "spearman_ci95": [
+            0.10159263065329628,
+            0.2661434288953075
+          ],
+          "partial_spearman_given_size": 0.12960749652460357,
+          "partial_ci95": [
+            0.043680502417073316,
+            0.21320059088606713
+          ],
+          "mean_churn_low_exposure_quartile": 0.36066397453494475,
+          "mean_churn_high_exposure_quartile": 0.501420917150836,
+          "mean_churn": 0.4421054047352497,
+          "mean_exposure": 0.30559286604852254
+        }
+      }
+    }
   }
 }

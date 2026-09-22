@@ -1,0 +1,6782 @@
+{
+  "years": [
+    2020,
+    2022,
+    2024,
+    2026
+  ],
+  "min_size": 3,
+  "n_boot": 2000,
+  "summary": {
+    "0": {
+      "n_clusters": 36,
+      "spearman": -0.31824336659515395,
+      "spearman_ci95": [
+        -0.6295054940871423,
+        0.024607618861792222
+      ],
+      "partial_spearman_given_size": -0.22748785273876393,
+      "partial_ci95": [
+        -0.5804872634513963,
+        0.1335017520830177
+      ],
+      "mean_churn_low_exposure_quartile": 0.730229103304783,
+      "mean_churn_high_exposure_quartile": 0.5400681206914011,
+      "mean_churn": 0.6302018837792503,
+      "mean_exposure": 0.09959935833071855,
+      "localised": false,
+      "n_clusters_under_2pct_new_edges": 5,
+      "mean_churn_under_2pct_new_edges": 0.7743257336890613,
+      "exploratory_semantic_exposure": {
+        "n_clusters": 36,
+        "spearman": -0.021621621621621623,
+        "spearman_ci95": [
+          -0.40390554210024965,
+          0.33756624834907945
+        ],
+        "partial_spearman_given_size": 0.04489404719776023,
+        "partial_ci95": [
+          -0.30960219998637617,
+          0.3870705851489731
+        ],
+        "mean_churn_low_exposure_quartile": 0.6510048466088674,
+        "mean_churn_high_exposure_quartile": 0.6730119860119227,
+        "mean_churn": 0.6302018837792503,
+        "mean_exposure": 0.27305093676903947
+      }
+    },
+    "1": {
+      "n_clusters": 150,
+      "spearman": 0.029355637073235945,
+      "spearman_ci95": [
+        -0.13686457515319084,
+        0.1901413367053931
+      ],
+      "partial_spearman_given_size": 0.06478066318720944,
+      "partial_ci95": [
+        -0.10225645899755069,
+        0.22142662522688072
+      ],
+      "mean_churn_low_exposure_quartile": 0.5507291211843873,
+      "mean_churn_high_exposure_quartile": 0.5675160752141253,
+      "mean_churn": 0.5479982434000923,
+      "mean_exposure": 0.08793858611603264,
+      "localised": false,
+      "n_clusters_under_2pct_new_edges": 51,
+      "mean_churn_under_2pct_new_edges": 0.5526215079803395,
+      "exploratory_semantic_exposure": {
+        "n_clusters": 150,
+        "spearman": 0.41884301079212577,
+        "spearman_ci95": [
+          0.271925400268477,
+          0.5501670545005013
+        ],
+        "partial_spearman_given_size": 0.4027597211536354,
+        "partial_ci95": [
+          0.25215330025674537,
+          0.5399182279706433
+        ],
+        "mean_churn_low_exposure_quartile": 0.40613271546643814,
+        "mean_churn_high_exposure_quartile": 0.6733166743386008,
+        "mean_churn": 0.5479982434000923,
+        "mean_exposure": 0.294746041956017
+      }
+    },
+    "2": {
+      "n_clusters": 553,
+      "spearman": -0.01407862170019073,
+      "spearman_ci95": [
+        -0.08718471809441704,
+        0.06901336137837268
+      ],
+      "partial_spearman_given_size": 0.0501680905527553,
+      "partial_ci95": [
+        -0.025873381149939725,
+        0.13016684485792274
+      ],
+      "mean_churn_low_exposure_quartile": 0.4430952820426768,
+      "mean_churn_high_exposure_quartile": 0.4390821769380681,
+      "mean_churn": 0.4421054047352497,
+      "mean_exposure": 0.06485124974203078,
+      "localised": false,
+      "n_clusters_under_2pct_new_edges": 351,
+      "mean_churn_under_2pct_new_edges": 0.44371203186046143,
+      "exploratory_semantic_exposure": {
+        "n_clusters": 553,
+        "spearman": 0.18295875006671317,
+        "spearman_ci95": [
+          0.10159263065329628,
+          0.2661434288953075
+        ],
+        "partial_spearman_given_size": 0.12960749652460357,
+        "partial_ci95": [
+          0.043680502417073316,
+          0.21320059088606713
+        ],
+        "mean_churn_low_exposure_quartile": 0.36066397453494475,
+        "mean_churn_high_exposure_quartile": 0.501420917150836,
+        "mean_churn": 0.4421054047352497,
+        "mean_exposure": 0.30559286604852254
+      }
+    }
+  },
+  "rows": {
+    "0": [
+      {
+        "cluster": "L0_S00001",
+        "size": 146,
+        "churn": 0.5665024630541872,
+        "exposure": 0.11320754716981132,
+        "semantic_exposure": 0.3147966396426515,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L0_S00002",
+        "size": 22,
+        "churn": 0.9155844155844156,
+        "exposure": 0.14285714285714285,
+        "semantic_exposure": 0.39841873697327307,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L0_S00003",
+        "size": 224,
+        "churn": 0.4877049180327869,
+        "exposure": 0.09473684210526316,
+        "semantic_exposure": 0.1646287603731959,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L0_S00004",
+        "size": 312,
+        "churn": 0.42209631728045327,
+        "exposure": 0.09386281588447654,
+        "semantic_exposure": 0.21672969704857417,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L0_S00005",
+        "size": 238,
+        "churn": 0.710997442455243,
+        "exposure": 0.1407035175879397,
+        "semantic_exposure": 0.2742842893354966,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L0_S00006",
+        "size": 106,
+        "churn": 0.7191780821917808,
+        "exposure": 0.05357142857142857,
+        "semantic_exposure": 0.25281890159491677,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L0_S00007",
+        "size": 98,
+        "churn": 0.3643410852713178,
+        "exposure": 0.23529411764705882,
+        "semantic_exposure": 0.39042236367264993,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L0_S00008",
+        "size": 53,
+        "churn": 0.33333333333333337,
+        "exposure": 0.02127659574468085,
+        "semantic_exposure": 0.2635244811359885,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L0_S00009",
+        "size": 64,
+        "churn": 0.7612903225806451,
+        "exposure": 0.0,
+        "semantic_exposure": 0.19923259104683358,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L0_S00010",
+        "size": 21,
+        "churn": 0.9210526315789473,
+        "exposure": 0.0,
+        "semantic_exposure": 0.1353172572638137,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L0_S00011",
+        "size": 29,
+        "churn": 0.625,
+        "exposure": 0.0,
+        "semantic_exposure": 0.11382558118945342,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L0_S00012",
+        "size": 93,
+        "churn": 0.7447552447552448,
+        "exposure": 0.043478260869565216,
+        "semantic_exposure": 0.1397072177466674,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L0_S00001",
+        "size": 224,
+        "churn": 0.4429065743944637,
+        "exposure": 0.19444444444444445,
+        "semantic_exposure": 0.41941257810734717,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L0_S00007",
+        "size": 229,
+        "churn": 0.38951310861423216,
+        "exposure": 0.38571428571428573,
+        "semantic_exposure": 0.46710359730856876,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L0_S00013",
+        "size": 65,
+        "churn": 0.34328358208955223,
+        "exposure": 0.18478260869565216,
+        "semantic_exposure": 0.19055254912153943,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L0_S00004",
+        "size": 337,
+        "churn": 0.5733041575492341,
+        "exposure": 0.13680781758957655,
+        "semantic_exposure": 0.385287266115811,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L0_S00006",
+        "size": 120,
+        "churn": 0.8917748917748918,
+        "exposure": 0.12359550561797752,
+        "semantic_exposure": 0.39626228366406496,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L0_S00005",
+        "size": 346,
+        "churn": 0.5339130434782609,
+        "exposure": 0.18125,
+        "semantic_exposure": 0.3292324996373494,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L0_S00003",
+        "size": 155,
+        "churn": 0.6069182389937107,
+        "exposure": 0.05128205128205128,
+        "semantic_exposure": 0.36850871386482076,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L0_S00008",
+        "size": 76,
+        "churn": 0.7407407407407407,
+        "exposure": 0.07462686567164178,
+        "semantic_exposure": 0.4135184397674675,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L0_S00009",
+        "size": 171,
+        "churn": 0.8582089552238806,
+        "exposure": 0.08080808080808081,
+        "semantic_exposure": 0.45800446382583443,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L0_S00014",
+        "size": 108,
+        "churn": 0.8807339449541285,
+        "exposure": 0.03125,
+        "semantic_exposure": 0.3970402690247888,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L0_S00011",
+        "size": 93,
+        "churn": 0.3982300884955752,
+        "exposure": 0.1,
+        "semantic_exposure": 0.3299748405220587,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L0_S00015",
+        "size": 122,
+        "churn": 0.7642857142857142,
+        "exposure": 0.008695652173913044,
+        "semantic_exposure": 0.34163353954760417,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L0_S00001",
+        "size": 419,
+        "churn": 0.4090056285178236,
+        "exposure": 0.15853658536585366,
+        "semantic_exposure": 0.2750992471415718,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L0_S00007",
+        "size": 426,
+        "churn": 0.3709949409780776,
+        "exposure": 0.0547945205479452,
+        "semantic_exposure": 0.19210930345643198,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L0_S00016",
+        "size": 158,
+        "churn": 0.7689243027888446,
+        "exposure": 0.05673758865248227,
+        "semantic_exposure": 0.2698728773173528,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L0_S00004",
+        "size": 581,
+        "churn": 0.5739726027397261,
+        "exposure": 0.08,
+        "semantic_exposure": 0.2392842042952241,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L0_S00003",
+        "size": 536,
+        "churn": 0.7095115681233933,
+        "exposure": 0.08032128514056225,
+        "semantic_exposure": 0.25867900314245584,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L0_S00008",
+        "size": 255,
+        "churn": 0.8583333333333334,
+        "exposure": 0.14795918367346939,
+        "semantic_exposure": 0.25345700370159374,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L0_S00011",
+        "size": 164,
+        "churn": 0.31137724550898205,
+        "exposure": 0.08080808080808081,
+        "semantic_exposure": 0.17173733202549804,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L0_S00005",
+        "size": 870,
+        "churn": 0.6350574712643677,
+        "exposure": 0.16927083333333334,
+        "semantic_exposure": 0.2583719303678811,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L0_S00017",
+        "size": 273,
+        "churn": 0.6285714285714286,
+        "exposure": 0.04790419161676647,
+        "semantic_exposure": 0.20508906313117833,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L0_S00013",
+        "size": 53,
+        "churn": 0.8842592592592593,
+        "exposure": 0.19230769230769232,
+        "semantic_exposure": 0.07710290804966377,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L0_S00018",
+        "size": 78,
+        "churn": 0.8,
+        "exposure": 0.0,
+        "semantic_exposure": 0.18711589024242106,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L0_S00015",
+        "size": 82,
+        "churn": 0.7416107382550335,
+        "exposure": 0.024691358024691357,
+        "semantic_exposure": 0.08167740328338001,
+        "from_year": 2024,
+        "to_year": 2026
+      }
+    ],
+    "1": [
+      {
+        "cluster": "L1_S00001",
+        "size": 60,
+        "churn": 0.5696202531645569,
+        "exposure": 0.0975609756097561,
+        "semantic_exposure": 0.3586858971514515,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00002",
+        "size": 10,
+        "churn": 0.5714285714285714,
+        "exposure": 0.1111111111111111,
+        "semantic_exposure": 0.5648478701825559,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00003",
+        "size": 40,
+        "churn": 0.5434782608695652,
+        "exposure": 0.03571428571428571,
+        "semantic_exposure": 0.24143050298198623,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00004",
+        "size": 66,
+        "churn": 0.28915662650602414,
+        "exposure": 0.038461538461538464,
+        "semantic_exposure": 0.19240376634244324,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00005",
+        "size": 15,
+        "churn": 0.4545454545454546,
+        "exposure": 0.125,
+        "semantic_exposure": 0.25906260749913995,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00006",
+        "size": 32,
+        "churn": 0.4565217391304348,
+        "exposure": 0.08333333333333333,
+        "semantic_exposure": 0.2965734113356189,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00007",
+        "size": 21,
+        "churn": 0.4864864864864865,
+        "exposure": 0.05555555555555555,
+        "semantic_exposure": 0.315122126966035,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00008",
+        "size": 80,
+        "churn": 0.6463414634146342,
+        "exposure": 0.25316455696202533,
+        "semantic_exposure": 0.4254231071352906,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00009",
+        "size": 12,
+        "churn": 0.736842105263158,
+        "exposure": 0.0,
+        "semantic_exposure": 0.2197138112289041,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00010",
+        "size": 18,
+        "churn": 0.7636363636363637,
+        "exposure": 0.0,
+        "semantic_exposure": 0.31188862604037365,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00011",
+        "size": 29,
+        "churn": 0.38888888888888884,
+        "exposure": 0.058823529411764705,
+        "semantic_exposure": 0.24954858570628086,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00012",
+        "size": 20,
+        "churn": 0.35,
+        "exposure": 0.0,
+        "semantic_exposure": 0.3014323607398719,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00013",
+        "size": 29,
+        "churn": 0.06451612903225812,
+        "exposure": 0.09523809523809523,
+        "semantic_exposure": 0.3534294236902474,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00014",
+        "size": 31,
+        "churn": 0.125,
+        "exposure": 0.0,
+        "semantic_exposure": 0.1263679772163743,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00015",
+        "size": 31,
+        "churn": 0.5777777777777777,
+        "exposure": 0.0784313725490196,
+        "semantic_exposure": 0.31431608368655056,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00016",
+        "size": 18,
+        "churn": 0.4736842105263158,
+        "exposure": 0.21052631578947367,
+        "semantic_exposure": 0.2769602072620649,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00017",
+        "size": 20,
+        "churn": 0.48484848484848486,
+        "exposure": 0.10344827586206896,
+        "semantic_exposure": 0.23655074701127332,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00018",
+        "size": 35,
+        "churn": 0.42592592592592593,
+        "exposure": 0.025,
+        "semantic_exposure": 0.23865149232801888,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00019",
+        "size": 17,
+        "churn": 0.9047619047619048,
+        "exposure": 0.0,
+        "semantic_exposure": 0.2867734327289687,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00020",
+        "size": 12,
+        "churn": 0.6666666666666667,
+        "exposure": 0.14285714285714285,
+        "semantic_exposure": 0.2597277926322044,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00021",
+        "size": 19,
+        "churn": 0.6829268292682926,
+        "exposure": 0.11764705882352941,
+        "semantic_exposure": 0.26922113133006076,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00022",
+        "size": 29,
+        "churn": 0.3555555555555555,
+        "exposure": 0.06451612903225806,
+        "semantic_exposure": 0.32659854958037765,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00023",
+        "size": 38,
+        "churn": 0.5882352941176471,
+        "exposure": 0.08823529411764706,
+        "semantic_exposure": 0.13282381058994647,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00024",
+        "size": 26,
+        "churn": 0.3513513513513513,
+        "exposure": 0.1,
+        "semantic_exposure": 0.1224360020547886,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00025",
+        "size": 15,
+        "churn": 0.7755102040816326,
+        "exposure": 0.1111111111111111,
+        "semantic_exposure": 0.27576563958916894,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00026",
+        "size": 9,
+        "churn": 0.5454545454545454,
+        "exposure": 0.0,
+        "semantic_exposure": 0.3057434245840043,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00027",
+        "size": 35,
+        "churn": 0.7058823529411764,
+        "exposure": 0.0,
+        "semantic_exposure": 0.19669102049954354,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00028",
+        "size": 61,
+        "churn": 0.6071428571428572,
+        "exposure": 0.031746031746031744,
+        "semantic_exposure": 0.2562791081366425,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00029",
+        "size": 33,
+        "churn": 0.16666666666666663,
+        "exposure": 0.0,
+        "semantic_exposure": 0.09489520558006527,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00030",
+        "size": 38,
+        "churn": 0.23809523809523814,
+        "exposure": 0.0,
+        "semantic_exposure": 0.18775763189972086,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00031",
+        "size": 56,
+        "churn": 0.3846153846153846,
+        "exposure": 0.12727272727272726,
+        "semantic_exposure": 0.22971576637740004,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00032",
+        "size": 21,
+        "churn": 0.0,
+        "exposure": 0.0,
+        "semantic_exposure": 0.1353172572638137,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00033",
+        "size": 35,
+        "churn": 0.5,
+        "exposure": 0.0,
+        "semantic_exposure": 0.2601060257053683,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00034",
+        "size": 64,
+        "churn": 0.46478873239436624,
+        "exposure": 0.13043478260869565,
+        "semantic_exposure": 0.21750938704712008,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00035",
+        "size": 29,
+        "churn": 0.09999999999999998,
+        "exposure": 0.0,
+        "semantic_exposure": 0.11382558118945342,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00036",
+        "size": 26,
+        "churn": 0.5277777777777778,
+        "exposure": 0.0,
+        "semantic_exposure": 0.16108619924493528,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00037",
+        "size": 14,
+        "churn": 0.7575757575757576,
+        "exposure": 0.0,
+        "semantic_exposure": 0.23221121782046156,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00038",
+        "size": 31,
+        "churn": 0.6875,
+        "exposure": 0.25,
+        "semantic_exposure": 0.2840952224811933,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00039",
+        "size": 48,
+        "churn": 0.5507246376811594,
+        "exposure": 0.18,
+        "semantic_exposure": 0.19018520044428602,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00040",
+        "size": 31,
+        "churn": 0.4871794871794872,
+        "exposure": 0.08333333333333333,
+        "semantic_exposure": 0.14264315613931763,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00041",
+        "size": 12,
+        "churn": 0.33333333333333337,
+        "exposure": 0.0,
+        "semantic_exposure": 0.24863204339706893,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00042",
+        "size": 17,
+        "churn": 0.736842105263158,
+        "exposure": 0.07142857142857142,
+        "semantic_exposure": 0.3002404564203196,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00043",
+        "size": 38,
+        "churn": 0.4933333333333333,
+        "exposure": 0.0,
+        "semantic_exposure": 0.06553922461772918,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00044",
+        "size": 13,
+        "churn": 0.8292682926829268,
+        "exposure": 0.0,
+        "semantic_exposure": 0.2157562552686392,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00045",
+        "size": 26,
+        "churn": 0.0,
+        "exposure": 0.05555555555555555,
+        "semantic_exposure": 0.09267547675517838,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00046",
+        "size": 6,
+        "churn": 0.95,
+        "exposure": 0.0,
+        "semantic_exposure": 0.20732642472193555,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00047",
+        "size": 15,
+        "churn": 0.0625,
+        "exposure": 0.0,
+        "semantic_exposure": 0.10413513358559799,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00048",
+        "size": 7,
+        "churn": 0.8918918918918919,
+        "exposure": 0.375,
+        "semantic_exposure": 0.31633699633699636,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00049",
+        "size": 12,
+        "churn": 0.33333333333333337,
+        "exposure": 0.0,
+        "semantic_exposure": 0.24905254668219068,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00050",
+        "size": 6,
+        "churn": 0.8666666666666667,
+        "exposure": 0.0,
+        "semantic_exposure": 0.37592592592592594,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L1_S00001",
+        "size": 86,
+        "churn": 0.743421052631579,
+        "exposure": 0.203125,
+        "semantic_exposure": 0.4382013198104908,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00002",
+        "size": 29,
+        "churn": 0.3870967741935484,
+        "exposure": 0.4827586206896552,
+        "semantic_exposure": 0.437937275233016,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00051",
+        "size": 65,
+        "churn": 0.7157894736842105,
+        "exposure": 0.3103448275862069,
+        "semantic_exposure": 0.5206038211986683,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00022",
+        "size": 65,
+        "churn": 0.34328358208955223,
+        "exposure": 0.18478260869565216,
+        "semantic_exposure": 0.19055254912153943,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00008",
+        "size": 57,
+        "churn": 0.5154639175257731,
+        "exposure": 0.3394495412844037,
+        "semantic_exposure": 0.44104718799730075,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00004",
+        "size": 110,
+        "churn": 0.611353711790393,
+        "exposure": 0.18604651162790697,
+        "semantic_exposure": 0.3385146550526082,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00005",
+        "size": 24,
+        "churn": 0.3076923076923077,
+        "exposure": 0.14285714285714285,
+        "semantic_exposure": 0.36168778117307526,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00007",
+        "size": 49,
+        "churn": 0.703125,
+        "exposure": 0.15,
+        "semantic_exposure": 0.4275136513935718,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00052",
+        "size": 43,
+        "churn": 0.33333333333333337,
+        "exposure": 0.14285714285714285,
+        "semantic_exposure": 0.42560490804672124,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00006",
+        "size": 53,
+        "churn": 0.4933333333333333,
+        "exposure": 0.16842105263157894,
+        "semantic_exposure": 0.4715145277332488,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00023",
+        "size": 34,
+        "churn": 0.6551724137931034,
+        "exposure": 0.0,
+        "semantic_exposure": 0.17708539028104273,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00018",
+        "size": 63,
+        "churn": 0.6875,
+        "exposure": 0.08771929824561403,
+        "semantic_exposure": 0.3933690511095364,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00011",
+        "size": 39,
+        "churn": 0.7936507936507937,
+        "exposure": 0.0,
+        "semantic_exposure": 0.4968031424183316,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00012",
+        "size": 20,
+        "churn": 0.868421052631579,
+        "exposure": 0.0625,
+        "semantic_exposure": 0.4391507737089242,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00013",
+        "size": 51,
+        "churn": 0.32352941176470584,
+        "exposure": 0.02702702702702703,
+        "semantic_exposure": 0.39932852601189694,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00028",
+        "size": 87,
+        "churn": 0.8035714285714286,
+        "exposure": 0.2857142857142857,
+        "semantic_exposure": 0.38222667023693,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00042",
+        "size": 19,
+        "churn": 0.6774193548387097,
+        "exposure": 0.07142857142857142,
+        "semantic_exposure": 0.35988698996764834,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00038",
+        "size": 50,
+        "churn": 0.7875,
+        "exposure": 0.0,
+        "semantic_exposure": 0.46696927219492834,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00031",
+        "size": 63,
+        "churn": 0.6666666666666667,
+        "exposure": 0.18309859154929578,
+        "semantic_exposure": 0.45976152606243065,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00053",
+        "size": 13,
+        "churn": 0.8888888888888888,
+        "exposure": 0.2,
+        "semantic_exposure": 0.5283448389217621,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00030",
+        "size": 44,
+        "churn": 0.11363636363636365,
+        "exposure": 0.045454545454545456,
+        "semantic_exposure": 0.3655795134679929,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00015",
+        "size": 56,
+        "churn": 0.803030303030303,
+        "exposure": 0.08064516129032258,
+        "semantic_exposure": 0.5200868115529179,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00017",
+        "size": 36,
+        "churn": 0.64,
+        "exposure": 0.16666666666666666,
+        "semantic_exposure": 0.49697948118285634,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00041",
+        "size": 26,
+        "churn": 0.6060606060606061,
+        "exposure": 0.0,
+        "semantic_exposure": 0.41210712877730954,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00033",
+        "size": 71,
+        "churn": 0.5733333333333333,
+        "exposure": 0.08771929824561403,
+        "semantic_exposure": 0.3746944383296165,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00054",
+        "size": 25,
+        "churn": 0.7454545454545455,
+        "exposure": 0.1,
+        "semantic_exposure": 0.3431741805299888,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00024",
+        "size": 36,
+        "churn": 0.5961538461538461,
+        "exposure": 0.10714285714285714,
+        "semantic_exposure": 0.4473861175463316,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00016",
+        "size": 13,
+        "churn": 0.7692307692307692,
+        "exposure": 0.25,
+        "semantic_exposure": 0.3506101301915781,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00055",
+        "size": 26,
+        "churn": 0.6811594202898551,
+        "exposure": 0.13131313131313133,
+        "semantic_exposure": 0.36750501283867193,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00056",
+        "size": 25,
+        "churn": 0.6216216216216216,
+        "exposure": 0.0,
+        "semantic_exposure": 0.36921318039732365,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00043",
+        "size": 91,
+        "churn": 0.3457943925233645,
+        "exposure": 0.0,
+        "semantic_exposure": 0.18466659929960458,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00029",
+        "size": 39,
+        "churn": 0.7291666666666667,
+        "exposure": 0.0,
+        "semantic_exposure": 0.3662707559736097,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00039",
+        "size": 57,
+        "churn": 0.6593406593406593,
+        "exposure": 0.07692307692307693,
+        "semantic_exposure": 0.4106624487034471,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00032",
+        "size": 25,
+        "churn": 0.07407407407407407,
+        "exposure": 0.0,
+        "semantic_exposure": 0.11036964850907878,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00057",
+        "size": 72,
+        "churn": 0.6483516483516483,
+        "exposure": 0.01282051282051282,
+        "semantic_exposure": 0.25459483632029567,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00034",
+        "size": 60,
+        "churn": 0.8035714285714286,
+        "exposure": 0.07894736842105263,
+        "semantic_exposure": 0.3976157287235565,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00035",
+        "size": 29,
+        "churn": 0.3125,
+        "exposure": 0.0,
+        "semantic_exposure": 0.19875771205014475,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00058",
+        "size": 31,
+        "churn": 0.8181818181818181,
+        "exposure": 0.49056603773584906,
+        "semantic_exposure": 0.5055055969745135,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00049",
+        "size": 36,
+        "churn": 0.19999999999999996,
+        "exposure": 0.21621621621621623,
+        "semantic_exposure": 0.4686609506637718,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00047",
+        "size": 18,
+        "churn": 0.7222222222222222,
+        "exposure": 0.07692307692307693,
+        "semantic_exposure": 0.43038145038274034,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00026",
+        "size": 13,
+        "churn": 0.6,
+        "exposure": 0.0,
+        "semantic_exposure": 0.5111654771097496,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00036",
+        "size": 34,
+        "churn": 0.7297297297297297,
+        "exposure": 0.0,
+        "semantic_exposure": 0.39698475363612684,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00059",
+        "size": 10,
+        "churn": 0.86,
+        "exposure": 0.0,
+        "semantic_exposure": 0.453166963755199,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00003",
+        "size": 28,
+        "churn": 0.5277777777777778,
+        "exposure": 0.0,
+        "semantic_exposure": 0.4628793413558475,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00009",
+        "size": 24,
+        "churn": 0.8444444444444444,
+        "exposure": 0.045454545454545456,
+        "semantic_exposure": 0.35049168444165507,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00014",
+        "size": 32,
+        "churn": 0.2777777777777778,
+        "exposure": 0.0,
+        "semantic_exposure": 0.3743221527391387,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00040",
+        "size": 31,
+        "churn": 0.7045454545454546,
+        "exposure": 0.0,
+        "semantic_exposure": 0.3539286296549681,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00060",
+        "size": 7,
+        "churn": 0.8148148148148149,
+        "exposure": 0.0,
+        "semantic_exposure": 0.47161654135338343,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00045",
+        "size": 27,
+        "churn": 0.28125,
+        "exposure": 0.05,
+        "semantic_exposure": 0.2645028408564326,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00020",
+        "size": 4,
+        "churn": 0.8181818181818181,
+        "exposure": 0.0,
+        "semantic_exposure": 0.7070175438596491,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L1_S00001",
+        "size": 199,
+        "churn": 0.5298013245033113,
+        "exposure": 0.07042253521126761,
+        "semantic_exposure": 0.2517504625211891,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00002",
+        "size": 34,
+        "churn": 0.25,
+        "exposure": 0.5483870967741935,
+        "semantic_exposure": 0.2983680440021816,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00051",
+        "size": 117,
+        "churn": 0.8063063063063063,
+        "exposure": 0.037037037037037035,
+        "semantic_exposure": 0.17522068476197192,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00060",
+        "size": 86,
+        "churn": 0.73125,
+        "exposure": 0.07058823529411765,
+        "semantic_exposure": 0.21249362011982972,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00008",
+        "size": 178,
+        "churn": 0.5108695652173914,
+        "exposure": 0.06172839506172839,
+        "semantic_exposure": 0.21561672005100518,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00049",
+        "size": 73,
+        "churn": 0.549618320610687,
+        "exposure": 0.01818181818181818,
+        "semantic_exposure": 0.1795512319968289,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00061",
+        "size": 52,
+        "churn": 0.8307086614173228,
+        "exposure": 0.19642857142857142,
+        "semantic_exposure": 0.31276813898549666,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00024",
+        "size": 97,
+        "churn": 0.15740740740740744,
+        "exposure": 0.05660377358490566,
+        "semantic_exposure": 0.1381168846273815,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00004",
+        "size": 356,
+        "churn": 0.4253164556962026,
+        "exposure": 0.09836065573770492,
+        "semantic_exposure": 0.2523323691991313,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00062",
+        "size": 55,
+        "churn": 0.5858585858585859,
+        "exposure": 0.0625,
+        "semantic_exposure": 0.3147957775295752,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00063",
+        "size": 77,
+        "churn": 0.5661764705882353,
+        "exposure": 0.1206896551724138,
+        "semantic_exposure": 0.24121974179067385,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00005",
+        "size": 29,
+        "churn": 0.6764705882352942,
+        "exposure": 0.125,
+        "semantic_exposure": 0.4567097764695714,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00035",
+        "size": 27,
+        "churn": 0.1071428571428571,
+        "exposure": 0.15789473684210525,
+        "semantic_exposure": 0.11358569395033104,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00006",
+        "size": 127,
+        "churn": 0.5580110497237569,
+        "exposure": 0.19626168224299065,
+        "semantic_exposure": 0.33482547601347035,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00007",
+        "size": 73,
+        "churn": 0.5473684210526315,
+        "exposure": 0.08928571428571429,
+        "semantic_exposure": 0.2876640380967555,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00052",
+        "size": 131,
+        "churn": 0.5465838509316769,
+        "exposure": 0.024390243902439025,
+        "semantic_exposure": 0.17525165638328546,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00018",
+        "size": 92,
+        "churn": 0.3982300884955752,
+        "exposure": 0.2072072072072072,
+        "semantic_exposure": 0.23471476368304883,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00064",
+        "size": 59,
+        "churn": 0.5809523809523809,
+        "exposure": 0.0,
+        "semantic_exposure": 0.1651736802107898,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00042",
+        "size": 43,
+        "churn": 0.25,
+        "exposure": 0.029411764705882353,
+        "semantic_exposure": 0.24617808668063956,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00022",
+        "size": 53,
+        "churn": 0.3571428571428571,
+        "exposure": 0.19230769230769232,
+        "semantic_exposure": 0.07710290804966377,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00065",
+        "size": 150,
+        "churn": 0.6744186046511628,
+        "exposure": 0.08021390374331551,
+        "semantic_exposure": 0.2833191189484971,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00009",
+        "size": 52,
+        "churn": 0.6753246753246753,
+        "exposure": 0.046511627906976744,
+        "semantic_exposure": 0.29097117519936877,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00017",
+        "size": 62,
+        "churn": 0.43333333333333335,
+        "exposure": 0.125,
+        "semantic_exposure": 0.24956478886502803,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00038",
+        "size": 95,
+        "churn": 0.633587786259542,
+        "exposure": 0.04878048780487805,
+        "semantic_exposure": 0.17761542752057236,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00036",
+        "size": 47,
+        "churn": 0.4,
+        "exposure": 0.0,
+        "semantic_exposure": 0.2261807589541149,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00056",
+        "size": 40,
+        "churn": 0.6788990825688073,
+        "exposure": 0.15789473684210525,
+        "semantic_exposure": 0.28555335857946407,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00029",
+        "size": 130,
+        "churn": 0.7482517482517482,
+        "exposure": 0.030303030303030304,
+        "semantic_exposure": 0.29540779319098637,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00066",
+        "size": 32,
+        "churn": 0.8321167883211679,
+        "exposure": 0.0,
+        "semantic_exposure": 0.17971465104443762,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00031",
+        "size": 58,
+        "churn": 0.46590909090909094,
+        "exposure": 0.44329896907216493,
+        "semantic_exposure": 0.2657928857265914,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00020",
+        "size": 33,
+        "churn": 0.7209302325581395,
+        "exposure": 0.03333333333333333,
+        "semantic_exposure": 0.4175185396160118,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00013",
+        "size": 137,
+        "churn": 0.1785714285714286,
+        "exposure": 0.058823529411764705,
+        "semantic_exposure": 0.18319787383593242,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00030",
+        "size": 72,
+        "churn": 0.08974358974358976,
+        "exposure": 0.03125,
+        "semantic_exposure": 0.33840921230328314,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00011",
+        "size": 108,
+        "churn": 0.4715447154471545,
+        "exposure": 0.04285714285714286,
+        "semantic_exposure": 0.23818527704573406,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00057",
+        "size": 82,
+        "churn": 0.29357798165137616,
+        "exposure": 0.024691358024691357,
+        "semantic_exposure": 0.08167740328338001,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00067",
+        "size": 11,
+        "churn": 0.959349593495935,
+        "exposure": 0.0,
+        "semantic_exposure": 0.3901196842373313,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00023",
+        "size": 48,
+        "churn": 0.4305555555555556,
+        "exposure": 0.09722222222222222,
+        "semantic_exposure": 0.21162449490025725,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00033",
+        "size": 58,
+        "churn": 0.6611570247933884,
+        "exposure": 0.1016949152542373,
+        "semantic_exposure": 0.40459284488146213,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00041",
+        "size": 52,
+        "churn": 0.5977011494252873,
+        "exposure": 0.0,
+        "semantic_exposure": 0.22997834599479697,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00028",
+        "size": 82,
+        "churn": 0.8770491803278688,
+        "exposure": 0.0,
+        "semantic_exposure": 0.11884103707664508,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00003",
+        "size": 62,
+        "churn": 0.47435897435897434,
+        "exposure": 0.0,
+        "semantic_exposure": 0.3631363894137642,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00039",
+        "size": 105,
+        "churn": 0.7127071823204421,
+        "exposure": 0.1407766990291262,
+        "semantic_exposure": 0.29690775409160397,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00015",
+        "size": 57,
+        "churn": 0.7181818181818183,
+        "exposure": 0.0,
+        "semantic_exposure": 0.18835887846161734,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00026",
+        "size": 27,
+        "churn": 0.8211382113821138,
+        "exposure": 0.05263157894736842,
+        "semantic_exposure": 0.36626236689962177,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00043",
+        "size": 109,
+        "churn": 0.18260869565217386,
+        "exposure": 0.0,
+        "semantic_exposure": 0.10701090722345966,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00032",
+        "size": 31,
+        "churn": 0.29032258064516125,
+        "exposure": 0.0,
+        "semantic_exposure": 0.12788850864727225,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00014",
+        "size": 47,
+        "churn": 0.2592592592592593,
+        "exposure": 0.05555555555555555,
+        "semantic_exposure": 0.23752549438617723,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00068",
+        "size": 18,
+        "churn": 0.5641025641025641,
+        "exposure": 0.07142857142857142,
+        "semantic_exposure": 0.30441698177626075,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00069",
+        "size": 48,
+        "churn": 0.5245901639344263,
+        "exposure": 0.0,
+        "semantic_exposure": 0.15374828681212446,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00058",
+        "size": 53,
+        "churn": 0.8611111111111112,
+        "exposure": 0.022222222222222223,
+        "semantic_exposure": 0.2446035301318143,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L1_S00045",
+        "size": 31,
+        "churn": 0.8222222222222222,
+        "exposure": 0.6181818181818182,
+        "semantic_exposure": 0.2539044092460483,
+        "from_year": 2024,
+        "to_year": 2026
+      }
+    ],
+    "2": [
+      {
+        "cluster": "L2_S00001",
+        "size": 5,
+        "churn": 0.19999999999999996,
+        "exposure": 0.0,
+        "semantic_exposure": 0.3551427588579291,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00002",
+        "size": 9,
+        "churn": 0.5555555555555556,
+        "exposure": 0.1111111111111111,
+        "semantic_exposure": 0.425230333043464,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00003",
+        "size": 6,
+        "churn": 0.0,
+        "exposure": 0.0,
+        "semantic_exposure": 0.6223499361430396,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00004",
+        "size": 8,
+        "churn": 0.5555555555555556,
+        "exposure": 0.09090909090909091,
+        "semantic_exposure": 0.4870473378745438,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00005",
+        "size": 10,
+        "churn": 0.6,
+        "exposure": 0.06666666666666667,
+        "semantic_exposure": 0.14462890261315353,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00006",
+        "size": 7,
+        "churn": 0.4545454545454546,
+        "exposure": 0.3333333333333333,
+        "semantic_exposure": 0.351642092243596,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00007",
+        "size": 9,
+        "churn": 0.36363636363636365,
+        "exposure": 0.25,
+        "semantic_exposure": 0.2615912739364752,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00008",
+        "size": 4,
+        "churn": 0.7142857142857143,
+        "exposure": 0.0,
+        "semantic_exposure": 0.37316017316017314,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00009",
+        "size": 4,
+        "churn": 0.5,
+        "exposure": 0.16666666666666666,
+        "semantic_exposure": 0.5019919590643275,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00010",
+        "size": 6,
+        "churn": 0.7333333333333334,
+        "exposure": 0.125,
+        "semantic_exposure": 0.2888953388372893,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00011",
+        "size": 11,
+        "churn": 0.18181818181818177,
+        "exposure": 0.0,
+        "semantic_exposure": 0.3254253323695875,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00012",
+        "size": 21,
+        "churn": 0.43333333333333335,
+        "exposure": 0.40540540540540543,
+        "semantic_exposure": 0.3871913323424514,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00013",
+        "size": 10,
+        "churn": 0.6875,
+        "exposure": 0.21052631578947367,
+        "semantic_exposure": 0.5181260644981153,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00014",
+        "size": 11,
+        "churn": 0.5833333333333333,
+        "exposure": 0.07692307692307693,
+        "semantic_exposure": 0.3670139898888632,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00015",
+        "size": 7,
+        "churn": 0.0,
+        "exposure": 0.0,
+        "semantic_exposure": 0.11341142517613105,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00016",
+        "size": 13,
+        "churn": 0.5238095238095238,
+        "exposure": 0.0,
+        "semantic_exposure": 0.28290845272942455,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00017",
+        "size": 9,
+        "churn": 0.09999999999999998,
+        "exposure": 0.0,
+        "semantic_exposure": 0.1832788671023965,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00018",
+        "size": 9,
+        "churn": 0.33333333333333337,
+        "exposure": 0.0,
+        "semantic_exposure": 0.3126489289672984,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00019",
+        "size": 8,
+        "churn": 0.0,
+        "exposure": 0.3,
+        "semantic_exposure": 0.2663420893719807,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00020",
+        "size": 3,
+        "churn": 0.5,
+        "exposure": 0.0,
+        "semantic_exposure": 0.4101010101010101,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00022",
+        "size": 20,
+        "churn": 0.04761904761904767,
+        "exposure": 0.11764705882352941,
+        "semantic_exposure": 0.26910417764544897,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00023",
+        "size": 24,
+        "churn": 0.1785714285714286,
+        "exposure": 0.0,
+        "semantic_exposure": 0.07462021274521274,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00025",
+        "size": 11,
+        "churn": 0.7692307692307692,
+        "exposure": 0.2,
+        "semantic_exposure": 0.4702833504943479,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00026",
+        "size": 6,
+        "churn": 0.625,
+        "exposure": 0.3,
+        "semantic_exposure": 0.19086216357888186,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00027",
+        "size": 4,
+        "churn": 0.6,
+        "exposure": 0.4,
+        "semantic_exposure": 0.42679738562091507,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00028",
+        "size": 5,
+        "churn": 0.75,
+        "exposure": 0.2857142857142857,
+        "semantic_exposure": 0.2467102396514161,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00029",
+        "size": 7,
+        "churn": 0.2857142857142857,
+        "exposure": 0.0,
+        "semantic_exposure": 0.3665367596313888,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00031",
+        "size": 8,
+        "churn": 0.5555555555555556,
+        "exposure": 0.14285714285714285,
+        "semantic_exposure": 0.15408165042193794,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00032",
+        "size": 6,
+        "churn": 0.16666666666666663,
+        "exposure": 0.0,
+        "semantic_exposure": 0.2532271241830066,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00033",
+        "size": 3,
+        "churn": 0.6,
+        "exposure": 0.0,
+        "semantic_exposure": 0.2796296296296296,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00034",
+        "size": 6,
+        "churn": 0.0,
+        "exposure": 0.0,
+        "semantic_exposure": 0.31293142988189426,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00035",
+        "size": 5,
+        "churn": 0.0,
+        "exposure": 0.0,
+        "semantic_exposure": 0.22306892453951277,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00036",
+        "size": 4,
+        "churn": 0.4285714285714286,
+        "exposure": 0.25,
+        "semantic_exposure": 0.30132850241545894,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00037",
+        "size": 10,
+        "churn": 0.19999999999999996,
+        "exposure": 0.0,
+        "semantic_exposure": 0.27912603516905854,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00038",
+        "size": 10,
+        "churn": 0.18181818181818177,
+        "exposure": 0.03225806451612903,
+        "semantic_exposure": 0.1707600014927601,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00039",
+        "size": 4,
+        "churn": 0.0,
+        "exposure": 0.25,
+        "semantic_exposure": 0.47859477124183014,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00040",
+        "size": 12,
+        "churn": 0.0,
+        "exposure": 0.2,
+        "semantic_exposure": 0.2427923598589233,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00041",
+        "size": 5,
+        "churn": 0.2857142857142857,
+        "exposure": 0.0,
+        "semantic_exposure": 0.2589209596882231,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00042",
+        "size": 13,
+        "churn": 0.45833333333333337,
+        "exposure": 0.13333333333333333,
+        "semantic_exposure": 0.10301249062534973,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00043",
+        "size": 5,
+        "churn": 0.0,
+        "exposure": 0.0,
+        "semantic_exposure": 0.2986928104575164,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00044",
+        "size": 4,
+        "churn": 0.6,
+        "exposure": 0.0,
+        "semantic_exposure": 0.21832107843137255,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00045",
+        "size": 3,
+        "churn": 0.5,
+        "exposure": 0.0,
+        "semantic_exposure": 0.26549707602339184,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00047",
+        "size": 7,
+        "churn": 0.1428571428571429,
+        "exposure": 0.3333333333333333,
+        "semantic_exposure": 0.2600894903415911,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00048",
+        "size": 5,
+        "churn": 0.0,
+        "exposure": 0.0,
+        "semantic_exposure": 0.27319946605644546,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00049",
+        "size": 3,
+        "churn": 0.0,
+        "exposure": 0.0,
+        "semantic_exposure": 0.39153439153439157,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00050",
+        "size": 5,
+        "churn": 0.5,
+        "exposure": 0.0,
+        "semantic_exposure": 0.11219298245614036,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00051",
+        "size": 4,
+        "churn": 0.7142857142857143,
+        "exposure": 0.0,
+        "semantic_exposure": 0.25,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00052",
+        "size": 10,
+        "churn": 0.375,
+        "exposure": 0.0,
+        "semantic_exposure": 0.1820897289039997,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00053",
+        "size": 7,
+        "churn": 0.5882352941176471,
+        "exposure": 0.0,
+        "semantic_exposure": 0.35076581357180553,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00054",
+        "size": 16,
+        "churn": 0.4347826086956522,
+        "exposure": 0.0,
+        "semantic_exposure": 0.16026460307551238,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00055",
+        "size": 13,
+        "churn": 0.5,
+        "exposure": 0.0,
+        "semantic_exposure": 0.29498325977778317,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00056",
+        "size": 12,
+        "churn": 0.625,
+        "exposure": 0.08333333333333333,
+        "semantic_exposure": 0.24321830919884244,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00057",
+        "size": 9,
+        "churn": 0.11111111111111116,
+        "exposure": 0.0,
+        "semantic_exposure": 0.06663035584604213,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00058",
+        "size": 11,
+        "churn": 0.15384615384615385,
+        "exposure": 0.0,
+        "semantic_exposure": 0.18700980392156863,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00059",
+        "size": 14,
+        "churn": 0.2666666666666667,
+        "exposure": 0.21428571428571427,
+        "semantic_exposure": 0.30525377208290666,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00060",
+        "size": 21,
+        "churn": 0.0,
+        "exposure": 0.0,
+        "semantic_exposure": 0.1353172572638137,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00061",
+        "size": 10,
+        "churn": 0.09999999999999998,
+        "exposure": 0.0,
+        "semantic_exposure": 0.20630907517349165,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00062",
+        "size": 7,
+        "churn": 0.0,
+        "exposure": 0.0,
+        "semantic_exposure": 0.3077948547840189,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00063",
+        "size": 3,
+        "churn": 0.0,
+        "exposure": 0.0,
+        "semantic_exposure": 0.3456189493341196,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00064",
+        "size": 21,
+        "churn": 0.09523809523809523,
+        "exposure": 0.0,
+        "semantic_exposure": 0.2597171672075593,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00065",
+        "size": 26,
+        "churn": 0.28125,
+        "exposure": 0.0625,
+        "semantic_exposure": 0.15217338659799695,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00066",
+        "size": 16,
+        "churn": 0.0,
+        "exposure": 0.0,
+        "semantic_exposure": 0.02123834647003983,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00067",
+        "size": 4,
+        "churn": 0.5,
+        "exposure": 0.0,
+        "semantic_exposure": 0.20827850877192983,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00068",
+        "size": 6,
+        "churn": 0.7142857142857143,
+        "exposure": 0.0,
+        "semantic_exposure": 0.5107376283846873,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00069",
+        "size": 8,
+        "churn": 0.7222222222222222,
+        "exposure": 0.09523809523809523,
+        "semantic_exposure": 0.2111449366169046,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00070",
+        "size": 13,
+        "churn": 0.1875,
+        "exposure": 0.0,
+        "semantic_exposure": 0.27142688694093847,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00071",
+        "size": 17,
+        "churn": 0.2777777777777778,
+        "exposure": 0.0,
+        "semantic_exposure": 0.21211899415763677,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00072",
+        "size": 5,
+        "churn": 0.0,
+        "exposure": 0.0,
+        "semantic_exposure": 0.3503381642512077,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00073",
+        "size": 3,
+        "churn": 0.0,
+        "exposure": 0.0,
+        "semantic_exposure": 0.2497076023391813,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00074",
+        "size": 10,
+        "churn": 0.6,
+        "exposure": 0.0,
+        "semantic_exposure": 0.4211067441330599,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00075",
+        "size": 5,
+        "churn": 0.2857142857142857,
+        "exposure": 0.0,
+        "semantic_exposure": 0.45856209150326804,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00076",
+        "size": 12,
+        "churn": 0.5,
+        "exposure": 0.0,
+        "semantic_exposure": 0.26788217462654945,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00078",
+        "size": 4,
+        "churn": 0.4,
+        "exposure": 0.0,
+        "semantic_exposure": 0.2887867647058824,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00079",
+        "size": 6,
+        "churn": 0.0,
+        "exposure": 0.0,
+        "semantic_exposure": 0.29285325241207594,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00080",
+        "size": 8,
+        "churn": 0.0,
+        "exposure": 0.0,
+        "semantic_exposure": 0.21554767740429506,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00081",
+        "size": 4,
+        "churn": 0.33333333333333337,
+        "exposure": 0.0,
+        "semantic_exposure": 0.14583333333333331,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00082",
+        "size": 17,
+        "churn": 0.2941176470588235,
+        "exposure": 0.0,
+        "semantic_exposure": 0.15829992724142397,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00083",
+        "size": 21,
+        "churn": 0.0,
+        "exposure": 0.0,
+        "semantic_exposure": 0.044942689719565984,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00085",
+        "size": 12,
+        "churn": 0.4375,
+        "exposure": 0.15384615384615385,
+        "semantic_exposure": 0.14477999533146593,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00086",
+        "size": 5,
+        "churn": 0.33333333333333337,
+        "exposure": 0.0,
+        "semantic_exposure": 0.238,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00087",
+        "size": 21,
+        "churn": 0.08695652173913049,
+        "exposure": 0.0,
+        "semantic_exposure": 0.18809068529877906,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00088",
+        "size": 14,
+        "churn": 0.06666666666666665,
+        "exposure": 0.0,
+        "semantic_exposure": 0.14936403621918531,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00089",
+        "size": 5,
+        "churn": 0.5,
+        "exposure": 0.0,
+        "semantic_exposure": 0.31234234234234226,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00090",
+        "size": 8,
+        "churn": 0.5454545454545454,
+        "exposure": 0.0,
+        "semantic_exposure": 0.21735022978229498,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00091",
+        "size": 4,
+        "churn": 0.8,
+        "exposure": 0.0,
+        "semantic_exposure": 0.2541264090177134,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00092",
+        "size": 10,
+        "churn": 0.4,
+        "exposure": 0.058823529411764705,
+        "semantic_exposure": 0.2418100004755889,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00093",
+        "size": 4,
+        "churn": 0.6666666666666667,
+        "exposure": 0.0,
+        "semantic_exposure": 0.17141812865497075,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00094",
+        "size": 6,
+        "churn": 0.0,
+        "exposure": 0.0,
+        "semantic_exposure": 0.18796296296296297,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00095",
+        "size": 6,
+        "churn": 0.7,
+        "exposure": 0.0,
+        "semantic_exposure": 0.16987039939626147,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00097",
+        "size": 9,
+        "churn": 0.09999999999999998,
+        "exposure": 0.0,
+        "semantic_exposure": 0.5408188593453546,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00098",
+        "size": 9,
+        "churn": 0.41666666666666663,
+        "exposure": 0.0,
+        "semantic_exposure": 0.21574852163087457,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00099",
+        "size": 5,
+        "churn": 0.7777777777777778,
+        "exposure": 0.0,
+        "semantic_exposure": 0.2632009054895303,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00100",
+        "size": 3,
+        "churn": 0.0,
+        "exposure": 0.0,
+        "semantic_exposure": 0.18530701754385967,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00101",
+        "size": 6,
+        "churn": 0.75,
+        "exposure": 0.0,
+        "semantic_exposure": 0.2776814194577352,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00102",
+        "size": 4,
+        "churn": 0.19999999999999996,
+        "exposure": 0.0,
+        "semantic_exposure": 0.1569078947368421,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00103",
+        "size": 17,
+        "churn": 0.2857142857142857,
+        "exposure": 0.1111111111111111,
+        "semantic_exposure": 0.23268139854323178,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00104",
+        "size": 30,
+        "churn": 0.11764705882352944,
+        "exposure": 0.0,
+        "semantic_exposure": 0.0297592705724352,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00105",
+        "size": 8,
+        "churn": 0.5,
+        "exposure": 0.0,
+        "semantic_exposure": 0.19971405228758168,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00106",
+        "size": 11,
+        "churn": 0.5625,
+        "exposure": 0.0,
+        "semantic_exposure": 0.13126646315500803,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00107",
+        "size": 4,
+        "churn": 0.4,
+        "exposure": 0.2,
+        "semantic_exposure": 0.4457117057349256,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00108",
+        "size": 3,
+        "churn": 0.8235294117647058,
+        "exposure": 0.0,
+        "semantic_exposure": 0.044444444444444446,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00109",
+        "size": 7,
+        "churn": 0.375,
+        "exposure": 0.0,
+        "semantic_exposure": 0.20342829439468096,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00110",
+        "size": 4,
+        "churn": 0.6,
+        "exposure": 0.0,
+        "semantic_exposure": 0.4201754385964912,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00111",
+        "size": 12,
+        "churn": 0.2857142857142857,
+        "exposure": 0.38095238095238093,
+        "semantic_exposure": 0.32974977218773055,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00112",
+        "size": 3,
+        "churn": 0.6,
+        "exposure": 0.0,
+        "semantic_exposure": 0.26563958916900093,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00113",
+        "size": 4,
+        "churn": 0.0,
+        "exposure": 0.0,
+        "semantic_exposure": 0.28880718954248363,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00114",
+        "size": 5,
+        "churn": 0.5714285714285714,
+        "exposure": 0.0,
+        "semantic_exposure": 0.33027274067521745,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00115",
+        "size": 3,
+        "churn": 0.4,
+        "exposure": 0.0,
+        "semantic_exposure": 0.22491170381195955,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00116",
+        "size": 7,
+        "churn": 0.6666666666666667,
+        "exposure": 0.0,
+        "semantic_exposure": 0.2459029066171923,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00118",
+        "size": 6,
+        "churn": 0.7777777777777778,
+        "exposure": 0.0,
+        "semantic_exposure": 0.3697876878023936,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00119",
+        "size": 4,
+        "churn": 0.4,
+        "exposure": 0.0,
+        "semantic_exposure": 0.30251225490196076,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00120",
+        "size": 7,
+        "churn": 0.36363636363636365,
+        "exposure": 0.09090909090909091,
+        "semantic_exposure": 0.2520124796330015,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00121",
+        "size": 4,
+        "churn": 0.0,
+        "exposure": 0.0,
+        "semantic_exposure": 0.46900584795321637,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00122",
+        "size": 3,
+        "churn": 0.33333333333333337,
+        "exposure": 0.0,
+        "semantic_exposure": 0.2168859649122807,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00123",
+        "size": 10,
+        "churn": 0.5714285714285714,
+        "exposure": 0.0,
+        "semantic_exposure": 0.14864273035962342,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00125",
+        "size": 7,
+        "churn": 0.0,
+        "exposure": 0.0,
+        "semantic_exposure": 0.11297089011043014,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00126",
+        "size": 5,
+        "churn": 0.0,
+        "exposure": 0.0,
+        "semantic_exposure": 0.09955882352941177,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00127",
+        "size": 4,
+        "churn": 0.7142857142857143,
+        "exposure": 0.0,
+        "semantic_exposure": 0.2328125,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00128",
+        "size": 15,
+        "churn": 0.5714285714285714,
+        "exposure": 0.125,
+        "semantic_exposure": 0.17304798753398065,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00129",
+        "size": 3,
+        "churn": 0.4,
+        "exposure": 0.0,
+        "semantic_exposure": 0.05882352941176471,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00132",
+        "size": 6,
+        "churn": 0.0,
+        "exposure": 0.0,
+        "semantic_exposure": 0.27824360738447423,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00133",
+        "size": 3,
+        "churn": 0.6666666666666667,
+        "exposure": 0.0,
+        "semantic_exposure": 0.23611111111111108,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00134",
+        "size": 5,
+        "churn": 0.16666666666666663,
+        "exposure": 0.0,
+        "semantic_exposure": 0.08852941176470588,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00135",
+        "size": 12,
+        "churn": 0.38888888888888884,
+        "exposure": 0.08333333333333333,
+        "semantic_exposure": 0.11470073795201673,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00136",
+        "size": 10,
+        "churn": 0.5454545454545454,
+        "exposure": 0.125,
+        "semantic_exposure": 0.33664823532908067,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00138",
+        "size": 4,
+        "churn": 0.6666666666666667,
+        "exposure": 0.0,
+        "semantic_exposure": 0.0719639468690702,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00139",
+        "size": 7,
+        "churn": 0.0,
+        "exposure": 0.14285714285714285,
+        "semantic_exposure": 0.19469484763602413,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00140",
+        "size": 10,
+        "churn": 0.19999999999999996,
+        "exposure": 0.0,
+        "semantic_exposure": 0.05907870466680535,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00143",
+        "size": 14,
+        "churn": 0.0,
+        "exposure": 0.0,
+        "semantic_exposure": 0.056566469355353546,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00145",
+        "size": 3,
+        "churn": 0.7,
+        "exposure": 0.0,
+        "semantic_exposure": 0.3472826086956522,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00146",
+        "size": 3,
+        "churn": 0.4,
+        "exposure": 0.0,
+        "semantic_exposure": 0.19712475633528262,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00147",
+        "size": 7,
+        "churn": 0.65,
+        "exposure": 0.0,
+        "semantic_exposure": 0.12077658495615151,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00148",
+        "size": 9,
+        "churn": 0.625,
+        "exposure": 0.0,
+        "semantic_exposure": 0.12693199566769361,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00149",
+        "size": 10,
+        "churn": 0.0,
+        "exposure": 0.0,
+        "semantic_exposure": 0.07569444444444444,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00150",
+        "size": 7,
+        "churn": 0.5555555555555556,
+        "exposure": 0.375,
+        "semantic_exposure": 0.31633699633699636,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00151",
+        "size": 4,
+        "churn": 0.75,
+        "exposure": 0.0,
+        "semantic_exposure": 0.3805360187553282,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00152",
+        "size": 3,
+        "churn": 0.7777777777777778,
+        "exposure": 0.0,
+        "semantic_exposure": 0.31666666666666665,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00153",
+        "size": 12,
+        "churn": 0.33333333333333337,
+        "exposure": 0.0,
+        "semantic_exposure": 0.24905254668219068,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00155",
+        "size": 9,
+        "churn": 0.6875,
+        "exposure": 0.2,
+        "semantic_exposure": 0.39291535163593755,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00156",
+        "size": 4,
+        "churn": 0.19999999999999996,
+        "exposure": 0.3333333333333333,
+        "semantic_exposure": 0.2790731424148607,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00157",
+        "size": 4,
+        "churn": 0.19999999999999996,
+        "exposure": 0.0,
+        "semantic_exposure": 0.3638888888888889,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00158",
+        "size": 25,
+        "churn": 0.12,
+        "exposure": 0.037037037037037035,
+        "semantic_exposure": 0.33064175712676463,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00159",
+        "size": 10,
+        "churn": 0.5714285714285714,
+        "exposure": 0.14285714285714285,
+        "semantic_exposure": 0.2643020541549953,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00160",
+        "size": 8,
+        "churn": 0.46153846153846156,
+        "exposure": 0.1111111111111111,
+        "semantic_exposure": 0.16416506820119353,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00162",
+        "size": 3,
+        "churn": 0.8181818181818181,
+        "exposure": 0.0,
+        "semantic_exposure": 0.26006216006216004,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00163",
+        "size": 7,
+        "churn": 0.0,
+        "exposure": 0.1111111111111111,
+        "semantic_exposure": 0.30804462135731486,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00164",
+        "size": 5,
+        "churn": 0.0,
+        "exposure": 0.0,
+        "semantic_exposure": 0.3685371517027864,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00165",
+        "size": 5,
+        "churn": 0.0,
+        "exposure": 0.0,
+        "semantic_exposure": 0.24669191919191918,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00168",
+        "size": 6,
+        "churn": 0.25,
+        "exposure": 0.0,
+        "semantic_exposure": 0.12871230363490427,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00169",
+        "size": 6,
+        "churn": 0.75,
+        "exposure": 0.0,
+        "semantic_exposure": 0.3004253056884636,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00170",
+        "size": 3,
+        "churn": 0.625,
+        "exposure": 0.0,
+        "semantic_exposure": 0.29912854030501096,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00171",
+        "size": 5,
+        "churn": 0.5,
+        "exposure": 0.0,
+        "semantic_exposure": 0.3692596558863425,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00172",
+        "size": 3,
+        "churn": 0.7142857142857143,
+        "exposure": 0.0,
+        "semantic_exposure": 0.47261904761904755,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00173",
+        "size": 5,
+        "churn": 0.0,
+        "exposure": 0.0,
+        "semantic_exposure": 0.1754248366013072,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00174",
+        "size": 10,
+        "churn": 0.09999999999999998,
+        "exposure": 0.0,
+        "semantic_exposure": 0.1478628389154705,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00175",
+        "size": 7,
+        "churn": 0.0,
+        "exposure": 0.16666666666666666,
+        "semantic_exposure": 0.09048577325667109,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00179",
+        "size": 5,
+        "churn": 0.0,
+        "exposure": 0.0,
+        "semantic_exposure": 0.48504385964912283,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00181",
+        "size": 5,
+        "churn": 0.6,
+        "exposure": 0.0,
+        "semantic_exposure": 0.34295149638802885,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00182",
+        "size": 3,
+        "churn": 0.5,
+        "exposure": 0.0,
+        "semantic_exposure": 0.31957671957671957,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00183",
+        "size": 11,
+        "churn": 0.33333333333333337,
+        "exposure": 0.2833333333333333,
+        "semantic_exposure": 0.3125453719426199,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00184",
+        "size": 5,
+        "churn": 0.16666666666666663,
+        "exposure": 0.0,
+        "semantic_exposure": 0.16101651186790505,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00185",
+        "size": 8,
+        "churn": 0.625,
+        "exposure": 0.2608695652173913,
+        "semantic_exposure": 0.24544907706672414,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00186",
+        "size": 4,
+        "churn": 0.5,
+        "exposure": 0.0,
+        "semantic_exposure": 0.12256944444444444,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00187",
+        "size": 9,
+        "churn": 0.09999999999999998,
+        "exposure": 0.0,
+        "semantic_exposure": 0.28036775707262407,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00188",
+        "size": 3,
+        "churn": 0.625,
+        "exposure": 0.2222222222222222,
+        "semantic_exposure": 0.17812177502579982,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00190",
+        "size": 7,
+        "churn": 0.4285714285714286,
+        "exposure": 0.0,
+        "semantic_exposure": 0.4024627642819141,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00194",
+        "size": 3,
+        "churn": 0.75,
+        "exposure": 0.0,
+        "semantic_exposure": 0.2996031746031746,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00199",
+        "size": 4,
+        "churn": 0.5,
+        "exposure": 0.0,
+        "semantic_exposure": 0.3041666666666667,
+        "from_year": 2020,
+        "to_year": 2022
+      },
+      {
+        "cluster": "L2_S00001",
+        "size": 4,
+        "churn": 0.7142857142857143,
+        "exposure": 0.0,
+        "semantic_exposure": 0.5041421568627451,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00002",
+        "size": 9,
+        "churn": 0.36363636363636365,
+        "exposure": 0.55,
+        "semantic_exposure": 0.5999984315201705,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00003",
+        "size": 20,
+        "churn": 0.13636363636363635,
+        "exposure": 0.35,
+        "semantic_exposure": 0.3650097549037964,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00171",
+        "size": 15,
+        "churn": 0.6086956521739131,
+        "exposure": 0.28,
+        "semantic_exposure": 0.46215011174732584,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00036",
+        "size": 8,
+        "churn": 0.7692307692307692,
+        "exposure": 0.2222222222222222,
+        "semantic_exposure": 0.41327614379084965,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00201",
+        "size": 22,
+        "churn": 0.15384615384615385,
+        "exposure": 0.4230769230769231,
+        "semantic_exposure": 0.6111262378197528,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00012",
+        "size": 47,
+        "churn": 0.4807692307692307,
+        "exposure": 0.38144329896907214,
+        "semantic_exposure": 0.43294868721708357,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00128",
+        "size": 27,
+        "churn": 0.30000000000000004,
+        "exposure": 0.2682926829268293,
+        "semantic_exposure": 0.2878765034820415,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00202",
+        "size": 7,
+        "churn": 0.33333333333333337,
+        "exposure": 0.2857142857142857,
+        "semantic_exposure": 0.3980905998763142,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00141",
+        "size": 5,
+        "churn": 0.4,
+        "exposure": 0.2727272727272727,
+        "semantic_exposure": 0.3469125465178097,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00026",
+        "size": 9,
+        "churn": 0.0,
+        "exposure": 0.29411764705882354,
+        "semantic_exposure": 0.30381989832970224,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00203",
+        "size": 8,
+        "churn": 0.7037037037037037,
+        "exposure": 0.25,
+        "semantic_exposure": 0.30662488822760225,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00027",
+        "size": 6,
+        "churn": 0.33333333333333337,
+        "exposure": 0.2222222222222222,
+        "semantic_exposure": 0.47933006535947714,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00006",
+        "size": 13,
+        "churn": 0.6428571428571428,
+        "exposure": 0.21428571428571427,
+        "semantic_exposure": 0.46704583256440846,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00116",
+        "size": 17,
+        "churn": 0.23529411764705888,
+        "exposure": 0.29411764705882354,
+        "semantic_exposure": 0.4329454889188999,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00007",
+        "size": 9,
+        "churn": 0.18181818181818177,
+        "exposure": 0.0,
+        "semantic_exposure": 0.24718591140159768,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00013",
+        "size": 23,
+        "churn": 0.31034482758620685,
+        "exposure": 0.125,
+        "semantic_exposure": 0.47120927660439343,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00020",
+        "size": 7,
+        "churn": 0.4444444444444444,
+        "exposure": 0.2727272727272727,
+        "semantic_exposure": 0.45105315689494185,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00170",
+        "size": 13,
+        "churn": 0.7142857142857143,
+        "exposure": 0.08333333333333333,
+        "semantic_exposure": 0.40976223170405024,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00204",
+        "size": 9,
+        "churn": 0.8333333333333334,
+        "exposure": 0.16666666666666666,
+        "semantic_exposure": 0.5308540984262548,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00111",
+        "size": 17,
+        "churn": 0.44999999999999996,
+        "exposure": 0.17857142857142858,
+        "semantic_exposure": 0.5748002758988644,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00015",
+        "size": 7,
+        "churn": 0.0,
+        "exposure": 0.0,
+        "semantic_exposure": 0.2324143692564745,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00205",
+        "size": 4,
+        "churn": 0.7333333333333334,
+        "exposure": 0.3333333333333333,
+        "semantic_exposure": 0.29115179252479023,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00017",
+        "size": 11,
+        "churn": 0.18181818181818177,
+        "exposure": 0.0,
+        "semantic_exposure": 0.3234423179160022,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00018",
+        "size": 7,
+        "churn": 0.75,
+        "exposure": 0.0,
+        "semantic_exposure": 0.4139043260324725,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00019",
+        "size": 9,
+        "churn": 0.3571428571428571,
+        "exposure": 0.0,
+        "semantic_exposure": 0.42139676479426114,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00016",
+        "size": 19,
+        "churn": 0.5217391304347826,
+        "exposure": 0.23076923076923078,
+        "semantic_exposure": 0.3063203270304054,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00011",
+        "size": 13,
+        "churn": 0.7407407407407407,
+        "exposure": 0.1891891891891892,
+        "semantic_exposure": 0.45064752914146716,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00206",
+        "size": 6,
+        "churn": 0.4285714285714286,
+        "exposure": 0.2,
+        "semantic_exposure": 0.4012060100488893,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00022",
+        "size": 28,
+        "churn": 0.06666666666666665,
+        "exposure": 0.043478260869565216,
+        "semantic_exposure": 0.2285043697610704,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00159",
+        "size": 11,
+        "churn": 0.5384615384615384,
+        "exposure": 0.375,
+        "semantic_exposure": 0.28189474679764576,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00009",
+        "size": 5,
+        "churn": 0.375,
+        "exposure": 0.3333333333333333,
+        "semantic_exposure": 0.5258333333333333,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00024",
+        "size": 3,
+        "churn": 0.6666666666666667,
+        "exposure": 0.2,
+        "semantic_exposure": 0.5375816993464052,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00004",
+        "size": 11,
+        "churn": 0.33333333333333337,
+        "exposure": 0.6458333333333334,
+        "semantic_exposure": 0.38417328363852427,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00091",
+        "size": 7,
+        "churn": 0.2857142857142857,
+        "exposure": 0.0,
+        "semantic_exposure": 0.3528813343519226,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00208",
+        "size": 9,
+        "churn": 0.33333333333333337,
+        "exposure": 0.0,
+        "semantic_exposure": 0.5791660933379199,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00103",
+        "size": 24,
+        "churn": 0.25806451612903225,
+        "exposure": 0.10526315789473684,
+        "semantic_exposure": 0.4062718989131982,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00209",
+        "size": 7,
+        "churn": 0.8958333333333334,
+        "exposure": 0.0,
+        "semantic_exposure": 0.22568962367555717,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00151",
+        "size": 10,
+        "churn": 0.6666666666666667,
+        "exposure": 0.25,
+        "semantic_exposure": 0.5139316239316241,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00048",
+        "size": 8,
+        "churn": 0.5454545454545454,
+        "exposure": 0.0,
+        "semantic_exposure": 0.42921555095468145,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00058",
+        "size": 17,
+        "churn": 0.48275862068965514,
+        "exposure": 0.13333333333333333,
+        "semantic_exposure": 0.38442284166977936,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00087",
+        "size": 27,
+        "churn": 0.5555555555555556,
+        "exposure": 0.030303030303030304,
+        "semantic_exposure": 0.3537151957113125,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00076",
+        "size": 16,
+        "churn": 0.5769230769230769,
+        "exposure": 0.0,
+        "semantic_exposure": 0.3592864151554399,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00136",
+        "size": 13,
+        "churn": 0.7142857142857143,
+        "exposure": 0.0,
+        "semantic_exposure": 0.5828861302618841,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00210",
+        "size": 5,
+        "churn": 0.16666666666666663,
+        "exposure": 0.2,
+        "semantic_exposure": 0.49039215686274507,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00038",
+        "size": 11,
+        "churn": 0.2857142857142857,
+        "exposure": 0.05555555555555555,
+        "semantic_exposure": 0.4109746582562806,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00092",
+        "size": 14,
+        "churn": 0.33333333333333337,
+        "exposure": 0.0,
+        "semantic_exposure": 0.45121782209173805,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00110",
+        "size": 4,
+        "churn": 0.75,
+        "exposure": 0.0,
+        "semantic_exposure": 0.5291118421052632,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00028",
+        "size": 11,
+        "churn": 0.6666666666666667,
+        "exposure": 0.2692307692307692,
+        "semantic_exposure": 0.4259705175323024,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00014",
+        "size": 11,
+        "churn": 0.7142857142857143,
+        "exposure": 0.0,
+        "semantic_exposure": 0.42336807048363845,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00032",
+        "size": 5,
+        "churn": 0.5,
+        "exposure": 0.0,
+        "semantic_exposure": 0.38583333333333336,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00034",
+        "size": 6,
+        "churn": 0.4444444444444444,
+        "exposure": 0.0,
+        "semantic_exposure": 0.4749742002063983,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00035",
+        "size": 5,
+        "churn": 0.5,
+        "exposure": 0.0,
+        "semantic_exposure": 0.3471732026143791,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00127",
+        "size": 5,
+        "churn": 0.6666666666666667,
+        "exposure": 0.0,
+        "semantic_exposure": 0.4163095238095238,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00039",
+        "size": 5,
+        "churn": 0.5833333333333333,
+        "exposure": 0.3333333333333333,
+        "semantic_exposure": 0.3786842105263158,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00061",
+        "size": 13,
+        "churn": 0.38888888888888884,
+        "exposure": 0.0,
+        "semantic_exposure": 0.2561329356917592,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00040",
+        "size": 14,
+        "churn": 0.0,
+        "exposure": 0.1,
+        "semantic_exposure": 0.2882098785010156,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00029",
+        "size": 6,
+        "churn": 0.6428571428571428,
+        "exposure": 0.14285714285714285,
+        "semantic_exposure": 0.3390736004546746,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00041",
+        "size": 15,
+        "churn": 0.23529411764705888,
+        "exposure": 0.09090909090909091,
+        "semantic_exposure": 0.3151249283339067,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00042",
+        "size": 24,
+        "churn": 0.5384615384615384,
+        "exposure": 0.13636363636363635,
+        "semantic_exposure": 0.4743199170602381,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00043",
+        "size": 5,
+        "churn": 0.6,
+        "exposure": 0.0,
+        "semantic_exposure": 0.363859649122807,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00120",
+        "size": 13,
+        "churn": 0.4285714285714286,
+        "exposure": 0.25,
+        "semantic_exposure": 0.3506101301915781,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00045",
+        "size": 5,
+        "churn": 0.5714285714285714,
+        "exposure": 0.125,
+        "semantic_exposure": 0.4948245614035088,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00044",
+        "size": 3,
+        "churn": 0.8333333333333334,
+        "exposure": 0.0,
+        "semantic_exposure": 0.6444444444444444,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00211",
+        "size": 6,
+        "churn": 0.7272727272727273,
+        "exposure": 0.0,
+        "semantic_exposure": 0.31377923976608185,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00212",
+        "size": 10,
+        "churn": 0.5384615384615384,
+        "exposure": 0.0,
+        "semantic_exposure": 0.5144105975723623,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00213",
+        "size": 10,
+        "churn": 0.8709677419354839,
+        "exposure": 0.0,
+        "semantic_exposure": 0.47911014166432125,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00089",
+        "size": 7,
+        "churn": 0.6363636363636364,
+        "exposure": 0.0,
+        "semantic_exposure": 0.3989074653507475,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00047",
+        "size": 7,
+        "churn": 0.30000000000000004,
+        "exposure": 0.0,
+        "semantic_exposure": 0.3964748943055483,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00049",
+        "size": 3,
+        "churn": 0.6666666666666667,
+        "exposure": 0.0,
+        "semantic_exposure": 0.4395531400966184,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00137",
+        "size": 4,
+        "churn": 0.19999999999999996,
+        "exposure": 0.0,
+        "semantic_exposure": 0.3904024767801858,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00114",
+        "size": 5,
+        "churn": 0.8333333333333334,
+        "exposure": 0.0,
+        "semantic_exposure": 0.4055952380952381,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00052",
+        "size": 17,
+        "churn": 0.5,
+        "exposure": 0.0,
+        "semantic_exposure": 0.2341873603645935,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00055",
+        "size": 25,
+        "churn": 0.2962962962962963,
+        "exposure": 0.0,
+        "semantic_exposure": 0.28338051672793,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00054",
+        "size": 24,
+        "churn": 0.5,
+        "exposure": 0.0,
+        "semantic_exposure": 0.3217664517315799,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00057",
+        "size": 8,
+        "churn": 0.5625,
+        "exposure": 0.0,
+        "semantic_exposure": 0.20591810505493371,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00134",
+        "size": 6,
+        "churn": 0.375,
+        "exposure": 0.0,
+        "semantic_exposure": 0.49072855750487326,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00060",
+        "size": 21,
+        "churn": 0.045454545454545414,
+        "exposure": 0.0,
+        "semantic_exposure": 0.061551168860014445,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00062",
+        "size": 10,
+        "churn": 0.09090909090909094,
+        "exposure": 0.0,
+        "semantic_exposure": 0.37858519269776875,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00063",
+        "size": 33,
+        "churn": 0.3421052631578947,
+        "exposure": 0.025,
+        "semantic_exposure": 0.22891173792512526,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00065",
+        "size": 34,
+        "churn": 0.46341463414634143,
+        "exposure": 0.13636363636363635,
+        "semantic_exposure": 0.35210426197010053,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00064",
+        "size": 25,
+        "churn": 0.07692307692307687,
+        "exposure": 0.0,
+        "semantic_exposure": 0.3838804093257334,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00066",
+        "size": 16,
+        "churn": 0.2727272727272727,
+        "exposure": 0.0,
+        "semantic_exposure": 0.12764124655643533,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00067",
+        "size": 5,
+        "churn": 0.6,
+        "exposure": 0.0,
+        "semantic_exposure": 0.4601470588235294,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00153",
+        "size": 23,
+        "churn": 0.08695652173913049,
+        "exposure": 0.25806451612903225,
+        "semantic_exposure": 0.5101211000073127,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00149",
+        "size": 11,
+        "churn": 0.09090909090909094,
+        "exposure": 0.0,
+        "semantic_exposure": 0.4621732026143791,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00086",
+        "size": 6,
+        "churn": 0.5,
+        "exposure": 0.0,
+        "semantic_exposure": 0.42743378052975584,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00070",
+        "size": 22,
+        "churn": 0.4444444444444444,
+        "exposure": 0.2,
+        "semantic_exposure": 0.4209565245697449,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00056",
+        "size": 16,
+        "churn": 0.55,
+        "exposure": 0.32142857142857145,
+        "semantic_exposure": 0.45501734075258027,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00072",
+        "size": 6,
+        "churn": 0.5555555555555556,
+        "exposure": 0.0,
+        "semantic_exposure": 0.5129718234981393,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00135",
+        "size": 17,
+        "churn": 0.3913043478260869,
+        "exposure": 0.19047619047619047,
+        "semantic_exposure": 0.4174818363408784,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00104",
+        "size": 34,
+        "churn": 0.23529411764705888,
+        "exposure": 0.0,
+        "semantic_exposure": 0.14938264735766754,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00073",
+        "size": 3,
+        "churn": 0.625,
+        "exposure": 0.0,
+        "semantic_exposure": 0.5763888888888888,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00075",
+        "size": 8,
+        "churn": 0.6666666666666667,
+        "exposure": 0.0,
+        "semantic_exposure": 0.4902933184143222,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00099",
+        "size": 8,
+        "churn": 0.7777777777777778,
+        "exposure": 0.0,
+        "semantic_exposure": 0.42768365867961394,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00216",
+        "size": 13,
+        "churn": 0.2142857142857143,
+        "exposure": 0.0,
+        "semantic_exposure": 0.4225201346640975,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00059",
+        "size": 18,
+        "churn": 0.052631578947368474,
+        "exposure": 0.19047619047619047,
+        "semantic_exposure": 0.4289913526078315,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00078",
+        "size": 6,
+        "churn": 0.5,
+        "exposure": 0.0,
+        "semantic_exposure": 0.47854030501089323,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00079",
+        "size": 7,
+        "churn": 0.5714285714285714,
+        "exposure": 0.0,
+        "semantic_exposure": 0.4187122217307976,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00080",
+        "size": 10,
+        "churn": 0.5833333333333333,
+        "exposure": 0.0,
+        "semantic_exposure": 0.31450225943647,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00081",
+        "size": 6,
+        "churn": 0.33333333333333337,
+        "exposure": 0.0,
+        "semantic_exposure": 0.4034118357487923,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00082",
+        "size": 12,
+        "churn": 0.5925925925925926,
+        "exposure": 0.0,
+        "semantic_exposure": 0.22433973904940727,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00217",
+        "size": 14,
+        "churn": 0.5714285714285714,
+        "exposure": 0.0,
+        "semantic_exposure": 0.14736414941355042,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00083",
+        "size": 21,
+        "churn": 0.04761904761904767,
+        "exposure": 0.0,
+        "semantic_exposure": 0.12725349936976876,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00088",
+        "size": 16,
+        "churn": 0.0625,
+        "exposure": 0.0,
+        "semantic_exposure": 0.4288036613675138,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00090",
+        "size": 10,
+        "churn": 0.5,
+        "exposure": 0.3,
+        "semantic_exposure": 0.5951283093882715,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00123",
+        "size": 21,
+        "churn": 0.2272727272727273,
+        "exposure": 0.0,
+        "semantic_exposure": 0.49089761772078166,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00218",
+        "size": 4,
+        "churn": 0.8888888888888888,
+        "exposure": 0.0,
+        "semantic_exposure": 0.41510695187165775,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00219",
+        "size": 10,
+        "churn": 0.5294117647058824,
+        "exposure": 0.0,
+        "semantic_exposure": 0.3691956085354452,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00200",
+        "size": 5,
+        "churn": 0.5,
+        "exposure": 0.0,
+        "semantic_exposure": 0.5939958592132506,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00105",
+        "size": 6,
+        "churn": 0.6923076923076923,
+        "exposure": 0.0,
+        "semantic_exposure": 0.16049621603027175,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00025",
+        "size": 13,
+        "churn": 0.23076923076923073,
+        "exposure": 0.0,
+        "semantic_exposure": 0.6166045014497026,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00220",
+        "size": 18,
+        "churn": 0.0,
+        "exposure": 0.0,
+        "semantic_exposure": 0.057280964975192555,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00093",
+        "size": 5,
+        "churn": 0.75,
+        "exposure": 0.0,
+        "semantic_exposure": 0.40818713450292393,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00193",
+        "size": 18,
+        "churn": 0.631578947368421,
+        "exposure": 0.04,
+        "semantic_exposure": 0.46735278670251973,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00221",
+        "size": 13,
+        "churn": 0.5,
+        "exposure": 0.16666666666666666,
+        "semantic_exposure": 0.46079795543210184,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00222",
+        "size": 5,
+        "churn": 0.5555555555555556,
+        "exposure": 0.0,
+        "semantic_exposure": 0.5245751633986928,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00097",
+        "size": 23,
+        "churn": 0.31999999999999995,
+        "exposure": 0.0,
+        "semantic_exposure": 0.6072883684042074,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00094",
+        "size": 6,
+        "churn": 0.0,
+        "exposure": 0.0,
+        "semantic_exposure": 0.3958333333333333,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00071",
+        "size": 18,
+        "churn": 0.625,
+        "exposure": 0.0,
+        "semantic_exposure": 0.361407690632894,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00098",
+        "size": 11,
+        "churn": 0.0,
+        "exposure": 0.0,
+        "semantic_exposure": 0.3818901934950528,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00100",
+        "size": 3,
+        "churn": 0.8636363636363636,
+        "exposure": 0.0,
+        "semantic_exposure": 0.25054466230936817,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00102",
+        "size": 6,
+        "churn": 0.8571428571428572,
+        "exposure": 0.0,
+        "semantic_exposure": 0.39357298474945535,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00068",
+        "size": 7,
+        "churn": 0.625,
+        "exposure": 0.7272727272727273,
+        "semantic_exposure": 0.5616959064327486,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00106",
+        "size": 12,
+        "churn": 0.6,
+        "exposure": 0.0,
+        "semantic_exposure": 0.38524525472533283,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00107",
+        "size": 8,
+        "churn": 0.11111111111111116,
+        "exposure": 0.18181818181818182,
+        "semantic_exposure": 0.4832150399685566,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00172",
+        "size": 15,
+        "churn": 0.5,
+        "exposure": 0.0,
+        "semantic_exposure": 0.37131844209842596,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00109",
+        "size": 6,
+        "churn": 0.1428571428571429,
+        "exposure": 0.0,
+        "semantic_exposure": 0.6804257204831249,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00194",
+        "size": 15,
+        "churn": 0.5,
+        "exposure": 0.15384615384615385,
+        "semantic_exposure": 0.4780554132220443,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00197",
+        "size": 3,
+        "churn": 0.75,
+        "exposure": 0.0,
+        "semantic_exposure": 0.4444444444444444,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00223",
+        "size": 7,
+        "churn": 0.625,
+        "exposure": 0.0,
+        "semantic_exposure": 0.569047619047619,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00121",
+        "size": 7,
+        "churn": 0.0,
+        "exposure": 0.0,
+        "semantic_exposure": 0.48502456538170824,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00142",
+        "size": 5,
+        "churn": 0.4444444444444444,
+        "exposure": 0.0,
+        "semantic_exposure": 0.5590686274509804,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00122",
+        "size": 5,
+        "churn": 0.8333333333333334,
+        "exposure": 0.0,
+        "semantic_exposure": 0.41500000000000004,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00085",
+        "size": 16,
+        "churn": 0.16666666666666663,
+        "exposure": 0.0,
+        "semantic_exposure": 0.418680061766909,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00023",
+        "size": 27,
+        "churn": 0.1428571428571429,
+        "exposure": 0.0,
+        "semantic_exposure": 0.33585281236634157,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00113",
+        "size": 7,
+        "churn": 0.6,
+        "exposure": 0.0,
+        "semantic_exposure": 0.6241899391335481,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00156",
+        "size": 6,
+        "churn": 0.7,
+        "exposure": 0.0,
+        "semantic_exposure": 0.6622159975101152,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00115",
+        "size": 6,
+        "churn": 0.7272727272727273,
+        "exposure": 0.18181818181818182,
+        "semantic_exposure": 0.5243925991208601,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00225",
+        "size": 8,
+        "churn": 0.7058823529411764,
+        "exposure": 0.0,
+        "semantic_exposure": 0.5189971405228758,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00226",
+        "size": 3,
+        "churn": 0.8,
+        "exposure": 0.0,
+        "semantic_exposure": 0.5499999999999999,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00119",
+        "size": 5,
+        "churn": 0.2857142857142857,
+        "exposure": 0.0,
+        "semantic_exposure": 0.4608823529411764,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00146",
+        "size": 5,
+        "churn": 0.9090909090909091,
+        "exposure": 0.0,
+        "semantic_exposure": 0.3095531163023423,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00125",
+        "size": 7,
+        "churn": 0.4545454545454546,
+        "exposure": 0.14285714285714285,
+        "semantic_exposure": 0.3698412698412699,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00126",
+        "size": 5,
+        "churn": 0.75,
+        "exposure": 0.0,
+        "semantic_exposure": 0.379766081871345,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00129",
+        "size": 5,
+        "churn": 0.8235294117647058,
+        "exposure": 0.0,
+        "semantic_exposure": 0.3425438596491228,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00227",
+        "size": 14,
+        "churn": 0.5625,
+        "exposure": 0.0,
+        "semantic_exposure": 0.32107923871302907,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00132",
+        "size": 7,
+        "churn": 0.7391304347826086,
+        "exposure": 0.0,
+        "semantic_exposure": 0.18589181286549708,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00139",
+        "size": 8,
+        "churn": 0.7692307692307692,
+        "exposure": 0.1111111111111111,
+        "semantic_exposure": 0.5509844924812031,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00140",
+        "size": 8,
+        "churn": 0.19999999999999996,
+        "exposure": 0.0,
+        "semantic_exposure": 0.17689259914492111,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00143",
+        "size": 15,
+        "churn": 0.5172413793103448,
+        "exposure": 0.0,
+        "semantic_exposure": 0.2340751388722852,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00228",
+        "size": 4,
+        "churn": 0.33333333333333337,
+        "exposure": 0.0,
+        "semantic_exposure": 0.46423611111111107,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00150",
+        "size": 6,
+        "churn": 0.8571428571428572,
+        "exposure": 0.0,
+        "semantic_exposure": 0.28694653299916456,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00187",
+        "size": 15,
+        "churn": 0.47058823529411764,
+        "exposure": 0.0,
+        "semantic_exposure": 0.43693210745779965,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00229",
+        "size": 4,
+        "churn": 0.19999999999999996,
+        "exposure": 0.0,
+        "semantic_exposure": 0.3666666666666667,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00179",
+        "size": 12,
+        "churn": 0.23076923076923073,
+        "exposure": 0.1111111111111111,
+        "semantic_exposure": 0.3639736224101549,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00033",
+        "size": 4,
+        "churn": 0.5,
+        "exposure": 0.0,
+        "semantic_exposure": 0.7070175438596491,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00168",
+        "size": 12,
+        "churn": 0.5882352941176471,
+        "exposure": 0.0,
+        "semantic_exposure": 0.4010979245499369,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00230",
+        "size": 8,
+        "churn": 0.2727272727272727,
+        "exposure": 0.0,
+        "semantic_exposure": 0.4302696078431372,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00180",
+        "size": 5,
+        "churn": 0.8,
+        "exposure": 0.14285714285714285,
+        "semantic_exposure": 0.4789935064935064,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00133",
+        "size": 6,
+        "churn": 0.625,
+        "exposure": 0.125,
+        "semantic_exposure": 0.39478485838779953,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00155",
+        "size": 15,
+        "churn": 0.2222222222222222,
+        "exposure": 0.0,
+        "semantic_exposure": 0.27241490228063114,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00157",
+        "size": 5,
+        "churn": 0.6,
+        "exposure": 0.0,
+        "semantic_exposure": 0.42096491228070176,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00037",
+        "size": 11,
+        "churn": 0.375,
+        "exposure": 0.0,
+        "semantic_exposure": 0.46172316270974484,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00158",
+        "size": 32,
+        "churn": 0.30434782608695654,
+        "exposure": 0.04,
+        "semantic_exposure": 0.053533501555923776,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00177",
+        "size": 3,
+        "churn": 0.8181818181818181,
+        "exposure": 0.0,
+        "semantic_exposure": 0.5542483660130718,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00231",
+        "size": 3,
+        "churn": 0.0,
+        "exposure": 0.0,
+        "semantic_exposure": 0.4060068471833178,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00232",
+        "size": 13,
+        "churn": 0.4285714285714286,
+        "exposure": 0.0,
+        "semantic_exposure": 0.26427058105718654,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00163",
+        "size": 9,
+        "churn": 0.33333333333333337,
+        "exposure": 0.21428571428571427,
+        "semantic_exposure": 0.6716759134302994,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00164",
+        "size": 8,
+        "churn": 0.6363636363636364,
+        "exposure": 0.0,
+        "semantic_exposure": 0.29389189886480904,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00233",
+        "size": 5,
+        "churn": 0.75,
+        "exposure": 0.0,
+        "semantic_exposure": 0.4083333333333333,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00165",
+        "size": 5,
+        "churn": 0.5454545454545454,
+        "exposure": 0.0,
+        "semantic_exposure": 0.29649069884364004,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00234",
+        "size": 6,
+        "churn": 0.7857142857142857,
+        "exposure": 0.0,
+        "semantic_exposure": 0.4674019607843137,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00235",
+        "size": 3,
+        "churn": 0.8846153846153846,
+        "exposure": 0.0,
+        "semantic_exposure": 0.1812865497076023,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00173",
+        "size": 5,
+        "churn": 0.33333333333333337,
+        "exposure": 0.3333333333333333,
+        "semantic_exposure": 0.45055555555555554,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00174",
+        "size": 10,
+        "churn": 0.16666666666666663,
+        "exposure": 0.0,
+        "semantic_exposure": 0.5205950601331036,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00175",
+        "size": 7,
+        "churn": 0.75,
+        "exposure": 0.14285714285714285,
+        "semantic_exposure": 0.29752629121824176,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00181",
+        "size": 3,
+        "churn": 0.6666666666666667,
+        "exposure": 0.0,
+        "semantic_exposure": 0.6399355877616747,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00183",
+        "size": 20,
+        "churn": 0.17391304347826086,
+        "exposure": 0.13541666666666666,
+        "semantic_exposure": 0.38362274476044894,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00184",
+        "size": 7,
+        "churn": 0.75,
+        "exposure": 0.1,
+        "semantic_exposure": 0.3804229825901652,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00101",
+        "size": 9,
+        "churn": 0.46153846153846156,
+        "exposure": 0.0,
+        "semantic_exposure": 0.5995705375971899,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00236",
+        "size": 6,
+        "churn": 0.7272727272727273,
+        "exposure": 0.39473684210526316,
+        "semantic_exposure": 0.4135641733467821,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00237",
+        "size": 8,
+        "churn": 0.4,
+        "exposure": 0.0,
+        "semantic_exposure": 0.43499795751633985,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00190",
+        "size": 4,
+        "churn": 0.4285714285714286,
+        "exposure": 0.0,
+        "semantic_exposure": 0.2982456140350877,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00185",
+        "size": 5,
+        "churn": 0.6,
+        "exposure": 0.0,
+        "semantic_exposure": 0.33937041219649916,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00196",
+        "size": 3,
+        "churn": 0.8571428571428572,
+        "exposure": 0.0,
+        "semantic_exposure": 0.3333333333333333,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00238",
+        "size": 3,
+        "churn": 0.8181818181818181,
+        "exposure": 0.0,
+        "semantic_exposure": 0.7111111111111111,
+        "from_year": 2022,
+        "to_year": 2024
+      },
+      {
+        "cluster": "L2_S00240",
+        "size": 12,
+        "churn": 0.375,
+        "exposure": 0.2727272727272727,
+        "semantic_exposure": 0.34491402337764576,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00002",
+        "size": 25,
+        "churn": 0.34375,
+        "exposure": 0.2,
+        "semantic_exposure": 0.1969251638631186,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00003",
+        "size": 34,
+        "churn": 0.24390243902439024,
+        "exposure": 0.5483870967741935,
+        "semantic_exposure": 0.2983680440021816,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00171",
+        "size": 32,
+        "churn": 0.4871794871794872,
+        "exposure": 0.02631578947368421,
+        "semantic_exposure": 0.21778714421446874,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00036",
+        "size": 15,
+        "churn": 0.7894736842105263,
+        "exposure": 0.09302325581395349,
+        "semantic_exposure": 0.20455625720073603,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00201",
+        "size": 72,
+        "churn": 0.3417721518987342,
+        "exposure": 0.08974358974358974,
+        "semantic_exposure": 0.22178757866255314,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00012",
+        "size": 49,
+        "churn": 0.3913043478260869,
+        "exposure": 0.04878048780487805,
+        "semantic_exposure": 0.20270221324678395,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00153",
+        "size": 40,
+        "churn": 0.11904761904761907,
+        "exposure": 0.029411764705882353,
+        "semantic_exposure": 0.10479157948740632,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00029",
+        "size": 21,
+        "churn": 0.6538461538461539,
+        "exposure": 0.10344827586206896,
+        "semantic_exposure": 0.34264640199514146,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00173",
+        "size": 20,
+        "churn": 0.0,
+        "exposure": 0.0,
+        "semantic_exposure": 0.08509790573120743,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00045",
+        "size": 17,
+        "churn": 0.55,
+        "exposure": 0.25,
+        "semantic_exposure": 0.3145641248826896,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00128",
+        "size": 36,
+        "churn": 0.33333333333333337,
+        "exposure": 0.2033898305084746,
+        "semantic_exposure": 0.20740606885046645,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00241",
+        "size": 5,
+        "churn": 0.0,
+        "exposure": 0.0,
+        "semantic_exposure": 0.26666666666666666,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00151",
+        "size": 26,
+        "churn": 0.21212121212121215,
+        "exposure": 0.09090909090909091,
+        "semantic_exposure": 0.1429501800109334,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00242",
+        "size": 8,
+        "churn": 0.6190476190476191,
+        "exposure": 0.0,
+        "semantic_exposure": 0.25508971216691806,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00243",
+        "size": 24,
+        "churn": 0.2962962962962963,
+        "exposure": 0.0,
+        "semantic_exposure": 0.16679866031310445,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00202",
+        "size": 13,
+        "churn": 0.5625,
+        "exposure": 0.0,
+        "semantic_exposure": 0.30115177650007374,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00141",
+        "size": 5,
+        "churn": 0.5,
+        "exposure": 0.21428571428571427,
+        "semantic_exposure": 0.33808823529411763,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00026",
+        "size": 11,
+        "churn": 0.7,
+        "exposure": 0.05263157894736842,
+        "semantic_exposure": 0.24694287441613644,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00212",
+        "size": 14,
+        "churn": 0.631578947368421,
+        "exposure": 0.0,
+        "semantic_exposure": 0.3602189606059575,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00170",
+        "size": 22,
+        "churn": 0.6585365853658536,
+        "exposure": 0.058823529411764705,
+        "semantic_exposure": 0.15585275941733742,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00013",
+        "size": 55,
+        "churn": 0.4363636363636364,
+        "exposure": 0.02,
+        "semantic_exposure": 0.15949148651163048,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00064",
+        "size": 49,
+        "churn": 0.3285714285714286,
+        "exposure": 0.0,
+        "semantic_exposure": 0.20159027444650426,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00244",
+        "size": 12,
+        "churn": 0.6111111111111112,
+        "exposure": 0.1111111111111111,
+        "semantic_exposure": 0.19665032679738562,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00054",
+        "size": 35,
+        "churn": 0.6071428571428572,
+        "exposure": 0.05357142857142857,
+        "semantic_exposure": 0.20338009622676637,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00245",
+        "size": 6,
+        "churn": 0.5714285714285714,
+        "exposure": 0.0,
+        "semantic_exposure": 0.25555555555555554,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00034",
+        "size": 18,
+        "churn": 0.4838709677419355,
+        "exposure": 0.15,
+        "semantic_exposure": 0.22952035452551448,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00110",
+        "size": 26,
+        "churn": 0.2142857142857143,
+        "exposure": 0.045454545454545456,
+        "semantic_exposure": 0.28111635973503907,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00158",
+        "size": 53,
+        "churn": 0.23728813559322037,
+        "exposure": 0.19230769230769232,
+        "semantic_exposure": 0.07710290804966377,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00004",
+        "size": 18,
+        "churn": 0.6190476190476191,
+        "exposure": 0.08064516129032258,
+        "semantic_exposure": 0.2584056173915142,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00246",
+        "size": 5,
+        "churn": 0.2857142857142857,
+        "exposure": 0.14285714285714285,
+        "semantic_exposure": 0.2375,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00027",
+        "size": 6,
+        "churn": 0.4285714285714286,
+        "exposure": 0.3,
+        "semantic_exposure": 0.43555719736060294,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00028",
+        "size": 21,
+        "churn": 0.4545454545454546,
+        "exposure": 0.13333333333333333,
+        "semantic_exposure": 0.3723954906164849,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00116",
+        "size": 21,
+        "churn": 0.3076923076923077,
+        "exposure": 0.12,
+        "semantic_exposure": 0.2779559540109412,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00007",
+        "size": 12,
+        "churn": 0.25,
+        "exposure": 0.2,
+        "semantic_exposure": 0.6733008685930512,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00068",
+        "size": 13,
+        "churn": 0.19999999999999996,
+        "exposure": 0.14285714285714285,
+        "semantic_exposure": 0.3374928774057189,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00020",
+        "size": 15,
+        "churn": 0.4,
+        "exposure": 0.11764705882352941,
+        "semantic_exposure": 0.4065057178778406,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00247",
+        "size": 30,
+        "churn": 0.32258064516129037,
+        "exposure": 0.11538461538461539,
+        "semantic_exposure": 0.3025116281343615,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00204",
+        "size": 7,
+        "churn": 0.8,
+        "exposure": 0.0,
+        "semantic_exposure": 0.24582780480613295,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00015",
+        "size": 10,
+        "churn": 0.18181818181818177,
+        "exposure": 0.0,
+        "semantic_exposure": 0.25085655314757477,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00219",
+        "size": 20,
+        "churn": 0.6363636363636364,
+        "exposure": 0.0,
+        "semantic_exposure": 0.20569750298011166,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00194",
+        "size": 37,
+        "churn": 0.26,
+        "exposure": 0.06896551724137931,
+        "semantic_exposure": 0.1370522203365693,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00019",
+        "size": 19,
+        "churn": 0.4347826086956522,
+        "exposure": 0.045454545454545456,
+        "semantic_exposure": 0.24317704627431627,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00043",
+        "size": 14,
+        "churn": 0.736842105263158,
+        "exposure": 0.2222222222222222,
+        "semantic_exposure": 0.26576990445300924,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00006",
+        "size": 8,
+        "churn": 0.6470588235294117,
+        "exposure": 0.0,
+        "semantic_exposure": 0.34523486601491715,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00016",
+        "size": 26,
+        "churn": 0.6799999999999999,
+        "exposure": 0.0,
+        "semantic_exposure": 0.23376439037395158,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00047",
+        "size": 19,
+        "churn": 0.4285714285714286,
+        "exposure": 0.0,
+        "semantic_exposure": 0.3097415091471634,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00035",
+        "size": 5,
+        "churn": 0.625,
+        "exposure": 0.0,
+        "semantic_exposure": 0.4133333333333333,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00248",
+        "size": 17,
+        "churn": 0.05555555555555558,
+        "exposure": 0.0,
+        "semantic_exposure": 0.1479462369763099,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00174",
+        "size": 41,
+        "churn": 0.44680851063829785,
+        "exposure": 0.0,
+        "semantic_exposure": 0.2159238290681179,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00049",
+        "size": 6,
+        "churn": 0.8823529411764706,
+        "exposure": 0.0,
+        "semantic_exposure": 0.2962697798417612,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00155",
+        "size": 23,
+        "churn": 0.4411764705882353,
+        "exposure": 0.13043478260869565,
+        "semantic_exposure": 0.28731651485598997,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00237",
+        "size": 9,
+        "churn": 0.41666666666666663,
+        "exposure": 0.0,
+        "semantic_exposure": 0.40663580246913583,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00139",
+        "size": 46,
+        "churn": 0.696629213483146,
+        "exposure": 0.08333333333333333,
+        "semantic_exposure": 0.26193708162600715,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00076",
+        "size": 34,
+        "churn": 0.6595744680851063,
+        "exposure": 0.018867924528301886,
+        "semantic_exposure": 0.24336417587394651,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00059",
+        "size": 36,
+        "churn": 0.4035087719298246,
+        "exposure": 0.20930232558139536,
+        "semantic_exposure": 0.32312167926680246,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00236",
+        "size": 11,
+        "churn": 0.25,
+        "exposure": 0.10714285714285714,
+        "semantic_exposure": 0.17324851384659998,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00072",
+        "size": 25,
+        "churn": 0.4545454545454546,
+        "exposure": 0.0,
+        "semantic_exposure": 0.15793017817348146,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00206",
+        "size": 9,
+        "churn": 0.25,
+        "exposure": 0.1,
+        "semantic_exposure": 0.2507045515353049,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00009",
+        "size": 13,
+        "churn": 0.7916666666666666,
+        "exposure": 0.047619047619047616,
+        "semantic_exposure": 0.262877915857792,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00163",
+        "size": 30,
+        "churn": 0.0625,
+        "exposure": 0.125,
+        "semantic_exposure": 0.19156593181243178,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00089",
+        "size": 34,
+        "churn": 0.5714285714285714,
+        "exposure": 0.3211009174311927,
+        "semantic_exposure": 0.46793357591119833,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00101",
+        "size": 40,
+        "churn": 0.33333333333333337,
+        "exposure": 0.08108108108108109,
+        "semantic_exposure": 0.3409807385760276,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00042",
+        "size": 27,
+        "churn": 0.19999999999999996,
+        "exposure": 0.037037037037037035,
+        "semantic_exposure": 0.14724100616418812,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00105",
+        "size": 13,
+        "churn": 0.33333333333333337,
+        "exposure": 0.0,
+        "semantic_exposure": 0.16619300891746713,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00033",
+        "size": 23,
+        "churn": 0.5,
+        "exposure": 0.05,
+        "semantic_exposure": 0.4950121755190903,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00022",
+        "size": 31,
+        "churn": 0.38095238095238093,
+        "exposure": 0.07142857142857142,
+        "semantic_exposure": 0.07179430970162427,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00233",
+        "size": 6,
+        "churn": 0.7,
+        "exposure": 0.0,
+        "semantic_exposure": 0.39387254901960783,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00249",
+        "size": 19,
+        "churn": 0.72,
+        "exposure": 0.025,
+        "semantic_exposure": 0.1761847251829611,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00210",
+        "size": 12,
+        "churn": 0.6153846153846154,
+        "exposure": 0.0,
+        "semantic_exposure": 0.2413914518048935,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00208",
+        "size": 25,
+        "churn": 0.3142857142857143,
+        "exposure": 0.0,
+        "semantic_exposure": 0.1103339109806602,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00103",
+        "size": 45,
+        "churn": 0.39344262295081966,
+        "exposure": 0.48863636363636365,
+        "semantic_exposure": 0.29456618347144947,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00111",
+        "size": 38,
+        "churn": 0.3584905660377359,
+        "exposure": 0.11392405063291139,
+        "semantic_exposure": 0.290211431763861,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00250",
+        "size": 16,
+        "churn": 0.625,
+        "exposure": 0.0,
+        "semantic_exposure": 0.19498716153127918,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00058",
+        "size": 55,
+        "churn": 0.38181818181818183,
+        "exposure": 0.05263157894736842,
+        "semantic_exposure": 0.3274045626705883,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00087",
+        "size": 17,
+        "churn": 0.7222222222222222,
+        "exposure": 0.0,
+        "semantic_exposure": 0.3740124905267075,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00159",
+        "size": 13,
+        "churn": 0.7894736842105263,
+        "exposure": 0.0,
+        "semantic_exposure": 0.15887517214243554,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00251",
+        "size": 12,
+        "churn": 0.3076923076923077,
+        "exposure": 0.0,
+        "semantic_exposure": 0.189801576618443,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00038",
+        "size": 21,
+        "churn": 0.5238095238095238,
+        "exposure": 0.06666666666666667,
+        "semantic_exposure": 0.32532237799334296,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00092",
+        "size": 13,
+        "churn": 0.5862068965517242,
+        "exposure": 0.038461538461538464,
+        "semantic_exposure": 0.17752291861758027,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00024",
+        "size": 13,
+        "churn": 0.8367346938775511,
+        "exposure": 0.0,
+        "semantic_exposure": 0.10357059651883989,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00252",
+        "size": 22,
+        "churn": 0.4838709677419355,
+        "exposure": 0.038461538461538464,
+        "semantic_exposure": 0.348613595866675,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00014",
+        "size": 44,
+        "churn": 0.31818181818181823,
+        "exposure": 0.05555555555555555,
+        "semantic_exposure": 0.18389215113655297,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00121",
+        "size": 13,
+        "churn": 0.7884615384615384,
+        "exposure": 0.0,
+        "semantic_exposure": 0.11436480616047179,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00221",
+        "size": 45,
+        "churn": 0.3877551020408163,
+        "exposure": 0.0,
+        "semantic_exposure": 0.13964230718184606,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00079",
+        "size": 8,
+        "churn": 0.0,
+        "exposure": 0.0,
+        "semantic_exposure": 0.24100124699002407,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00253",
+        "size": 8,
+        "churn": 0.8095238095238095,
+        "exposure": 0.0,
+        "semantic_exposure": 0.18619926040591675,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00032",
+        "size": 11,
+        "churn": 0.36363636363636365,
+        "exposure": 0.0,
+        "semantic_exposure": 0.3901196842373313,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00037",
+        "size": 20,
+        "churn": 0.2272727272727273,
+        "exposure": 0.09523809523809523,
+        "semantic_exposure": 0.25772281267637304,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00039",
+        "size": 16,
+        "churn": 0.31818181818181823,
+        "exposure": 0.0,
+        "semantic_exposure": 0.14521459899749373,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00040",
+        "size": 16,
+        "churn": 0.05882352941176472,
+        "exposure": 0.14893617021276595,
+        "semantic_exposure": 0.3669016389814899,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00120",
+        "size": 28,
+        "churn": 0.0,
+        "exposure": 0.058823529411764705,
+        "semantic_exposure": 0.09074707176400829,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00254",
+        "size": 4,
+        "churn": 0.6666666666666667,
+        "exposure": 0.25,
+        "semantic_exposure": 0.3125,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00061",
+        "size": 26,
+        "churn": 0.6129032258064516,
+        "exposure": 0.041666666666666664,
+        "semantic_exposure": 0.35140847077784704,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00255",
+        "size": 9,
+        "churn": 0.2222222222222222,
+        "exposure": 0.0,
+        "semantic_exposure": 0.15661764705882353,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00256",
+        "size": 26,
+        "churn": 0.4375,
+        "exposure": 0.0,
+        "semantic_exposure": 0.2148144543362444,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00070",
+        "size": 32,
+        "churn": 0.5789473684210527,
+        "exposure": 0.13513513513513514,
+        "semantic_exposure": 0.44780514884064937,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00257",
+        "size": 28,
+        "churn": 0.6444444444444444,
+        "exposure": 0.0,
+        "semantic_exposure": 0.18612974911577873,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00258",
+        "size": 37,
+        "churn": 0.4642857142857143,
+        "exposure": 0.0,
+        "semantic_exposure": 0.1540914594040856,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00259",
+        "size": 5,
+        "churn": 0.75,
+        "exposure": 0.0,
+        "semantic_exposure": 0.4594444444444445,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00075",
+        "size": 16,
+        "churn": 0.4814814814814815,
+        "exposure": 0.06666666666666667,
+        "semantic_exposure": 0.18097175713758532,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00230",
+        "size": 17,
+        "churn": 0.5161290322580645,
+        "exposure": 0.08333333333333333,
+        "semantic_exposure": 0.3409283630453996,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00183",
+        "size": 31,
+        "churn": 0.4444444444444444,
+        "exposure": 0.17647058823529413,
+        "semantic_exposure": 0.2827575907233848,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00041",
+        "size": 22,
+        "churn": 0.17391304347826086,
+        "exposure": 0.0,
+        "semantic_exposure": 0.20062725327538677,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00260",
+        "size": 13,
+        "churn": 0.7297297297297297,
+        "exposure": 0.13333333333333333,
+        "semantic_exposure": 0.07464932728090624,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00136",
+        "size": 27,
+        "churn": 0.5853658536585367,
+        "exposure": 0.05,
+        "semantic_exposure": 0.23151278215571217,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00090",
+        "size": 19,
+        "churn": 0.4642857142857143,
+        "exposure": 0.0,
+        "semantic_exposure": 0.2875400674906878,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00261",
+        "size": 29,
+        "churn": 0.5,
+        "exposure": 0.0,
+        "semantic_exposure": 0.1956934908452203,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00025",
+        "size": 22,
+        "churn": 0.04347826086956519,
+        "exposure": 0.0,
+        "semantic_exposure": 0.19770337076086103,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00113",
+        "size": 11,
+        "churn": 0.2727272727272727,
+        "exposure": 0.0,
+        "semantic_exposure": 0.26831837466512387,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00222",
+        "size": 27,
+        "churn": 0.24137931034482762,
+        "exposure": 0.05263157894736842,
+        "semantic_exposure": 0.36626236689962177,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00048",
+        "size": 16,
+        "churn": 0.34782608695652173,
+        "exposure": 0.0,
+        "semantic_exposure": 0.1969270833333333,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00137",
+        "size": 7,
+        "churn": 0.7777777777777778,
+        "exposure": 0.0,
+        "semantic_exposure": 0.26809056956115784,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00106",
+        "size": 19,
+        "churn": 0.6666666666666667,
+        "exposure": 0.0,
+        "semantic_exposure": 0.3279953590692979,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00052",
+        "size": 29,
+        "churn": 0.41463414634146345,
+        "exposure": 0.0,
+        "semantic_exposure": 0.1519569082879405,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00055",
+        "size": 27,
+        "churn": 0.4473684210526315,
+        "exposure": 0.0,
+        "semantic_exposure": 0.12387675312801676,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00057",
+        "size": 19,
+        "churn": 0.41666666666666663,
+        "exposure": 0.0,
+        "semantic_exposure": 0.2686610300815124,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00134",
+        "size": 10,
+        "churn": 0.23076923076923073,
+        "exposure": 0.0,
+        "semantic_exposure": 0.2392831770389315,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00060",
+        "size": 22,
+        "churn": 0.0,
+        "exposure": 0.0,
+        "semantic_exposure": 0.059261793379088615,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00062",
+        "size": 18,
+        "churn": 0.11111111111111116,
+        "exposure": 0.10526315789473684,
+        "semantic_exposure": 0.3140571100250606,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00262",
+        "size": 10,
+        "churn": 0.9166666666666666,
+        "exposure": 0.0,
+        "semantic_exposure": 0.11511243386243386,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00065",
+        "size": 46,
+        "churn": 0.6352941176470588,
+        "exposure": 0.08823529411764706,
+        "semantic_exposure": 0.18891125466215059,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00066",
+        "size": 22,
+        "churn": 0.0,
+        "exposure": 0.0,
+        "semantic_exposure": 0.06256238909947044,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00226",
+        "size": 9,
+        "churn": 0.64,
+        "exposure": 0.0,
+        "semantic_exposure": 0.18853405655846542,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00135",
+        "size": 29,
+        "churn": 0.6756756756756757,
+        "exposure": 0.06896551724137931,
+        "semantic_exposure": 0.30858692867747817,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00056",
+        "size": 26,
+        "churn": 0.625,
+        "exposure": 0.20689655172413793,
+        "semantic_exposure": 0.2192888795200867,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00071",
+        "size": 20,
+        "churn": 0.72,
+        "exposure": 0.2702702702702703,
+        "semantic_exposure": 0.2748559092210492,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00190",
+        "size": 11,
+        "churn": 0.5,
+        "exposure": 0.2857142857142857,
+        "semantic_exposure": 0.32409061098429653,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00115",
+        "size": 22,
+        "churn": 0.5714285714285714,
+        "exposure": 0.21052631578947367,
+        "semantic_exposure": 0.35686090738443893,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00263",
+        "size": 9,
+        "churn": 0.8461538461538461,
+        "exposure": 0.0,
+        "semantic_exposure": 0.07439245767419142,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00023",
+        "size": 41,
+        "churn": 0.16666666666666663,
+        "exposure": 0.0625,
+        "semantic_exposure": 0.23002575669660366,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00142",
+        "size": 18,
+        "churn": 0.4545454545454546,
+        "exposure": 0.07142857142857142,
+        "semantic_exposure": 0.30441698177626075,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00085",
+        "size": 28,
+        "churn": 0.3589743589743589,
+        "exposure": 0.0,
+        "semantic_exposure": 0.28213925228499276,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00193",
+        "size": 16,
+        "churn": 0.5172413793103448,
+        "exposure": 0.0,
+        "semantic_exposure": 0.13118976011630643,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00063",
+        "size": 41,
+        "churn": 0.26530612244897955,
+        "exposure": 0.0,
+        "semantic_exposure": 0.06854173914878073,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00080",
+        "size": 21,
+        "churn": 0.17391304347826086,
+        "exposure": 0.0,
+        "semantic_exposure": 0.2130547144467816,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00081",
+        "size": 10,
+        "churn": 0.5,
+        "exposure": 0.0,
+        "semantic_exposure": 0.3158148278011532,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00217",
+        "size": 26,
+        "churn": 0.48275862068965514,
+        "exposure": 0.0,
+        "semantic_exposure": 0.11020311966563537,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00099",
+        "size": 13,
+        "churn": 0.8928571428571429,
+        "exposure": 0.0,
+        "semantic_exposure": 0.30384436016125826,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00133",
+        "size": 13,
+        "churn": 0.5333333333333333,
+        "exposure": 0.575,
+        "semantic_exposure": 0.33676154856495416,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00176",
+        "size": 13,
+        "churn": 0.8222222222222222,
+        "exposure": 0.0,
+        "semantic_exposure": 0.21044295872467195,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00109",
+        "size": 37,
+        "churn": 0.33333333333333337,
+        "exposure": 0.0,
+        "semantic_exposure": 0.2659707673057559,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00097",
+        "size": 78,
+        "churn": 0.1071428571428571,
+        "exposure": 0.06382978723404255,
+        "semantic_exposure": 0.1988006479878072,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00238",
+        "size": 32,
+        "churn": 0.1428571428571429,
+        "exposure": 0.07142857142857142,
+        "semantic_exposure": 0.2413584061158495,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00264",
+        "size": 18,
+        "churn": 0.6086956521739131,
+        "exposure": 0.0,
+        "semantic_exposure": 0.10343675517216519,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00149",
+        "size": 14,
+        "churn": 0.0,
+        "exposure": 0.0,
+        "semantic_exposure": 0.17891775131105075,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00083",
+        "size": 20,
+        "churn": 0.0,
+        "exposure": 0.0,
+        "semantic_exposure": 0.06907271651350598,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00265",
+        "size": 6,
+        "churn": 0.84,
+        "exposure": 0.0,
+        "semantic_exposure": 0.39931088377379936,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00086",
+        "size": 9,
+        "churn": 0.88,
+        "exposure": 0.0,
+        "semantic_exposure": 0.36469777467369485,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00216",
+        "size": 15,
+        "churn": 0.23529411764705888,
+        "exposure": 0.0,
+        "semantic_exposure": 0.260921207537172,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00266",
+        "size": 15,
+        "churn": 0.5,
+        "exposure": 0.0,
+        "semantic_exposure": 0.41641958131357787,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00267",
+        "size": 7,
+        "churn": 0.8461538461538461,
+        "exposure": 0.0,
+        "semantic_exposure": 0.2698666308628715,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00268",
+        "size": 10,
+        "churn": 0.16666666666666663,
+        "exposure": 0.0,
+        "semantic_exposure": 0.32046783625730996,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00088",
+        "size": 23,
+        "churn": 0.43999999999999995,
+        "exposure": 0.0,
+        "semantic_exposure": 0.24390730317778103,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00067",
+        "size": 7,
+        "churn": 0.8181818181818181,
+        "exposure": 0.0,
+        "semantic_exposure": 0.24190355568064545,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00232",
+        "size": 13,
+        "churn": 0.44999999999999996,
+        "exposure": 0.0,
+        "semantic_exposure": 0.3159815391007342,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00220",
+        "size": 18,
+        "churn": 0.052631578947368474,
+        "exposure": 0.0,
+        "semantic_exposure": 0.028840422862161992,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00094",
+        "size": 6,
+        "churn": 0.85,
+        "exposure": 0.0,
+        "semantic_exposure": 0.2318763616557734,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00098",
+        "size": 12,
+        "churn": 0.0,
+        "exposure": 0.0,
+        "semantic_exposure": 0.1829670544453826,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00104",
+        "size": 26,
+        "churn": 0.46808510638297873,
+        "exposure": 0.0,
+        "semantic_exposure": 0.05304505784526908,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00107",
+        "size": 16,
+        "churn": 0.5,
+        "exposure": 0.0,
+        "semantic_exposure": 0.28663410377690984,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00172",
+        "size": 15,
+        "churn": 0.7878787878787878,
+        "exposure": 0.0,
+        "semantic_exposure": 0.2194561530265376,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00269",
+        "size": 5,
+        "churn": 0.2857142857142857,
+        "exposure": 0.0,
+        "semantic_exposure": 0.2129175293305728,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00227",
+        "size": 17,
+        "churn": 0.6799999999999999,
+        "exposure": 0.2,
+        "semantic_exposure": 0.28316791185239953,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00197",
+        "size": 17,
+        "churn": 0.7428571428571429,
+        "exposure": 0.0,
+        "semantic_exposure": 0.0804154995331466,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00123",
+        "size": 38,
+        "churn": 0.625,
+        "exposure": 0.0,
+        "semantic_exposure": 0.34299640928647734,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00228",
+        "size": 13,
+        "churn": 0.5517241379310345,
+        "exposure": 0.0,
+        "semantic_exposure": 0.1812594676565265,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00179",
+        "size": 17,
+        "churn": 0.05555555555555558,
+        "exposure": 0.0,
+        "semantic_exposure": 0.19274308083273436,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00270",
+        "size": 13,
+        "churn": 0.375,
+        "exposure": 0.0,
+        "semantic_exposure": 0.3391563718508799,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00271",
+        "size": 19,
+        "churn": 0.5714285714285714,
+        "exposure": 0.0,
+        "semantic_exposure": 0.1703236095915744,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00272",
+        "size": 5,
+        "churn": 0.7727272727272727,
+        "exposure": 0.0,
+        "semantic_exposure": 0.2533333333333333,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00223",
+        "size": 7,
+        "churn": 0.9,
+        "exposure": 0.0,
+        "semantic_exposure": 0.2575163398692811,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00093",
+        "size": 6,
+        "churn": 0.2857142857142857,
+        "exposure": 0.0,
+        "semantic_exposure": 0.28877370193159674,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00078",
+        "size": 13,
+        "churn": 0.625,
+        "exposure": 0.08333333333333333,
+        "semantic_exposure": 0.3815056675350793,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00017",
+        "size": 11,
+        "churn": 0.736842105263158,
+        "exposure": 0.0,
+        "semantic_exposure": 0.20770202020202022,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00154",
+        "size": 4,
+        "churn": 0.19999999999999996,
+        "exposure": 0.0,
+        "semantic_exposure": 0.2342691622103387,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00273",
+        "size": 3,
+        "churn": 0.9361702127659575,
+        "exposure": 0.0,
+        "semantic_exposure": 0.1477124183006536,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00125",
+        "size": 12,
+        "churn": 0.6428571428571428,
+        "exposure": 0.0,
+        "semantic_exposure": 0.24217460010319916,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00119",
+        "size": 12,
+        "churn": 0.5833333333333333,
+        "exposure": 0.16666666666666666,
+        "semantic_exposure": 0.34543233072644836,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00187",
+        "size": 20,
+        "churn": 0.5,
+        "exposure": 0.058823529411764705,
+        "semantic_exposure": 0.3042677356144747,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00130",
+        "size": 5,
+        "churn": 0.6,
+        "exposure": 0.0,
+        "semantic_exposure": 0.31676470588235295,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00168",
+        "size": 16,
+        "churn": 0.5,
+        "exposure": 0.13333333333333333,
+        "semantic_exposure": 0.19602866906360816,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00126",
+        "size": 9,
+        "churn": 0.2222222222222222,
+        "exposure": 0.0,
+        "semantic_exposure": 0.3181984084705518,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00140",
+        "size": 10,
+        "churn": 0.7894736842105263,
+        "exposure": 0.0,
+        "semantic_exposure": 0.2236372180451128,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00143",
+        "size": 31,
+        "churn": 0.2727272727272727,
+        "exposure": 0.6181818181818182,
+        "semantic_exposure": 0.2539044092460483,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00274",
+        "size": 8,
+        "churn": 0.9137931034482758,
+        "exposure": 0.0,
+        "semantic_exposure": 0.34270833333333334,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00181",
+        "size": 17,
+        "churn": 0.2857142857142857,
+        "exposure": 0.0,
+        "semantic_exposure": 0.1807271795187792,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00275",
+        "size": 7,
+        "churn": 0.75,
+        "exposure": 0.0,
+        "semantic_exposure": 0.271152518978606,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00229",
+        "size": 9,
+        "churn": 0.8,
+        "exposure": 0.0,
+        "semantic_exposure": 0.29564270152505445,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00091",
+        "size": 8,
+        "churn": 0.3846153846153846,
+        "exposure": 0.0,
+        "semantic_exposure": 0.3015995872033024,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00200",
+        "size": 14,
+        "churn": 0.631578947368421,
+        "exposure": 0.0,
+        "semantic_exposure": 0.29843525183160696,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00276",
+        "size": 7,
+        "churn": 0.5625,
+        "exposure": 0.0,
+        "semantic_exposure": 0.15932773109243697,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00231",
+        "size": 6,
+        "churn": 0.5,
+        "exposure": 0.14285714285714285,
+        "semantic_exposure": 0.32356882811604176,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00277",
+        "size": 5,
+        "churn": 0.8571428571428572,
+        "exposure": 0.0,
+        "semantic_exposure": 0.24166666666666664,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00164",
+        "size": 10,
+        "churn": 0.7142857142857143,
+        "exposure": 0.09090909090909091,
+        "semantic_exposure": 0.4520554226475279,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00279",
+        "size": 10,
+        "churn": 0.6875,
+        "exposure": 0.2641509433962264,
+        "semantic_exposure": 0.34640783945157005,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00280",
+        "size": 7,
+        "churn": 0.4545454545454546,
+        "exposure": 0.0,
+        "semantic_exposure": 0.25756015220733597,
+        "from_year": 2024,
+        "to_year": 2026
+      },
+      {
+        "cluster": "L2_S00185",
+        "size": 6,
+        "churn": 0.8823529411764706,
+        "exposure": 0.0,
+        "semantic_exposure": 0.4211737472766885,
+        "from_year": 2024,
+        "to_year": 2026
+      }
+    ]
+  }
+}
