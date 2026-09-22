@@ -52,7 +52,7 @@ def build_snapshot(data, cutoff_year):
         included_edges.append(e)
         referenced_ids.update(members)
 
-    for nid in referenced_ids:
+    for nid in sorted(referenced_ids):  # sorted so quality_notes order is reproducible
         node = nodes_by_id[nid]
         fsy = _node_present_year(node)
         if fsy is not None and fsy > cutoff_year:

@@ -5,18 +5,18 @@
     "n_concept_nodes": 1406,
     "n_hyperedges": 405,
     "node_type_distribution": {
-      "claim": 179,
-      "task": 197,
-      "technique": 247,
-      "problem": 146,
-      "cited_work": 114,
+      "article": 16,
       "author": 105,
-      "dataset": 87,
+      "cited_work": 114,
+      "claim": 179,
       "component": 221,
+      "dataset": 87,
+      "future_topic": 43,
       "method": 138,
       "metric": 34,
-      "future_topic": 43,
-      "article": 16
+      "problem": 146,
+      "task": 197,
+      "technique": 247
     },
     "relation_type_distribution": {
       "addresses": 16,
@@ -70,16 +70,16 @@
     ],
     "n_quality_notes": 22,
     "quality_notes_sample": [
-      "node data_00130 (first_seen_year=2023) referenced by an edge with year<=2020: inconsistent provenance, kept anyway",
-      "node data_00123 (first_seen_year=2023) referenced by an edge with year<=2020: inconsistent provenance, kept anyway",
+      "node data_00013 (first_seen_year=2025) referenced by an edge with year<=2020: inconsistent provenance, kept anyway",
+      "node data_00014 (first_seen_year=2025) referenced by an edge with year<=2020: inconsistent provenance, kept anyway",
+      "node data_00106 (first_seen_year=2024) referenced by an edge with year<=2020: inconsistent provenance, kept anyway",
       "node data_00107 (first_seen_year=2024) referenced by an edge with year<=2020: inconsistent provenance, kept anyway",
-      "node meth_00134 (first_seen_year=2025) referenced by an edge with year<=2020: inconsistent provenance, kept anyway",
-      "node meth_00082 (first_seen_year=2026) referenced by an edge with year<=2020: inconsistent provenance, kept anyway",
-      "node meth_00171 (first_seen_year=2021) referenced by an edge with year<=2020: inconsistent provenance, kept anyway",
+      "node data_00108 (first_seen_year=2024) referenced by an edge with year<=2020: inconsistent provenance, kept anyway",
       "node data_00109 (first_seen_year=2024) referenced by an edge with year<=2020: inconsistent provenance, kept anyway",
-      "node data_00167 (first_seen_year=2026) referenced by an edge with year<=2020: inconsistent provenance, kept anyway",
-      "node meth_00329 (first_seen_year=2023) referenced by an edge with year<=2020: inconsistent provenance, kept anyway",
-      "node data_00013 (first_seen_year=2025) referenced by an edge with year<=2020: inconsistent provenance, kept anyway"
+      "node data_00123 (first_seen_year=2023) referenced by an edge with year<=2020: inconsistent provenance, kept anyway",
+      "node data_00130 (first_seen_year=2023) referenced by an edge with year<=2020: inconsistent provenance, kept anyway",
+      "node data_00131 (first_seen_year=2023) referenced by an edge with year<=2020: inconsistent provenance, kept anyway",
+      "node data_00164 (first_seen_year=2025) referenced by an edge with year<=2020: inconsistent provenance, kept anyway"
     ]
   },
   "2022": {
@@ -88,18 +88,18 @@
     "n_concept_nodes": 2046,
     "n_hyperedges": 589,
     "node_type_distribution": {
-      "task": 263,
+      "article": 23,
       "author": 131,
-      "claim": 259,
-      "technique": 345,
-      "problem": 198,
       "cited_work": 214,
+      "claim": 259,
+      "component": 309,
       "dataset": 142,
       "future_topic": 67,
-      "component": 309,
       "method": 200,
       "metric": 49,
-      "article": 23
+      "problem": 198,
+      "task": 263,
+      "technique": 345
     },
     "relation_type_distribution": {
       "addresses": 22,
@@ -158,16 +158,16 @@
     ],
     "n_quality_notes": 36,
     "quality_notes_sample": [
-      "node data_00113 (first_seen_year=2024) referenced by an edge with year<=2022: inconsistent provenance, kept anyway",
-      "node data_00130 (first_seen_year=2023) referenced by an edge with year<=2022: inconsistent provenance, kept anyway",
-      "node data_00216 (first_seen_year=2024) referenced by an edge with year<=2022: inconsistent provenance, kept anyway",
-      "node meth_00037 (first_seen_year=2023) referenced by an edge with year<=2022: inconsistent provenance, kept anyway",
-      "node data_00123 (first_seen_year=2023) referenced by an edge with year<=2022: inconsistent provenance, kept anyway",
+      "node arti_00051 (first_seen_year=2024) referenced by an edge with year<=2022: inconsistent provenance, kept anyway",
+      "node data_00013 (first_seen_year=2025) referenced by an edge with year<=2022: inconsistent provenance, kept anyway",
+      "node data_00014 (first_seen_year=2025) referenced by an edge with year<=2022: inconsistent provenance, kept anyway",
+      "node data_00106 (first_seen_year=2024) referenced by an edge with year<=2022: inconsistent provenance, kept anyway",
       "node data_00107 (first_seen_year=2024) referenced by an edge with year<=2022: inconsistent provenance, kept anyway",
-      "node meth_00134 (first_seen_year=2025) referenced by an edge with year<=2022: inconsistent provenance, kept anyway",
-      "node meth_00082 (first_seen_year=2026) referenced by an edge with year<=2022: inconsistent provenance, kept anyway",
-      "node data_00218 (first_seen_year=2024) referenced by an edge with year<=2022: inconsistent provenance, kept anyway",
-      "node meth_00437 (first_seen_year=2024) referenced by an edge with year<=2022: inconsistent provenance, kept anyway"
+      "node data_00108 (first_seen_year=2024) referenced by an edge with year<=2022: inconsistent provenance, kept anyway",
+      "node data_00109 (first_seen_year=2024) referenced by an edge with year<=2022: inconsistent provenance, kept anyway",
+      "node data_00111 (first_seen_year=2024) referenced by an edge with year<=2022: inconsistent provenance, kept anyway",
+      "node data_00112 (first_seen_year=2024) referenced by an edge with year<=2022: inconsistent provenance, kept anyway",
+      "node data_00113 (first_seen_year=2024) referenced by an edge with year<=2022: inconsistent provenance, kept anyway"
     ],
     "new_nodes_since_prev": 673,
     "node_growth_pct": 44.1
@@ -178,18 +178,18 @@
     "n_concept_nodes": 3895,
     "n_hyperedges": 1063,
     "node_type_distribution": {
-      "task": 517,
+      "article": 39,
       "author": 250,
+      "cited_work": 411,
       "claim": 505,
       "component": 608,
-      "technique": 673,
-      "problem": 415,
-      "method": 358,
-      "cited_work": 411,
-      "article": 39,
       "dataset": 214,
       "future_topic": 121,
-      "metric": 73
+      "method": 358,
+      "metric": 73,
+      "problem": 415,
+      "task": 517,
+      "technique": 673
     },
     "relation_type_distribution": {
       "addresses": 37,
@@ -256,16 +256,16 @@
     ],
     "n_quality_notes": 20,
     "quality_notes_sample": [
-      "node meth_00134 (first_seen_year=2025) referenced by an edge with year<=2024: inconsistent provenance, kept anyway",
-      "node meth_00082 (first_seen_year=2026) referenced by an edge with year<=2024: inconsistent provenance, kept anyway",
-      "node data_00188 (first_seen_year=2026) referenced by an edge with year<=2024: inconsistent provenance, kept anyway",
+      "node arti_00050 (first_seen_year=2025) referenced by an edge with year<=2024: inconsistent provenance, kept anyway",
+      "node data_00013 (first_seen_year=2025) referenced by an edge with year<=2024: inconsistent provenance, kept anyway",
+      "node data_00014 (first_seen_year=2025) referenced by an edge with year<=2024: inconsistent provenance, kept anyway",
       "node data_00015 (first_seen_year=2025) referenced by an edge with year<=2024: inconsistent provenance, kept anyway",
       "node data_00099 (first_seen_year=2026) referenced by an edge with year<=2024: inconsistent provenance, kept anyway",
-      "node data_00167 (first_seen_year=2026) referenced by an edge with year<=2024: inconsistent provenance, kept anyway",
-      "node data_00187 (first_seen_year=2026) referenced by an edge with year<=2024: inconsistent provenance, kept anyway",
       "node data_00100 (first_seen_year=2026) referenced by an edge with year<=2024: inconsistent provenance, kept anyway",
-      "node data_00013 (first_seen_year=2025) referenced by an edge with year<=2024: inconsistent provenance, kept anyway",
-      "node data_00195 (first_seen_year=2026) referenced by an edge with year<=2024: inconsistent provenance, kept anyway"
+      "node data_00164 (first_seen_year=2025) referenced by an edge with year<=2024: inconsistent provenance, kept anyway",
+      "node data_00167 (first_seen_year=2026) referenced by an edge with year<=2024: inconsistent provenance, kept anyway",
+      "node data_00168 (first_seen_year=2026) referenced by an edge with year<=2024: inconsistent provenance, kept anyway",
+      "node data_00170 (first_seen_year=2025) referenced by an edge with year<=2024: inconsistent provenance, kept anyway"
     ],
     "new_nodes_since_prev": 1984,
     "node_growth_pct": 90.2
@@ -276,18 +276,18 @@
     "n_concept_nodes": 5428,
     "n_hyperedges": 1429,
     "node_type_distribution": {
+      "article": 52,
+      "author": 318,
+      "cited_work": 580,
       "claim": 690,
       "component": 855,
-      "future_topic": 178,
-      "task": 732,
-      "cited_work": 580,
-      "technique": 962,
-      "method": 448,
-      "author": 318,
-      "problem": 634,
       "dataset": 259,
+      "future_topic": 178,
+      "method": 448,
       "metric": 90,
-      "article": 52
+      "problem": 634,
+      "task": 732,
+      "technique": 962
     },
     "relation_type_distribution": {
       "addresses": 51,
