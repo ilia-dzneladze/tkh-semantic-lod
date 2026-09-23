@@ -129,9 +129,7 @@ def main():
         })
     print(f"[{time.time()-t0:.1f}s] branching sweep done")
 
-    # rerank beta sweep at the shipped (FINAL_B0, FINAL_B1) pool, DESIGN_NOTES.md
-    # section 15: does blending in the level-1 ancestor's label+gloss
-    # score let drill-down beat flat, not just match it?
+    # beta sweep at the shipped (FINAL_B0, FINAL_B1) pool, DESIGN_NOTES.md section 14
     beta_sweep_rows = []
     for beta in BETA_SWEEP:
         recalls, precisions, scored = [], [], []

@@ -14,7 +14,7 @@ from .collapse import build_coarse_hyperedges, coarse_structural_affinity
 from .temporal import clusters_from_labels, track_across_snapshots
 
 LEVEL_TARGETS = [12, 50, 200]  # level 0 (coarsest) .. level 2 (finest super-node level)
-ALPHA = 0.3  # see DESIGN_NOTES.md: structural/semantic combination (alpha ablation)
+ALPHA = 0.3  # see DESIGN_NOTES.md sections 7 and 17
 KNN_K = 15
 COARSENING = "dendrogram"  # or "multilevel"; see DESIGN_NOTES.md section 9
 

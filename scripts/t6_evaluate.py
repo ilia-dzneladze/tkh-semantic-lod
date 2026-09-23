@@ -30,23 +30,9 @@ DATA_PATH = ROOT / "data" / "tkh_collection10.json"
 OUT_DIR = ROOT / "outputs"
 LEVEL_TARGETS = [12, 50, 200]
 EXTRINSIC_K = 20
-# At alpha=0.5 (original run): b0=3,b1=3 cut recall roughly in half vs
-# flat, b0=5,b1=5 matched flat exactly at ~16% of the candidate pool.
-# After the alpha ablation moved the default to 0.3 (DESIGN_NOTES.md section
-# 7), the clustering changed enough that b0=5,b1=5 no longer matches flat
-# (0.027 vs flat's 0.032 recall) -- re-swept via t6_patch_extrinsic.py:
-# b0=8,b1=8 is the narrowest value that matches flat's recall and
-# precision exactly again, at ~25% of the candidate pool (774 vs 3104).
-# Wider than that doesn't help further, same saturation pattern as before.
-# See DESIGN_NOTES.md section 14.
+# shipped drill-down setting: branching (b0, b1) and the ancestor-score
+# blend beta, both picked in-sample; see DESIGN_NOTES.md section 14
 DRILL_B0, DRILL_B1 = 8, 8
-# Matching flat was the ceiling for pool restriction alone (drill-down can
-# only ever rank a subset of flat's pool with flat's own scoring function,
-# so it can tie flat, never beat it). Blending in each candidate's level-1
-# ancestor label+gloss score gives the ranker real information flat
-# doesn't have. Swept beta 0.0-1.0 (DESIGN_NOTES.md section 14): beta=0.6 beats
-# flat's recall and precision outright at the same candidate count as
-# DRILL_B0/B1 above, not just matches it. See DESIGN_NOTES.md section 14.
 DRILL_BETA = 0.6
 
 

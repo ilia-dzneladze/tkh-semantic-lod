@@ -1,27 +1,15 @@
 """T6 extrinsic task: coarse-to-fine drill-down vs. a flat baseline,
 scored against questions.csv / ground_truth.json's expected_methods.
 
-Both approaches start from the same per-node cosine similarity (question
-embedding vs. node embedding). Flat ranks by that alone. Drill-down also
-restricts to a hierarchy-selected pool AND blends in each candidate's
-level-1 ancestor's label+gloss score (see `beta` in `hierarchy_drilldown`,
-DESIGN_NOTES.md section 14 "beating flat, not just matching it"), which is
-the one piece of information flat has no access to at all. Level 0/1
-selection uses the label+gloss text (what an agent reading the hierarchy
-would actually see); level 2 has no label (T5 only covers levels 0-1), so
-drill-down falls back to node embeddings for the candidate pool itself, a
-real limitation worth stating rather than glossing over.
+Both start from the same per-node cosine similarity to the question. Flat
+ranks by that alone. Drill-down routes through level-0 and level-1
+label+gloss text to a candidate pool, and ranks it with each candidate's
+level-1 ancestor score blended in (`beta` in `hierarchy_drilldown`).
+Level 2 has no labels, so the pool itself is ranked on node embeddings.
 
-Node embeddings here are NOT the bare surface_form used for clustering.
-Checked that first and it badly underperforms: a method name like "MACE"
-is 4 characters with almost no semantic content on its own, so a sentence
-embedding model can't relate it to a full natural-language question
-(measured cosine similarity ~0.03, versus ~0.79 for an unrelated but
-verbose "problem" node that happens to share vocabulary with the
-question). Fix: embed each candidate node together with the surface forms
-of its 1-hop hyperedge neighborhood (what it co-occurs with), which gives
-short names enough surrounding text to actually match against, and lifted
-the same example to ~0.56. See DESIGN_NOTES.md section 14.
+Candidates are embedded with their hyperedge neighbourhood added when the
+surface form is short (`build_retrieval_texts`), not by the bare surface
+form used for clustering. See DESIGN_NOTES.md section 14.
 """
 from collections import Counter
 import numpy as np

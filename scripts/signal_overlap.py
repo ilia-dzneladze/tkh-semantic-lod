@@ -3,7 +3,7 @@ that drives clustering? Both read the same surface_form text, so this
 measures how much they agree, per snapshot: the share of MPNet k-NN pairs
 that share at least one TF-IDF term against the same share for random
 pairs, the mean TF-IDF cosine of each, and the rank correlation of the two
-similarities over random pairs. See DESIGN_NOTES.md section 21.
+similarities over random pairs. See DESIGN_NOTES.md section 5.
 """
 import json
 import sys
