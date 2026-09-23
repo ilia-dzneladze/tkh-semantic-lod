@@ -17,7 +17,9 @@ from tkh.io import load_tkh, build_snapshot, SNAPSHOT_CUTOFFS  # noqa: E402
 from tkh.embeddings import encode_semantic  # noqa: E402
 from tkh.eval.coherence import fit_tfidf, coherence_vs_null  # noqa: E402
 from tkh.eval.stability import perturbation_stability, cross_snapshot_stability  # noqa: E402
-from tkh.eval.faithfulness import check_hierarchy_faithfulness  # noqa: E402
+from tkh.eval.faithfulness import (  # noqa: E402
+    check_hierarchy_faithfulness, check_provenance_faithfulness, load_article_titles)
+from tkh.labeling import unlabelled_super_nodes  # noqa: E402
 from tkh.eval.extrinsic import (  # noqa: E402
     METHOD_LIKE_TYPES, match_ground_truth_methods, flat_baseline,
     hierarchy_drilldown, score_retrieval, build_retrieval_texts,
@@ -86,9 +88,17 @@ def run_stability(snapshots, hierarchies):
 
 def run_faithfulness(snapshots, hierarchies):
     out = {}
+    titles = load_article_titles(ROOT / "data" / "collection10_articles.csv")
     for year, snap in snapshots.items():
         out[year] = check_hierarchy_faithfulness(hierarchies[year], snap, levels=(0, 1), seed=0)
+        # same glosses against their members' source-paper titles, which
+        # neither labeller nor clustering saw: DESIGN_NOTES.md section 22
+        out[year]["provenance"] = check_provenance_faithfulness(
+            hierarchies[year], snap, titles, levels=(0, 1), seed=0)
         r = out[year]
+        if not r["n_checked"]:
+            log(f"faithfulness {year}: nothing checkable ({r['n_labelled']} labelled)")
+            continue
         log(f"faithfulness {year} done: checked {r['n_checked']}/{r['n_labelled']} "
             f"(contradiction real={r['real_contradiction_rate']:.3f} control={r['control_contradiction_rate']:.3f}; "
             f"not-entailed real={r['real_not_entailed_rate']:.3f} control={r['control_not_entailed_rate']:.3f})")
@@ -185,6 +195,12 @@ def main():
     hierarchies = {y: json.loads((OUT_DIR / "snapshots" / str(y) / "hierarchy.json").read_text(encoding="utf-8"))
                    for y in SNAPSHOT_CUTOFFS}
     log("loaded snapshots and hierarchies")
+
+    if {"faithfulness", "extrinsic"} & set(only):
+        missing = {y: len(unlabelled_super_nodes(h)) for y, h in hierarchies.items()}
+        if any(missing.values()):
+            sys.exit(f"hierarchy.json has unlabelled level-0/1 super-nodes {missing}. "
+                     f"run_pipeline.py writes labels as null; run scripts/t5_apply_labels.py first.")
 
     metrics_path = OUT_DIR / "metrics.json"
     metrics = {}

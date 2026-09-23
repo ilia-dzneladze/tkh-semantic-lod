@@ -71,7 +71,7 @@ def fig_stability(metrics):
 
     ax.bar([i - w / 2 for i in x], pert_mean, width=w, color=BLUE, label="Perturbation (5 seeds, 10% edges removed)",
            yerr=pert_err, capsize=3, error_kw={"linewidth": 1, "ecolor": TEXT})
-    ax.bar([i + w / 2 for i in x], cross_mean, width=w, color=ORANGE, label="Cross-snapshot (3 transitions)",
+    ax.bar([i + w / 2 for i in x], cross_mean, width=w, color=ORANGE, label="Cross-snapshot (3 transitions, half-sampling CI)",
            yerr=cross_err, capsize=3, error_kw={"linewidth": 1, "ecolor": TEXT})
 
     ax.set_xticks(list(x))
@@ -90,6 +90,7 @@ def fig_extrinsic_sweep(metrics):
     sweep = sorted(ext["branching_factor_sweep"], key=lambda r: r["mean_candidates_scored"])
     flat_recall = ext["summary"]["flat_mean_recall"]
     flat_scored = ext["summary"]["flat_mean_candidates_scored"]
+    n_q = ext["summary"]["n_questions_scored"]
 
     fig, ax = plt.subplots(figsize=(6, 3.6))
     xs = [r["mean_candidates_scored"] for r in sweep]
@@ -101,12 +102,13 @@ def fig_extrinsic_sweep(metrics):
             ax.annotate(f"({r['b0']},{r['b1']})", (r["mean_candidates_scored"], r["mean_recall"]),
                         textcoords="offset points", xytext=(6, -12), fontsize=8.5, color=TEXT)
 
-    ax.scatter([flat_scored], [flat_recall], color=ORANGE, s=55, zorder=5, marker="D", label="Flat baseline (all 3104)")
+    ax.scatter([flat_scored], [flat_recall], color=ORANGE, s=55, zorder=5, marker="D", label=f"Flat baseline (all {flat_scored:.0f})")
     ax.axhline(flat_recall, color=ORANGE, linewidth=0.8, linestyle=":", alpha=0.6)
 
     ax.set_xlabel("mean candidates scored per question")
     ax.set_ylabel("mean recall@20")
-    ax.set_title("Drill-down branching sweep vs. flat baseline (2026, 14 questions)", loc="left", fontsize=10.5)
+    ax.set_title(f"Drill-down branching sweep vs. flat baseline (2026, {n_q} questions)",
+                 loc="left", fontsize=10.5)
     ax.legend(frameon=False, loc="lower right", fontsize=9)
     fig.tight_layout()
     fig.savefig(OUT_DIR / "extrinsic_branching_sweep.png", dpi=150)
@@ -118,6 +120,7 @@ def fig_rerank_sweep(metrics):
     sweep = sorted(ext["rerank_beta_sweep"], key=lambda r: r["beta"])
     flat_recall = ext["summary"]["flat_mean_recall"]
     shipped_beta = ext["summary"]["branching"]["beta"]
+    n_q = ext["summary"]["n_questions_scored"]
 
     fig, ax = plt.subplots(figsize=(6, 3.6))
     xs = [r["beta"] for r in sweep]
@@ -134,7 +137,8 @@ def fig_rerank_sweep(metrics):
 
     ax.set_xlabel("beta (0 = own embedding only, 1 = ancestor label+gloss only)")
     ax.set_ylabel("mean recall@20")
-    ax.set_title("Hierarchy-context reranking vs. flat baseline (2026, 14 questions)", loc="left", fontsize=10.5)
+    ax.set_title(f"Hierarchy-context reranking vs. flat baseline (2026, {n_q} questions)",
+                 loc="left", fontsize=10.5)
     ax.legend(frameon=False, loc="upper left", fontsize=9)
     fig.tight_layout()
     fig.savefig(OUT_DIR / "rerank_beta_sweep.png", dpi=150)
@@ -146,6 +150,7 @@ def fig_routing(metrics):
     Error bars are the bootstrap 95% CI of the lift over chance (over
     questions), drawn around each point."""
     routing = metrics["extrinsic"]["routing"]
+    n_q = metrics["extrinsic"]["summary"]["n_questions_scored"]
     fig, ax = plt.subplots(figsize=(6, 3.6))
     for name, color, marker, text in (("label", BLUE, "o", "label+gloss routing"),
                                       ("centroid", ORANGE, "s", "centroid routing (no labels)")):
@@ -165,7 +170,7 @@ def fig_routing(metrics):
     ax.set_ylim(0, 1.0)
     ax.set_xlabel("share of candidates in the routed pool")
     ax.set_ylabel("share of ground-truth nodes kept")
-    ax.set_title("Coarse-to-fine routing vs. chance (2026, 14 questions)", loc="left", fontsize=10.5)
+    ax.set_title(f"Coarse-to-fine routing vs. chance (2026, {n_q} questions)", loc="left", fontsize=10.5)
     ax.legend(frameon=False, loc="upper left", fontsize=9)
     fig.tight_layout()
     fig.savefig(OUT_DIR / "routing_vs_chance.png", dpi=150)
@@ -207,8 +212,61 @@ def fig_tradeoff(metrics):
     plt.close(fig)
 
 
+def _rate_dot(ax, x, r, color, marker, label=None, side="right"):
+    lo, hi = r["ci95"]
+    ax.errorbar([x], [r["rate"]], yerr=[[r["rate"] - lo], [hi - r["rate"]]], color=color, marker=marker,
+                markersize=7, linestyle="none", capsize=3, elinewidth=1.2, label=label, zorder=3)
+    dx, ha = (8, "left") if side == "right" else (-8, "right")
+    ax.annotate(f"{r['k']}/{r['n']}", (x, r["rate"]), textcoords="offset points", xytext=(dx, -3),
+                ha=ha, fontsize=8.5, color=TEXT)
+
+
+def fig_blind(metrics):
+    """Blind intruder detection by level against chance and null items, and
+    the blind gloss ratings for real vs control items. Rates with Wilson
+    95% CIs. Real items blue circles, null/control gray squares."""
+    b = metrics["blind_eval"]
+    intr, gloss = b["intruder"], b["gloss"]
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(8.4, 3.5))
+
+    levels = sorted(intr["real_by_level"], key=int)
+    for i, lvl in enumerate(levels):
+        _rate_dot(ax1, i, intr["real_by_level"][lvl], BLUE, "o", "real items" if i == 0 else None)
+    _rate_dot(ax1, len(levels), intr["null"], GRAY, "s", "null items")
+    ax1.axhline(intr["chance"], color=GRAY, linewidth=0.9, linestyle="--")
+    ax1.text(-0.45, intr["chance"] + 0.02, "chance (1 in 6)", fontsize=8.5, color=GRAY, ha="left")
+    ax1.set_xticks(range(len(levels) + 1))
+    ax1.set_xticklabels([f"level {l}" for l in levels] + ["null"])
+    ax1.set_xlim(-0.5, len(levels) + 0.5)
+    ax1.set_ylim(-0.04, 1.0)
+    ax1.set_ylabel("intruder found")
+    ax1.set_title("Intruder test, 2026", loc="left", fontsize=10.5)
+    ax1.legend(frameon=False, loc="upper left", fontsize=8.5)
+
+    cats = ["accurate", "vague", "wrong"]
+    for j, cat in enumerate(cats):
+        _rate_dot(ax2, j - 0.14, gloss["real"][cat], BLUE, "o", "real gloss" if j == 0 else None, side="left")
+        _rate_dot(ax2, j + 0.14, gloss["control"][cat], GRAY, "s", "control (other cluster)" if j == 0 else None)
+    ax2.set_xticks(range(len(cats)))
+    ax2.set_xticklabels(cats)
+    ax2.set_xlim(-0.5, len(cats) - 0.5)
+    ax2.set_ylim(-0.04, 1.0)
+    ax2.set_ylabel("share of items")
+    ax2.set_title("Gloss rating, all snapshots", loc="left", fontsize=10.5)
+    ax2.legend(frameon=False, loc="upper center", fontsize=8.5)
+
+    for ax in (ax1, ax2):
+        ax.grid(axis="y", color="#e4e3dd", linewidth=0.6)
+        ax.set_axisbelow(True)
+    fig.tight_layout()
+    fig.savefig(OUT_DIR / "blind_eval.png", dpi=150)
+    plt.close(fig)
+
+
 def main():
     metrics = json.loads((ROOT / "outputs" / "metrics.json").read_text(encoding="utf-8"))
+    if "blind_eval" in metrics:
+        fig_blind(metrics)
     fig_coherence(metrics)
     fig_stability(metrics)
     fig_extrinsic_sweep(metrics)

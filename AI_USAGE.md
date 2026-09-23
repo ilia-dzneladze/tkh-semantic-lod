@@ -1,8 +1,9 @@
 # AI usage
 
 Tool: Claude Code, running on Sonnet 5 for the build and follow-up
-experiments, and on Opus 5 for the final review and correctness fixes (last
-section). No other AI tool was used. Below is every phase where it did real work, the prompt that
+experiments, on Opus 5 for the review and correctness fixes, and on Opus
+5.5 for the last pass, which also used Opus 5.5 subagents as blind raters
+(last section). No other AI tool was used. Below is every phase where it did real work, the prompt that
 kicked each one off, what I accepted or changed, and what I checked before
 trusting the output.
 
@@ -58,7 +59,9 @@ each module's output as it was produced and asked follow-up questions or
 corrections in place, rather than writing a fresh detailed spec for T2, T3,
 T4 individually.
 
-What I accepted: the Zhou et al. hypergraph affinity weighting, the sparse
+What I accepted: the Zhou et al. hypergraph affinity weighting (later
+corrected: it is a weighted clique expansion, not their method; see the
+final review section), the sparse
 UPGMA implementation, the T3 Jaccard-matching mechanism, the T4 collapse
 rule, all as proposed after I understood the reasoning.
 
@@ -127,7 +130,8 @@ recall, that matched what I'd have expected from too narrow a branch
 rather than a real limitation of the hierarchy, so instead of reporting it
 I had the agent sweep wider values. (5,5) matched the flat baseline
 exactly at about 16% of the candidates, which is the number that made it
-into the report.
+into the report at the time. It didn't survive later changes; see the
+sections below.
 
 ## T7 write-up
 
@@ -223,10 +227,13 @@ finding into text only.
 
 ## Verification habits, generally
 
-There are 16 unit tests, covering the T4 collapse rule, T3 temporal
-matching, and the faithfulness held-out split. The other modules
-(clustering, affinity construction, coherence, stability, extrinsic) have
-no unit tests. The pipeline output is checked by a structural validator
+There are 36 unit tests. They started at 16, covering the T4 collapse
+rule, T3 temporal matching and the faithfulness held-out split, and grew
+with each later pass: sparse UPGMA against scipy, the held-out edge
+cohesion measure, the leave-one-out and paired statistics, the multilevel
+variants, and the ground-truth matcher. Affinity construction and the
+coherence null still have no direct tests. The pipeline output is checked
+by a structural validator
 (`scripts/validate_hierarchy.py`) that verifies the laminar-partition
 property exactly, not by assumption. I re-ran both
 after every non-trivial code change, including purely cosmetic ones, to
@@ -385,7 +392,8 @@ Result, read through the pre-registered rule: leave-one-out drill-down
 against flat is -1.5 points of recall@20 (CI -6.3 to +2.9, p = 0.59), so
 no detectable difference, and label routing beats chance at every budget.
 I accepted reporting it that way. Nothing in the hierarchy or labels
-changed.
+changed. (These numbers were later redone after a ground-truth bug was
+found; see the last section. The verdict didn't change.)
 
 ## Structural held-out coherence
 
@@ -498,3 +506,237 @@ measured ranges. It then checked every number in `report.md` against
 `metrics.json`. They matched, and it updated two stale passages: the
 verified list, and a next step asking for an alpha=1.0 run that had
 already been done.
+
+## Skeptical review pass and the fixes from it
+
+Tool: Claude Code on Opus 5, one session, used as a reviewer first and
+then to implement the fixes I picked.
+
+Prompt (abridged): "You are reviewing an internship assessment submission
+in this repo, as a skeptical senior researcher on the hiring team would...
+Your job is to find gaps: anything that would cost points or raise doubts
+with a careful reviewer. Do not edit any files. You may run code to verify
+a suspicion. Prefer checking over guessing... Separate two kinds of
+finding: gaps the docs already admit and gaps nobody has mentioned."
+
+The read-only constraint was deliberate on my part. I wanted findings with
+evidence behind them before anything got changed, so the agent reproduced
+the pipeline in a scratch copy of the repo rather than working in place. It
+ran `run_pipeline.py` from a clean `git archive` of HEAD and confirmed the
+hierarchies and `temporal_events.json` come back byte-identical and the
+faithfulness numbers reproduce exactly, which is the first independent
+check that the reproduction claim in this file actually holds. It also
+found that `t6_evaluate.py` crashes with a KeyError if you follow the
+README literally, because `run_pipeline.py` clears the labels and the
+README only mentions `t5_apply_labels.py` under importing new labels.
+
+Findings I acted on, and what I had it do:
+
+- The ground-truth matcher resolved expected method names to chemical
+  elements ("N", "P", "S" and "Si" are substrings of "physics-informed").
+  It quantified this before proposing anything: 47 of 147 ground-truth
+  node ids were surface forms of two characters or less. Fixed by
+  requiring both sides of a substring match to be at least four
+  characters, with `tests/test_ground_truth_match.py` pinning it, and
+  every extrinsic number rerun. DESIGN_NOTES section 16.
+- Temporal honesty was claimed as holding by construction and does not.
+  The agent traced it from a 2020 label naming EquiformerV2 back to
+  `build_snapshot`, and counted the affected nodes per snapshot. I chose
+  to document the count and leave the nodes in rather than filter and
+  relabel; the reasoning and what it costs are in DESIGN_NOTES section 2.
+- alpha is not the mixing weight it reads as. It measured the realised
+  structural share of the affinity mass (about 7% at alpha=0.3, not 30%).
+  I had it write `scripts/affinity_mass_share.py` so the number is
+  reproducible rather than a one-off. DESIGN_NOTES section 17.
+- The perturbation stability measure only removes hyperedges, so it
+  rewards a clustering for ignoring the hypergraph, and alpha was partly
+  selected on it. The agent re-read the alpha sweep with that metric
+  dropped. alpha=0.3 still wins, which I was glad about but had not
+  assumed going in.
+- The formal statement was prose with no objective in it. I had it
+  rewritten with the actual definitions and with the honest framing that
+  average linkage optimises nothing globally, so what I have is a
+  criterion and a nesting guarantee.
+
+What I did not accept: the agent's stronger reading of the TF-IDF
+coherence check as circular. It is a weaker independence claim than I had
+written, and I took its measurement (69% of MPNet neighbour pairs share a
+token against 7% of random pairs) into the report as a named assumption,
+but I don't agree it makes the check worthless, and the report says what I
+think rather than what it suggested.
+
+Verification of the fix pass itself: 36 tests pass (4 new), the laminarity
+validator passes on all four snapshots, the figures regenerate from
+`metrics.json` and now read their question count from it rather than
+hardcoding 14, and the pre-registered rules in DESIGN_NOTES section 15
+were re-read against the rerun numbers rather than rewritten. Section 18
+says exactly which rules were rerun and which were untouched. Both rules
+that depend on ground truth still pass, by a smaller margin, and that is
+written down next to the old numbers.
+
+Still open from the same review, deliberately not fixed here: the report
+is well over the 3-5 page limit and has no T1 section or reference list,
+the README is Windows-only and doesn't say `t5_apply_labels.py` is
+required after `run_pipeline.py`, the cross-snapshot CIs are t-intervals
+over three transitions, and the NLI faithfulness judge has never been
+validated against a blind human rating.
+
+## Closing the rest of the review: items 6 to 11
+
+Tool: Claude Code on Opus 5.5, the same session as the section above. The
+blind raters were two further Claude Code subagents on Opus 5.5
+(`claude-opus-5-5`), described below.
+
+Prompt: "continuw with 6-11 tasks, end-to-end, test implementation"
+
+These were the open items the section above lists, plus the two I had
+deliberately left: TF-IDF independence (6), validating the faithfulness
+judge (7), stale numbers (8), report format (9), reproducibility (10) and
+the cross-snapshot CIs (11). Before starting, the agent asked me one
+question, because it was mine to answer: who should do the blind ratings
+that items 6 and 7 needed. It pointed out that it couldn't be the rater
+itself, since it had already seen the labels, the controls and the
+questions. I chose fresh subagents over rating by hand.
+
+What it built, and what I checked:
+
+- Reproducibility (10). Both Hugging Face models are pinned to the
+  commits these results came from. A label is now applied only if the
+  prompt rebuilt from the cluster's current members matches the prompt
+  the label was written from byte for byte. The agent confirmed all 248
+  shipped labels pass, and wrote a test that swaps two clusters' members
+  under the same ids. `t6_evaluate.py` stops with an instruction instead of
+  a KeyError on an unlabelled hierarchy. The README now has one ordered
+  path, platform-neutral commands and a Linux torch step. The Linux claim
+  rests on the PyPI dependency metadata for `torch==2.14.0` (CUDA 13 and
+  nvidia packages on Linux) and the PyTorch CPU index listing
+  `2.14.0+cpu`. Nobody ran a Linux install.
+- Cross-snapshot CIs (11). The agent's first replacement, a node bootstrap
+  with replacement, was wrong. The level-2 interval came out entirely
+  above the point estimate (0.651 to 0.682 around 0.647). It diagnosed the
+  cause: duplicated nodes add same-cluster pairs, and ARI is driven by
+  those. It switched to half-sampling without replacement, checked that
+  the half-sample mean matches the full ARI, and added a test with many
+  small clusters. It showed the old estimator fails that test before
+  relying on it. I only accepted the change once every interval
+  contained its estimate.
+- Coherence independence (6). `scripts/signal_overlap.py` makes the
+  TF-IDF/MPNet overlap reproducible: 69% of neighbour pairs share a term,
+  against 7% of random pairs. The blind intruder test is in
+  `eval/blind.py` and `scripts/blind_eval.py`.
+- Faithfulness (7). Wilson CIs on every rate, a blind gloss rating
+  compared with NLI on identical items, and a check against source-paper
+  titles.
+- For each new check, the agent wrote the keep-or-report rule into
+  DESIGN_NOTES section 15 before generating any data. The results sections
+  apply those rules as written, including the two that didn't come out
+  my way: level 0 fails the intruder test, and the provenance check is
+  inconclusive.
+
+The raters. Each was a fresh general-purpose subagent with no
+conversation context. Its prompt was a short instruction plus the path to
+a folder containing only its own item file. The answer keys stayed in a
+separate folder outside the repo until the ratings were in. The agent then
+read both transcripts. Each subagent made exactly one Read, of its own
+file, then returned its answers. The answers were saved from the
+transcripts rather than retyped, and each `*_ratings.json` records the
+model and the tool calls. The exact rater prompts are in
+`outputs/blind_eval/*_rater_prompt.md`. The labels had been written by
+Sonnet agents, so an Opus rater limits self-preference but doesn't remove
+it. It's one rater per task, with no second rater and no human pass, and
+the docs say so.
+
+Report (9). The agent rewrote `report.md` from about 8,000 words to a
+5-page version with a T1 section, the formal statement as actual
+formulas, the new results and a reference list. It rendered the PDF and
+measured the page count rather than estimating it. The local PDF helper
+(`scripts/make_report_pdf.py`, gitignored) was changed to put figures
+inline. The long draft is kept locally as `report_long_draft.md`. It
+checked three new citations by web search before using them: Clauset,
+Moore and Newman 2008; Peixoto 2014; and Chang et al. 2009. It did the
+same for the venues of Greene et al. 2010, Loukas 2019 and Agarwal et
+al. 2006. One claim in its own draft was wrong: that SHyPar doesn't
+coarsen hypergraphs. It does, and the agent rewrote the sentence before
+the PDF was built.
+
+Number audit (8). The agent checked every number in the new report
+against the output JSONs. That turned up one real overclaim, carried
+through several earlier versions: the warm start's coherence cost,
+written as "level 2 loses 17-41%". That range is the 2026 snapshot alone.
+Averaged over the snapshots a warm start can change, the cost is 7% to
+18%, and at 2022 it is mixed. The verdict under the pre-registered rule
+still holds, but DESIGN_NOTES section 10 now gives the corrected numbers,
+and says the rule never put a number on "meaningfully". This also means
+the claim in "UPGMA check, clean reproduction and stale-number pass"
+above, that every number in `report.md` matched `metrics.json`, wasn't
+true at the time. The (8,8) drill-down passage and the warm-start range
+were both stale or wrong.
+
+Verification: 49 tests pass (13 new across the label guard, stability
+CIs, the statistics helpers and the blind packets). The laminarity
+validator passes. And the full README path was rerun from a fresh copy of
+exactly the files that would ship; the next paragraph has what it
+reproduced. The agent copied exactly the files git would ship (tracked plus new,
+non-ignored) into an empty folder and ran every README step in order,
+using the existing venv, so the dependency install itself wasn't retested
+here. Every step exited cleanly in about 30 minutes. The T1 statistics,
+the temporal events and all four hierarchies came back byte-identical,
+and all eight sections of `metrics.json` matched the committed file
+exactly, including the new blind-eval scores, the half-sampling intervals
+and the provenance check.
+
+## Publishing the model outputs for verification
+
+Tool: Claude Code on Opus 5.5, same session.
+
+Prompts: I asked whether the "weights generated at the end" could be
+uploaded to Hugging Face so a reproducer could check my results, then
+"yes go ahead, and then tell me commands to upload the embedding to
+huggingface".
+
+The agent first corrected my premise: nothing in the project is trained,
+so there are no weights. What varies between machines is the output of
+the two frozen models. It proposed publishing those outputs plus
+checksums, and I agreed. Before building anything, it measured how
+fragile the outputs are. On this machine, 514 of 5,428 node embeddings
+differ in the last bits depending only on how they were batched. That
+decided the design: outputs are recorded and replayed per whole model
+call (`src/tkh/model_outputs.py`), not per text. It routed every
+embedding and NLI call through that one module, and wrote
+`reproduce_all.py`, `export_release.py` and `verify_release.py`, plus 5
+tests. Two of those tests check that replay never loads either model.
+
+Verification was three clean-folder runs of the whole pipeline:
+- Recording: outputs identical to the repo. This showed recording doesn't
+  change anything.
+- Export: re-derives the four merge trees and refuses to write unless
+  they cut into the shipped hierarchies exactly. They do.
+- Final replay: a fresh copy of the final code, with no model calls,
+  reproduced all 45 output files and all 37 release files to the byte, in
+  8 minutes.
+
+`compare-embeddings` on this machine found all 5,428 embeddings
+bit-identical to the published ones, and all four nearest-neighbour
+graphs identical.
+
+Along the way the agent found and fixed two real problems (DESIGN_NOTES
+section 23). Loading a pinned model contacted the Hub every time and
+stalled on retries when the network dropped, so both models now load from
+the local cache first. And `localisation.json` changed in the 16th digit
+between runs, because a mean was summed over a Python set in hash order.
+Every earlier check had compared only `metrics.json`, where the rank-based
+summary never moved, so this had slipped through two "clean
+reproductions". The checksum over every output file caught it, and it is
+now proven stable under two different hash seeds.
+
+It also made one mistake of its own, and caught it before relying on it.
+A sed edit meant to point its comparison script at the new run failed
+silently, and the first "identical" result compared the wrong folder. It
+noticed the path hadn't changed, rewrote the script to take the folder as
+an argument, and reran the comparison. It stopped one replay run partway
+through because the localisation fix had made it obsolete, and replaced
+it with the final run above.
+
+Not done: the upload itself, which needs my account. The data in the
+release is derived from Constructor's TKH export, so it goes to a
+private dataset repo unless they agree otherwise.

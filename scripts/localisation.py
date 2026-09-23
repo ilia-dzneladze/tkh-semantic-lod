@@ -66,7 +66,9 @@ def cluster_rows(prev, curr, snap_prev, snap_curr, sem_exposure):
         best = max((k / (len(c) + curr_common_size[d] - k) for d, k in overlap.items()), default=0.0)
         touching = set().union(*(edges_of[n] for n in mem))
         exposure = len(touching - old_edges) / len(touching) if touching else 0.0
-        sem = [sem_exposure[n] for n in mem if n in sem_exposure]
+        # sorted: summing a set of strings in hash order made the mean differ
+        # in the last bit between runs (DESIGN_NOTES.md section 23)
+        sem = [sem_exposure[n] for n in sorted(mem) if n in sem_exposure]
         rows.append({"cluster": cid, "size": len(mem), "churn": 1.0 - best, "exposure": exposure,
                      "semantic_exposure": float(np.mean(sem)) if sem else 0.0})
     return rows

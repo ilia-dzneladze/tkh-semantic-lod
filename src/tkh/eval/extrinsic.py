@@ -86,6 +86,10 @@ def build_surface_index(snap, types=METHOD_LIKE_TYPES):
 
 
 def match_ground_truth_methods(snap, expected_methods, min_substring_len=4):
+    """Ground-truth method name -> the corpus nodes that count as that
+    method. Exact surface-form match first, then substring in either
+    direction. Both sides of a substring match must be at least
+    min_substring_len characters. See DESIGN_NOTES.md section 16."""
     index = build_surface_index(snap)
     matched = {}
     for m in expected_methods:
@@ -96,6 +100,8 @@ def match_ground_truth_methods(snap, expected_methods, min_substring_len=4):
         candidates = []
         if len(key) >= min_substring_len:
             for sf, ids in index.items():
+                if len(sf) < min_substring_len:
+                    continue
                 if key in sf or sf in key:
                     candidates.extend(ids)
         matched[m] = {"node_ids": sorted(set(candidates)),

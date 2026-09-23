@@ -1,0 +1,38 @@
+{
+  "2020": {
+    "n_knn_pairs": 14952,
+    "n_random_pairs": 19982,
+    "knn_pairs_sharing_a_term": 0.5680845371856608,
+    "random_pairs_sharing_a_term": 0.07596837153438095,
+    "knn_mean_tfidf_cosine": 0.0939126181659729,
+    "random_mean_tfidf_cosine": 0.0037573130425509384,
+    "spearman_mpnet_vs_tfidf_random_pairs": 0.2821267552126387
+  },
+  "2022": {
+    "n_knn_pairs": 21725,
+    "n_random_pairs": 19989,
+    "knn_pairs_sharing_a_term": 0.6050632911392405,
+    "random_pairs_sharing_a_term": 0.07404072239731853,
+    "knn_mean_tfidf_cosine": 0.10815834682471868,
+    "random_mean_tfidf_cosine": 0.0037569224323128255,
+    "spearman_mpnet_vs_tfidf_random_pairs": 0.2881133376340453
+  },
+  "2024": {
+    "n_knn_pairs": 41933,
+    "n_random_pairs": 19996,
+    "knn_pairs_sharing_a_term": 0.671762096678034,
+    "random_pairs_sharing_a_term": 0.07206441288257652,
+    "knn_mean_tfidf_cosine": 0.12512072396711973,
+    "random_mean_tfidf_cosine": 0.003077994655336413,
+    "spearman_mpnet_vs_tfidf_random_pairs": 0.27864527102116887
+  },
+  "2026": {
+    "n_knn_pairs": 58856,
+    "n_random_pairs": 19997,
+    "knn_pairs_sharing_a_term": 0.6882560826423814,
+    "random_pairs_sharing_a_term": 0.0709606440966145,
+    "knn_mean_tfidf_cosine": 0.13072663812829424,
+    "random_mean_tfidf_cosine": 0.0030897987327684396,
+    "spearman_mpnet_vs_tfidf_random_pairs": 0.2643368103562701
+  }
+}

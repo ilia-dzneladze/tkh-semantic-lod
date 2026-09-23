@@ -36,8 +36,38 @@ not the same as `origin_year` (when the method/dataset/whatever was
 actually introduced in the world). For a snapshot at year t we want to
 know what the corpus had SEEN by t, not what existed by t, because the
 whole point of the temporal-honesty requirement is that a label shouldn't
-claim knowledge the corpus didn't have yet. So snapshot inclusion uses
-first_seen_year, not origin_year.
+claim knowledge the corpus didn't have yet. So where this pipeline asks
+about a node's date at all, it asks `first_seen_year` and never
+`origin_year`.
+
+What actually decides membership, though, is the edge year. `build_snapshot`
+keeps every hyperedge with `year <= cutoff` and then pulls in whatever
+nodes those edges reference. `first_seen_year` is only checked afterwards,
+and a node whose first_seen_year is later than the cutoff gets a quality
+note and is kept anyway. An earlier version of this section said inclusion
+"uses first_seen_year", and `report.md` claimed temporal honesty for the
+labeller's input held by construction. Both were wrong, and I only caught
+it when a reviewer pass checked the claim against the code rather than
+against this file.
+
+The size of the problem: 22 concept nodes at 2020, 35 at 2022, 19 at 2024
+and none at 2026, so under 2% of each snapshot
+(`n_concept_nodes_first_seen_after_cutoff` in `t1_snapshot_stats.json`,
+from `describe_snapshot`). Small, but not zero, and it does leak into the
+labels. The 2020 label for `L1_S00048` ends with "plus one unrelated
+method, EquiformerV2", and that node's first_seen_year is 2024. So a 2020
+super-node really does name a method the corpus hadn't met in 2020.
+
+I left the nodes in and documented the count rather than filtering them
+out. Two reasons, one good and one honest. The good one is that dropping
+them means a hyperedge can reference a node that isn't in the snapshot,
+and then the collapse rule and the arity bookkeeping need a policy for
+half-present edges, which is a real design question I'd rather not answer
+badly in a hurry. The honest one is that filtering changes the clustering,
+which means the 248 labels and every label-dependent number would have to
+be redone, and I'd rather ship a documented 2% than a rushed rebuild. It's
+a real limitation of P6 as shipped, not a technicality: temporal honesty
+of the labeller's input is empirical here, at about 98%, not guaranteed.
 
 A node only makes it into a snapshot if some included hyperedge
 references it. I didn't add a separate check for "orphan" nodes with no
@@ -123,6 +153,19 @@ signal families, not just two different neural embedding models that
 were both trained the same way. TF-IDF has no notion of synonymy or
 pretraining at all, so it can't just be rediscovering what MPNet already
 encoded.
+
+That last sentence overstated it. TF-IDF has no pretraining, but it reads
+the same surface_form text MPNet does, and on short strings a shared word
+is most of what either model sees. Measured (`scripts/signal_overlap.py`,
+`outputs/signal_overlap.json`), 69% of the MPNet k-NN pairs at 2026 share
+at least one TF-IDF term against 7% of random pairs, and a neighbour
+pair's mean TF-IDF cosine is 0.13 against 0.003 (57% against 8% at 2020).
+So TF-IDF is a different representation of the same signal rather than an
+independent one, and a clustering built on MPNet neighbours scores well on
+it partly by construction. The brief does allow "a different embedding
+family", so the check isn't worthless, but the coherence evidence I'd now
+put first doesn't read through a text representation at all: held-out
+hyperedges (section 13) and a blind intruder test (section 21).
 
 ## 6. Union k-NN graph, not mutual k-NN
 
@@ -293,18 +336,30 @@ decision rule in section 15). Added a
 third affinity term, `A_prior(i,j) = 1` iff i and j were in the same
 level-2 cluster in the previous snapshot (0 for nodes that didn't exist
 yet), blended in as `(1-gamma)*A_task + gamma*A_prior` before UPGMA runs.
-Cross-snapshot ARI does rise with gamma, as expected, but coherence
-(measured independently, TF-IDF against a random-labels null, not fed
-into clustering at all) drops at nearly every gamma tried, and drops hard
-at higher gamma, level 2's z-score alone loses 17-41% depending on gamma.
-So the extra stability isn't free, it's bought by pulling nodes back
-toward last snapshot's grouping even where their current semantic content
-has actually drifted, exactly the failure mode "measure, don't force"
-was meant to avoid. Not promoting this version. Confirms the tradeoff was
-real rather than just a plausible-sounding concern, and narrows what an
-actually-better version would need: something like only trusting the
-prior where the current snapshot's own signal roughly agrees with it,
-not blind same-cluster-before bias, untried here.
+Cross-snapshot ARI does rise with gamma, as expected, and by a lot at
+the finer levels: level 2 goes from 0.65 to between 0.86 and 0.92 for
+gamma of 0.1 or more. Coherence (TF-IDF against a random-labels null)
+goes down, but less cleanly than I first wrote. I had said it "drops at
+nearly every gamma tried" and that level 2 "loses 17-41%". The 17-41% is
+the 2026 snapshot alone. A review pass recomputed it per snapshot. At 2022
+and 2024 the level-2 effect is mixed, from a 16% rise to an 11% drop, and
+averaged over the three snapshots a warm start can change (2020 has no
+prior), level 2 is 7% to 18% lower for gamma of 0.1 or more. Single
+snapshot-and-level cells swing from 41% lower to 64% higher, so this is a
+noisy measure, and it has no CI.
+
+The verdict under the rule in section 15 still holds, but by less than I
+made it sound. Every gamma that raises ARI at all three levels (0.1, 0.2
+and 0.5) also loses coherence somewhere: level 0 by 12% at 0.1, level 2 by
+17% at 0.2, and levels 1 and 2 by 13% and 18% at 0.5. The rule said
+"doesn't meaningfully drop at any level" without putting a number on
+"meaningfully", which is a weakness of the rule, not a detail. My reading
+is still that the stability is bought by pulling nodes back toward last
+snapshot's grouping even where their content has moved, which is what
+"measure, don't force" was meant to avoid. But the warm start is the
+closest candidate to replacing plain matching, and the next version is
+the obvious one: only trust the prior where the current snapshot's own
+signal roughly agrees with it. Untried here.
 
 The dynamic community detection literature has names for these options.
 Asgari, Cazabet and Borgnat (arXiv:2310.02840) benchmark four approaches.
@@ -505,6 +560,12 @@ not-entailed rate is still high, and I think that's mostly because a list
 of 15 surface forms rarely entails a summary sentence even when the
 summary is fair. I report both rates.
 
+That last guess turned out to be checkable, and it held. A blind rater
+(section 22) called 32 of the 36 real glosses NLI marks not entailed
+"accurate", so the not-entailed rate is a property of the premise, and I
+no longer report it as an over-claim rate. The over-claim rate now comes
+from the blind rating: 0 of 48 real glosses rated wrong, upper bound 7%.
+
 ## 13. Coherence measured with a signal clustering never saw
 
 `src/tkh/eval/coherence.py`.
@@ -567,7 +628,7 @@ believe the clusters are lexically non-random more confidently than
 before (two independent nulls agree on that), but I believe less than I
 did that the hypergraph structure specifically, as opposed to the
 semantic embeddings, is what's driving that lexical coherence, at least
-at the coarse and mid levels. `report.md` section 3 updated with this,
+at the coarse and mid levels. `report.md` section 5.1 carries this,
 it's a real qualification, not a footnote to bury.
 
 The shuffle null can only say whether structure makes clusters more
@@ -608,6 +669,12 @@ whole paper removes the path. Their result is about a specific generative model,
 not this corpus, so I read it as a consistent explanation, not a proof.
 It does suggest the structure term would matter more on a bigger slice of
 the TKH, where the same concepts get related by more than one paper.
+
+One caveat on everything TF-IDF in this section: it isn't independent of
+the clustering signal (section 5 has the overlap numbers). The two checks
+here that don't lean on it are the held-out hyperedge test above and the
+blind intruder test in section 21, which is where I'd look first for
+whether the clusters mean something.
 
 At the shipped alpha=0.3, structure only clears the bar I set beforehand
 at level 0 (paired gain over alpha=0 above zero under both schemes; under
@@ -716,25 +783,43 @@ tuned on these same 14 questions, and there's no confidence interval. So
 held-out tuning and a paired test before I claim it.
 
 After relabelling (section 12) and with the same settings, not retuned,
-drill-down gets 0.0341 recall against flat's 0.0325. Q14's gain shrank
-from 4 extra hits to 1, and one question now goes flat's way. So drill-down
+drill-down got 0.0341 recall against flat's 0.0325. Q14's gain shrank
+from 4 extra hits to 1, and one question went flat's way. So drill-down
 ties flat on recall@20 at a quarter of the candidates, and that's the
-claim I can make.
+claim I can make. Every number in the three paragraphs above, from the
+beta sweep on, predates the ground-truth matcher fix in section 16 and is
+kept here as the record of what the decisions were made on. Under the
+corrected answer key the same settings give drill-down 0.121 against
+flat's 0.119 on 12 questions, which is the same tie read at a different
+scale, and the leave-one-out paragraph below is the rerun.
 
 Routing is where the hierarchy shows up (`routing_pool_recall` in
 `eval/extrinsic.py`, `scripts/label_routing.py`): the share of each
 question's ground-truth nodes that survives into the routed pool, against
-a random pool of the same size, with a bootstrap CI over questions. With
-the first labels, label+gloss routing at (8, 8) kept 80% of ground-truth
-nodes in 25% of candidates. Routing on member-centroid embeddings instead
-gives no lift at all: 14% in a 12% pool, lift 0.02, CI -0.05 to 0.08. So
-the signal comes from the labels, and with the first labels it could have
-been leakage. With the clean relabel it's 65% in 23%, lift 0.42, CI 0.23
-to 0.57, which meets the rule I wrote down beforehand (section 15). The
-labels carry real information. Whether the drop from 0.55 is leakage in
-the first set or just different wording I can't say, since the CIs
-overlap. My read of the whole picture: hierarchy plus labels finds the
-right region well, and the per-node ranker inside it is the weak part.
+a random pool of the same size, with a bootstrap CI over questions.
+
+The numbers below are the rerun after the ground-truth matcher fix in
+section 16, on the 12 questions that still have ground truth. Both label
+sets were re-scored under the fixed matcher so the comparison is
+like-for-like (`label_routing.py TAG LABELS_DIR` applies an archived label
+set in memory, so `outputs/labels_v1` can be scored without disturbing the
+shipped hierarchy). With the clean relabel, label+gloss routing at (8, 8)
+keeps 58% of ground-truth nodes in 24% of candidates, lift 0.33, CI 0.04
+to 0.54, and every budget from (2, 2) up has a CI above zero, which meets
+the rule I wrote down beforehand (section 15). Routing on member-centroid
+embeddings gives no lift at any budget: 19% in a 12% pool at (8, 8), lift
+0.06, CI -0.04 to 0.17. So the signal comes from the labels rather than
+from the grouping. The first labels, the ones written by agents that could
+see the question files, score 73% in 25%, lift 0.48, CI 0.34 to 0.57. They
+still look better than the clean set, the CIs still overlap, and I still
+can't separate leakage from wording.
+
+What the matcher fix cost here is margin, not direction. Under the broken
+ground truth the clean labels scored lift 0.42 with a CI of 0.23 to 0.57;
+now the CI at (8, 8) nearly touches zero and the narrow budgets (3, 3) and
+(4, 4) carry the firmer evidence. My read of the whole picture is
+unchanged: hierarchy plus labels finds the right region, and the per-node
+ranker inside it is the weak part.
 
 The drill-down settings had always been picked on the same 14 questions
 they were scored on, so I redid the comparison with leave-one-out
@@ -742,14 +827,17 @@ they were scored on, so I redid the comparison with leave-one-out
 run from `scripts/t6_patch_extrinsic.py`). For each question, the setting
 with the best recall on the other 13 is chosen from the full grid (five
 branching values times eleven betas) and scored on the held-out one.
-Leave-one-out drill-down gets 1.78% recall against flat's 3.25%, a paired
-difference of -1.5 points with a bootstrap CI of -6.3 to +2.9 and a
-sign-flip p of 0.59. It wins 2 questions, loses 4, and ties 8. The chosen
+Leave-one-out drill-down gets 3.2% recall against flat's 11.9%, a paired
+difference of -8.7 points with a bootstrap CI of -25.9 to +0.7 and a
+sign-flip p of 0.37. It wins 1 question, loses 3, and ties 8. The chosen
 setting also jumps around depending on which question is held out, which
 says the grid search was mostly fitting noise. For comparison, the shipped
-setting scored in-sample is +0.2 points, CI -1.0 to +1.3. So at 14
+setting scored in-sample is +0.2 points, CI -1.2 to +1.5. So at 12
 questions there's no detectable difference between drill-down and flat on
-recall@20, and the honest point estimate leans slightly toward flat.
+recall@20, and the honest point estimate leans toward flat. (These are the
+post-fix numbers too. Before the matcher fix the same comparison read
+-1.5 points, CI -6.3 to +2.9, p = 0.59, on 14 questions whose answer key
+was a third chemical elements. Same verdict, worse answer key.)
 
 Routing is now the main extrinsic metric in metrics.json, under
 `extrinsic.routing`. Label routing beats chance at all five budgets, with
@@ -795,7 +883,10 @@ MATCH_THRESHOLD steep (section 10).
 
 Warm start (`warm_start_sweep.py`). Promote only if cross-snapshot ARI
 improves at every level and coherence-vs-null doesn't meaningfully drop
-at any level. Result: ARI up, coherence down, not promoted (section 10).
+at any level. Result: ARI up at every level for gamma 0.1, 0.2 and 0.5,
+and at each of those a coherence drop of 12% to 18% at some level, so not
+promoted (section 10, where the size of that drop is corrected: it is
+smaller and noisier than I first reported).
 
 Hypergraph shuffle null (`hypergraph_shuffle_null.py`). A robustness
 check, nothing ships either way. Verify that degree and arity sequences
@@ -870,12 +961,15 @@ whatever the rates turn out to be, because the old ones were written from
 a biased sample. Both sets of rates get reported. No settings (beta,
 branching) get retuned on the new labels in this step.
 
-Relabelling result. The rule above is met. Label routing with the clean
-labels at (8, 8) keeps 65% of ground-truth nodes in 23% of candidates
-(lift 0.42, CI 0.23 to 0.57), well clear of centroid routing (lift 0.02,
-CI -0.05 to 0.08). The first labels scored 0.55 (CI 0.48 to 0.63). The new
-labels replace the old ones. Recall@20 with the new labels and unchanged
-settings: drill-down 0.0341, flat 0.0325.
+Relabelling result, as rerun after the section 16 matcher fix. The rule
+above is met. Label routing with the clean labels at (8, 8) keeps 58% of
+ground-truth nodes in 24% of candidates (lift 0.33, CI 0.04 to 0.54), clear
+of centroid routing (lift 0.06, CI -0.04 to 0.17). The first labels scored
+0.48 (CI 0.34 to 0.57) under the same matcher. The new labels replace the
+old ones. Recall@20 with the new labels and unchanged settings: drill-down
+0.121, flat 0.119. (The original reading of this rule, on the broken answer
+key, was 65% in 23%, lift 0.42, CI 0.23 to 0.57 against the first labels'
+0.55. It passed then and it passes now.)
 
 Extrinsic re-evaluation (`t6_patch_extrinsic.py`, written before running).
 The drill-down settings (branching and beta) have so far been picked on the
@@ -893,10 +987,12 @@ goes in metrics.json as the main extrinsic metric, for label and centroid
 routing at every budget, and it counts as beating chance at a budget only
 if its CI excludes zero. None of this changes the labels or the hierarchy.
 
-Extrinsic re-evaluation result. Leave-one-out drill-down against flat:
--1.5 points of recall@20, CI -6.3 to +2.9, p = 0.59. The CI includes zero,
-so per the rule the report says no detectable difference at 14 questions.
-Label routing beats chance at every budget and centroid routing at none.
+Extrinsic re-evaluation result, rerun after the section 16 matcher fix.
+Leave-one-out drill-down against flat: -8.7 points of recall@20, CI -25.9
+to +0.7, p = 0.37. The CI includes zero, so per the rule the report says no
+detectable difference, now at 12 questions. Label routing beats chance at
+every budget and centroid routing at none. (On the broken answer key this
+read -1.5 points, CI -6.3 to +2.9, p = 0.59. Same verdict.)
 
 Structural held-out coherence (`structural_holdout.py`, written before
 running). TF-IDF coherence only checks the meaning side. This checks the
@@ -952,3 +1048,421 @@ sense. An exploratory measure I added afterwards, the share of new
 nodes among an old node's k-NN neighbours, does correlate with churn at
 levels 1 and 2 (section 10). That's post hoc, and it doesn't change the
 verdict.
+
+Three more rules, written before any of these were run, for the checks
+added in the review pass (sections 21 and 22 describe the checks).
+
+Blind intruder test (`blind_eval.py`, coherence). A rater with no repo
+access sees six terms per item, five from one super-node and one
+type-matched node from a different level-0 branch, and picks the odd one
+out. Chance is 1/6. There are 60 real items on the 2026 snapshot (all 12
+level-0 super-nodes, 24 at level 1, 24 at level 2) and 20 null items where
+the five are random nodes. Clusters count as coherent to a blind reader at
+a level if the Wilson 95% lower bound on intruder detection is above 1/6.
+The test only counts as clean if detection on the null items is NOT
+clearly above chance (Wilson lower bound at or below 1/6); if the nulls
+are detected well above chance, the rater is using surface cues and the
+real-item rate gets reported as confounded, not as coherence.
+
+Blind gloss rating (`blind_eval.py`, faithfulness). A second rater with no
+repo access rates 72 items, 12 real and 6 control per snapshot, as
+accurate, vague or wrong, seeing the gloss and up to 15 members the
+labeller never saw. The rater's "wrong" share on real glosses becomes the
+headline over-claim rate if the rater separates real from control (real
+"wrong" rate below control "wrong" rate with non-overlapping Wilson CIs).
+The NLI judge counts as validated for over-claim only if the kappa between
+NLI contradiction and rater "wrong" has a bootstrap CI above zero. And if
+the rater calls more than half of the real glosses that NLI marks not
+entailed "accurate", I stop reporting the not-entailed rate as an
+over-claim rate and say it measures the premise instead.
+
+Provenance faithfulness (`check_provenance_faithfulness`, in
+`t6_evaluate.py faithfulness`). The same NLI judge, but the premise is the
+titles of the papers the held-out members were extracted from, which
+neither the labeller nor the clustering ever saw. Glosses count as
+consistent with independent evidence if, pooled over the four snapshots,
+the real contradiction rate is below the control contradiction rate with
+non-overlapping Wilson CIs. If not, I report that paper titles are too
+coarse a premise to grade a gloss and don't lean on the result.
+
+Blind intruder result. The test is clean: the rater found the intruder
+in 1 of 20 null items (5%, CI 1% to 24%), so it wasn't reading type or
+length. On real items it found 35 of 59 (59%, CI 47% to 71%) against a
+chance rate of 17%. By level that is 17 of 23 at level 2 (74%, CI 54% to
+88%) and 14 of 24 at level 1 (58%, CI 39% to 76%), both clearly above
+chance, and 4 of 12 at level 0 (33%, CI 14% to 61%), which does not clear
+the bar. So levels 1 and 2 are coherent to a blind reader and level 0 is
+not shown to be. With only 12 level-0 super-nodes there is no way to get a
+bigger sample at that level on this snapshot.
+
+Blind gloss rating result. The rater separates real from control almost
+perfectly: 0 of 48 real glosses rated wrong (CI 0% to 7%) against 23 of 24
+controls (96%). So the headline over-claim rate is now 0 of 48, upper
+bound 7%. NLI contradiction agrees with the rater's "wrong" at kappa 0.46
+(CI 0.24 to 0.68), so the NLI judge passes as a usable over-claim signal,
+though a noisy one: it flags 6 of the 48 real glosses as contradicted and
+the rater calls none of those 6 wrong. And the rater calls 32 of the 36
+real glosses that NLI marks not entailed "accurate" (89%), which trips the
+third rule: the not-entailed rate measures how weak a list of 15 terms is
+as a premise, not over-claim, and I've stopped reporting it as one.
+
+Provenance result. Pooled over the four snapshots, real glosses are
+contradicted by their source-paper titles 21% of the time (39 of 186, CI
+16% to 27%) against 31% for controls (58 of 186, CI 25% to 38%). The
+direction is right but the intervals overlap, so under the rule I don't
+lean on it: titles are too coarse a premise to grade a one-sentence gloss.
+
+## 16. What counts as a ground-truth node for the extrinsic eval
+
+`src/tkh/eval/extrinsic.py`, `match_ground_truth_methods`.
+
+`ground_truth.json` gives each question a list of expected method names as
+text. The extrinsic eval scores node ids, so those names have to be
+resolved against the corpus. Exact surface-form match handles most of
+them. For the rest I allowed a substring match in either direction, which
+is what catches "HamGNN" inside the node "Universal HamGNN Hamiltonian
+model", and "DeepH" for the expected "xDeepH".
+
+The first version of that only required the expected NAME to be at least
+four characters, and said nothing about the node's surface form. In a
+materials corpus that is a disaster, because the node table contains
+chemical elements. "N", "P", "S", "C" and "Si" are all substrings of
+"physics-informed", so the ground truth for that term became seven element
+nodes. "Hessian training" resolved to He, N, S and Si. Across the 14
+type-A questions, 47 of 147 ground-truth node ids were surface forms of
+two characters or less, i.e. about a third of the answer key was chemical
+elements that have nothing to do with the question.
+
+I found this in a review pass, not by looking at the metric, which is the
+uncomfortable part: the numbers looked plausible the whole time. It also
+means the report had been describing behaviour the code didn't have. I'd
+written that about a third of the expected method names "don't match any
+corpus node" and are descriptive categories, when in fact every single
+term matched something, mostly junk.
+
+The fix is one condition: both sides of a substring match must be at least
+`min_substring_len` (4) characters. `tests/test_ground_truth_match.py`
+pins it, including that "MACE-F" no longer resolves to the node "ACE" and
+that an unmatchable term reports "none" rather than quietly matching an
+element. After the fix, of 63 expected-method mentions (50 distinct names)
+47 match exactly, 7 by substring and 9 not at all, and the 9 really are
+descriptive categories like "hybrid frameworks" and "GNN free energies".
+Two of the 14 questions (Q5 and Q11) are left with no ground-truth node at
+all and drop out of the eval, so the extrinsic numbers are over 12
+questions now, not 14.
+
+What it cost: routing, which is the main extrinsic metric, is weaker than
+it was. Section 14 has the new numbers. The direction of every conclusion
+held, which is luck as much as anything.
+
+## 17. What alpha actually weights
+
+`cluster.py`, `combine_affinities` and `_normalize_affinity`;
+`scripts/affinity_mass_share.py`, `outputs/affinity_mass_share.json`.
+
+Section 7 describes alpha as the knob that trades structure against
+meaning, and both this file and the report talked about alpha=0.3 as
+"structure gets 30%, semantics 70%". That reading is wrong, and I only
+checked it after the shuffle null in section 13 came back saying the
+structure term barely matters.
+
+The two graphs are each normalised by their own 99th percentile, which
+puts both in [0, 1] but not on the same scale in any useful sense. A
+semantic k-NN edge is a cosine similarity between neighbours, so after
+normalisation the typical value sits around 0.57. A structural entry is a
+sum of 1/(n-1) shares, and most pairs co-occur in exactly one hyperedge of
+middling arity, so the typical value sits around 0.06, an order of
+magnitude down. Multiplying the first by 0.7 and the second by 0.3 does
+not give a 70/30 split of anything.
+
+Measured on the 2026 snapshot, the structural term carries about 7% of the
+total affinity mass at alpha=0.3 and about 14% at alpha=0.5, and the other
+three snapshots land between 5% and 7% at the shipped alpha. So the
+shipped method is semantic k-NN clustering with the hypergraph acting as a
+tie-breaker, and the shuffle null's collapse (section 13) stops being a
+surprise and starts being the obvious consequence.
+
+I'm leaving the parametrisation alone for this submission, because
+changing it means re-sweeping alpha and relabelling, but I want to be
+clear that it's a defect in the method's presentation rather than a
+subtlety. The clean version is to normalise the two graphs so a unit of
+alpha means a unit of influence, for instance by rank or quantile
+transform, or at least to report the realised mass share next to alpha
+every time it's quoted. What I do NOT think this justifies is quietly
+raising alpha so structure "counts more", since section 13 already
+measured what structure buys on held-out hyperedges and the answer was
+level 0 only.
+
+One thing the numbers do NOT say is that structure is idle. Structural
+pairs outnumber semantic ones at 2026 (65,679 against 58,856), and 94% of
+them are pairs the k-NN graph never proposes at all, so structure is
+mostly adding edges rather than re-weighting existing ones. A small weight
+on an edge that would otherwise be absent is not the same thing as a small
+weight on an edge that is already there, and it is probably why the
+held-out hyperedge test in section 13 still finds something at level 0
+when the mass share looks negligible.
+
+How alpha was chosen, and what that does to the numbers
+(`scripts/alpha_sweep.py`; `eval/stability.py`, `perturbation_stability`).
+alpha=0.3 was picked by maximising the same coherence and stability
+numbers the report then presents as results, so for the shipped setting
+those numbers are in-sample. They still separate the method from its
+nulls, which is a different question, but they are not an independent
+estimate of how good 0.3 is.
+
+One of the three criteria is also confounded with alpha itself. The
+perturbation test removes 10% of hyperedges and computes the semantic
+k-NN graph once, untouched, so it only ever disturbs the structural term.
+A clustering that leans less on structure is steadier under it
+mechanically: perturbation ARI is 0.75, 0.92 and 0.98 by level at
+alpha=0.05, against 0.58, 0.78 and 0.91 at 0.3 and 0.47, 0.66 and 0.81 at
+0.5. As robustness that is close to meaningless, since it rewards
+ignoring the hypergraph. So I re-read the sweep without it, on the six
+per-level numbers left (coherence z-score and cross-snapshot ARI).
+alpha=0.3 still beats 0.5 on all six and is still the only value that
+does, with 0.05, 0.15, 0.25, 0.4 and 0.45 at five of six. That's the
+version of the choice I'd defend, with thin margins and no uncertainty on
+the z-scores. The fix for the test itself is a semantic-side perturbation
+(drop or re-embed a sample of nodes) so both signals are under the same
+stress. Untried.
+
+## 18. Re-applying the pre-registered rules after the matcher fix
+
+The ground-truth fix in section 16 landed after the decision rules in
+section 15 had already been written down and read. That's exactly the
+situation where it would be easy to cheat without noticing, so to be
+explicit about what I did: I did not touch any rule, I reran the
+experiments the fix could affect (the relabelling rule and the extrinsic
+re-evaluation rule, both of which score against ground truth) and re-read
+the same rules against the new numbers. Both still pass, and both pass
+less comfortably than before, which is written into the results above
+rather than smoothed over. The rules that don't involve ground truth
+(alpha, level-0 skew, temporal thresholds, warm start, shuffle null,
+multilevel coarsening, structural holdout, localisation) don't depend on
+the matcher and weren't rerun.
+
+The honest risk here is the one I can't fully rule out: if the fix had
+flipped a rule from pass to fail, I'd like to think I'd have reported the
+fail, but I didn't have to, so that's a claim about myself and not
+evidence. The old numbers are kept next to the new ones throughout so a
+reader can check the direction of every change.
+
+## 19. Reproducibility details
+
+`embeddings.py` and `eval/faithfulness.py`, the pinned model revisions;
+`labeling.py`, `apply_labels_to_hierarchy` and `unlabelled_super_nodes`;
+`scripts/t5_apply_labels.py`, `scripts/t6_evaluate.py`.
+
+Both Hugging Face models are now loaded at a fixed commit (the revision
+hashes in the two modules) rather than whatever the Hub serves on the day.
+The cached copies these results came from are those commits, so pinning
+changed nothing here. It only stops a later upload from quietly changing
+the embeddings, and with them every cluster, for someone rerunning this
+next year.
+
+`run_pipeline.py` writes every label as null, since it has no business
+guessing which label goes with a freshly built cluster. The README didn't
+say `t5_apply_labels.py` had to run next, and if you skipped it,
+`t6_evaluate.py` died with a KeyError deep in the faithfulness log line. A
+reviewer following the README literally would have hit exactly that.
+Three changes. The README now lists the step in the main path.
+`t6_evaluate.py` checks for unlabelled super-nodes up front and says which
+script to run. And applying labels is now guarded. A label only goes onto a
+super-node if the prompt rebuilt from that super-node's current members is
+byte-identical to the prompt the label was written from. Persistent ids
+are reused across reruns, so without this, a change to alpha or the
+thresholds would put old labels on new clusters without any error. The
+guard accepts all 248 shipped labels, and it rejects two clusters whose
+members are swapped under the same ids (`tests/test_label_apply.py`).
+
+Platforms. On Linux, the PyPI wheel for `torch==2.14.0` depends on the
+CUDA 13 toolkit and a set of nvidia packages, none of which are in
+`requirements.txt`. So "the full pinned set, CPU-only" was only true on
+Windows and macOS. A `2.14.0+cpu` wheel exists on the PyTorch CPU index,
+and the README now says to install that first on Linux. I checked the
+dependency metadata and the index listing, but I haven't run the Linux
+install end to end.
+
+## 20. Confidence intervals on cross-snapshot stability
+
+`eval/stability.py`, `cross_snapshot_stability` and `_half_sample_ari`.
+
+The original CI was a t-interval over three numbers, one per transition,
+with two degrees of freedom. It was also answering the wrong question.
+The three transitions aren't draws from one distribution: 2022 to 2024 is
+the phase where the edge count nearly doubles. A t-interval treats that
+real difference as noise.
+
+The interval I report now holds each clustering fixed and asks how much
+the ARI depends on which concepts happen to be in the corpus. It
+resamples the shared nodes within each transition, and the interval for
+the mean over transitions is built from the same resamples. It does not
+cover variability of the clustering procedure itself. The perturbation
+measure is for that.
+
+I got the resampling wrong on the first try, and I worked through why with
+the coding agent. An ordinary bootstrap resamples with replacement, and a
+node drawn twice sits in the same cluster as its copy in both partitions,
+so it adds an agreeing pair. I'd assumed that effect was negligible
+because it's small against the total number of pairs. But ARI is driven
+by same-cluster pairs, not all pairs, and at level 2 (200 clusters,
+averaging 7 members at 2020 and 27 at 2026) the duplicate pairs are a sizeable fraction of
+those. The level-2 interval came out as 0.651 to 0.682 around an estimate
+of 0.647, entirely above it. Resampling half the nodes without
+replacement has no duplicates. Its mean matches the full-data ARI to
+within 0.001 in the four cases I checked, and for smooth statistics it has
+roughly the variance of the ordinary bootstrap.
+`tests/test_stability_ci.py` includes the many-small-clusters case, which
+the with-replacement version fails.
+
+Results. The means are unchanged (0.35, 0.45 and 0.65 by level). The
+intervals are much narrower than the t-intervals: 0.34 to 0.37, 0.44 to
+0.47 and 0.63 to 0.66. The more interesting thing is per transition. At
+level 1, 2020 to 2022 is 0.52 (0.49 to 0.56), 2022 to 2024 is 0.37 (0.35
+to 0.40) and 2024 to 2026 is 0.47 (0.45 to 0.49). Those don't overlap, so
+the middle transition really is less stable, not just noisier. It's also
+the one where the corpus changed most. So the per-transition numbers are
+the honest unit, and the mean over three is a summary, not an estimate of
+anything.
+
+## 21. Blind intruder test for coherence
+
+`eval/blind.py`, `make_intruder_items` and `score_intruder`;
+`scripts/blind_eval.py`; `outputs/blind_eval/`; rule and result in
+section 15.
+
+The brief lists blind LLM or human judgement as one way to measure
+coherence independently. TF-IDF turned out to be less independent than I'd
+claimed (section 5), so I added the classic intruder test from the
+topic-model literature (Chang et al. 2009). Show a rater five members of a
+super-node plus one node from a different level-0 branch, shuffled, and
+see whether the rater can pick the odd one out. If the groups mean
+something, the intruder stands out. Chance is 1 in 6.
+
+Two design choices carry the weight. First, the intruder is type-matched to
+one of the shown members, so a cluster of short technique names can't give
+away a long claim just by its length or shape. Second, a quarter of the items
+(20 of 79) are nulls: five random nodes plus an intruder picked the same way. A rater
+using surface cues rather than meaning would beat chance on those too.
+The rater saw only item ids and six strings. The answer key never left a
+separate folder until the ratings were in. The rater was a fresh Claude
+Code subagent on Opus, a different model from the Sonnet agents that
+wrote the labels. I checked its transcript afterwards: one read of its
+own item file, then its answer. It's one LLM rater, with no second rater
+and no human pass, so there is no inter-rater agreement to report. That's
+the obvious next thing if this mattered more.
+
+Result, by the rule written beforehand: 74% at level 2 and 58% at level 1,
+both clearly above chance, and 5% on the nulls. Level 0 was 4 of 12, which
+isn't distinguishable from chance. That fits everything else about level
+0: it's the least stable level, and its labels are the ones that read as
+mixed topics. The intruder test is the first coherence result in this
+project that doesn't pass through the same text representation the
+clustering used, and it says the finer levels hold together for a blind
+reader and the coarsest one may not.
+
+## 22. Blind gloss rating, provenance check and CIs on faithfulness
+
+`eval/blind.py`, `make_gloss_items` and `score_gloss_ratings`;
+`eval/faithfulness.py`, `premise_member_forms`,
+`check_provenance_faithfulness`; `eval/stats.py`.
+
+Three additions to the faithfulness evaluation, all driven by the same
+worry: the NLI judge had never been checked against anything.
+
+Wilson intervals. Every faithfulness rate now has one
+(`real_contradiction_ci95` and so on in metrics.json). They're wide
+because the samples are small: 29 checkable glosses at 2020 means a 14%
+contradiction rate comes with an interval of about 6% to 31%.
+
+Blind rating. There are 72 items, 12 real and 6 control per snapshot. A
+real item shows a gloss plus up to 15 of its super-node's members that the
+labeller never saw. A control item shows the same gloss with another
+super-node's members. The rater marks each item accurate, vague or wrong.
+The members are drawn with the same function the NLI premise uses
+(`premise_member_forms`), and the NLI judge is run on exactly those
+members, so the rater and NLI grade identical inputs. The same isolation
+and the same kind of rater as section 21 apply.
+
+The result (section 15) changes the headline. The rater rated 0 of 48 real
+glosses wrong and 23 of 24 controls wrong. Of the 36 real glosses NLI
+calls not entailed, the rater calls 32 accurate. So the old 60-79%
+"not-entailed" figure was measuring the premise, and the honest over-claim
+rate is 0 of 48 with an upper bound of 7%. NLI contradiction does track
+the rater (kappa 0.46), but it raises false alarms on real glosses. I'd
+now read the 5-14% NLI contradiction rate as an upper bound with noise in
+it, not as an over-claim rate.
+
+Two caveats. One LLM rater is not a panel. And "wrong" is a high bar, since
+a vague gloss is never wrong, which is partly why real items score so
+cleanly. The five real glosses rated vague are the ones to look at if you
+want the weak spots.
+
+Provenance. This is the brief's own version of the circularity. The
+labeller's only input was surface forms, and the clusters were built from
+surface forms, so grading glosses against more surface forms can only go
+so far. Every node records which papers it was extracted from, and
+`collection10_articles.csv` has their titles. Neither the labeller nor the
+clustering ever saw a title. So I graded each gloss against the titles of
+its held-out members' source papers, using the same NLI judge and the same
+random-other-cluster control. The rule was set beforehand, and the result
+(section 15) doesn't pass it: real glosses are contradicted less often
+than controls, 21% against 31%, but the intervals overlap. I read it as
+titles being too coarse to grade a one-sentence gloss, not as evidence
+either way, and I've kept it in the metrics without leaning on it.
+
+## 23. Publishing model outputs so a rerun can be checked
+
+`model_outputs.py`; `embeddings.py`, `encode_semantic`;
+`eval/faithfulness.py`, `nli_labels`; `scripts/reproduce_all.py`,
+`scripts/export_release.py`, `scripts/verify_release.py`.
+
+Nothing in this project is trained, so there are no weights to publish.
+The method is two frozen models, pinned to exact Hub commits (section 19),
+plus deterministic code. That means a rerun on another machine can only
+differ in one place: the numbers the two models hand back.
+
+I checked how fragile those are before designing anything around them.
+On this machine, with the same model and the same library versions, the
+same text doesn't always embed to the same bits. When the pipeline embeds
+nodes snapshot by snapshot, 514 of the 5,428 vectors differ from a single
+pass over all of them, by at most 1.1e-7. One text embedded alone differs
+from the same text inside a batch by 7.5e-8. It's float rounding in
+batched matrix products, and here it happens not to change any cluster
+(the zero-perturbation rebuild in the stability check gives ARI 1.0). But
+it means a different CPU or maths library will certainly move the
+embeddings a little, and a near-tie in someone's nearest-neighbour lists
+could then change a cluster, and every number downstream of it.
+
+So the release publishes every model output my run produced, and
+`TKH_MODEL_OUTPUTS=replay:DIR` makes the code use those instead of the
+models. A reproducer can then separate the two possible causes of a
+difference. If the replay reproduces my outputs, my results follow from
+my model outputs and the code is fine; any difference in their own run
+comes from their model outputs, and `verify_release.py
+compare-embeddings` shows how far theirs are from mine and whether any
+nearest neighbour changed. Outputs are keyed by the whole call (model
+revision, texts in order, batch size, sequence length), not by text,
+because of the batch effect above. A text-keyed store couldn't reproduce
+both passes that embed the same node.
+
+Building it turned up two problems. First, loading a pinned model still
+sent a request to the Hub every time, and when the network dropped
+mid-run each load sat through five retries before using the cache. Both
+models now load from the local cache first and only go online if the
+files are missing. Second, and more interesting, `localisation.json`
+wasn't reproducible. Its per-cluster semantic exposure is a mean over a
+Python set of node ids, and set order depends on string-hash
+randomisation, so the floats were summed in a different order each run
+and came out different in the 16th digit. The summary statistics are
+rank-based and never moved, which is why every earlier check of
+`metrics.json` passed. The byte-level checksum over all 45 output files is
+what caught it. `localisation.py`, `cluster_rows`, now sums in sorted order,
+and the file is byte-identical under two different hash seeds.
+
+What the release does not cover. The LLM-written labels and the blind
+ratings aren't model outputs of the pipeline. They are checked-in data,
+and they can't be regenerated bit for bit by anyone. And replay only
+checks the code after the models. Whether my model outputs are what the
+pinned models really produce is what `compare-embeddings` is for, run on
+the reproducer's machine.

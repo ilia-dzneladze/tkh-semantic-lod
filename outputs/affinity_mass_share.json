@@ -1,0 +1,62 @@
+{
+  "2020": {
+    "n_concept_nodes": 1406,
+    "n_structural_pairs": 12066,
+    "n_semantic_pairs": 14952,
+    "n_structure_only_pairs": 10621,
+    "n_both_pairs": 1445,
+    "median_normalized_structural_weight": 0.06153846153846154,
+    "median_normalized_semantic_weight": 0.5128046870231628,
+    "structural_share_of_affinity_mass": {
+      "0.1": 0.017663437926046115,
+      "0.3": 0.06485725459858943,
+      "0.5": 0.1392884396708763,
+      "0.7": 0.2741009087155643
+    }
+  },
+  "2022": {
+    "n_concept_nodes": 2046,
+    "n_structural_pairs": 18917,
+    "n_semantic_pairs": 21725,
+    "n_structure_only_pairs": 17172,
+    "n_both_pairs": 1745,
+    "median_normalized_structural_weight": 0.04615384615384616,
+    "median_normalized_semantic_weight": 0.5256041288375854,
+    "structural_share_of_affinity_mass": {
+      "0.1": 0.014155667602301407,
+      "0.3": 0.05247797292002417,
+      "0.5": 0.11444108836516914,
+      "0.7": 0.2316779099635351
+    }
+  },
+  "2024": {
+    "n_concept_nodes": 3895,
+    "n_structural_pairs": 43539,
+    "n_semantic_pairs": 41933,
+    "n_structure_only_pairs": 40613,
+    "n_both_pairs": 2926,
+    "median_normalized_structural_weight": 0.05,
+    "median_normalized_semantic_weight": 0.5565187335014343,
+    "structural_share_of_affinity_mass": {
+      "0.1": 0.016617740862859564,
+      "0.3": 0.061191665498948854,
+      "0.5": 0.13201000352647146,
+      "0.7": 0.26192163949123687
+    }
+  },
+  "2026": {
+    "n_concept_nodes": 5428,
+    "n_structural_pairs": 65679,
+    "n_semantic_pairs": 58856,
+    "n_structure_only_pairs": 62079,
+    "n_both_pairs": 3600,
+    "median_normalized_structural_weight": 0.05555555555555556,
+    "median_normalized_semantic_weight": 0.5715386867523193,
+    "structural_share_of_affinity_mass": {
+      "0.1": 0.01811881167958071,
+      "0.3": 0.0664470138209749,
+      "0.5": 0.14242476513265032,
+      "0.7": 0.27928778841664087
+    }
+  }
+}

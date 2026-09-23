@@ -37,6 +37,9 @@ def main():
         if stats["n_quality_notes"]:
             print(f"  quality notes: {stats['n_quality_notes']} "
                   f"(sample: {stats['quality_notes_sample'][:2]})")
+        print(f"  nodes first seen after the cutoff, kept anyway: "
+              f"{stats['n_nodes_first_seen_after_cutoff']} "
+              f"({stats['n_concept_nodes_first_seen_after_cutoff']} concept nodes)")
 
     OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUT_PATH.write_text(json.dumps(report, indent=2), encoding="utf-8")

@@ -1,0 +1,1108 @@
+{
+  "I001": {
+    "kind": "null",
+    "level": null,
+    "super_node_id": null,
+    "intruder_index": 0,
+    "option_node_ids": [
+      "clai_00610",
+      "cite_00151",
+      "clai_00330",
+      "clai_00454",
+      "clai_00081",
+      "tech_00813"
+    ]
+  },
+  "I002": {
+    "kind": "real",
+    "level": 2,
+    "super_node_id": "L2_S00220",
+    "intruder_index": 2,
+    "option_node_ids": [
+      "clai_00564",
+      "task_00215",
+      "clai_00672",
+      "prob_00182",
+      "data_00202",
+      "clai_00566"
+    ]
+  },
+  "I003": {
+    "kind": "real",
+    "level": 2,
+    "super_node_id": "L2_S00275",
+    "intruder_index": 1,
+    "option_node_ids": [
+      "tech_00559",
+      "prob_00628",
+      "prob_00332",
+      "tech_00722",
+      "prob_00539",
+      "comp_00539"
+    ]
+  },
+  "I004": {
+    "kind": "real",
+    "level": 0,
+    "super_node_id": "L0_S00021",
+    "intruder_index": 2,
+    "option_node_ids": [
+      "cite_00069",
+      "cite_00503",
+      "cite_00348",
+      "cite_00358",
+      "comp_00583",
+      "cite_00080"
+    ]
+  },
+  "I005": {
+    "kind": "null",
+    "level": null,
+    "super_node_id": null,
+    "intruder_index": 3,
+    "option_node_ids": [
+      "meth_00047",
+      "tech_00705",
+      "tech_00596",
+      "tech_00036",
+      "prob_00373",
+      "prob_00340"
+    ]
+  },
+  "I006": {
+    "kind": "real",
+    "level": 0,
+    "super_node_id": "L0_S00004",
+    "intruder_index": 1,
+    "option_node_ids": [
+      "prob_00056",
+      "futu_00143",
+      "prob_00396",
+      "data_00044",
+      "task_00482",
+      "futu_00148"
+    ]
+  },
+  "I007": {
+    "kind": "real",
+    "level": 1,
+    "super_node_id": "L1_S00003",
+    "intruder_index": 4,
+    "option_node_ids": [
+      "prob_00439",
+      "tech_00959",
+      "tech_00574",
+      "tech_00364",
+      "prob_00583",
+      "meth_00051"
+    ]
+  },
+  "I008": {
+    "kind": "real",
+    "level": 0,
+    "super_node_id": "L0_S00001",
+    "intruder_index": 0,
+    "option_node_ids": [
+      "meth_00339",
+      "cite_00045",
+      "comp_00472",
+      "cite_00553",
+      "meth_00295",
+      "data_00015"
+    ]
+  },
+  "I009": {
+    "kind": "real",
+    "level": 1,
+    "super_node_id": "L1_S00029",
+    "intruder_index": 3,
+    "option_node_ids": [
+      "tech_00258",
+      "prob_00194",
+      "comp_00148",
+      "prob_00541",
+      "comp_00407",
+      "comp_00104"
+    ]
+  },
+  "I010": {
+    "kind": "null",
+    "level": null,
+    "super_node_id": null,
+    "intruder_index": 2,
+    "option_node_ids": [
+      "tech_00415",
+      "tech_00117",
+      "tech_00352",
+      "tech_00479",
+      "tech_00251",
+      "comp_00589"
+    ]
+  },
+  "I011": {
+    "kind": "real",
+    "level": 2,
+    "super_node_id": "L2_S00266",
+    "intruder_index": 2,
+    "option_node_ids": [
+      "meth_00022",
+      "tech_00324",
+      "tech_00220",
+      "prob_00268",
+      "prob_00006",
+      "comp_00170"
+    ]
+  },
+  "I012": {
+    "kind": "real",
+    "level": 0,
+    "super_node_id": "L0_S00019",
+    "intruder_index": 5,
+    "option_node_ids": [
+      "tech_00869",
+      "tech_00584",
+      "comp_00347",
+      "comp_00604",
+      "tech_00366",
+      "comp_00407"
+    ]
+  },
+  "I013": {
+    "kind": "real",
+    "level": 1,
+    "super_node_id": "L1_S00062",
+    "intruder_index": 2,
+    "option_node_ids": [
+      "tech_00782",
+      "prob_00005",
+      "tech_00319",
+      "comp_00544",
+      "meth_00351",
+      "meth_00352"
+    ]
+  },
+  "I014": {
+    "kind": "real",
+    "level": 2,
+    "super_node_id": "L2_S00111",
+    "intruder_index": 1,
+    "option_node_ids": [
+      "task_00504",
+      "prob_00208",
+      "task_00032",
+      "meth_00375",
+      "futu_00066",
+      "prob_00408"
+    ]
+  },
+  "I015": {
+    "kind": "null",
+    "level": null,
+    "super_node_id": null,
+    "intruder_index": 5,
+    "option_node_ids": [
+      "prob_00485",
+      "comp_00368",
+      "cite_00292",
+      "task_00152",
+      "comp_00430",
+      "comp_00846"
+    ]
+  },
+  "I016": {
+    "kind": "real",
+    "level": 1,
+    "super_node_id": "L1_S00009",
+    "intruder_index": 2,
+    "option_node_ids": [
+      "tech_00516",
+      "prob_00465",
+      "prob_00610",
+      "prob_00003",
+      "prob_00406",
+      "tech_00803"
+    ]
+  },
+  "I017": {
+    "kind": "real",
+    "level": 1,
+    "super_node_id": "L1_S00007",
+    "intruder_index": 4,
+    "option_node_ids": [
+      "tech_00814",
+      "tech_00065",
+      "tech_00268",
+      "cite_00104",
+      "tech_00857",
+      "tech_00942"
+    ]
+  },
+  "I018": {
+    "kind": "real",
+    "level": 1,
+    "super_node_id": "L1_S00042",
+    "intruder_index": 0,
+    "option_node_ids": [
+      "task_00265",
+      "tech_00885",
+      "tech_00061",
+      "task_00013",
+      "comp_00149",
+      "prob_00291"
+    ]
+  },
+  "I019": {
+    "kind": "real",
+    "level": 0,
+    "super_node_id": "L0_S00011",
+    "intruder_index": 3,
+    "option_node_ids": [
+      "prob_00315",
+      "clai_00614",
+      "prob_00319",
+      "prob_00160",
+      "tech_00264",
+      "tech_00900"
+    ]
+  },
+  "I020": {
+    "kind": "real",
+    "level": 1,
+    "super_node_id": "L1_S00077",
+    "intruder_index": 2,
+    "option_node_ids": [
+      "cite_00471",
+      "metr_00073",
+      "task_00473",
+      "task_00321",
+      "metr_00036",
+      "metr_00057"
+    ]
+  },
+  "I021": {
+    "kind": "null",
+    "level": null,
+    "super_node_id": null,
+    "intruder_index": 5,
+    "option_node_ids": [
+      "tech_00357",
+      "data_00139",
+      "tech_00666",
+      "meth_00303",
+      "data_00245",
+      "data_00247"
+    ]
+  },
+  "I022": {
+    "kind": "real",
+    "level": 0,
+    "super_node_id": "L0_S00020",
+    "intruder_index": 3,
+    "option_node_ids": [
+      "task_00586",
+      "task_00667",
+      "tech_00830",
+      "cite_00291",
+      "data_00190",
+      "cite_00521"
+    ]
+  },
+  "I023": {
+    "kind": "real",
+    "level": 2,
+    "super_node_id": "L2_S00251",
+    "intruder_index": 4,
+    "option_node_ids": [
+      "prob_00479",
+      "clai_00463",
+      "comp_00698",
+      "prob_00488",
+      "futu_00064",
+      "futu_00162"
+    ]
+  },
+  "I024": {
+    "kind": "null",
+    "level": null,
+    "super_node_id": null,
+    "intruder_index": 1,
+    "option_node_ids": [
+      "prob_00478",
+      "prob_00206",
+      "clai_00081",
+      "comp_00079",
+      "prob_00075",
+      "futu_00057"
+    ]
+  },
+  "I025": {
+    "kind": "null",
+    "level": null,
+    "super_node_id": null,
+    "intruder_index": 2,
+    "option_node_ids": [
+      "clai_00409",
+      "comp_00232",
+      "comp_00573",
+      "tech_00165",
+      "comp_00501",
+      "clai_00269"
+    ]
+  },
+  "I026": {
+    "kind": "real",
+    "level": 2,
+    "super_node_id": "L2_S00113",
+    "intruder_index": 1,
+    "option_node_ids": [
+      "tech_00839",
+      "tech_00779",
+      "tech_00961",
+      "tech_00030",
+      "comp_00188",
+      "tech_00851"
+    ]
+  },
+  "I027": {
+    "kind": "real",
+    "level": 0,
+    "super_node_id": "L0_S00015",
+    "intruder_index": 4,
+    "option_node_ids": [
+      "cite_00249",
+      "clai_00229",
+      "task_00194",
+      "meth_00291",
+      "meth_00173",
+      "tech_00645"
+    ]
+  },
+  "I028": {
+    "kind": "null",
+    "level": null,
+    "super_node_id": null,
+    "intruder_index": 0,
+    "option_node_ids": [
+      "futu_00143",
+      "futu_00107",
+      "prob_00166",
+      "prob_00130",
+      "task_00686",
+      "cite_00027"
+    ]
+  },
+  "I029": {
+    "kind": "real",
+    "level": 1,
+    "super_node_id": "L1_S00001",
+    "intruder_index": 0,
+    "option_node_ids": [
+      "cite_00106",
+      "data_00140",
+      "meth_00113",
+      "cite_00297",
+      "cite_00292",
+      "cite_00002"
+    ]
+  },
+  "I030": {
+    "kind": "null",
+    "level": null,
+    "super_node_id": null,
+    "intruder_index": 5,
+    "option_node_ids": [
+      "tech_00263",
+      "tech_00291",
+      "task_00705",
+      "cite_00049",
+      "prob_00310",
+      "cite_00295"
+    ]
+  },
+  "I031": {
+    "kind": "null",
+    "level": null,
+    "super_node_id": null,
+    "intruder_index": 0,
+    "option_node_ids": [
+      "prob_00082",
+      "cite_00557",
+      "meth_00189",
+      "prob_00207",
+      "clai_00515",
+      "futu_00001"
+    ]
+  },
+  "I032": {
+    "kind": "real",
+    "level": 2,
+    "super_node_id": "L2_S00204",
+    "intruder_index": 5,
+    "option_node_ids": [
+      "cite_00161",
+      "comp_00043",
+      "comp_00042",
+      "cite_00216",
+      "cite_00492",
+      "cite_00148"
+    ]
+  },
+  "I033": {
+    "kind": "null",
+    "level": null,
+    "super_node_id": null,
+    "intruder_index": 5,
+    "option_node_ids": [
+      "task_00678",
+      "task_00452",
+      "data_00118",
+      "comp_00408",
+      "task_00203",
+      "task_00689"
+    ]
+  },
+  "I034": {
+    "kind": "real",
+    "level": 1,
+    "super_node_id": "L1_S00018",
+    "intruder_index": 2,
+    "option_node_ids": [
+      "clai_00208",
+      "prob_00481",
+      "clai_00171",
+      "prob_00135",
+      "clai_00432",
+      "tech_00597"
+    ]
+  },
+  "I035": {
+    "kind": "real",
+    "level": 1,
+    "super_node_id": "L1_S00020",
+    "intruder_index": 3,
+    "option_node_ids": [
+      "data_00176",
+      "clai_00012",
+      "data_00178",
+      "prob_00416",
+      "tech_00381",
+      "prob_00397"
+    ]
+  },
+  "I036": {
+    "kind": "real",
+    "level": 0,
+    "super_node_id": "L0_S00017",
+    "intruder_index": 1,
+    "option_node_ids": [
+      "tech_00898",
+      "cite_00325",
+      "tech_00462",
+      "tech_00075",
+      "tech_00639",
+      "cite_00355"
+    ]
+  },
+  "I037": {
+    "kind": "real",
+    "level": 2,
+    "super_node_id": "L2_S00063",
+    "intruder_index": 4,
+    "option_node_ids": [
+      "data_00246",
+      "clai_00379",
+      "clai_00580",
+      "futu_00156",
+      "data_00225",
+      "prob_00142"
+    ]
+  },
+  "I038": {
+    "kind": "real",
+    "level": 2,
+    "super_node_id": "L2_S00314",
+    "intruder_index": 2,
+    "option_node_ids": [
+      "prob_00277",
+      "task_00133",
+      "prob_00146",
+      "prob_00281",
+      "prob_00196",
+      "prob_00098"
+    ]
+  },
+  "I039": {
+    "kind": "real",
+    "level": 1,
+    "super_node_id": "L1_S00023",
+    "intruder_index": 3,
+    "option_node_ids": [
+      "task_00640",
+      "prob_00423",
+      "data_00164",
+      "data_00182",
+      "task_00289",
+      "clai_00314"
+    ]
+  },
+  "I040": {
+    "kind": "real",
+    "level": 1,
+    "super_node_id": "L1_S00004",
+    "intruder_index": 0,
+    "option_node_ids": [
+      "task_00574",
+      "task_00678",
+      "futu_00008",
+      "data_00002",
+      "meth_00440",
+      "task_00505"
+    ]
+  },
+  "I041": {
+    "kind": "real",
+    "level": 1,
+    "super_node_id": "L1_S00006",
+    "intruder_index": 2,
+    "option_node_ids": [
+      "task_00116",
+      "comp_00622",
+      "task_00021",
+      "meth_00375",
+      "cite_00245",
+      "cite_00217"
+    ]
+  },
+  "I042": {
+    "kind": "real",
+    "level": 2,
+    "super_node_id": "L2_S00056",
+    "intruder_index": 1,
+    "option_node_ids": [
+      "clai_00550",
+      "prob_00029",
+      "task_00439",
+      "prob_00087",
+      "prob_00094",
+      "task_00119"
+    ]
+  },
+  "I043": {
+    "kind": "real",
+    "level": 1,
+    "super_node_id": "L1_S00070",
+    "intruder_index": 2,
+    "option_node_ids": [
+      "tech_00956",
+      "comp_00109",
+      "cite_00193",
+      "cite_00004",
+      "cite_00260",
+      "clai_00176"
+    ]
+  },
+  "I044": {
+    "kind": "null",
+    "level": null,
+    "super_node_id": null,
+    "intruder_index": 2,
+    "option_node_ids": [
+      "task_00280",
+      "cite_00329",
+      "cite_00043",
+      "tech_00433",
+      "data_00014",
+      "comp_00451"
+    ]
+  },
+  "I045": {
+    "kind": "real",
+    "level": 2,
+    "super_node_id": "L2_S00289",
+    "intruder_index": 1,
+    "option_node_ids": [
+      "metr_00027",
+      "tech_00742",
+      "tech_00434",
+      "tech_00435",
+      "tech_00433",
+      "clai_00086"
+    ]
+  },
+  "I046": {
+    "kind": "real",
+    "level": 2,
+    "super_node_id": "L2_S00134",
+    "intruder_index": 0,
+    "option_node_ids": [
+      "futu_00086",
+      "tech_00658",
+      "data_00178",
+      "task_00548",
+      "clai_00011",
+      "futu_00088"
+    ]
+  },
+  "I047": {
+    "kind": "real",
+    "level": 1,
+    "super_node_id": "L1_S00064",
+    "intruder_index": 1,
+    "option_node_ids": [
+      "comp_00581",
+      "prob_00035",
+      "comp_00192",
+      "task_00114",
+      "prob_00329",
+      "clai_00602"
+    ]
+  },
+  "I048": {
+    "kind": "real",
+    "level": 2,
+    "super_node_id": "L2_S00039",
+    "intruder_index": 1,
+    "option_node_ids": [
+      "prob_00427",
+      "tech_00814",
+      "tech_00494",
+      "comp_00506",
+      "comp_00771",
+      "clai_00174"
+    ]
+  },
+  "I049": {
+    "kind": "real",
+    "level": 0,
+    "super_node_id": "L0_S00005",
+    "intruder_index": 3,
+    "option_node_ids": [
+      "clai_00118",
+      "clai_00461",
+      "prob_00072",
+      "clai_00553",
+      "clai_00104",
+      "meth_00230"
+    ]
+  },
+  "I050": {
+    "kind": "real",
+    "level": 2,
+    "super_node_id": "L2_S00287",
+    "intruder_index": 0,
+    "option_node_ids": [
+      "cite_00287",
+      "comp_00599",
+      "cite_00422",
+      "data_00243",
+      "data_00038",
+      "tech_00417"
+    ]
+  },
+  "I051": {
+    "kind": "real",
+    "level": 2,
+    "super_node_id": "L2_S00023",
+    "intruder_index": 4,
+    "option_node_ids": [
+      "comp_00816",
+      "comp_00095",
+      "comp_00548",
+      "comp_00812",
+      "comp_00295",
+      "prob_00622"
+    ]
+  },
+  "I052": {
+    "kind": "null",
+    "level": null,
+    "super_node_id": null,
+    "intruder_index": 1,
+    "option_node_ids": [
+      "comp_00827",
+      "meth_00136",
+      "clai_00624",
+      "task_00337",
+      "tech_00673",
+      "meth_00079"
+    ]
+  },
+  "I053": {
+    "kind": "real",
+    "level": 0,
+    "super_node_id": "L0_S00018",
+    "intruder_index": 5,
+    "option_node_ids": [
+      "metr_00049",
+      "meth_00062",
+      "comp_00660",
+      "metr_00045",
+      "tech_00623",
+      "meth_00121"
+    ]
+  },
+  "I054": {
+    "kind": "null",
+    "level": null,
+    "super_node_id": null,
+    "intruder_index": 2,
+    "option_node_ids": [
+      "clai_00608",
+      "tech_00762",
+      "clai_00509",
+      "cite_00425",
+      "futu_00130",
+      "futu_00011"
+    ]
+  },
+  "I055": {
+    "kind": "real",
+    "level": 0,
+    "super_node_id": "L0_S00003",
+    "intruder_index": 5,
+    "option_node_ids": [
+      "prob_00220",
+      "tech_00848",
+      "clai_00132",
+      "comp_00315",
+      "comp_00007",
+      "prob_00555"
+    ]
+  },
+  "I056": {
+    "kind": "real",
+    "level": 2,
+    "super_node_id": "L2_S00302",
+    "intruder_index": 0,
+    "option_node_ids": [
+      "prob_00307",
+      "comp_00145",
+      "comp_00174",
+      "prob_00273",
+      "prob_00272",
+      "tech_00580"
+    ]
+  },
+  "I057": {
+    "kind": "real",
+    "level": 1,
+    "super_node_id": "L1_S00035",
+    "intruder_index": 3,
+    "option_node_ids": [
+      "comp_00345",
+      "comp_00354",
+      "futu_00096",
+      "comp_00567",
+      "comp_00357",
+      "comp_00397"
+    ]
+  },
+  "I058": {
+    "kind": "null",
+    "level": null,
+    "super_node_id": null,
+    "intruder_index": 1,
+    "option_node_ids": [
+      "comp_00561",
+      "tech_00792",
+      "tech_00028",
+      "tech_00838",
+      "clai_00465",
+      "meth_00327"
+    ]
+  },
+  "I059": {
+    "kind": "null",
+    "level": null,
+    "super_node_id": null,
+    "intruder_index": 3,
+    "option_node_ids": [
+      "comp_00786",
+      "prob_00398",
+      "comp_00280",
+      "cite_00319",
+      "cite_00184",
+      "task_00609"
+    ]
+  },
+  "I060": {
+    "kind": "real",
+    "level": 1,
+    "super_node_id": "L1_S00052",
+    "intruder_index": 3,
+    "option_node_ids": [
+      "cite_00117",
+      "comp_00076",
+      "comp_00505",
+      "comp_00689",
+      "comp_00049",
+      "comp_00563"
+    ]
+  },
+  "I061": {
+    "kind": "real",
+    "level": 2,
+    "super_node_id": "L2_S00238",
+    "intruder_index": 2,
+    "option_node_ids": [
+      "tech_00543",
+      "tech_00790",
+      "tech_00529",
+      "clai_00275",
+      "tech_00268",
+      "tech_00889"
+    ]
+  },
+  "I062": {
+    "kind": "real",
+    "level": 2,
+    "super_node_id": "L2_S00004",
+    "intruder_index": 3,
+    "option_node_ids": [
+      "comp_00483",
+      "meth_00317",
+      "comp_00066",
+      "task_00284",
+      "task_00369",
+      "tech_00522"
+    ]
+  },
+  "I063": {
+    "kind": "real",
+    "level": 2,
+    "super_node_id": "L2_S00242",
+    "intruder_index": 1,
+    "option_node_ids": [
+      "meth_00444",
+      "tech_00181",
+      "metr_00021",
+      "tech_00204",
+      "cite_00229",
+      "metr_00008"
+    ]
+  },
+  "I064": {
+    "kind": "real",
+    "level": 0,
+    "super_node_id": "L0_S00007",
+    "intruder_index": 0,
+    "option_node_ids": [
+      "comp_00739",
+      "meth_00321",
+      "comp_00602",
+      "meth_00340",
+      "futu_00083",
+      "cite_00519"
+    ]
+  },
+  "I065": {
+    "kind": "real",
+    "level": 2,
+    "super_node_id": "L2_S00106",
+    "intruder_index": 4,
+    "option_node_ids": [
+      "prob_00550",
+      "prob_00576",
+      "prob_00557",
+      "prob_00368",
+      "task_00424",
+      "task_00238"
+    ]
+  },
+  "I066": {
+    "kind": "null",
+    "level": null,
+    "super_node_id": null,
+    "intruder_index": 4,
+    "option_node_ids": [
+      "tech_00556",
+      "tech_00160",
+      "task_00060",
+      "futu_00111",
+      "task_00487",
+      "comp_00571"
+    ]
+  },
+  "I067": {
+    "kind": "real",
+    "level": 1,
+    "super_node_id": "L1_S00011",
+    "intruder_index": 5,
+    "option_node_ids": [
+      "tech_00649",
+      "tech_00801",
+      "tech_00564",
+      "prob_00279",
+      "tech_00297",
+      "tech_00436"
+    ]
+  },
+  "I068": {
+    "kind": "real",
+    "level": 2,
+    "super_node_id": "L2_S00087",
+    "intruder_index": 3,
+    "option_node_ids": [
+      "comp_00750",
+      "comp_00628",
+      "prob_00190",
+      "comp_00843",
+      "comp_00623",
+      "comp_00126"
+    ]
+  },
+  "I069": {
+    "kind": "real",
+    "level": 1,
+    "super_node_id": "L1_S00017",
+    "intruder_index": 0,
+    "option_node_ids": [
+      "data_00246",
+      "data_00101",
+      "comp_00401",
+      "tech_00858",
+      "data_00154",
+      "cite_00374"
+    ]
+  },
+  "I070": {
+    "kind": "real",
+    "level": 1,
+    "super_node_id": "L1_S00041",
+    "intruder_index": 1,
+    "option_node_ids": [
+      "comp_00134",
+      "tech_00527",
+      "tech_00823",
+      "clai_00267",
+      "comp_00107",
+      "prob_00014"
+    ]
+  },
+  "I071": {
+    "kind": "real",
+    "level": 1,
+    "super_node_id": "L1_S00039",
+    "intruder_index": 2,
+    "option_node_ids": [
+      "meth_00301",
+      "prob_00042",
+      "prob_00140",
+      "task_00323",
+      "data_00062",
+      "prob_00584"
+    ]
+  },
+  "I072": {
+    "kind": "real",
+    "level": 1,
+    "super_node_id": "L1_S00038",
+    "intruder_index": 2,
+    "option_node_ids": [
+      "meth_00412",
+      "tech_00799",
+      "meth_00215",
+      "comp_00753",
+      "prob_00150",
+      "tech_00898"
+    ]
+  },
+  "I073": {
+    "kind": "real",
+    "level": 2,
+    "super_node_id": "L2_S00070",
+    "intruder_index": 2,
+    "option_node_ids": [
+      "prob_00519",
+      "tech_00708",
+      "meth_00328",
+      "meth_00287",
+      "task_00113",
+      "comp_00730"
+    ]
+  },
+  "I074": {
+    "kind": "null",
+    "level": null,
+    "super_node_id": null,
+    "intruder_index": 2,
+    "option_node_ids": [
+      "data_00038",
+      "clai_00612",
+      "data_00066",
+      "tech_00032",
+      "meth_00219",
+      "tech_00865"
+    ]
+  },
+  "I075": {
+    "kind": "null",
+    "level": null,
+    "super_node_id": null,
+    "intruder_index": 0,
+    "option_node_ids": [
+      "comp_00037",
+      "metr_00073",
+      "clai_00683",
+      "prob_00171",
+      "comp_00409",
+      "cite_00544"
+    ]
+  },
+  "I076": {
+    "kind": "real",
+    "level": 2,
+    "super_node_id": "L2_S00301",
+    "intruder_index": 3,
+    "option_node_ids": [
+      "prob_00531",
+      "futu_00104",
+      "prob_00570",
+      "futu_00035",
+      "comp_00025",
+      "comp_00640"
+    ]
+  },
+  "I077": {
+    "kind": "null",
+    "level": null,
+    "super_node_id": null,
+    "intruder_index": 0,
+    "option_node_ids": [
+      "comp_00016",
+      "comp_00192",
+      "tech_00120",
+      "prob_00045",
+      "futu_00140",
+      "data_00249"
+    ]
+  },
+  "I078": {
+    "kind": "real",
+    "level": 1,
+    "super_node_id": "L1_S00072",
+    "intruder_index": 1,
+    "option_node_ids": [
+      "meth_00242",
+      "cite_00318",
+      "cite_00021",
+      "tech_00944",
+      "metr_00008",
+      "tech_00204"
+    ]
+  },
+  "I079": {
+    "kind": "real",
+    "level": 1,
+    "super_node_id": "L1_S00030",
+    "intruder_index": 0,
+    "option_node_ids": [
+      "prob_00175",
+      "tech_00255",
+      "clai_00048",
+      "clai_00013",
+      "clai_00047",
+      "prob_00295"
+    ]
+  }
+}

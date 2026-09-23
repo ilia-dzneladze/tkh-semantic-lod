@@ -72,6 +72,12 @@ def build_all_snapshots(data, cutoffs=SNAPSHOT_CUTOFFS):
 
 
 def describe_snapshot(snap):
+    # nodes an edge pulled in although the corpus hadn't seen them yet:
+    # DESIGN_NOTES.md section 2
+    n_late = sum(1 for n in snap.nodes.values()
+                 if (_node_present_year(n) or 0) > snap.cutoff_year)
+    n_late_concept = sum(1 for nid in snap.concept_ids
+                         if (_node_present_year(snap.nodes[nid]) or 0) > snap.cutoff_year)
     type_dist = Counter(n.get("type") for n in snap.nodes.values())
     arity_dist = Counter(len(e.get("members", [])) for e in snap.hyperedges)
     rel_dist = Counter(e.get("relation_type") for e in snap.hyperedges)
@@ -87,6 +93,8 @@ def describe_snapshot(snap):
         "max_arity": max(arity_dist) if arity_dist else 0,
         "min_arity": min(arity_dist) if arity_dist else 0,
         "node_year_span": [min(node_years), max(node_years)] if node_years else None,
+        "n_nodes_first_seen_after_cutoff": n_late,
+        "n_concept_nodes_first_seen_after_cutoff": n_late_concept,
         "n_quality_notes": len(snap.quality_notes),
         "quality_notes_sample": snap.quality_notes[:10],
     }

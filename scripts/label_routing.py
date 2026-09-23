@@ -1,8 +1,12 @@
-"""Label routing vs centroid routing on the 2026 hierarchy, for whichever
-labels are currently applied to hierarchy.json. Usage: label_routing.py TAG
-(e.g. v1 for the original labels, v2 for the relabel). Results are stored
-under TAG in outputs/label_routing.json, so runs for different label sets
-sit side by side. Decision rule: DESIGN_NOTES.md section 15.
+"""Label routing vs centroid routing on the 2026 hierarchy.
+
+Usage: label_routing.py TAG [LABELS_DIR]. Without LABELS_DIR it scores
+whatever labels are currently applied to hierarchy.json; with it, the
+labels in LABELS_DIR/<year>/labeling_output.json are applied in memory
+instead (outputs/labels_v1 for the first label set), leaving the shipped
+hierarchy.json untouched. Results are stored under TAG in
+outputs/label_routing.json, so runs for different label sets sit side by
+side. Decision rule: DESIGN_NOTES.md section 15.
 """
 import json
 import sys
@@ -16,6 +20,7 @@ sys.path.insert(0, str(ROOT / "src"))
 from tkh.io import load_tkh, build_snapshot  # noqa: E402
 from tkh.pipeline import embed_concepts  # noqa: E402
 from tkh.embeddings import encode_semantic  # noqa: E402
+from tkh.labeling import apply_labels_to_hierarchy  # noqa: E402
 from tkh.eval.extrinsic import (  # noqa: E402
     routing_pool_recall, load_type_a_questions, centroid_vectors)
 
@@ -25,11 +30,19 @@ OUT_PATH = ROOT / "outputs" / "label_routing.json"
 
 
 def main():
-    if len(sys.argv) != 2:
-        sys.exit("usage: label_routing.py TAG")
+    if len(sys.argv) not in (2, 3):
+        sys.exit("usage: label_routing.py TAG [LABELS_DIR]")
     tag = sys.argv[1]
     snap = build_snapshot(load_tkh(ROOT / "data" / "tkh_collection10.json"), YEAR)
     h = json.loads((ROOT / "outputs" / "snapshots" / str(YEAR) / "hierarchy.json").read_text(encoding="utf-8"))
+    if len(sys.argv) == 3:
+        labels_path = Path(sys.argv[2]) / str(YEAR) / "labeling_output.json"
+        # archived sets were written from an older prompt template, so only
+        # the member-count check applies here, not the prompt fingerprint
+        h, n_applied, stale = apply_labels_to_hierarchy(h, labels_path)
+        if stale:
+            sys.exit(f"{len(stale)} archived labels don't match the current clusters: {stale[:5]}")
+        print(f"applied {n_applied} labels from {labels_path} (in memory only)")
     questions = load_type_a_questions(ROOT, snap, encode_semantic)
 
     labelled = [sn for sn in h["super_nodes"] if sn["level"] in (0, 1)]

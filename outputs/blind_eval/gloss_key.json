@@ -1,0 +1,650 @@
+{
+  "G001": {
+    "kind": "real",
+    "year": 2022,
+    "level": 1,
+    "super_node_id": "L1_S00014",
+    "member_source_id": "L1_S00014",
+    "premise": "The cluster includes Three‑body angular module, CFID descriptor set, Three-body descriptor, Hierarchical descriptor set, 2-body descriptor, Findsym symmetry analysis, Chemical element permutation.",
+    "nli_label": "neutral"
+  },
+  "G002": {
+    "kind": "real",
+    "year": 2022,
+    "level": 1,
+    "super_node_id": "L1_S00001",
+    "member_source_id": "L1_S00001",
+    "premise": "The cluster includes PBE functional, BAML, ECFP4, ACE, FCHL revisited, DeepH, Magpie, CPMD, CDVAE, Because the ACE basis is complete and hierarchical, it can in principle achieve arbitrary accuracy for any scalar, vectorial or tensorial property., Magpie features, ANAKIN-ME, Roost, PBEsol, RMM-DIIS.",
+    "nli_label": "neutral"
+  },
+  "G003": {
+    "kind": "control",
+    "year": 2020,
+    "level": 0,
+    "super_node_id": "L0_S00005",
+    "member_source_id": "L0_S00008",
+    "premise": "The cluster includes GRU, HDAD, DFT+U, GW@LDA+U, LDA, The AFLOW standard enables reproducible high-throughput DFT calculations through standardized parameter sets for k-point density, energy cut-offs, exchange-correlation functionals, pseudopotentials, DFT+U parameters, and convergence criteria., AFLOW implements DFT+U using the Dudarev formalism with default Ueff values for a wide range of elements., GGA+U, Benchmarking beyond‑DFT methods, Computational efficiency vs. performance trade-off, Self-interaction error in DFT, Computational cost in high-throughput DFT, System size limitations of DFT, High‑throughput DFT property calculation, GRU update.",
+    "nli_label": "neutral"
+  },
+  "G004": {
+    "kind": "real",
+    "year": 2024,
+    "level": 1,
+    "super_node_id": "L1_S00003",
+    "member_source_id": "L1_S00003",
+    "premise": "The cluster includes Active learning workflow for sampling free‑energy derivative data, Multi‑modal training data support, Representative environment selection, Iterative self-consistent training protocol, uncorrelated snapshots selection, Iterative training loop workflow, Training set cleaning procedure, Domain shift between training and evaluation, efficient training set construction, Transfer‑learning for small‑data properties, Zero-shot transfer, double precision training, iterative retraining cycle, Self-consistent training, Iterative variable selection.",
+    "nli_label": "neutral"
+  },
+  "G005": {
+    "kind": "control",
+    "year": 2024,
+    "level": 1,
+    "super_node_id": "L1_S00062",
+    "member_source_id": "L0_S00013",
+    "premise": "The cluster includes Methfessel-Paxton, MD-17 Ethanol, MD-17 Malonaldehyde, MD-17 Salicylic acid, MD-17 Toluene, MD-17 Uracil, CCSD(T) Molecular Set – Malonaldehyde, Malonaldehyde, Methane, Dipeptides, SPICE, Quench configurations, MD-17 Azobenzene (original), MD-17 Aspirin (revised), MD-17 Malonaldehyde (revised).",
+    "nli_label": "contradiction"
+  },
+  "G006": {
+    "kind": "real",
+    "year": 2026,
+    "level": 1,
+    "super_node_id": "L1_S00078",
+    "member_source_id": "L1_S00078",
+    "premise": "The cluster includes GNoME, Fine-tuning models pre-trained on OMat24 to the MAD dataset achieves near-converged validation metrics in 30-100 epochs versus 700+ epochs when training from scratch, halving validation energy and force errors and achieving 50% lower test error than training on MAD alone., Fine‑tuning an energy model on a benzene vibrational spectrum improves spectrum predictions for unseen molecules such as toluene and phenol., Data download utilities, GNoME, MAD dataset fine-tuning, MPtrj dataset, Togo Database, Single-element dataset (Zuo et al.), MPtrj dataset, relaxation on OC20 dataset, Fine-tuning, Fine‑tuning with experimental vibrational spectra, fine-tuning on bespoke datasets, Multi-dataset aggregation.",
+    "nli_label": "neutral"
+  },
+  "G007": {
+    "kind": "real",
+    "year": 2026,
+    "level": 1,
+    "super_node_id": "L1_S00060",
+    "member_source_id": "L1_S00060",
+    "premise": "The cluster includes Assuming the order‑disorder interface energy is half the anti‑phase boundary energy, the interface energy employed in phase‑field simulations is approximately 15.45 mJ m⁻²., Polar‑nonpolar and polar‑polar transitions are more numerous than nonpolar‑nonpolar ones, with 214 polar‑nonpolar, 173 polar‑polar and 228 nonpolar‑nonpolar stable transitions predicted in the 300 K–600 K range., The current screening neglects thermal‑expansion effects, which may cause discrepancies with experimental transition temperatures, especially when expansion strongly influences phase stability., NVT thermostat during training, Quench configurations, Binary Ionic Compounds Melting Temperature Dataset, Structural phase transformations, phase diagram prediction, Martensitic phase‑transition free‑energy calculation in iron, Thermodynamic stability classification, Thermoelectric performance prediction, Materials thermodynamic stability prediction, melting temperature prediction for binary ionic solids, Debye temperature estimation, Nosé-Hoover thermostat.",
+    "nli_label": "entailment"
+  },
+  "G008": {
+    "kind": "control",
+    "year": 2020,
+    "level": 1,
+    "super_node_id": "L1_S00031",
+    "member_source_id": "L1_S00004",
+    "premise": "The cluster includes The Materials Project aims to reduce the typical 10–20 year timeline for advanced material development by providing large‑scale accurate information, thereby accelerating discovery for clean energy, electronics, and other sectors., Future development plans include adding calculations of surface energies, elastic constants, point defects, finite‑temperature properties, and implementing a two‑way ‘calculations‑on‑demand’ feature for user‑submitted compounds., AFLOW can automatically calculate a wide suite of physical observables across a large database of structures with minimal human intervention., AFLOW can automatically create nanoparticle structures of arbitrary radius and separation, enabling high‑throughput nanoparticle studies., The AFLOW database currently contains approximately 400 experimental prototype structures and several million bcc/fcc/hcp‑derived superstructures., Materials Project database, Rapid-prototyping of new materials in silico, Cost-effective, data-driven materials design, Open-source platforms for robust, sophisticated materials analyses, materials-by-design applications, Transfer learning of element embeddings from large‑scale formation‑energy models to improve predictions of band gaps and elastic moduli, Strategies to mitigate data limitations in materials‑science machine learning, Slow, trial‑and‑error materials discovery, computational materials science, computational materials design.",
+    "nli_label": "neutral"
+  },
+  "G009": {
+    "kind": "real",
+    "year": 2020,
+    "level": 1,
+    "super_node_id": "L1_S00034",
+    "member_source_id": "L1_S00034",
+    "premise": "The cluster includes Elasticity, Evaluating new materials ML algorithms on the Matbench benchmark, Accelerated property prediction, Materials property prediction benchmarking, Crystal property prediction, Elastic constant prediction, Dielectric and piezoelectric response prediction, Materials property prediction via ML, Machine‑learning property prediction, Bulk modulus prediction, Metallicity classification, Bulk metallic glass formation prediction, Steel yield strength regression, machine learning for materials, Mechanical properties calculation.",
+    "nli_label": "neutral"
+  },
+  "G010": {
+    "kind": "real",
+    "year": 2022,
+    "level": 1,
+    "super_node_id": "L1_S00033",
+    "member_source_id": "L1_S00033",
+    "premise": "The cluster includes Conjugate gradients, JARVIS‑FF automatically computes bulk modulus, defect formation energies, and phonon spectra for each force‑field and compares them with DFT results to assess force‑field quality., Training SchNet with forces on only 1,000 examples yields better accuracy than training on 50,000 examples using energies alone, demonstrating that force information improves data efficiency., The GNN’s stress predictions are substantially more accurate than on‑the‑fly stress calculations from the force field, which exhibit higher errors., virial in loss function, MSE loss, Energy‑conserving force field learning, Accurate, fast energy/force/stress prediction, Force prediction, Force‑error benchmarking, Atomic von Mises stress prediction, DFT energy and force prediction, ML method benchmarking, machine learning benchmarking, Energy‑force‑virial joint loss.",
+    "nli_label": "neutral"
+  },
+  "G011": {
+    "kind": "real",
+    "year": 2024,
+    "level": 1,
+    "super_node_id": "L1_S00065",
+    "member_source_id": "L1_S00065",
+    "premise": "The cluster includes Deep Potential MD (water), NVNMD (non-von Neumann molecular dynamics) is 50x-100x faster than regular MD simulations., DeePMD-kit has added MPI implementation for multi-device training and MD simulations using Horovod for data-parallel distributed training., Pre-relaxing hypothetical structures with U-MLIP before ab initio calculations resulted in approximately 3× time savings compared to running ab initio on un-relaxed structures., MLIP MD would unlock gains of orders of magnitude in accessible length and time scales versus AIMD, enabling study of new physical regimes., DeePMD accurately reproduces radial distribution functions and three‑body angular distribution functions of liquid water and ice, matching AIMD results., Integration with i‑PI for NPT simulations, Ice Ih, Ice Ih (b), NequIP, Non-equilibrium Molecular Dynamics, Classical Force Field Molecular Dynamics, Molecular dynamics simulation, Classical molecular dynamics simulations, per-layer TorchScript files.",
+    "nli_label": "neutral"
+  },
+  "G012": {
+    "kind": "control",
+    "year": 2024,
+    "level": 1,
+    "super_node_id": "L1_S00002",
+    "member_source_id": "L1_S00001",
+    "premise": "The cluster includes LightGBM, DPA-1, e3nn, AFLOW, UFF, TPOT, JAX-MD, E3Linear layer, CFID, Aconvasp command‑line tool, GNoME models, MoS2, HIP-NN, TPOT, DP-GEN.",
+    "nli_label": "neutral"
+  },
+  "G013": {
+    "kind": "control",
+    "year": 2022,
+    "level": 1,
+    "super_node_id": "L1_S00030",
+    "member_source_id": "L1_S00014",
+    "premise": "The cluster includes Three‑body angular module, CFID descriptor set, Three-body descriptor, Hierarchical descriptor set, 2-body descriptor, Findsym symmetry analysis, Chemical element permutation.",
+    "nli_label": "contradiction"
+  },
+  "G014": {
+    "kind": "control",
+    "year": 2026,
+    "level": 1,
+    "super_node_id": "L1_S00069",
+    "member_source_id": "L1_S00030",
+    "premise": "The cluster includes Within the training temperature range, LiFlow’s predicted diffusivity D* closely matches reference values from Winter and Gómez‑Bombarelli., CHGNet enables nanosecond‑scale molecular dynamics simulations of garnet Li₃La₃Te₂O₁₂, yielding lithium self‑diffusion coefficients with quantified uncertainty., Finite‑size tests using a larger supercell and an ML‑IAP (SevenNet) show that diffusion coefficients converge within statistical uncertainties, confirming that the AIMD results are not significantly affected by supercell size., The DeePMD model successfully reproduces the superionic behavior of solid-state electrolytes with linear Lithium/Sodium mean squared displacement over time and diffusion coefficient uncertainty of about 20% or smaller, which is precise enough for battery applications., diffusion pretraining scheme, Layered materials and solid-electrolyte candidates, Migration barrier prediction accuracy, High‑throughput screening of ionic conductivity, High‑throughput screening of Li‑ion battery anodes, Ionic conductor classification, Ion solution simulation, Li-ion conductor identification, Ionic diffusion coefficient prediction, Li diffusion simulation in LGPS, Minimum ion-ion distance cutoff.",
+    "nli_label": "contradiction"
+  },
+  "G015": {
+    "kind": "real",
+    "year": 2024,
+    "level": 1,
+    "super_node_id": "L1_S00032",
+    "member_source_id": "L1_S00032",
+    "premise": "The cluster includes The ConvLSTM model accurately predicts fracture patterns, crack‑length trends, and both mode‑I (tensile) and mode‑II (shear) loading responses across crystal orientations, closely matching atomistic molecular dynamics simulations, with only a minor discrepancy for the x100 orientation under mode‑II shear., Vicker's hardness estimation model, Modified probabilistic substitution model, Combinatorial blow-up in candidate generation, Gradient‑orientation fracture prediction, One‑hot crack labeling.",
+    "nli_label": "entailment"
+  },
+  "G016": {
+    "kind": "real",
+    "year": 2024,
+    "level": 1,
+    "super_node_id": "L1_S00063",
+    "member_source_id": "L1_S00063",
+    "premise": "The cluster includes Generalized Gradient Approximation, Adaptive meshing and time stepping, Genetic‑algorithm‑driven inverse design, Harris-Foulkes force/stress corrector, Conjugate Gradients, Nonlinear parameter optimization, Gradient clipping, Hyperparameter tuning, Adaptive mesh refinement with hanging nodes, Bayesian optimization with surrogate model, Stochastic gradient descent on quadrature grids, Genetic‑algorithm optimization, Double grid technique, Random structure search, conjugate-gradient relaxation.",
+    "nli_label": "neutral"
+  },
+  "G017": {
+    "kind": "control",
+    "year": 2024,
+    "level": 1,
+    "super_node_id": "L1_S00042",
+    "member_source_id": "L1_S00003",
+    "premise": "The cluster includes Meta-learning allows ML algorithms to quickly learn and adapt to new tasks by leveraging experience from solving similar tasks with relatively small datasets., Active learning workflow for sampling free‑energy derivative data, Multi‑modal training data support, Iterative self-consistent training protocol, uncorrelated snapshots selection, Training set cleaning procedure, Meta-learning, Multi-device scalability, Transfer‑learning for small‑data properties, Zero-shot transfer, iterative training, concurrent learning procedure, double precision training, dynamic load balancing, Iterative variable selection.",
+    "nli_label": "contradiction"
+  },
+  "G018": {
+    "kind": "real",
+    "year": 2026,
+    "level": 1,
+    "super_node_id": "L1_S00008",
+    "member_source_id": "L1_S00008",
+    "premise": "The cluster includes Graph Network Simulator, Gated Graph Neural Network, Spectral Graph Convolution, Duvenaud et al. Graph Convolutional Networks, Graph Transformers, Bond graph, Graph neural network for structural models, apply the general MPNN approach to practically important graph problems, Materials Graph Network, Materials 3-body Graph Network, Graph Neural Network interatomic potentials, Three-body Materials Graph Network, Scalable high‑dimensional node representations, Graph convolution, Graph construction from atomic coordinates.",
+    "nli_label": "entailment"
+  },
+  "G019": {
+    "kind": "control",
+    "year": 2026,
+    "level": 1,
+    "super_node_id": "L1_S00078",
+    "member_source_id": "L0_S00019",
+    "premise": "The cluster includes Phonax can predict molecular vibrational spectra and correctly assign IR/Raman active modes by analyzing irreducible representations., Active learning workflow with Billiard Walk sampling, Prior selector model, JARVIS‑ML, AutoML stage, ElementProperty featurizer, DP operators library, Iterative training workflow, Power wall bottleneck, GPU memory scalability, Scaling model capacity without sacrificing speed, Experimental Plan Generation, Multi‑task Huber loss, Delta learning, Multi-property training.",
+    "nli_label": "neutral"
+  },
+  "G020": {
+    "kind": "real",
+    "year": 2022,
+    "level": 0,
+    "super_node_id": "L0_S00005",
+    "member_source_id": "L0_S00005",
+    "premise": "The cluster includes Symmetry-Preserving Inter-Atomic Potential, Brenner potential, The model predicts fracture toughness values that are comparable to those obtained from atomistic molecular dynamics simulations., NequIP reproduces structural and kinetic properties from ab‑initio molecular dynamics simulations with high fidelity., MEGNet models achieve lower mean absolute errors than SchNet on 11 of the 13 QM9 molecular properties evaluated., Increasing the number of MEGNet blocks improves accuracy for properties that depend on longer‑range interactions, such as zero‑point vibrational energy, electronic spatial extent, and dipole moment., GAP predicts diamond lattice parameter (3.539 Å) very close to DFT-LDA reference (3.532 Å), outperforming screened Tersoff potential (3.566 Å), with bulk modulus and elastic constants reasonably close to DFT reference values., Sparse set of representative atoms, Stability‑ranking and heat‑map visualization, Liquid carbon 5000K, Frozen-framework potential energy surface (PES) descriptor screening, Tersoff potential, Bicrystal fracture prediction, Gap deformation potential prediction, High-temperature surface reconstruction simulations.",
+    "nli_label": "entailment"
+  },
+  "G021": {
+    "kind": "control",
+    "year": 2022,
+    "level": 0,
+    "super_node_id": "L0_S00011",
+    "member_source_id": "L1_S00013",
+    "premise": "The cluster includes Phonon DOS benchmark, SiO2 polymorph phonon calculations, Linear response phonon method, band gap (eV), Automated phonon and vibrational property extraction, electronic structure, Phonon and elasticity calculations, phonon band structure calculation, hybrid functional band‑structure calculation, Band gap prediction, Band gap regression, Phonon dispersion calculation, Band structure calculation, electronic structure calculations, zero‑weight extra k‑path for band structures.",
+    "nli_label": "neutral"
+  },
+  "G022": {
+    "kind": "real",
+    "year": 2024,
+    "level": 1,
+    "super_node_id": "L1_S00024",
+    "member_source_id": "L1_S00024",
+    "premise": "The cluster includes Symbolic Regression, Kernel Ridge Regression, Tree ensemble model, Cluster-specific regression models, SHAP feature importance analysis, Cluster-based regression, Feature standardization, Genetic‑algorithm selection of cluster‑expansion basis functions, Cluster expansion parameterization, Atomic Cluster Expansion, Regularized Gaussian‑process regression, Decision‑tree regression, Random Forest feature importance thresholding, Data cleaning and feature reduction, Composition-based hash filtering.",
+    "nli_label": "neutral"
+  },
+  "G023": {
+    "kind": "control",
+    "year": 2024,
+    "level": 1,
+    "super_node_id": "L1_S00009",
+    "member_source_id": "L1_S00002",
+    "premise": "The cluster includes OrbNet, ResNet, NewtonNet, Architecture modifications reduced SevenNet-0 total model parameters from 16.24 million (GNoME) to 0.84 million., MEGNET blocks, MEGNetLayer, MEGNet, DimeNet, ænet.",
+    "nli_label": "contradiction"
+  },
+  "G024": {
+    "kind": "real",
+    "year": 2024,
+    "level": 1,
+    "super_node_id": "L1_S00038",
+    "member_source_id": "L1_S00038",
+    "premise": "The cluster includes Gaussian quadrature, The E(3)‑equivariant GNN surrogate provides superior accuracy compared with third‑ and fifth‑order Gaussian quadrature for thermal expansion of copper, martensitic phase transition of iron, and grain‑boundary energy calculations, matching molecular dynamics reference data., Moments Tensor Potentials (MTP) and the Spectral Neighbor Analysis Potential (SNAP) can be expressed exactly as special cases of the ACE., The ACE formulation is invariant under translation, rotation, inversion and permutation of identical atoms., Learnable radial basis with Bessel functions, Atomic Cluster Expansion (ACE) high‑body‑order features, Irreducible Basis Set B, Linear Combination of Atomic Orbitals, Frame dependence of quadrature‑based energy averages, Energy discontinuities due to neighbor‑cutoff changes, Radial distribution function analysis, Change‑of‑basis using unitary P matrix, Fourier feature expansion, Gaussian basis expansion of distances, local-orbital basis.",
+    "nli_label": "entailment"
+  },
+  "G025": {
+    "kind": "control",
+    "year": 2020,
+    "level": 1,
+    "super_node_id": "L1_S00029",
+    "member_source_id": "L0_S00009",
+    "premise": "The cluster includes SineCoulombMatrix, Visual warning system, CFID, Two-body descriptor, Three-body descriptor, Many-body descriptor, 2-body descriptor, 2b descriptor, SOAP descriptor with sparse points, SOAP sparse points, Light Gradient-Boosting Machine, Automated STM image analysis, STM image classification, Tersoff‑Hamann STM image simulation, sparse point selection.",
+    "nli_label": "contradiction"
+  },
+  "G026": {
+    "kind": "control",
+    "year": 2024,
+    "level": 1,
+    "super_node_id": "L1_S00020",
+    "member_source_id": "L0_S00011",
+    "premise": "The cluster includes Franzblau algorithm, Fine‑tuning procedure using molecular vibrational spectra, Kernel normalization and exponentiation, Continuous expansion of JARVIS datasets and tools, Γ-phonon frequency prediction, Band structure and density‑of‑states calculation, Band gap prediction, Full phonon band structure prediction, Phonon spectra prediction, High entropy alloy phonon prediction, phonon physics, Phonon dispersion calculation, Bandgap calculation, Kernel normalisation and integer power, zero‑weight extra k‑path for band structures.",
+    "nli_label": "contradiction"
+  },
+  "G027": {
+    "kind": "real",
+    "year": 2024,
+    "level": 1,
+    "super_node_id": "L1_S00057",
+    "member_source_id": "L1_S00057",
+    "premise": "The cluster includes Using the vdW‑DF‑OptB88 functional for all dimensionalities yields accurate lattice parameters and formation energies for both van‑der‑Waals and non‑vdW bonded materials., DeepH accurately predicts DFT Hamiltonians and electronic properties for twisted bilayer bismuthene with strong spin‑orbit coupling, achieving errors comparable to those for twisted graphene., DeepH‑E3 reproduces the band structure of magic‑angle twisted bilayer graphene (θ = 1.08°, 11 164 atoms) in excellent agreement with DFT and low‑energy continuum models, correctly capturing the flat bands near the Fermi level., DeepH‑E3 generalizes across diverse material systems—including graphene, MoS₂, bismuthene, Bi₂Se₃, and Bi₂Te₃—achieving consistently sub‑meV Hamiltonian prediction errors., MoS₂ 35×35 supercell, MoS₂ 35×35 supercell (efficiency test), twisted bilayer bismuthene (TBB), Construction of a Moiré‑twisted material database using DeepH‑E3, density functional theory, density functional perturbation theory, Accurate band‑structure prediction for twisted moiré materials, Modeling strong spin‑orbit coupling in twisted vdW materials, Study of twisted van der Waals heterostructures, Density of states calculation, Supercell approach.",
+    "nli_label": "entailment"
+  },
+  "G028": {
+    "kind": "real",
+    "year": 2026,
+    "level": 1,
+    "super_node_id": "L1_S00043",
+    "member_source_id": "L1_S00043",
+    "premise": "The cluster includes Tuning the exact‑exchange fraction α to 0.375 in HSE06 brings the calculated ZnO band gap into agreement with experiment., GAP predicts graphite c parameter at 6.518 Å versus 6.625 Å from DFT, representing -1.6% overbinding., FeCoNi alloys, High-temperature surface reconstructions of amorphous carbon, Limited system sizes in amorphous materials simulation, Large-scale amorphous carbon simulation, defect dynamics simulation, Liquid silicon structural analysis, Amorphous silicon generation and characterization, gap deformation potential screening, Gap deformation potential prediction, point defect analysis, Vacancy formation energy prediction, Nanoscale amorphous carbon structure simulations, liquid carbon simulation.",
+    "nli_label": "neutral"
+  },
+  "G029": {
+    "kind": "real",
+    "year": 2022,
+    "level": 1,
+    "super_node_id": "L1_S00008",
+    "member_source_id": "L1_S00008",
+    "premise": "The cluster includes Interaction Network, Spectral Graph Convolution, Molecular Graph Convolutions (GC), Kipf & Welling Graph Convolutional Networks, N-body Networks, Graph Neural Network Force Field, Graph convolution block, Graph Convolutional Network, graph neural network, Spectral graph convolution, graph neural networks with three-body interactions, Symmetry-adapted Graph Neural Network, crystal graph convolutional neural networks, Partial Node Assignment, Crystal Graph Attention Network.",
+    "nli_label": "neutral"
+  },
+  "G030": {
+    "kind": "real",
+    "year": 2020,
+    "level": 1,
+    "super_node_id": "L1_S00040",
+    "member_source_id": "L1_S00040",
+    "premise": "The cluster includes Bayesian uncertainty estimation, Error correction system, success rate, Regularized Gaussian‑process regression, Automatic error detection and correction, Unknown value imputation.",
+    "nli_label": "neutral"
+  },
+  "G031": {
+    "kind": "control",
+    "year": 2024,
+    "level": 0,
+    "super_node_id": "L0_S00011",
+    "member_source_id": "L1_S00033",
+    "premise": "The cluster includes JARVIS-DFT contains approximately 40,000 materials and about 1 million calculated properties., JARVIS‑FF includes data for roughly 1,500 materials and about 110 classical force‑fields., JARVIS‑FF automatically computes bulk modulus, defect formation energies, and phonon spectra for each force‑field and compares them with DFT results to assess force‑field quality., The derived ACE formulas enable efficient evaluation of forces and magnetic torques., Higher degree representations (larger Lmax) better capture angular resolution and directional information critical for accurate force prediction and correlate with model expressivity., MACE uses four-body (higher-order) messages, allowing only two message‑passing layers to achieve converged accuracy, whereas prior equivariant MPNNs required five or six layers., Direct force prediction, TMetalFraction featurizer, Energy‑non‑conserving force predictions, angular resolution capture for force prediction, Force prediction accuracy, Interatomic force prediction, Force prediction, Force prediction for molecular dynamics, reverse communication of energy gradients.",
+    "nli_label": "neutral"
+  },
+  "G032": {
+    "kind": "real",
+    "year": 2024,
+    "level": 0,
+    "super_node_id": "L0_S00007",
+    "member_source_id": "L0_S00007",
+    "premise": "The cluster includes PyTorch Geometric, Directional Message Passing Neural Network, Graph network models (CGCNN and MEGNet) have high errors on small datasets (<10^4 samples) but leverage large datasets more efficiently, outperforming traditional ML and AutoML approaches on tasks with approximately 10^4 data points or more., Fully‑connected hidden layers, GPU‑accelerated tensor backend, GNN predictor, CGCNN convolution layers, STATIC, Static GNN, message-passing layers, convolutional LSTM, E(3)-equivariant neural network, Sparse Clebsch-Gordan exploitation, TensorBoard visualization, Message-passing process.",
+    "nli_label": "entailment"
+  },
+  "G033": {
+    "kind": "real",
+    "year": 2024,
+    "level": 1,
+    "super_node_id": "L1_S00015",
+    "member_source_id": "L1_S00015",
+    "premise": "The cluster includes Spherical Channels, Spherical harmonics up to l=5, Spherical harmonic orientation encoding, QR‑based orthogonal constraint enforcement, Boundary‑condition encoding, Spherical harmonic projections, Atomic mass input features, Spherical harmonics Y, communication overhead in spatial decomposition, One-hot encoding, Multiple‑tower decomposition, Spherical harmonic encoding, QR decomposition, Categorical feature encoding, Wyckoff position analysis.",
+    "nli_label": "neutral"
+  },
+  "G034": {
+    "kind": "real",
+    "year": 2022,
+    "level": 1,
+    "super_node_id": "L1_S00051",
+    "member_source_id": "L1_S00051",
+    "premise": "The cluster includes DeepH-E3 provides a universal E(3)-equivariant deep-learning framework that exactly preserves Euclidean symmetry of the DFT Hamiltonian, including spin-orbit coupling., Filter-generating network, E(3)-equivariant convolution, Multiple MPNN models for orbital‑pair blocks, Single MPNN with multi‑dimensional output, End‑to‑end GNN predictor, PNA-based GNN predictor, Alternative GNN backbones, Extension of E(3)‑equivariant neural networks to capture DeepH’s small‑to‑large scale learning capability, deep tensor neural network, Transfer‑learning for small‑data properties, SiLU and Sigmoid gated activations, Gated multi‑layer perceptron, Spatiotemporal learning with ConvLSTM, Transfer learning for new loading conditions.",
+    "nli_label": "contradiction"
+  },
+  "G035": {
+    "kind": "real",
+    "year": 2020,
+    "level": 1,
+    "super_node_id": "L1_S00006",
+    "member_source_id": "L1_S00006",
+    "premise": "The cluster includes ReaxFF, Neural Fingerprints, Tersoff potential, Deep neural network potential energy surface, Neural fingerprint, Martyna–Klein–Tuckerman barostat, Hillert model.",
+    "nli_label": "contradiction"
+  },
+  "G036": {
+    "kind": "real",
+    "year": 2024,
+    "level": 0,
+    "super_node_id": "L0_S00011",
+    "member_source_id": "L0_S00011",
+    "premise": "The cluster includes Franzblau algorithm, BANDS calculations use 128 k-points per segment for single element structures and 20 k-points for compounds along high-symmetry paths., Computing Γ-phonon spectra for 146,323 Materials Project materials took less than five hours on an eight-GPU system, even for materials with over 400 atoms per unit cell., The model was trained on a DFPT computational database containing phonon dispersion data for 1,521 crystalline inorganic materials., Linear response phonon method, 2D heterostructure band‑alignment analysis, Phonon dispersion and vibrational thermodynamics, Phonon prediction in alloy systems, High entropy alloy phonon prediction, Electron-phonon coupling calculation, Electronic band structure calculation, Bandgap calculation, dynamic band‑count adjustment, zero‑weight extra k‑path for band structures, Direct phonon band prediction.",
+    "nli_label": "neutral"
+  },
+  "G037": {
+    "kind": "real",
+    "year": 2026,
+    "level": 0,
+    "super_node_id": "L0_S00005",
+    "member_source_id": "L0_S00005",
+    "premise": "The cluster includes Moment Tensor Potentials, ApproxNEB, Long-range correction schemes in machine learning interatomic potentials are essential for achieving state-of-the-art accuracy, improving in-distribution performance, and enabling significant gains in transferability to unseen regions of chemical space., MLIP MD would unlock gains of orders of magnitude in accessible length and time scales versus AIMD, enabling study of new physical regimes., MACE attains state‑of‑the‑art accuracy, achieving lower root‑mean‑square energy and force errors than previous models on the rMD17, 3BPA, and AcAc benchmark suites., A single UMA model without any fine-tuning performs similarly or better than task-specialized models across diverse DFT tasks including materials, catalysis, molecules, molecular crystals, and MOFs., Data efficiency in 3D molecular modeling, Efficient molecular dynamics simulation, Nucleation rate estimation, computational modeling, Atomic charge prediction, exchange-correlation functional selection, Composition-weighted mass encoding, Physically-motivated term addition, Multiple time-stepping algorithm.",
+    "nli_label": "entailment"
+  },
+  "G038": {
+    "kind": "real",
+    "year": 2022,
+    "level": 0,
+    "super_node_id": "L0_S00014",
+    "member_source_id": "L0_S00014",
+    "premise": "The cluster includes Approximately 150,000 compounds were found with energy distance less than 50 meV/atom from the convex hull., Automatic k‑point convergence protocol, Dual grid technique, Plane-wave kinetic energy cut-off, 6×6 elastic constants matrix, Elasticity, Convex hull stability analysis, Sine Coulomb Matrix, lattice parameter, convex‑hull phase diagram construction, Automated k‑point and plane‑wave cutoff convergence, Weighted averaging of pure‑element volumes, Unit cell size filtering, High-symmetry path sampling, δEion convergence criterion.",
+    "nli_label": "contradiction"
+  },
+  "G039": {
+    "kind": "real",
+    "year": 2020,
+    "level": 0,
+    "super_node_id": "L0_S00005",
+    "member_source_id": "L0_S00005",
+    "premise": "The cluster includes Behler‑Parrinello Neural Network, GW approximation, BANDS calculations use 128 k-points per segment for single element structures and 20 k-points for compounds along high-symmetry paths., Regularized least‑squares solution for expansion coefficients, Extension of Gaussian Approximation Potentials to other materials, Development of transferable machine‑learning interatomic potentials with broader configurational coverage, Neural fingerprint, Vienna Ab Initio simulation Package, Tran-Blaha modified Becke-Johnson (TBmBJ) meta‑GGA, First-principles molecular dynamics, Noise reduction in atomistic data, Bridging computational and experimental data, Time-scale limitation in first-principles molecular dynamics, Phonon and vibrational property prediction, Band gap prediction.",
+    "nli_label": "neutral"
+  },
+  "G040": {
+    "kind": "real",
+    "year": 2020,
+    "level": 1,
+    "super_node_id": "L1_S00015",
+    "member_source_id": "L1_S00015",
+    "premise": "The cluster includes Gaussian approximation potentials, Moment Tensor Potentials, ML potential extrapolation, generation of input files for cluster expansion, Hierarchical Body‑Order Expansion, Gaussian basis expansion of distances.",
+    "nli_label": "neutral"
+  },
+  "G041": {
+    "kind": "real",
+    "year": 2020,
+    "level": 1,
+    "super_node_id": "L1_S00033",
+    "member_source_id": "L1_S00033",
+    "premise": "The cluster includes JARVIS‑FF includes data for roughly 1,500 materials and about 110 classical force‑fields., Training SchNet with forces on only 1,000 examples yields better accuracy than training on 50,000 examples using energies alone, demonstrating that force information improves data efficiency., Local atomic reference frame, MSE loss, Energy‑conserving force field learning, Force‑field quality assessment, Locality testing, Local reference frame construction, Energy‑force‑virial joint loss, Backpropagation for force and virial computation.",
+    "nli_label": "neutral"
+  },
+  "G042": {
+    "kind": "control",
+    "year": 2020,
+    "level": 1,
+    "super_node_id": "L1_S00006",
+    "member_source_id": "L1_S00015",
+    "premise": "The cluster includes Gaussian approximation potentials, Moment Tensor Potentials, ML potential extrapolation, generation of input files for cluster expansion, Hierarchical Body‑Order Expansion, Gaussian basis expansion of distances.",
+    "nli_label": "contradiction"
+  },
+  "G043": {
+    "kind": "real",
+    "year": 2020,
+    "level": 1,
+    "super_node_id": "L1_S00028",
+    "member_source_id": "L1_S00028",
+    "premise": "The cluster includes When applied to a set of 1,585 crystals with elastic properties, CGCNN predicts bulk modulus with a mean absolute error of 0.077 log(GPa) and shear modulus with a mean absolute error of 0.114 log(GPa), demonstrating good generalization., Compared with a prior statistical‑learning approach, CGCNN achieves similar or lower root‑mean‑square errors for bulk modulus (0.075 log(GPa) vs 0.105) and shear modulus (0.127 log(GPa) vs 0.138) using the same training data., When trained on MD17 trajectories with a combined energy‑and‑force loss, SchNet achieves energy MAE ≤0.12 kcal/mol and force MAE ≤0.33 kcal/mol/Å, matching or surpassing GDML and DTNN on all tested molecules, including flexible ones such as malonaldehyde and ethanol., Including force information in the training loss causally improves SchNet’s generalization to previously unseen chemical structures in ISO17., The ISO17 benchmark, comprising 645,000 conformations of 129 C7O2H10 isomers, is introduced to evaluate models on combined chemical and conformational variation., On the QM9 benchmark, SchNet attains a mean absolute error of 0.31 kcal/mol for total‑energy prediction with 110 k training examples, outperforming DTNN (0.84) and enn‑s2s (0.45)., The DeePMD model provides excellent energy conservation in all tested systems up to 2 ns of NVE dynamics., Simple MEGNet models that use only atomic number and spatial distance as input achieve chemical accuracy, perform comparably to full‑feature models, and outperform prior state‑of‑the‑art models on 8 of the 13 QM9 properties., MEGNet models trained on approximately 60,000 crystals outperform prior models (SchNet and CGCNN) for formation energy, band gap, bulk modulus, and shear modulus, achieving errors comparable to or better than density‑functional‑theory uncertainties., Ensembling two independently trained three‑block MEGNet models lowers the formation‑energy mean absolute error from 0.028 eV/atom to 0.024 eV/atom., Graph networks constitute a universal machine‑learning framework that can accurately predict properties for both molecules and crystals., DeePMD reproduces AIMD energies, forces, and virial tensors for water and ice with root‑mean‑square errors of approximately 1 meV per molecule for energy, 40 meV Å⁻¹ for forces, and 1–2 meV for the virial., DeePMD accurately reproduces radial distribution functions and three‑body angular distribution functions of liquid water and ice, matching AIMD results., Application of MEGNet models to a broader range of crystal properties beyond formation energy, band gap, and elastic moduli, Molecule property prediction.",
+    "nli_label": "neutral"
+  },
+  "G044": {
+    "kind": "control",
+    "year": 2022,
+    "level": 0,
+    "super_node_id": "L0_S00015",
+    "member_source_id": "L1_S00043",
+    "premise": "The cluster includes Inference with the MPNN takes roughly 10⁻² seconds per molecule, about 300,000 times faster than the DFT reference calculation (~10³ seconds)., GAP predictions for Young's modulus of amorphous carbon agree very well with experimental values at all relevant densities, while screened Tersoff potential captures the trend but significantly overestimates absolute values., All fitting coefficients in the GAP model enter linearly, allowing solution via simple linear algebra rather than difficult nonlinear parameter optimization required for traditional potentials and neural networks., Liquid carbon 5000K, DFT carbon reference data, Experimental sp3 data, ta-C surface energies, Accelerating meso‑level material design through AI‑driven defect‑property translation, Exploration of huge defect‑structure spaces, defect energetics and band‑gap underestimation, Extreme deformation potential detection, High‑level quantum‑chemical potential fitting, Interatomic potential fitting for silicon, Amorphous carbon surface (ta-C) modeling, liquid carbon simulation.",
+    "nli_label": "neutral"
+  },
+  "G045": {
+    "kind": "control",
+    "year": 2022,
+    "level": 1,
+    "super_node_id": "L1_S00022",
+    "member_source_id": "L1_S00008",
+    "premise": "The cluster includes Interaction Network, Graph Convolutional Network, Kipf & Welling Graph Convolutional Networks, Duvenaud et al. Graph Convolutional Networks, Crystal Graph Convolutional Neural Networks, crystal graph networks, materials graph network, Multi-head attention, Extension of graph‑network models to additional state‑dependent material properties, Developing linear‑scaling IAPs based on graph deep learning for large‑scale molecular dynamics simulations of complex materials, Gated Graph Neural Networks, Materials Graph Network, graph neural networks with three-body interactions, Symmetry-adapted Graph Neural Network, Graph Networks.",
+    "nli_label": "contradiction"
+  },
+  "G046": {
+    "kind": "control",
+    "year": 2026,
+    "level": 1,
+    "super_node_id": "L1_S00057",
+    "member_source_id": "L1_S00072",
+    "premise": "The cluster includes Silhouette score, MAE/ROC-AUC, ROC-AUC, F1‑score classification evaluation, ROC-AUC evaluation, silhouette score optimization.",
+    "nli_label": "contradiction"
+  },
+  "G047": {
+    "kind": "control",
+    "year": 2026,
+    "level": 1,
+    "super_node_id": "L1_S00043",
+    "member_source_id": "L1_S00041",
+    "premise": "The cluster includes Symmetry‑adapted order‑parameter generation, Rotation transformation to global frame, Interstitial‑site topological search, Oriented FAST and Rotated BRIEF, atom-centered symmetry functions, Identification of interstitial sites, Symmetry compliance without architectural constraints, Learning rotational symmetry without hard constraints, Symmetry artifacts in automated workflows, rotational invariance enforcement, ISCD‑based elemental substitution, Chemical element permutation, Random rotation/inversion at each MD timestep, Jacobian symmetrization, statistical combinations of elemental properties.",
+    "nli_label": "neutral"
+  },
+  "G048": {
+    "kind": "control",
+    "year": 2020,
+    "level": 1,
+    "super_node_id": "L1_S00039",
+    "member_source_id": "L1_S00003",
+    "premise": "The cluster includes DeepMD, Keras, Mode‑I and Mode‑II training pipelines, Cleaning stage, Training set cleaning pipeline, Iterative training workflow, Gradient-domain machine learning, Long-range behavior modeling, Heterogeneous training database fitting, Transfer‑learning for small‑data properties, Learning rate scheduling, Stochastic gradient descent, Softmax classification, Spatiotemporal learning with ConvLSTM, Deep transfer learning.",
+    "nli_label": "contradiction"
+  },
+  "G049": {
+    "kind": "control",
+    "year": 2022,
+    "level": 1,
+    "super_node_id": "L1_S00013",
+    "member_source_id": "L1_S00058",
+    "premise": "The cluster includes A general training method allows MPNNs to use larger node representation dimensions without increasing computation time or memory, providing substantial savings over previous high‑dimensional MPNNs., Elemental embedding, EquiformerV2, CNN for NLP, Categorical feature encoding, Element embedding.",
+    "nli_label": "contradiction"
+  },
+  "G050": {
+    "kind": "real",
+    "year": 2022,
+    "level": 1,
+    "super_node_id": "L1_S00034",
+    "member_source_id": "L1_S00034",
+    "premise": "The cluster includes Machine‑learning stability prediction for crystal structures, Metal/semiconductor classification, Materials property prediction benchmarking, Crystal property prediction, Crystal structural relaxation, property prediction on MatBench benchmarks, Prediction of material properties, Materials property prediction via ML, Structure-based regression, Composition-only regression, machine learning for materials, Structural property prediction, Node‑wise regression, Rule‑of‑mixtures analysis, Nonlinear transformations.",
+    "nli_label": "neutral"
+  },
+  "G051": {
+    "kind": "real",
+    "year": 2022,
+    "level": 1,
+    "super_node_id": "L1_S00052",
+    "member_source_id": "L1_S00052",
+    "premise": "The cluster includes Message Passing Neural Network (MPNN), Davidson blocked scheme, Message passing networks, The Message Passing Neural Network framework unifies eight previously proposed graph‑based neural models under a single formalism., Edge Network message function, Vertex and edge update blocks, Feed‑forward deep neural network, Message Passing layers, Node feature vectors, Edge feature vectors, Edge-conditioned neural network, Davidson blocked scheme, Edge‑dependent linear transformation, Virtual edges for long‑range communication, Directed message channels.",
+    "nli_label": "contradiction"
+  },
+  "G052": {
+    "kind": "real",
+    "year": 2026,
+    "level": 1,
+    "super_node_id": "L1_S00004",
+    "member_source_id": "L1_S00004",
+    "premise": "The cluster includes High‑throughput computational screening through the Materials Project has screened tens of thousands of compounds and identified promising candidates for solar water splitting, photovoltaics, topological insulators, scintillators, CO₂ capture, piezoelectrics, thermoelectrics, catalysis, hydrogen storage, and Li‑ion batteries, with experimental hits reported in several areas., Matbench tasks include predicting optical, thermal, electronic, thermodynamic, tensile, and elastic properties given materials composition and/or crystal structure., Foundation models enable cross-domain generalization and emergent capabilities for scientific discovery in materials science., GNoME discovered over 2.2 million new stable inorganic materials and more than 45 000 new crystal prototypes, an order‑of‑magnitude increase over prior discovery efforts., GNoME discovered 2.2 million crystal structures stable with respect to the Materials Project, with 381,000 newly on the convex hull, representing an order-of-magnitude expansion from all previous discoveries., The AFLOW database currently contains approximately 400 experimental prototype structures and several million bcc/fcc/hcp‑derived superstructures., SLME screening module, Efficient large‑scale simulation of heterovalent materials, Cross-material property comparison, Feature selection for materials property prediction, Materials design rule discovery, mechanical design, high-throughput materials discovery, Total energy prediction for crystals, Materials candidate screening.",
+    "nli_label": "entailment"
+  },
+  "G053": {
+    "kind": "real",
+    "year": 2026,
+    "level": 1,
+    "super_node_id": "L1_S00076",
+    "member_source_id": "L1_S00076",
+    "premise": "The cluster includes Voronoi decomposition, The QR‑based reparameterization used in D4FT preserves the orthonormal constraints of Kohn‑Sham orbitals, making the search space equivalent to the original orthogonal function space, as proved in Proposition 3.1, and can be interpreted as projected gradient descent on the orthogonal constraint set., Formate on Cu(110), CUR matrix reconstruction, spatial decomposition.",
+    "nli_label": "neutral"
+  },
+  "G054": {
+    "kind": "control",
+    "year": 2026,
+    "level": 1,
+    "super_node_id": "L1_S00068",
+    "member_source_id": "L1_S00043",
+    "premise": "The cluster includes GAP recovers three- and four-membered rings that are key features of liquid and low-density amorphous carbon structures, which empirical potentials (Tersoff/Brenner) fail to predict., GAP predicts graphite c parameter at 6.518 Å versus 6.625 Å from DFT, representing -1.6% overbinding., SiGe alloys, Disordered materials, Accurate, transferable interatomic potential for silicon, Computational cost of large-scale amorphous structure generation, Nonlocality in carbon allotropes, accurate interatomic potential for amorphous carbon, Gap-deformation potential prediction, point defect analysis, Defect energy prediction, SiO2 benchmark tests, amorphous materials, Atomistic simulations of liquid carbon, Interatomic potential development for carbon.",
+    "nli_label": "neutral"
+  },
+  "G055": {
+    "kind": "real",
+    "year": 2020,
+    "level": 1,
+    "super_node_id": "L1_S00001",
+    "member_source_id": "L1_S00001",
+    "premise": "The cluster includes ConvLSTM, EAM, Magpie, CGCNN, LOCO-CV, SNAP, CPMD, ConvLSTM network architecture, custodian, Li10GeP2S12, NASICON, Li10GeP2S12 (LGPS), WannierTools, LAMMPS, Magpie featurizer.",
+    "nli_label": "contradiction"
+  },
+  "G056": {
+    "kind": "real",
+    "year": 2022,
+    "level": 0,
+    "super_node_id": "L0_S00006",
+    "member_source_id": "L0_S00006",
+    "premise": "The cluster includes Conjugate gradients, tight-binding, Machine‑learning models trained on Classical Force‑field Inspired Descriptors (CFID) achieve high predictive accuracy for formation energies, exfoliation energies, band gaps, magnetic moments, refractive indices, dielectric constants, thermoelectric performance, and piezoelectric/infrared modes., C++ gradient module for descriptor derivatives, Adaptive loss‑prefactor schedule, GA optimizer, Nonlinear parameter optimization, Force locality quantification, Energy, force, and virial prediction, Atomic von Mises stress prediction, Force‑field benchmarking, machine learning benchmarking, Locality testing, Energy‑gradient force derivation, Auto‑differentiation for forces and stresses.",
+    "nli_label": "entailment"
+  },
+  "G057": {
+    "kind": "control",
+    "year": 2026,
+    "level": 1,
+    "super_node_id": "L1_S00064",
+    "member_source_id": "L1_S00038",
+    "premise": "The cluster includes Coulomb Matrix, Representing tensors with spherical harmonics yields a dramatically sparser basis, where a rank‑N Cartesian tensor with 3^N components can be represented by (N+1)^2 spherical harmonics (e.g., a 10th‑order tensor requires 121 harmonics instead of 59 049 Cartesian components)., Gaussian‑basis distance expansion, Irreducible Basis Set B, Radial basis function edge attributes, Two-hot encoding for alloy elements, Gaussian RBF features at node level, Angular distribution function calculation, Spherical‑harmonic directional encoding, Radial basis functions, Spherical‑Harmonic Expansion of Cartesian Tensors, Radial basis function encoding, Spherical harmonics encoding, local-orbital basis, Spherical harmonics expansion.",
+    "nli_label": "neutral"
+  },
+  "G058": {
+    "kind": "real",
+    "year": 2026,
+    "level": 1,
+    "super_node_id": "L1_S00070",
+    "member_source_id": "L1_S00070",
+    "premise": "The cluster includes Message Passing Neural Network, PyTorch Geometric, Integrable deep neural networks, Message passing networks, Integrable Deep Neural Networks trained on derivative (chemical‑potential) data accurately learn the high‑dimensional free‑energy density and chemical‑potential functions for LiₓCoO₂, achieving mean‑squared errors comparable to the reported minima and reproducing DFT formation energies with a mean absolute error below 5 meV atom⁻¹., The presented scale‑bridging framework, linking DFT‑informed statistical mechanics to continuum phase‑field models via IDNN‑learned free‑energy functions, constitutes the first systematic implementation of this kind for LiCoO₂ cathodes., Weighted message‑passing convolution, Message Passing layers, Representation learning module, Tensor-Field Networks, Directional Message Passing, Spherical CNNs, Training of IDNN on chemical‑potential derivative data, Gradient‑based training of IDNN, Spatiotemporal learning with ConvLSTM.",
+    "nli_label": "entailment"
+  },
+  "G059": {
+    "kind": "control",
+    "year": 2020,
+    "level": 0,
+    "super_node_id": "L0_S00012",
+    "member_source_id": "L1_S00039",
+    "premise": "The cluster includes For LGPS, the computed activation energy is 0.16 eV, which is slightly lower than experimental values (0.22 eV) but in line with previous computational studies (0.17-0.21 eV)., Heuristic + machine‑learning formation‑energy predictor, Fermi energy, Energy MAE, E RMSE, energy MAE (meV), Gvrh MAE, MAE (eV/atom), energy_RMS_eV, Formation energy regression, Energy prediction, Static energy calculation, Activation energy computation, Machine‑learning regression on formation energies, formation enthalpy calculation.",
+    "nli_label": "contradiction"
+  },
+  "G060": {
+    "kind": "real",
+    "year": 2020,
+    "level": 1,
+    "super_node_id": "L1_S00039",
+    "member_source_id": "L1_S00039",
+    "premise": "The cluster includes For LLZO, the computed activation energies range from 0.2 to 0.22 eV, in very good agreement with experimental values of 0.20-0.21 eV for cubic LLZO., For LGPS, the computed activation energy is 0.16 eV, which is slightly lower than experimental values (0.22 eV) but in line with previous computational studies (0.17-0.21 eV)., Heuristic + machine‑learning formation‑energy predictor, Fermi energy, Materials Project formation energy, force MAE, Energy MAE, Gvrh MAE, MAE (eV/atom), Formation energy prediction, Energy prediction, Static energy calculation, Activation energy computation, Machine‑learning regression on formation energies, MAE evaluation.",
+    "nli_label": "neutral"
+  },
+  "G061": {
+    "kind": "control",
+    "year": 2022,
+    "level": 0,
+    "super_node_id": "L0_S00004",
+    "member_source_id": "L1_S00013",
+    "premise": "The cluster includes APL phonon library, Phonon DOS benchmark, SiO2 polymorph phonon calculations, band structure prediction, Electronic structure calculation, Phonon and elasticity calculations, phonon band structure calculation, Phonon dispersion and vibrational thermodynamics, hybrid functional band‑structure calculation, Band gap prediction, Materials property prediction from electronic bandstructure, Phonon dispersion calculation, Band structure calculation, Band structure calculations, Electronic structure determination.",
+    "nli_label": "neutral"
+  },
+  "G062": {
+    "kind": "real",
+    "year": 2022,
+    "level": 0,
+    "super_node_id": "L0_S00001",
+    "member_source_id": "L0_S00001",
+    "premise": "The cluster includes EAM, GemNet, ANI-1, Quantum ESPRESSO, ICSD, RMM-DIIS, Altae-Tran et al., OQMD database, MEGNET blocks, Kahle2020, Na3Zr2Si2PO12, i-PI, DimeNet, GemNet, PBE functional.",
+    "nli_label": "neutral"
+  },
+  "G063": {
+    "kind": "real",
+    "year": 2026,
+    "level": 1,
+    "super_node_id": "L1_S00024",
+    "member_source_id": "L1_S00024",
+    "premise": "The cluster includes Linear Atomic Cluster Expansion, Sparse cluster‑expansion surrogate, Decision‑tree based ML model, Permutation-invariant Aggregator, Cluster split method, Gaussian process regression, Random Forests, Atomic Cluster Expansion, cluster expansions, Materials clustering, Feature reduction, unsupervised clustering by bonding type, symbolic equation discovery, Operator-based feature derivation, Ensemble-averaged feature importance.",
+    "nli_label": "neutral"
+  },
+  "G064": {
+    "kind": "real",
+    "year": 2020,
+    "level": 0,
+    "super_node_id": "L0_S00001",
+    "member_source_id": "L0_S00001",
+    "premise": "The cluster includes VASP, DTNN, AFLOW, Monkhorst-Pack, Hautier et al., TIP3P, Benzene, Kahle2020, SSUB thermodynamic database, ta-C, MD-17 Azobenzene (original), MD-17 Benzene (original), Magpie featurizer, F1, BoltzTraP with constant relaxation time approximation.",
+    "nli_label": "neutral"
+  },
+  "G065": {
+    "kind": "real",
+    "year": 2020,
+    "level": 0,
+    "super_node_id": "L0_S00012",
+    "member_source_id": "L0_S00012",
+    "premise": "The cluster includes NCV fold structure, Melt-quench trajectory generator, Amorphous carbon, Convex hull stability analysis, phase stability determination, Bulk crystal equation‑of‑state calculations, Phase diagram construction and stability assessment, Melt-quench simulation, Amorphous carbon surface (ta-C) modeling, liquid carbon simulation, surface reconstruction simulation, Bulk crystal structure modeling, Stability ranking, Melt-quench protocol, melt-quench trajectory generation.",
+    "nli_label": "neutral"
+  },
+  "G066": {
+    "kind": "real",
+    "year": 2024,
+    "level": 1,
+    "super_node_id": "L1_S00013",
+    "member_source_id": "L1_S00013",
+    "premise": "The cluster includes Phonax can predict molecular vibrational spectra and correctly assign IR/Raman active modes by analyzing irreducible representations., A Γ-phonon database containing phonon spectra for 146,323 Materials Project materials was generated using the MVN approach, with unit cell atom counts ranging from 1 to 444 atoms., Band gap, frozen phonon database, Linear response phonon method, Phonon prediction for complex materials, Phonon dispersion and density‑of‑states calculation, Γ-phonon spectra prediction, High entropy alloy phonon prediction, Raman spectrum calculation, Fine‑tuning with experimental vibrational spectra, Direct phonon band prediction, Band gap filtering, Alpha2F spectral function calculation, Band structure energy window selection.",
+    "nli_label": "neutral"
+  },
+  "G067": {
+    "kind": "real",
+    "year": 2022,
+    "level": 1,
+    "super_node_id": "L1_S00004",
+    "member_source_id": "L1_S00004",
+    "premise": "The cluster includes pymatgen, By extracting per‑atom site energies in perovskites, the model reveals that large‑radius elements stabilize the A site and group 4‑6 elements stabilize the B site, and using these insights the high‑throughput search space for stable perovskites is reduced by a factor of seven (from 18,928 to 228 candidates)., The Materials Project provides an open RESTful API and a high‑level Python library (pymatgen) that enable programmatic querying and analysis of the full dataset., AFLOW calculations follow a standardized sequential workflow: RELAX1 → RELAX2 → STATIC → BANDS for materials in the Elements, ICSD, and Heusler databases., The PBE functional combined with PAW potentials is the default exchange-correlation functional and potential combination for ICSD, Binary Alloy, and Heusler databases., Standardized Brillouin‑zone path generator, more challenging benchmark with chemical and structural variations, automate challenging chemical search problems in drug discovery, Exploiting intermediate PES data (energies, forces, stresses) from high‑throughput relaxations to further improve IAP accuracy, pymatgen structure matcher, energetic and structural properties, Accurate reproduction of AIMD structural properties, Lack of accessible high‑quality materials data, computational chemistry, Interactive materials design and rapid prototyping.",
+    "nli_label": "contradiction"
+  },
+  "G068": {
+    "kind": "real",
+    "year": 2026,
+    "level": 1,
+    "super_node_id": "L1_S00042",
+    "member_source_id": "L1_S00042",
+    "premise": "The cluster includes Image‑based geometric matrix, Geometric matrix X, infinite neighbor graph, Convex hull stability analysis, Local geometry assessment, Geometry-barrier prediction independence, Local geometry comparison, Local geometry prediction, Confidence‑interval based neighbor selection, Neighbor sorting by species and inverse distance, Degree‑scaled aggregation, δ metric calculation, Convex hull analysis, Adaptive neighbor number, Kernel-based similarity measure.",
+    "nli_label": "neutral"
+  },
+  "G069": {
+    "kind": "real",
+    "year": 2020,
+    "level": 0,
+    "super_node_id": "L0_S00008",
+    "member_source_id": "L0_S00008",
+    "premise": "The cluster includes BAML, LDA+U, LDA, Liechtenstein DFT+U, AFLOW implements DFT+U using the Dudarev formalism with default Ueff values for a wide range of elements., Input representation D_ij, Ueff parameters for d-block elements, U and J parameters for f-block elements, Benchmarking beyond‑DFT methods, Computational efficiency vs. performance trade-off, Computational cost in high-throughput DFT, System size limitations of DFT, High‑throughput DFT property calculation, GRU update, High‑throughput DFT calculations.",
+    "nli_label": "neutral"
+  },
+  "G070": {
+    "kind": "real",
+    "year": 2026,
+    "level": 1,
+    "super_node_id": "L1_S00063",
+    "member_source_id": "L1_S00063",
+    "premise": "The cluster includes De‑noising non‑equilibrium structures (DeNS) auxiliary task, GA optimizer, Gradient predictions, Poor generalization to non-equilibrium configurations, Initial Structure to Relaxed Structure, DFT relaxation outcome prediction, Structure relaxations, Adam optimizer, Cosine learning rate scheduler, Cosine learning rate with linear warmup, LBFGS structural relaxation, TPOT genetic algorithm, Cyclical learning rate schedule, Two-step relaxation annealing, cosine learning rate schedule with linear warmup.",
+    "nli_label": "neutral"
+  },
+  "G071": {
+    "kind": "real",
+    "year": 2026,
+    "level": 1,
+    "super_node_id": "L1_S00038",
+    "member_source_id": "L1_S00038",
+    "premise": "The cluster includes Coordinate‑free Wyckoff position encoding, Spherical‑harmonics embedding, Orthogonal Single‑Atom Basis Functions φ_v, Irreducible Basis Set B, Radial basis functions, Radial basis function edge attributes, Euclidean Rotary Positional Encoding, Hierarchical Body‑Order Expansion, Fourier angular basis, Spherical harmonic encoding, Inner product with spherical harmonics, Radial basis function encoding, Fourier space electrostatic calculation, Spherical harmonics tensor product, Tensor product with spherical harmonics.",
+    "nli_label": "entailment"
+  },
+  "G072": {
+    "kind": "real",
+    "year": 2024,
+    "level": 1,
+    "super_node_id": "L1_S00002",
+    "member_source_id": "L1_S00002",
+    "premise": "The cluster includes OrbNet, ResNet, NewtonNet, Architecture modifications reduced SevenNet-0 total model parameters from 16.24 million (GNoME) to 0.84 million., MEGNET blocks, MEGNetLayer, MEGNet, DimeNet, ænet.",
+    "nli_label": "neutral"
+  }
+}

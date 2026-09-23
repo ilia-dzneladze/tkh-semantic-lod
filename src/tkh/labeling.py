@@ -60,6 +60,33 @@ def labeller_sample_ids(member_ids, n=LABELLER_SAMPLE_N, sampling=LABELLER_SAMPL
     return [ids[i] for i in sorted(picked)]
 
 
+def build_label_prompt(sn, snap, year):
+    """The exact prompt the labeller sees for super-node sn. Also used as
+    the fingerprint that ties a written label to the members it was
+    written from (apply_labels_to_hierarchy)."""
+    raw_ids = sn["member_ids"]
+    type_counts = {}
+    for nid in raw_ids:
+        node = snap.nodes.get(nid)
+        if node is None:
+            continue
+        t = node.get("type")
+        type_counts[t] = type_counts.get(t, 0) + 1
+    sample_ids = labeller_sample_ids(raw_ids)
+    sample_lines = []
+    for nid in sample_ids:
+        node = snap.nodes.get(nid)
+        if node is None:
+            continue
+        sample_lines.append(f"  - {node.get('type')}: {node.get('surface_form')}")
+    prompt = LABEL_PROMPT_TEMPLATE.format(
+        year=year, sample_n=len(sample_ids), total_n=len(raw_ids),
+        type_line=", ".join(f"{t} {c}" for t, c in sorted(type_counts.items(), key=lambda kv: -kv[1])),
+        member_lines="\n".join(sample_lines),
+    )
+    return prompt, type_counts
+
+
 def write_labeling_input(hierarchy, snap, year, out_path, levels=(0, 1)):
     """member_ids are raw concept node ids at every level (see
     pipeline.build_hierarchy_json), so the labelling prompt can read them
@@ -68,29 +95,9 @@ def write_labeling_input(hierarchy, snap, year, out_path, levels=(0, 1)):
     for sn in hierarchy["super_nodes"]:
         if sn["level"] not in levels:
             continue
-        raw_ids = sn["member_ids"]
-        type_counts = {}
-        sample_lines = []
-        for nid in raw_ids:
-            node = snap.nodes.get(nid)
-            if node is None:
-                continue
-            t = node.get("type")
-            type_counts[t] = type_counts.get(t, 0) + 1
-        sample_ids = labeller_sample_ids(raw_ids)
-        for nid in sample_ids:
-            node = snap.nodes.get(nid)
-            if node is None:
-                continue
-            sample_lines.append(f"  - {node.get('type')}: {node.get('surface_form')}")
-
-        prompt = LABEL_PROMPT_TEMPLATE.format(
-            year=year, sample_n=len(sample_ids), total_n=len(raw_ids),
-            type_line=", ".join(f"{t} {c}" for t, c in sorted(type_counts.items(), key=lambda kv: -kv[1])),
-            member_lines="\n".join(sample_lines),
-        )
+        prompt, type_counts = build_label_prompt(sn, snap, year)
         entries.append({
-            "super_node_id": sn["id"], "level": sn["level"], "total_members": len(raw_ids),
+            "super_node_id": sn["id"], "level": sn["level"], "total_members": len(sn["member_ids"]),
             "type_breakdown": type_counts, "prompt": prompt,
             "label": None, "gloss": None,
         })
@@ -100,15 +107,38 @@ def write_labeling_input(hierarchy, snap, year, out_path, levels=(0, 1)):
     return entries
 
 
-def apply_labels_to_hierarchy(hierarchy, labeled_entries_path):
+def apply_labels_to_hierarchy(hierarchy, labeled_entries_path, snap=None, year=None):
+    """Copy label and gloss onto the super-nodes they were written for.
+
+    An entry only applies if its super-node still has the same member
+    count and, when snap and year are given, the prompt rebuilt from the
+    current members is identical to the one the label was written from.
+    Anything else is stale (same persistent id, different cluster) and is
+    skipped. See DESIGN_NOTES.md section 19.
+    Returns (hierarchy, n_applied, stale_super_node_ids)."""
     with open(labeled_entries_path, encoding="utf-8") as f:
         entries = json.load(f)
     by_id = {e["super_node_id"]: e for e in entries}
     n_applied = 0
+    stale = []
     for sn in hierarchy["super_nodes"]:
         e = by_id.get(sn["id"])
-        if e and e.get("label"):
-            sn["label"] = e["label"]
-            sn["gloss"] = e["gloss"]
-            n_applied += 1
-    return hierarchy, n_applied
+        if not e or not e.get("label"):
+            continue
+        fresh = e.get("total_members") == len(sn["member_ids"])
+        if fresh and snap is not None:
+            fresh = build_label_prompt(sn, snap, year)[0] == e.get("prompt")
+        if not fresh:
+            stale.append(sn["id"])
+            continue
+        sn["label"] = e["label"]
+        sn["gloss"] = e["gloss"]
+        n_applied += 1
+    return hierarchy, n_applied, stale
+
+
+def unlabelled_super_nodes(hierarchy, levels=(0, 1)):
+    """Ids of super-nodes at `levels` with no gloss, e.g. straight after
+    run_pipeline.py, which writes every label as null."""
+    return [sn["id"] for sn in hierarchy["super_nodes"]
+            if sn["level"] in levels and not sn.get("gloss")]

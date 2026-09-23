@@ -8,7 +8,12 @@ import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.neighbors import NearestNeighbors
 
+from tkh import model_outputs
+
 _MODEL_NAME = "sentence-transformers/all-mpnet-base-v2"
+# pinned Hub commit so a later upload can't change the embeddings:
+# DESIGN_NOTES.md section 19
+_MODEL_REVISION = "e8c3b32edf5434bc2275fc9bab85f82640a19130"
 _model = None
 
 
@@ -16,7 +21,11 @@ def _get_model():
     global _model
     if _model is None:
         from sentence_transformers import SentenceTransformer
-        _model = SentenceTransformer(_MODEL_NAME)
+        try:
+            # a pinned commit that's already cached needs no network
+            _model = SentenceTransformer(_MODEL_NAME, revision=_MODEL_REVISION, local_files_only=True)
+        except OSError:
+            _model = SentenceTransformer(_MODEL_NAME, revision=_MODEL_REVISION)
     return _model
 
 
@@ -25,7 +34,18 @@ def encode_semantic(texts, batch_size=64, show_progress_bar=False, max_seq_lengt
     this call, then restores it. Used by the T6 extrinsic eval, where
     hyperedge-neighborhood-enriched texts are long enough that leaving the
     default causes multi-minute batches from padding to the longest
-    sequence, see extrinsic.py's build_retrieval_texts."""
+    sequence, see extrinsic.py's build_retrieval_texts.
+
+    Goes through model_outputs, so a whole run can be recorded or replayed
+    without the model (DESIGN_NOTES.md section 23)."""
+    texts = list(texts)
+    payload = {"model": f"{_MODEL_NAME}@{_MODEL_REVISION}", "texts": texts,
+               "batch_size": batch_size, "max_seq_length": max_seq_length}
+    return model_outputs.cached_array(
+        "embed", payload, lambda: _encode(texts, batch_size, show_progress_bar, max_seq_length))
+
+
+def _encode(texts, batch_size, show_progress_bar, max_seq_length):
     model = _get_model()
     prev = model.max_seq_length
     if max_seq_length is not None:

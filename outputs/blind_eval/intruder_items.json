@@ -1,0 +1,871 @@
+[
+  {
+    "item_id": "I001",
+    "options": [
+      "Three virtual node approaches were developed: vector virtual nodes (VVN) outputting 3m Γ-phonon branches, matrix virtual nodes (MVN) with m² 3×3 matrices, and momentum-dependent matrix virtual nodes (k-MVN) for full band structure prediction.",
+      "Bain path",
+      "The screening pipeline, when applied to 5 997 lithium‑containing Materials Project structures that satisfy basic stability and band‑gap criteria, yields 1302 structures after removing transition‑metal containing compounds, of which 113 have Ξ > 0.25.",
+      "LLM‑based agents such as HoneyComb, LLMatDesign, ChatMOF, MatAgent, and MatPilot have been developed to automate literature search, hypothesis generation, synthesis planning, and experimental verification in materials science.",
+      "Training SchNet with forces on only 1,000 examples yields better accuracy than training on 50,000 examples using energies alone, demonstrating that force information improves data efficiency.",
+      "Force projection by space group"
+    ]
+  },
+  {
+    "item_id": "I002",
+    "options": [
+      "Coupling the GNN with a genetic algorithm efficiently discovers optimal holey graphene designs (e.g., arrow‑shaped hole patterns) that achieve significantly lower stress concentration than suboptimal designs, using only ~800 stress evaluations—an order of magnitude fewer than brute‑force search—and reliably locates the global minimum in most of 1,000 random initializations.",
+      "Design of holey graphene membranes",
+      "Hybrid functional calculations scale approximately as O(N^2.5) for small systems and linearly beyond ~15 Å (HSE06) or ~100 Å (PBE0), whereas standard GGA calculations scale as O(N^3).",
+      "Design optimization of holey graphene",
+      "Graphite",
+      "The Principal Neighbourhood Aggregation (PNA) GNN model achieves the lowest mean and variance of test mean‑squared error among GCN, GAT, and MPNN (sum and max) variants on the polycrystalline graphene dataset."
+    ]
+  },
+  {
+    "item_id": "I003",
+    "options": [
+      "GPU-accelerated custom operators",
+      "handling heterogeneous material classes",
+      "GPU memory bandwidth bottleneck",
+      "Custom CUDA kernels",
+      "GPU memory scalability",
+      "GPU library"
+    ]
+  },
+  {
+    "item_id": "I004",
+    "options": [
+      "Deng et al.",
+      "Fukui‑Hatsugai‑Suzuki method",
+      "SineCoulombMatrix",
+      "Ren et al.",
+      "Harris-Foulkes force/stress corrector",
+      "Noé et al."
+    ]
+  },
+  {
+    "item_id": "I005",
+    "options": [
+      "Molecular Graph Convolution",
+      "Analytical force calculation",
+      "convex hull distance prediction",
+      "Zero-shot transfer",
+      "High-throughput calculation standardization",
+      "accurate potential energy surface representation"
+    ]
+  },
+  {
+    "item_id": "I006",
+    "options": [
+      "Accelerated validation of ionic conductivity predictions",
+      "Exploration of universal interatomic potential (UIP) limitations in traditional benchmarks",
+      "Limited diversity in crystal structure discovery",
+      "Discovery rate on 1000 sampled structures",
+      "High-throughput materials database creation",
+      "Screening for technological applications"
+    ]
+  },
+  {
+    "item_id": "I007",
+    "options": [
+      "Training data generation acceleration",
+      "Multi-seed training",
+      "Multi-task training with shared descriptor",
+      "Deep transfer learning",
+      "Unphysical diatomic curve behavior",
+      "Gradient-domain machine learning"
+    ]
+  },
+  {
+    "item_id": "I008",
+    "options": [
+      "atom-centered symmetry functions",
+      "PET-MAD",
+      "MEGNetLayer",
+      "OMol25",
+      "Alexandria",
+      "Laskowski2023"
+    ]
+  },
+  {
+    "item_id": "I009",
+    "options": [
+      "Uncertainty quantification via GP variance",
+      "Uncertainty quantification for ML predictions",
+      "Model‑disagreement analysis",
+      "rotational invariance enforcement",
+      "Separate prediction heads",
+      "Latent‑space distance uncertainty quantification"
+    ]
+  },
+  {
+    "item_id": "I010",
+    "options": [
+      "GGA/GGA+U mixing corrections",
+      "Clebsch‑Gordan coefficients",
+      "Bayesian regression of MSD vs. time",
+      "Feature dropping threshold",
+      "short‑time NVT molecular dynamics",
+      "GNoME"
+    ]
+  },
+  {
+    "item_id": "I011",
+    "options": [
+      "Meta-learning",
+      "Crowd‑sourced issue reporting",
+      "Clebsch‑Gordan tensor product",
+      "Need for expert domain knowledge",
+      "cross‑domain generalization",
+      "Task‑driven taxonomy"
+    ]
+  },
+  {
+    "item_id": "I012",
+    "options": [
+      "Dense expert usage",
+      "Automatic system probability",
+      "JARVIS-DFT workflow",
+      "Modified probabilistic substitution model",
+      "Automated workflow orchestration",
+      "Separate prediction heads"
+    ]
+  },
+  {
+    "item_id": "I013",
+    "options": [
+      "Multi-GPU parallelization",
+      "Computational efficiency",
+      "Binary cross‑entropy loss with sigmoid output",
+      "Compressed operator",
+      "ml_multiscale_modeling_perspective",
+      "Hierarchical multiscale modeling"
+    ]
+  },
+  {
+    "item_id": "I014",
+    "options": [
+      "Interatomic potential development",
+      "Noisy and near‑equilibrium biased training data",
+      "Interatomic potential prediction",
+      "Equivariant interatomic potentials",
+      "Application of machine‑learning interatomic potentials to dynamic brittle fracture simulations",
+      "Computational efficiency for GNN potentials"
+    ]
+  },
+  {
+    "item_id": "I015",
+    "options": [
+      "Parallel efficiency in multi-GPU GNN-IP simulations",
+      "Decision‑tree based ML model",
+      "LDA",
+      "Phonon and elasticity calculations",
+      "Separated S2 attention",
+      "Material fingerprints"
+    ]
+  },
+  {
+    "item_id": "I016",
+    "options": [
+      "Outlier removal analysis",
+      "Generalization to out-of-distribution samples",
+      "surface energy prediction for amorphous materials",
+      "Out-of-distribution detection",
+      "Out-of-distribution robustness",
+      "fixed-size testing"
+    ]
+  },
+  {
+    "item_id": "I017",
+    "options": [
+      "Net force subtraction",
+      "Exponential moving average of weights",
+      "Mean‑squared‑error loss on Hamiltonian matrix elements",
+      "Frame Averaging",
+      "data augmentation for invariance",
+      "ensemble averaging over random seeds"
+    ]
+  },
+  {
+    "item_id": "I018",
+    "options": [
+      "Phonon dispersion and vibrational thermodynamics",
+      "Max neighbor switching",
+      "Dimensionality reduction",
+      "geometric deep learning",
+      "Convex‑hull distance classification analysis",
+      "Local geometry assessment"
+    ]
+  },
+  {
+    "item_id": "I019",
+    "options": [
+      "Phonon prediction for complex materials",
+      "MVN outperforms VVN for Γ-phonon prediction, especially for complex materials, at the cost of slightly higher computational expense.",
+      "High entropy alloy phonon prediction",
+      "Data scarcity for certain material properties",
+      "Kernel normalisation and integer power",
+      "Kernel exponentiation"
+    ]
+  },
+  {
+    "item_id": "I020",
+    "options": [
+      "Allen-Dynes formula",
+      "Strain Energy MAE",
+      "High-throughput materials database construction",
+      "Radius of gyration (R2) prediction",
+      "MAE_ωmax",
+      "success rate"
+    ]
+  },
+  {
+    "item_id": "I021",
+    "options": [
+      "Feature‑importance analysis",
+      "ref. 56 test set",
+      "Convex hull analysis",
+      "Noisy Nodes",
+      "MoS₂ 35×35 supercell (efficiency test)",
+      "twisted bilayer bismuthene (TBB)"
+    ]
+  },
+  {
+    "item_id": "I022",
+    "options": [
+      "Energy and force prediction on OMOL25 dataset",
+      "Ligand strain prediction",
+      "Finite-difference Hessian estimation",
+      "PAW",
+      "Elasticity",
+      "SpinConv"
+    ]
+  },
+  {
+    "item_id": "I023",
+    "options": [
+      "Parallelization challenges of GNN-IPs",
+      "Spatial decomposition is a valid parallelization strategy only if the energy can be decomposed into atomic energies, which is key for the linear scalability of GNN-IPs.",
+      "Spatial decomposition scheme for GNN-IPs",
+      "atomic force computation in parallel GNN-IP",
+      "Extension of Gaussian Approximation Potentials to other materials",
+      "Scalable parallelizable MPNN architectures"
+    ]
+  },
+  {
+    "item_id": "I024",
+    "options": [
+      "Charge-transfer prediction",
+      "Rapid prediction of ternary formation energies without crystal structures",
+      "Training SchNet with forces on only 1,000 examples yields better accuracy than training on 50,000 examples using energies alone, demonstrating that force information improves data efficiency.",
+      "Offline Monte‑Carlo data generation",
+      "Scale bridging from electronic structure to continuum phase‑field models",
+      "Metal‑organic frameworks (MOFs)"
+    ]
+  },
+  {
+    "item_id": "I025",
+    "options": [
+      "Meta-learning allows ML algorithms to quickly learn and adapt to new tasks by leveraging experience from solving similar tasks with relatively small datasets.",
+      "Spatial‑inversion parity index",
+      "RELAX1",
+      "Polynomial fitting of free‑energy vs temperature",
+      "Post-processing block",
+      "MACE-MP0 was demonstrated to have stable nanosecond-long molecular dynamics on over 30 examples with diverse chemistry."
+    ]
+  },
+  {
+    "item_id": "I026",
+    "options": [
+      "gradient-based regularization for rotational invariance",
+      "Restricted communication range",
+      "L1/L2 regularization",
+      "L2 regularization",
+      "Magmom regularization layer",
+      "rotational gradient regularization"
+    ]
+  },
+  {
+    "item_id": "I027",
+    "options": [
+      "Topological properties and dynamics of magnetic skyrmions",
+      "For extrapolative planar defects not included in the training set—specifically the (112) Σ3 grain boundary and unstable stacking fault energies on the (111) shuffle and glide planes—GAP errors remain within 20% of DFT, outperforming other models.",
+      "Self‑consistent field convergence",
+      "hybrid functional",
+      "Cormorant",
+      "δEelec convergence criterion"
+    ]
+  },
+  {
+    "item_id": "I028",
+    "options": [
+      "Exploration of universal interatomic potential (UIP) limitations in traditional benchmarks",
+      "Extension of Hessian‑based training to other higher‑order physical observables",
+      "Fracture‑toughness estimation from atomistic data",
+      "Symmetry preservation without handcrafted descriptors",
+      "Atomistic simulations of liquid carbon",
+      "Voigt-Reuss-Hill average"
+    ]
+  },
+  {
+    "item_id": "I029",
+    "options": [
+      "Tensor Field Networks",
+      "ICSD",
+      "SEGNN",
+      "ACBN0",
+      "LDA",
+      "PredRNN"
+    ]
+  },
+  {
+    "item_id": "I030",
+    "options": [
+      "Bayesian variance prediction",
+      "Sigmoid‑gated neighbor aggregation",
+      "liquid carbon simulation",
+      "NequIP",
+      "Variable-sized unit cell handling",
+      "Dudarev DFT+U"
+    ]
+  },
+  {
+    "item_id": "I031",
+    "options": [
+      "Thermodynamic stability prediction",
+      "Genarris",
+      "Tersoff bond order potential",
+      "Efficient identification of likely stable ternary compounds",
+      "Uncertainty quantification based on latent‑space Euclidean distance provides error estimates that correlate with prediction errors, allowing exclusion of transitions whose uncertainty exceeds 50 % of the absolute free‑energy difference.",
+      "Application of CGCNN to additional material classes beyond perovskites"
+    ]
+  },
+  {
+    "item_id": "I032",
+    "options": [
+      "DeePMD-kit",
+      "E3LayerNorm",
+      "E3Linear layer",
+      "e3nn",
+      "e3nn-jax",
+      "Gaussian quadrature"
+    ]
+  },
+  {
+    "item_id": "I033",
+    "options": [
+      "Molecular crystal prediction",
+      "Hydrostatic deformation potential calculation",
+      "Dataset-1",
+      "Stress tensor decomposition",
+      "Gradient‑orientation fracture prediction",
+      "High-temperature surface reconstruction simulations"
+    ]
+  },
+  {
+    "item_id": "I034",
+    "options": [
+      "The DFT Hamiltonian H_DFT({R},{M}) obeys nearsightedness with two distinct length scales: RN2 ≈ R_C for magnetic‑structure influence and RN1 several times larger for atomic‑structure influence, as confirmed by numerical experiments.",
+      "Computational scaling limitations of DFT",
+      "Biased train-test splitting strategies including cluster, maximal separation, size, and random splits enable rigorous benchmarking by explicitly testing model performance in significantly different regions of chemical space.",
+      "Accuracy‑efficiency dilemma of DFT",
+      "The stochastic nature of SGD makes D4FT’s convergence sensitive to minibatch size and optimizer choice, with very small batches accelerating epoch convergence but potentially degrading wall‑clock time.",
+      "high-throughput DFT validation"
+    ]
+  },
+  {
+    "item_id": "I035",
+    "options": [
+      "Catalysis adsorption energy benchmarks",
+      "Automated validation checks compare calculated oxidation states, cell volumes, and bond lengths against experimental data and flag outliers for user review.",
+      "Catalysis",
+      "efficient training set construction",
+      "Reaction enumeration with stoichiometric constraints",
+      "Overly restrictive oxidation-state balancing"
+    ]
+  },
+  {
+    "item_id": "I036",
+    "options": [
+      "Spherical harmonics expansion",
+      "AMBER",
+      "Inner product with spherical harmonics",
+      "Gaussian radial basis functions",
+      "local-orbital basis",
+      "Sine Coulomb Matrix"
+    ]
+  },
+  {
+    "item_id": "I037",
+    "options": [
+      "twisted bilayer graphene (TBG)",
+      "A DeepH model trained only on non‑twisted bilayer graphene structures predicts Hamiltonians for twisted bilayer graphene supercells up to ~1000 atoms with sub‑meV mean absolute error and correctly reproduces the flat‑band feature near the Fermi level at the magic angle (~1.08°).",
+      "DeepH-E3 enables accurate electronic‑structure calculations for supercells larger than 10⁴ atoms, reducing computational cost by several orders of magnitude and allowing calculations in minutes on a single GPU versus months on thousands of CPU cores.",
+      "Construction of a Moiré‑twisted material database using DeepH‑E3",
+      "MD-17 Malonaldehyde (original)",
+      "Modeling twisted moiré materials"
+    ]
+  },
+  {
+    "item_id": "I038",
+    "options": [
+      "Automated model selection for materials science",
+      "Literature Review Automation",
+      "High‑throughput materials screening",
+      "Model selection automation",
+      "Bridging computational and experimental data",
+      "Automated Experimental Planning"
+    ]
+  },
+  {
+    "item_id": "I039",
+    "options": [
+      "MADBench evaluation",
+      "Insufficient functional form complexity",
+      "Matbench-Discovery",
+      "MDR phonon",
+      "Matbench Discovery leaderboard evaluation",
+      "Automatminer is a fully-automated machine learning pipeline consisting of four stages (autofeaturization, cleaning, dimensionality reduction, and AutoML search) that requires no user intervention or hyperparameter tuning."
+    ]
+  },
+  {
+    "item_id": "I040",
+    "options": [
+      "Neutral organic property prediction",
+      "Molecular crystal prediction",
+      "materials-by-design applications",
+      "Materials",
+      "variable-selection assisted sure independence screening and sparsifying operator",
+      "Composition space exploration"
+    ]
+  },
+  {
+    "item_id": "I041",
+    "options": [
+      "Learning interatomic potentials",
+      "GNN interatomic potentials",
+      "mechanical property prediction",
+      "Equivariant interatomic potentials",
+      "Gaussian Approximation Potentials",
+      "Deep Potential Molecular Dynamics"
+    ]
+  },
+  {
+    "item_id": "I042",
+    "options": [
+      "GNoME enables efficient discovery of materials with 4+ unique elements, which have been difficult for previous discovery efforts.",
+      "Computational cost of large‑scale DFT",
+      "high-throughput materials discovery",
+      "Discovery acceleration",
+      "Accelerated materials discovery",
+      "Materials Structure, Design & Discovery"
+    ]
+  },
+  {
+    "item_id": "I043",
+    "options": [
+      "Vectorized fingerprint generation",
+      "Integrable deep neural network (IDNN) trained on chemical potentials",
+      "wACSF",
+      "TensorFlow",
+      "Directional Message Passing Neural Network",
+      "Increasing the number of message passing steps can lead to overfitting and decreased performance compared to baseline models."
+    ]
+  },
+  {
+    "item_id": "I044",
+    "options": [
+      "Energy above hull prediction",
+      "PFP",
+      "MLIP Arena",
+      "Zeroth-order softening computation",
+      "Kahle2020",
+      "Cleaning stage"
+    ]
+  },
+  {
+    "item_id": "I045",
+    "options": [
+      "softening scale",
+      "Multi-task loss weighting",
+      "First-order softening computation",
+      "Second-order softening computation",
+      "Zeroth-order softening computation",
+      "Using a shifted softplus activation guarantees an infinitely differentiable (smooth) potential energy surface, facilitating geometry optimization."
+    ]
+  },
+  {
+    "item_id": "I046",
+    "options": [
+      "Physical consistency constraints in AI models",
+      "Oxidation-state balancing with relaxed constraints",
+      "Catalysis",
+      "Heterogeneous catalysis modeling",
+      "Visual warnings are displayed on the Materials Project website for compounds whose calculated oxidation states, cell volumes, or bond lengths deviate significantly from experimental norms, helping users assess data reliability.",
+      "Carbon neutral fuels production"
+    ]
+  },
+  {
+    "item_id": "I047",
+    "options": [
+      "Pulay charge mixer",
+      "Efficient phonon band‑structure prediction",
+      "Charge‑informed regularization",
+      "Magnetic moment prediction",
+      "Long-range electrostatic modeling",
+      "MACE evaluates roughly ten times faster than prior force‑field models for invariant (L=0) architectures and 4–5 times faster for equivariant (L=1,2) architectures, while delivering lower prediction errors."
+    ]
+  },
+  {
+    "item_id": "I048",
+    "options": [
+      "Long-range interaction capture",
+      "Net force subtraction",
+      "Nonlinear transformations",
+      "3×3 matrix blocks",
+      "Edge-wise block with MoLE",
+      "Strictly local MLIP models overestimate short-range interactions to compensate for missing or incorrectly modeled long-range contributions."
+    ]
+  },
+  {
+    "item_id": "I049",
+    "options": [
+      "In the limited data regime (1M samples), TransIP achieves 255 meV/Å force MAE versus 600 meV/Å for TransAug, with force cosine similarity of 0.7 versus 0.44.",
+      "SevenNet-0 achieves mean absolute errors of 24 meV/atom for energy, 0.067 eV/Å for force, and 0.65 GPa for stress on the test set.",
+      "Incorporating crystal symmetry into neural‑network potentials",
+      "Crystal structures, data, and software for analyzing stable crystals, phase diagrams, static GNN, and interatomic potentials will be made available at the Google DeepMind materials_discovery GitHub repository and via the Materials Project with permanent DOI link 10.17188/2009989.",
+      "UMLIPs trained on the MatPES dataset achieve test mean absolute errors in energies that are 4–10 times lower than UMLIPs trained on the larger MPRelax or OMat24 datasets.",
+      "ConvLSTM-based fracture prediction model"
+    ]
+  },
+  {
+    "item_id": "I050",
+    "options": [
+      "Harris-Foulkes corrections",
+      "SAPS",
+      "PaLM",
+      "LiPS (Li₆.₇₅P₃S₁₁)",
+      "LiPS",
+      "DeNS"
+    ]
+  },
+  {
+    "item_id": "I051",
+    "options": [
+      "SOAP descriptor with sparse points",
+      "PES descriptors",
+      "three-body embedding descriptor",
+      "Two-body descriptors only",
+      "Mode‑I and Mode‑II training pipelines",
+      "Physically interpretable descriptor construction"
+    ]
+  },
+  {
+    "item_id": "I052",
+    "options": [
+      "DFT-derived features",
+      "pinball model",
+      "UMA models are trained on approximately 500 million unique 3D atomic structures (459M training examples with over 30 billion atoms) across five domains, representing the largest training runs to date for atomic models and covering nearly the entire chemical space except radioactive elements.",
+      "Materials property prediction",
+      "Wyckoff position analysis",
+      "Extreme Gradient Boosting"
+    ]
+  },
+  {
+    "item_id": "I053",
+    "options": [
+      "stable percentage",
+      "Umbrella sampling",
+      "Train/validation/test splits",
+      "test error",
+      "Prototype diversity sampling",
+      "E(3)-equivariant graph neural network"
+    ]
+  },
+  {
+    "item_id": "I054",
+    "options": [
+      "Increasing the correlation order of messages (ν) steepens the learning‑curve power law, yielding higher data efficiency.",
+      "Biased data splitting",
+      "A graph convolutional neural network predicts vibrational free energies with root‑mean‑square errors of 8.23 meV/atom (training), 11.34 meV/atom (validation) and 12.31 meV/atom (test), and its predictions for MgS and NaH polymorphs match DFT‑computed values across the 200–700 K range.",
+      "MatterGen",
+      "Unified free‑energy MEGNet model incorporating temperature, pressure, and entropy as global state inputs",
+      "Development of new machine‑learning models for material‑property predictions"
+    ]
+  },
+  {
+    "item_id": "I055",
+    "options": [
+      "Identification of interstitial sites",
+      "Controllable max neighbors",
+      "The multiple‑tower architecture reduces the computational complexity of a propagation step from O(n²d²) to O(n²d²/k) and yields a 2× speedup for n=9, d=200, k=8.",
+      "GA optimizer",
+      "Hyperparameters",
+      "Sequential inference efficiency"
+    ]
+  },
+  {
+    "item_id": "I056",
+    "options": [
+      "Phonon dispersion prediction for crystals with varying atom counts",
+      "Protostructure‑based cleaning procedure",
+      "Language Processing Branch",
+      "Manual ML pipeline construction",
+      "Automated ML pipeline for materials",
+      "Fully pipelined hardware algorithm"
+    ]
+  },
+  {
+    "item_id": "I057",
+    "options": [
+      "Heterostructure design app",
+      "JARVIS-FF database",
+      "Interfaces and heterostructures",
+      "Volume prediction network",
+      "JARVIS‑WannierTB app",
+      "AFLOW.IN / VASP POSCAR output generator"
+    ]
+  },
+  {
+    "item_id": "I058",
+    "options": [
+      "CGCNN model for elastic properties",
+      "TorchScript JIT compilation",
+      "Dropout regularization",
+      "Energy pre-normalization",
+      "The melt-quench simulation with 112,000 atoms on 8 GPUs demonstrated 0.94 parallel efficiency compared to single-GPU baseline.",
+      "Virtual-Crystal Approximation"
+    ]
+  },
+  {
+    "item_id": "I059",
+    "options": [
+      "Charge balancing in L0 channels",
+      "Inefficient enumeration of reduced formulas",
+      "GPU‑accelerated tensor backend",
+      "MTP",
+      "ROCm",
+      "Large-scale amorphous Si3N4 melt-quench simulation"
+    ]
+  },
+  {
+    "item_id": "I060",
+    "options": [
+      "AlphaFold 3",
+      "Positional variance node feature",
+      "Directed real-to-virtual edges",
+      "Total charge embedding",
+      "Elemental embedding",
+      "Vicker's hardness estimation model"
+    ]
+  },
+  {
+    "item_id": "I061",
+    "options": [
+      "Mean square error loss",
+      "reverse communication of energy gradients",
+      "Linear layer feature conversion",
+      "For MLIPs, the loss function is usually a weighted sum of RMSEs on forces and total energy.",
+      "Mean‑squared‑error loss on Hamiltonian matrix elements",
+      "Per-atom loss averaging"
+    ]
+  },
+  {
+    "item_id": "I062",
+    "options": [
+      "MLIP-NEB relaxation framework",
+      "Climbing Image NEB",
+      "Modified NequIP architecture for field dependence",
+      "Energy prediction",
+      "Initial guess generation for DFT-NEB",
+      "DFT-NEB reference calculations"
+    ]
+  },
+  {
+    "item_id": "I063",
+    "options": [
+      "Calinski-Harabasz score",
+      "Analytic integration of IDNN",
+      "MAE/ROC-AUC",
+      "ROC‑curve analysis",
+      "FCHL revisited",
+      "domain-specific score"
+    ]
+  },
+  {
+    "item_id": "I064",
+    "options": [
+      "Max-atom batching",
+      "Euclidean Neural Network",
+      "Graph neural network for compositional models",
+      "Crystal-Graph Attention Network",
+      "Graph neural networks",
+      "EQGAT"
+    ]
+  },
+  {
+    "item_id": "I065",
+    "options": [
+      "Scaling model capacity without sacrificing speed",
+      "Compute-optimal model scaling",
+      "Memory constraints in large MoE training",
+      "Memory and storage requirements",
+      "Deep potential model training",
+      "Tight‑binding model generation"
+    ]
+  },
+  {
+    "item_id": "I066",
+    "options": [
+      "Local coordinate frame construction",
+      "Multivariate descriptor analysis",
+      "High‑throughput Hamiltonian generation",
+      "Learning accurate exchange‑correlation functionals from data",
+      "materials genomics",
+      "Neural operators"
+    ]
+  },
+  {
+    "item_id": "I067",
+    "options": [
+      "Ecut scaling factor",
+      "Strong-scaling evaluation",
+      "Residual layer normalization",
+      "Dataset size scaling characterization",
+      "Neural local scaling",
+      "Finite displacement supercell method"
+    ]
+  },
+  {
+    "item_id": "I068",
+    "options": [
+      "diffusion pretraining scheme",
+      "Diffusion coefficient convergence criterion",
+      "Capturing temperature‑dependent diffusion without re‑running AIMD",
+      "statistical elemental property combinations",
+      "DiffusionAnalyzer",
+      "Diffusivity surrogate function"
+    ]
+  },
+  {
+    "item_id": "I069",
+    "options": [
+      "twisted bilayer graphene (TBG)",
+      "OMat24",
+      "OMat24-1M",
+      "Distillation-based training with conservative teachers",
+      "OMol25 Val-Comp Reactivity",
+      "OC20"
+    ]
+  },
+  {
+    "item_id": "I070",
+    "options": [
+      "Invariant polynomial feature set",
+      "Virtual node augmentation",
+      "Chemical-composition linear correction",
+      "MACE and grACE packages provide excellent scaling with number of elements while achieving high accuracy.",
+      "Symmetry-adapted order parameters η0–η6",
+      "Rotational invariance/equivariance"
+    ]
+  },
+  {
+    "item_id": "I071",
+    "options": [
+      "S2 activation",
+      "Missing link between microscopic energy models and macroscopic observables",
+      "Scalable electronic‑structure calculation for large‑scale materials",
+      "Internal energy at 0K (U0) prediction",
+      "Formation energy",
+      "Smooth potential energy curves for diatomics"
+    ]
+  },
+  {
+    "item_id": "I072",
+    "options": [
+      "Euclidean Rotary Positional Encoding",
+      "Tensor product with spherical harmonics",
+      "Symmetry-adapted Graph Neural Network",
+      "Spherical Harmonic angular embeddings",
+      "Limited expressiveness of fixed LCAO basis",
+      "Spherical harmonics expansion"
+    ]
+  },
+  {
+    "item_id": "I073",
+    "options": [
+      "Numerical instabilities in force constant calculations",
+      "Joint energy-force training",
+      "Special Quasirandom Structures",
+      "Direct force‑constant method",
+      "Force prediction",
+      "Non-conservative force head"
+    ]
+  },
+  {
+    "item_id": "I074",
+    "options": [
+      "LiPS",
+      "VGNN-based phonon calculation achieves significantly faster computation speed than ab initio methods (DFPT, frozen-phonon) while maintaining reasonable accuracy.",
+      "Bulk moduli",
+      "Adam optimizer",
+      "CNN for NLP",
+      "Empirical scaling laws"
+    ]
+  },
+  {
+    "item_id": "I075",
+    "options": [
+      "Learnable radial basis with Bessel functions",
+      "Strain Energy MAE",
+      "GAP sp3 concentration predictions are closer to DFT reference than empirical Brenner and Tersoff potentials, particularly at lower densities; empirical potentials underestimate sp3 concentration in tetrahedral amorphous carbon.",
+      "Slow, trial‑and‑error materials discovery",
+      "DeNS noise prediction head",
+      "GNS-TAT"
+    ]
+  },
+  {
+    "item_id": "I076",
+    "options": [
+      "Energy conservation in NVE MD",
+      "Generalized energy models that include external fields",
+      "Incomparable energy magnitudes across datasets",
+      "New material design simulations",
+      "Energy pooling",
+      "Analytical derivative module"
+    ]
+  },
+  {
+    "item_id": "I077",
+    "options": [
+      "Master (global) node",
+      "Charge‑informed regularization",
+      "Equivariant message passing",
+      "Insufficient accuracy of low‑order Gaussian quadrature",
+      "open-access materials databases",
+      "Li (local scaling)"
+    ]
+  },
+  {
+    "item_id": "I078",
+    "options": [
+      "Score Dynamics",
+      "TeaNet",
+      "Silhouette score",
+      "silhouette score optimization",
+      "domain-specific score",
+      "ROC‑curve analysis"
+    ]
+  },
+  {
+    "item_id": "I079",
+    "options": [
+      "Defect‑to‑property linkage",
+      "filter‑and‑screen workflow for lithium superionic conductors",
+      "When extrapolating to temperatures lower than the training range, LiFlow’s predicted diffusivity D* decreases more slowly than reference data, indicating fictitious diffusive behavior at high 1000/T.",
+      "Using Materials Project tools, researchers designed a new class of sodium‑based carbonophosphate compounds, predicted them to be thermodynamically stable, synthesized them hydrothermally, and experimentally confirmed their Li‑ion battery performance after ion exchange.",
+      "A direct regression (Regressor) model yields higher mean‑squared‑displacement errors than the generative LiFlow model, demonstrating the necessity of generative modeling for accurate atomic transport simulation.",
+      "Ionic conductor classification"
+    ]
+  }
+]

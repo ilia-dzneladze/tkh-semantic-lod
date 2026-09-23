@@ -56,7 +56,8 @@ def perturbation_stability(snap, embedding_cache, level_targets, alpha,
     the snapshot's hyperedges dropped at random, and compare each rebuild
     to the original via ARI. Node set is held fixed (only edges are
     perturbed), so label arrays line up index-for-index with no need to
-    restrict to a common subset."""
+    restrict to a common subset. Only the structural term is disturbed,
+    which makes this confounded with alpha: DESIGN_NOTES.md section 17."""
     from tkh.pipeline import build_levels
 
     ids = sorted(snap.concept_ids)
@@ -95,14 +96,35 @@ def perturbation_stability(snap, embedding_cache, level_targets, alpha,
     }
 
 
-def cross_snapshot_stability(hierarchies_by_year, n_levels):
+def _half_sample_ari(labels0, labels1, rng, n_boot):
+    """ARI on n_boot random halves (without replacement) of the shared
+    nodes. Not an ordinary bootstrap: resampling with replacement puts
+    duplicate nodes in the same cluster in both partitions, which inflates
+    ARI when clusters are small. See DESIGN_NOTES.md section 20."""
+    a, b = np.asarray(labels0, dtype=object), np.asarray(labels1, dtype=object)
+    n = len(a)
+    out = np.empty(n_boot)
+    for i in range(n_boot):
+        idx = rng.choice(n, n // 2, replace=False)
+        out[i] = adjusted_rand_score(a[idx], b[idx])
+    return out
+
+
+def cross_snapshot_stability(hierarchies_by_year, n_levels, n_boot=1000, seed=0):
     """ARI between each pair of consecutive snapshots, per level, restricted
     to the node ids present in both (a node introduced at t+1 can't count
-    toward or against agreement it wasn't there to participate in)."""
+    toward or against agreement it wasn't there to participate in).
+
+    CIs come from n_boot random halves of the shared nodes within each
+    transition, per transition and for the mean over transitions.
+    The older t-interval over the three transition values is kept as
+    ci95_t_over_transitions for comparison. See DESIGN_NOTES.md section 20."""
     years = sorted(hierarchies_by_year)
     transitions = list(zip(years[:-1], years[1:]))
+    rng = np.random.default_rng(seed)
 
     per_level = {level_idx: [] for level_idx in range(n_levels)}
+    boot_by_level = {level_idx: [] for level_idx in range(n_levels)}
     detail = []
 
     for y0, y1 in transitions:
@@ -119,14 +141,27 @@ def cross_snapshot_stability(hierarchies_by_year, n_levels):
             labels1 = labels_from_hierarchy(h1, level_idx, common)
             ari = adjusted_rand_score(labels0, labels1)
             per_level[level_idx].append(float(ari))
-            detail.append({"from_year": y0, "to_year": y1, "level": level_idx,
-                            "n_common_nodes": len(common), "ari": float(ari)})
+            row = {"from_year": y0, "to_year": y1, "level": level_idx,
+                   "n_common_nodes": len(common), "ari": float(ari)}
+            if n_boot:
+                boot = _half_sample_ari(labels0, labels1, rng, n_boot)
+                boot_by_level[level_idx].append(boot)
+                row["ci95"] = [float(np.percentile(boot, 2.5)), float(np.percentile(boot, 97.5))]
+            detail.append(row)
 
     summary = {}
     for level_idx, aris in per_level.items():
-        mean, std, ci = _mean_ci95(aris)
+        mean, std, ci_t = _mean_ci95(aris)
         summary[level_idx] = {
-            "mean_ari": mean, "std_ari": std, "ci95": ci,
-            "values": aris, "n_transitions": len(aris),
+            "mean_ari": mean, "std_ari": std, "values": aris, "n_transitions": len(aris),
+            "ci95_t_over_transitions": ci_t,
         }
+        if n_boot and boot_by_level[level_idx]:
+            pooled = np.mean(np.vstack(boot_by_level[level_idx]), axis=0)
+            summary[level_idx]["ci95"] = [float(np.percentile(pooled, 2.5)),
+                                          float(np.percentile(pooled, 97.5))]
+            summary[level_idx]["ci95_method"] = f"half-sampling of shared nodes within each transition, {n_boot} resamples"
+        else:
+            summary[level_idx]["ci95"] = ci_t
+            summary[level_idx]["ci95_method"] = "t-interval over transitions"
     return {"by_level": summary, "detail": detail}
