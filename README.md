@@ -2,8 +2,9 @@
 
 Intern-level assessment submission. The brief is
 `Intern_Multi_Resolution_Semantic_Abstraction_over_an_Evolving_Knowledge.md`,
-the write-up is `report.pdf`, the reasoning behind every non-obvious choice
-is in `DESIGN_NOTES.md`, and AI tool usage is in `AI_USAGE.md`.
+the write-up is `report.pdf` (LaTeX source in `report/report.tex`), the
+reasoning behind every non-obvious choice is in `DESIGN_NOTES.md`, and AI
+tool usage is in `AI_USAGE.md`.
 
 ## Reproducing everything
 
@@ -143,6 +144,10 @@ python scripts/blind_eval.py score         # blind intruder + gloss ratings into
 python scripts/make_report_figures.py      # figures from metrics.json
 ```
 
+To rebuild the report after the figures, with any LaTeX setup that has
+XeTeX and the Libertinus fonts, e.g. [Tectonic](https://tectonic-typesetting.github.io):
+`tectonic -X compile report/report.tex --outdir .`
+
 `t5_apply_labels.py` applies a label only if the prompt rebuilt from the
 cluster's current members is identical to the prompt the label was written
 from, and stops with an error otherwise. So if you change the clustering
@@ -177,7 +182,7 @@ tests/                unit tests
 outputs/              hierarchy.json and labels per snapshot,
                       temporal_events.json, metrics.json, blind_eval/,
                       experiment JSONs, figures/
-report.pdf            the write-up
+report.pdf            the write-up, built from report/report.tex
 DESIGN_NOTES.md       why each non-obvious choice was made
 AI_USAGE.md           AI tool usage disclosure
 requirements.in/.txt  loose and pinned dependency lists

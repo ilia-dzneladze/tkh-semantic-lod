@@ -22,8 +22,15 @@ plt.rcParams.update({
     "font.size": 10.5, "text.color": TEXT, "axes.edgecolor": "#c9c8c0",
     "axes.labelcolor": TEXT, "xtick.color": TEXT, "ytick.color": TEXT,
     "axes.spines.top": False, "axes.spines.right": False,
-    "figure.facecolor": "white", "axes.facecolor": "white",
+    "figure.facecolor": "white", "axes.facecolor": "white", "pdf.fonttype": 42,
 })
+
+
+def _save(fig, name):
+    """PNG for quick viewing, vector PDF for the LaTeX report."""
+    fig.savefig(OUT_DIR / f"{name}.png", dpi=150)
+    fig.savefig(OUT_DIR / f"{name}.pdf")
+    plt.close(fig)
 
 
 def fig_coherence(metrics):
@@ -48,8 +55,7 @@ def fig_coherence(metrics):
     ax.legend(frameon=False, loc="upper left", fontsize=9)
     ax.set_ylim(0, max(observed) * 1.25)
     fig.tight_layout()
-    fig.savefig(OUT_DIR / "coherence_vs_null.png", dpi=150)
-    plt.close(fig)
+    _save(fig, "coherence_vs_null")
 
 
 def fig_stability(metrics):
@@ -81,8 +87,7 @@ def fig_stability(metrics):
     ax.legend(frameon=False, loc="upper left", fontsize=9)
     ax.set_ylim(0, 1.0)
     fig.tight_layout()
-    fig.savefig(OUT_DIR / "stability_by_level.png", dpi=150)
-    plt.close(fig)
+    _save(fig, "stability_by_level")
 
 
 def fig_extrinsic_sweep(metrics):
@@ -111,8 +116,7 @@ def fig_extrinsic_sweep(metrics):
                  loc="left", fontsize=10.5)
     ax.legend(frameon=False, loc="lower right", fontsize=9)
     fig.tight_layout()
-    fig.savefig(OUT_DIR / "extrinsic_branching_sweep.png", dpi=150)
-    plt.close(fig)
+    _save(fig, "extrinsic_branching_sweep")
 
 
 def fig_rerank_sweep(metrics):
@@ -141,8 +145,7 @@ def fig_rerank_sweep(metrics):
                  loc="left", fontsize=10.5)
     ax.legend(frameon=False, loc="upper left", fontsize=9)
     fig.tight_layout()
-    fig.savefig(OUT_DIR / "rerank_beta_sweep.png", dpi=150)
-    plt.close(fig)
+    _save(fig, "rerank_beta_sweep")
 
 
 def fig_routing(metrics):
@@ -173,8 +176,7 @@ def fig_routing(metrics):
     ax.set_title(f"Coarse-to-fine routing vs. chance (2026, {n_q} questions)", loc="left", fontsize=10.5)
     ax.legend(frameon=False, loc="upper left", fontsize=9)
     fig.tight_layout()
-    fig.savefig(OUT_DIR / "routing_vs_chance.png", dpi=150)
-    plt.close(fig)
+    _save(fig, "routing_vs_chance")
 
 
 def fig_tradeoff(metrics):
@@ -199,17 +201,20 @@ def fig_tradeoff(metrics):
                                edgecolors=TEXT, linewidths=1.2, zorder=5,
                                label=f"shipped α={r['alpha']:g}" if scheme == "edge" else None)
                 if scheme == "edge" and r["alpha"] in (0.0, 0.7):
+                    offset = (5, 4) if r["alpha"] else (12, 12)
                     ax.annotate(f"α={r['alpha']:g}", (r["tfidf_ratio"], r["heldout_lift"]),
-                                textcoords="offset points", xytext=(5, 4), fontsize=8, color=TEXT)
+                                textcoords="offset points", xytext=offset, fontsize=8, color=TEXT,
+                                zorder=6, bbox=dict(fc="white", ec="none", pad=0.3))
+        ax.margins(x=0.12, y=0.1)
         ax.set_title(f"level {level}", loc="left", fontsize=10)
         ax.set_xlabel("TF-IDF coherence / null")
     axes[0].set_ylabel("held-out edge lift over chance")
-    axes[0].legend(frameon=False, loc="best", fontsize=8)
+    handles, labels = axes[0].get_legend_handles_labels()
+    fig.legend(handles, labels, loc="lower center", ncol=3, frameon=False, fontsize=9)
     fig.suptitle("Structure vs. meaning across alpha (2026, 5 seeds, 20% held out)",
                  x=0.01, ha="left", fontsize=10.5)
-    fig.tight_layout()
-    fig.savefig(OUT_DIR / "structure_meaning_tradeoff.png", dpi=150)
-    plt.close(fig)
+    fig.tight_layout(rect=(0, 0.07, 1, 1))
+    _save(fig, "structure_meaning_tradeoff")
 
 
 def _rate_dot(ax, x, r, color, marker, label=None, side="right"):
@@ -259,8 +264,7 @@ def fig_blind(metrics):
         ax.grid(axis="y", color="#e4e3dd", linewidth=0.6)
         ax.set_axisbelow(True)
     fig.tight_layout()
-    fig.savefig(OUT_DIR / "blind_eval.png", dpi=150)
-    plt.close(fig)
+    _save(fig, "blind_eval")
 
 
 def main():
