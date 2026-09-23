@@ -740,3 +740,51 @@ it with the final run above.
 Not done: the upload itself, which needs my account. The data in the
 release is derived from Constructor's TKH export, so it goes to a
 private dataset repo unless they agree otherwise.
+
+## One-command reproduction, and custom label and rating sets
+
+Tool: Claude Code on Opus 5.5, same session.
+
+Prompt: "can we make a command that reproduces the whole experiment with
+just one command... from nothing to the built hypergraph + evaluation
+with all the pictures and everything" and "is there a way to have sample
+labels and blind rankings... and also give the reproducer the freedom to
+make their own using a special prompt and customized arguments in the
+cli which point to those custom labels + blind rankings".
+
+What the agent built. `scripts/reproduce_all.py` now starts from a bare
+Python 3.11. It creates `.venv`, installs the pinned requirements (CPU
+torch first on Linux), hands over to the venv and runs the whole pipeline
+through the figures. It records what it installed, so later runs skip
+the install, and `--dry-run` prints the plan without running anything.
+For label and rating sets: `t5_dump_labeling_input.py --out --template`
+writes the prompts, a paste-ready request per snapshot for any LLM or
+person, and the template itself into the set. `t5_import_labels.py --set`
+and `blind_eval.py import` check replies, which can be raw or fenced
+JSON, and write nothing if any reply is wrong. `t5_apply_labels.py
+--labels` applies a set using the template it was made with.
+`blind_eval.py make` takes custom rater instructions, and `score --dir`
+refuses ratings made for different labels. `reproduce_all.py --labels
+--blind` runs everything on custom sets. There are 7 new tests. The
+design reasoning is in DESIGN_NOTES section 24, including why the number
+of members the labeller sees stays fixed at 25.
+
+What I checked, through the agent:
+- The shipped sets stay the default and stay byte-identical. The rebuilt
+  rating packets matched the shipped ones file for file (with a fresh NLI
+  run), and every output still matched the published checksums.
+- The custom workflow ran end to end in a scratch copy with a stand-in
+  labeller and raters: a custom template, one fenced reply, 248 labels
+  applied, new packets, scoring. The refusals worked too: the shipped
+  ratings against custom labels, a bad template, a malformed reply.
+- That test found a real bug. A failed rating import still rewrote the
+  valid half and wiped the rater description. The agent made both
+  imports all or nothing and retested.
+- The one-command run, from a copy with no `.venv` at all, took 72
+  minutes: about 17 creating the venv and installing, then the pipeline.
+  Every one of the 45 outputs matched the published checksums, and all 7
+  figures were produced. A second run reused the venv in under a second.
+  The Hugging Face models were already in this machine's shared cache, so
+  the first-time model download (about 800 MB) wasn't exercised, and it's
+  still the same machine, so nothing here stands in for a different one.
+  That is what the release and `compare-embeddings` are for.

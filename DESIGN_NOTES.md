@@ -1466,3 +1466,69 @@ and they can't be regenerated bit for bit by anyone. And replay only
 checks the code after the models. Whether my model outputs are what the
 pinned models really produce is what `compare-embeddings` is for, run on
 the reproducer's machine.
+
+## 24. Label and rating sets: the shipped samples, or your own
+
+`labeling.py`, `validate_template`, `label_set_template`,
+`write_labeller_request`, `apply_labels_to_hierarchy`; `replies.py`,
+`extract_json`; `eval/blind.py`, `rating_reply_problems` and
+`glosses_not_applied`; `scripts/t5_dump_labeling_input.py`,
+`t5_import_labels.py`, `t5_apply_labels.py`, `blind_eval.py`,
+`reproduce_all.py`.
+
+The labels and the blind ratings are the two parts of this project that
+no one can rerun bit for bit, because an LLM wrote them. Section 23
+handles the models inside the pipeline; this handles the ones outside it.
+The labels and ratings I used are checked in, and a plain run uses them.
+What I wanted on top was for a reproducer to make their own set with any
+LLM or by hand, with their own prompt if they like, and run the whole
+evaluation on it with two flags. My numbers come from one labelling run,
+two if you count the superseded first set, so I don't know how much they
+move between labellers. Someone else's set is the most direct test of
+that I can offer.
+
+A set is just a directory. A label set holds `<year>/labeling_output.json`
+and, if it was written from a custom prompt, `prompt_template.txt`. A
+rating set holds the packets, their keys and the ratings. The shipped
+sets already had that shape (`outputs/snapshots` and `outputs/blind_eval`),
+so nothing about them changed, and I checked that before building on it:
+the default prompts, the rebuilt rating packets, including a fresh NLI
+run, and every output file are byte-identical to what's in the published
+release.
+
+Three design choices matter.
+
+The staleness guard from section 19 compares each label's stored prompt
+with the prompt rebuilt from the cluster's current members. With custom
+templates, that only works if the rebuild uses the template the set was
+written from. So the set carries its template, and `t5_apply_labels.py
+--labels DIR` uses it. The test shows the same labels apply cleanly with
+their own template and come up stale against the default one, so a
+custom prompt doesn't weaken the guard.
+
+The template is customisable, but the number of members the labeller sees
+is not. The faithfulness check holds out exactly the members the
+labeller didn't see (`held_out_member_ids`), and a different sample size
+would have to be threaded through to it. If it wasn't, the held-out set
+would silently overlap the labeller's input, which is the circularity
+section 12 was about. So I fixed it at 25 rather than make it a flag.
+
+Both imports are all or nothing, and scoring checks that the ratings
+belong to the labels in use. Testing the workflow found a real bug here.
+A rating import that failed on one reply still rewrote the other reply's
+file, and overwrote the rater description. Now nothing is written unless
+every reply checks out. `blind_eval.py score` refuses a rating set whose
+glosses aren't among the labels currently applied, because gloss ratings
+are about specific glosses, and scoring them against different labels
+would produce numbers that mean nothing.
+
+`--replay` doesn't combine with a custom label set. The recorded NLI
+outputs cover my glosses only, and replay stops with an error on the
+first call it has no recording for rather than guess.
+
+I tested the workflow end to end with a stand-in labeller and stand-in
+raters that answer every item in the required format, one reply wrapped
+in a code fence the way chat models often send it. That tests the
+plumbing (custom template, 248 labels imported and applied, packets rebuilt
+for them, ratings imported and scored, both refusals), not the quality of
+anyone's labels.

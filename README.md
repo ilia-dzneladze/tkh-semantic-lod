@@ -6,6 +6,9 @@ is in `AI_USAGE.md`.
 
 ## Setup
 
+`scripts/reproduce_all.py` does all of this for you (next section). To
+set up by hand instead:
+
 Needs Python 3.11. In the commands below, `python` means the venv's
 interpreter: `.venv\Scripts\python.exe` on Windows, `.venv/bin/python` on
 macOS and Linux (or activate the venv). Forward slashes in script paths
@@ -42,7 +45,24 @@ judge).
 
 ## Reproducing everything
 
-Run from the repo root, in this order. Times are for a laptop CPU.
+One command, from a fresh clone, with any Python 3.11:
+
+```
+py -3.11 scripts/reproduce_all.py        # Windows
+python3.11 scripts/reproduce_all.py      # macOS / Linux
+```
+
+It creates `.venv`, installs the pinned requirements (the step above,
+about 15 minutes the first time), re-runs itself inside the venv, and then
+runs the whole pipeline in order, stopping at the first failure: T1
+statistics, the hierarchies and temporal events, the labels, validation
+and unit tests, every evaluation, the blind-rating scores and the
+figures. Everything lands in `outputs/`, figures in `outputs/figures/`.
+The pipeline itself takes about 30 minutes on a laptop CPU. Later runs
+reuse the venv and skip installing. `--dry-run` prints the steps without
+running anything, and `--no-setup` uses whatever Python you run it with.
+
+The same steps one by one, if you'd rather:
 
 ```
 python scripts/t1_describe.py            # T1 snapshot statistics, seconds
@@ -72,9 +92,6 @@ A full `t6_evaluate.py` run starts `metrics.json` from scratch, and every
 step after it adds its own section, which is why the order matters.
 Passing section names reruns only those and updates them in place, e.g.
 `python scripts/t6_evaluate.py faithfulness`.
-
-`python scripts/reproduce_all.py` runs all of the above in order and
-stops at the first failure.
 
 ### Checking your results against mine
 
@@ -106,21 +123,51 @@ The release is built by recording a full run and exporting it:
 anything unless the recorded merge trees cut back into the shipped
 hierarchies exactly.
 
-### What isn't a deterministic script
+### Labels and blind ratings: the sample sets, or your own
 
-Two steps used an LLM and can't be rerun byte-for-byte, so their outputs
-are checked in:
+Two steps need an LLM or a person, so they can't be rerun bit for bit:
+the labels and glosses (T5) and the blind ratings (T6). The ones I used
+are checked in and are what a plain run uses:
 
-- **Labelling (T5).** `t5_dump_labeling_input.py` writes the exact prompt
-  for every level-0/1 super-node (`outputs/snapshots/<year>/labeling_input.json`).
-  Fresh agents with no repo access wrote the labels
-  (`labeling_output.json`). `t5_import_labels.py <folder>` validates and
-  imports a new set. The first, superseded set is in `outputs/labels_v1/`.
-- **Blind ratings (T6).** `blind_eval.py make` builds the intruder-test and
-  gloss-rating packets, answer keys and the exact rater prompts
-  (`outputs/blind_eval/`). The ratings were made by fresh agents that saw
-  only their own prompt file (`*_ratings.json` records the model and the
-  tool calls). `blind_eval.py score` is deterministic given the ratings.
+- **sample label set**: `outputs/snapshots/<year>/labeling_output.json`,
+  248 labels written by fresh agents with no repo access from the prompts
+  in `labeling_input.json` (the first, superseded set is in
+  `outputs/labels_v1/`);
+- **sample rating set**: `outputs/blind_eval/`, the intruder and gloss
+  packets, their answer keys, the exact rater prompts, and the ratings
+  (`*_ratings.json` records the rater model and its tool calls).
+
+To make your own, with any LLM or by hand, and with your own prompt if
+you like:
+
+```
+# 1. prompts for a new label set; --template is optional
+python scripts/t5_dump_labeling_input.py --out my_labels --template my_prompt.txt
+#    give each my_labels/<year>/labeller_request.md to your labeller and
+#    save each reply as replies/labels_<year>.json (fenced JSON is fine)
+python scripts/t5_import_labels.py replies --set my_labels
+python scripts/t5_apply_labels.py --labels my_labels
+
+# 2. blind-rating packets for those labels; instruction files are optional
+python scripts/blind_eval.py make --out my_blind --intruder-instructions intr.txt --gloss-instructions gloss.txt
+#    give my_blind/intruder_rater_prompt.md and gloss_rater_prompt.md to a
+#    rater who has NOT seen the labels, keys or repo; save the two replies
+python scripts/blind_eval.py import my_blind --intruder intruder_reply.txt --gloss gloss_reply.txt --rater "who rated"
+
+# 3. the whole run on your sets
+python scripts/reproduce_all.py --labels my_labels --blind my_blind
+```
+
+A prompt template is a text file with placeholders from `{year}`,
+`{sample_n}`, `{total_n}`, `{type_line}` and `{member_lines}`; it must
+use `{member_lines}`, and literal braces must be doubled. Rater
+instruction files must contain `{n_items}`. The defaults are in
+`src/tkh/labeling.py` and `scripts/blind_eval.py`. The imports check
+every reply (every item answered, word limits, valid answers) and write
+nothing if anything is wrong, and scoring refuses a rating set made for
+different labels than the ones applied. `--replay` doesn't combine with
+your own sets, because the recorded NLI outputs only cover my glosses. See
+`DESIGN_NOTES.md` section 24.
 
 ### Follow-up experiments
 

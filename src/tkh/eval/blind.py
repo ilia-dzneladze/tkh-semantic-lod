@@ -194,3 +194,34 @@ def make_gloss_items(hierarchies_by_year, snaps, n_real, n_control, rng,
                         "super_node_id": r["sn"]["id"], "member_source_id": r["src"]["id"],
                         "premise": "The cluster includes " + ", ".join(r["forms"]) + "."}
     return items, key
+
+
+def rating_reply_problems(items, reply, task):
+    """What's wrong with a rater's reply to a packet, as a list of strings
+    (empty if nothing). task: "intruder" (answers are option indices) or
+    "gloss" (answers are one of GLOSS_RATINGS)."""
+    ids = {it["item_id"] for it in items}
+    missing, extra = sorted(ids - set(reply)), sorted(set(reply) - ids)
+    if task == "intruder":
+        n_opt = {it["item_id"]: len(it["options"]) for it in items}
+        bad = [i for i, v in reply.items() if i in n_opt
+               and not (isinstance(v, int) and not isinstance(v, bool) and 0 <= v < n_opt[i])]
+    elif task == "gloss":
+        bad = [i for i, v in reply.items() if i in ids and v not in GLOSS_RATINGS]
+    else:
+        raise ValueError(f"unknown task {task!r}")
+    problems = []
+    if missing:
+        problems.append(f"{len(missing)} items unanswered, e.g. {missing[:5]}")
+    if extra:
+        problems.append(f"{len(extra)} answers for items that don't exist, e.g. {extra[:5]}")
+    if bad:
+        problems.append(f"{len(bad)} invalid answers, e.g. {sorted(bad)[:5]}")
+    return problems
+
+
+def glosses_not_applied(gloss_items, applied_glosses):
+    """Item ids whose gloss isn't among the currently applied labels: a
+    gloss rating set made for a different label set."""
+    applied = set(applied_glosses)
+    return [it["item_id"] for it in gloss_items if it["gloss"] not in applied]
