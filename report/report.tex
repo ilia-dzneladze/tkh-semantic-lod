@@ -198,6 +198,8 @@ shrinks. Births dominate because the concept set grows fourfold. Matching keeps 
 reproducible on its own, at the cost of never pushing the clustering toward stability. Of the three
 thresholds I set by feel, only the match threshold is sensitive: moving it from 0.10 to 0.20 takes deaths
 from 12 to 78 and splits from 192 to 84 \dn{10}, so every event keeps its raw Jaccard for filtering.
+A static picture of levels 0--2 at all four snapshots, with the level-0 flows between them, is in
+\code{outputs/figures/hierarchy_across_snapshots.png}.
 
 \para{T4.} If all of a hyperedge's endpoints land in one super-node, the edge becomes internal and is kept
 as a count. If they land in two, it becomes a pairwise edge. If they land in three or more, it stays one

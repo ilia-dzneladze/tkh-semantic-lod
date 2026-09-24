@@ -746,6 +746,42 @@ exactly the files that would be pushed reproduced all 45 outputs and all
 took 143 minutes of wall time, but the laptop was in standby for about two
 hours of it, according to the Windows power log.
 
+## Static visualisation of levels 0-2
+
+Tool: Claude Code on Opus 5.5, same session.
+
+Prompt: I pointed it at the optional deliverable in the brief, "a static
+visualisation of levels 0-2 across snapshots (a screenshot is enough). Do
+not build an interactive frontend", and asked it to make it.
+
+The agent chose the form: one column per snapshot with the 12, 50 and 200
+super-nodes as nested bars, each child inside its parent's span and height
+equal to node count on one scale for all four snapshots, plus ribbons
+between columns sized by the level-0 members each snapshot shares with the
+next. Colour follows the persistent level-0 id. The eight ids alive at
+three or more snapshots get the eight hues of a palette it ran through the
+dataviz validator, the rest are gray, and ids born at a snapshot are drawn
+pale at every level. It's `fig_hierarchy` in
+`scripts/pipeline/make_report_figures.py`, so `reproduce_all.py` redraws
+it, and it reads only the shipped `hierarchy.json` files. The PNG is
+excepted from the `.gitignore` so it shows on GitHub without a rerun, the
+README shows it, and the report got one sentence pointing at it rather
+than a figure, to stay at five pages.
+
+Verification: before drawing, the agent checked that every level is an
+exact partition of its parent at all four snapshots (child member counts
+sum to the parent's) and that no node leaves between snapshots, which is
+what makes the nested bars and the ribbons exact rather than approximate.
+Its "born" marking gives 152 births after 2020, the same count as
+`temporal_events.json`. The palette passes every check, but three hues sit
+under 3:1 contrast on white, so every block is numbered or labelled. The
+agent rendered the figure and looked at it three times, fixing a title
+collision, missing id numbers on mid-sized blocks, two legend swatches
+that looked the same and a clipped legend. The ribbons are recomputed from
+member overlap, not read from `temporal_events.json`, so the figure is a
+second view of the matching, not a check on it. The report still builds
+at five pages.
+
 ## Verification, overall
 
 There are 61 unit tests now. They started at 16 (the T4 collapse rule, T3

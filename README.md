@@ -6,6 +6,14 @@ the write-up is `report.pdf` (LaTeX source in `report/report.tex`), the
 reasoning behind every non-obvious choice is in `DESIGN_NOTES.md`, and AI
 tool usage is in `AI_USAGE.md`.
 
+![Levels 0-2 of the hierarchy at 2020, 2022, 2024 and 2026](outputs/figures/hierarchy_across_snapshots.png)
+
+The static overview of levels 0-2 across the four snapshots (optional
+deliverable 6). Each column is one snapshot, with its 12, 50 and 200
+super-nodes as nested bars, and the ribbons show where each level-0
+super-node's members sit at the next snapshot. It is drawn from the four
+`hierarchy.json` files by `scripts/pipeline/make_report_figures.py`.
+
 ## Reproducing everything
 
 One command, from a fresh clone, with any Python 3.11:
@@ -144,7 +152,7 @@ python scripts/pipeline/hypergraph_shuffle_null.py  # degree/arity-preserving nu
 python scripts/pipeline/structural_holdout.py       # held-out hyperedges across alpha, 4-16 min
 python scripts/pipeline/localisation.py             # is change localised, ~3 min
 python scripts/pipeline/blind_eval.py score         # blind intruder + gloss ratings into metrics.json
-python scripts/pipeline/make_report_figures.py      # figures from metrics.json
+python scripts/pipeline/make_report_figures.py      # figures from metrics.json and the hierarchies
 ```
 
 To rebuild the report after the figures, with any LaTeX setup that has

@@ -1,22 +1,34 @@
-"""Generate the report figures from outputs/metrics.json. Palette
-validated via the dataviz skill's validate_palette.js (blue/orange pair,
-all checks pass, light mode)."""
+"""Generate the report figures from outputs/metrics.json, plus the static
+overview of levels 0-2 across snapshots from the shipped hierarchy.json
+files. Palettes validated via the dataviz skill's validate_palette.js
+(light mode, all checks pass; the eight-hue set warns on contrast, so
+every block in the overview is labelled or numbered)."""
 import json
 import sys
+from collections import Counter, defaultdict
 from pathlib import Path
 
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+from matplotlib.colors import to_rgb
+from matplotlib.patches import Patch, PathPatch, Rectangle
+from matplotlib.path import Path as MplPath
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / "src"))
 OUT_DIR = ROOT / "outputs" / "figures"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
+
+from tkh.io import SNAPSHOT_CUTOFFS  # noqa: E402
 
 BLUE = "#2a78d6"
 ORANGE = "#eb6834"
 GRAY = "#8a8a86"
 TEXT = "#2b2b28"
+MUTED = "#6b6a65"
+SERIES = ["#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4", "#008300", "#4a3aa7", "#e34948"]
+OTHER = "#a8a7a1"
 
 plt.rcParams.update({
     "font.size": 10.5, "text.color": TEXT, "axes.edgecolor": "#c9c8c0",
@@ -267,6 +279,193 @@ def fig_blind(metrics):
     _save(fig, "blind_eval")
 
 
+def _pale(color, share=0.55):
+    return tuple(c + (1 - c) * share for c in to_rgb(color))
+
+
+def _ribbon(ax, x0, x1, src, dst, color, alpha):
+    """Filled S-curve from the span src=(top, bottom) at x0 to dst at x1."""
+    xm = (x0 + x1) / 2
+    verts = [(x0, src[0]), (xm, src[0]), (xm, dst[0]), (x1, dst[0]),
+             (x1, dst[1]), (xm, dst[1]), (xm, src[1]), (x0, src[1]), (x0, src[0])]
+    codes = ([MplPath.MOVETO] + [MplPath.CURVE4] * 3 + [MplPath.LINETO]
+             + [MplPath.CURVE4] * 3 + [MplPath.CLOSEPOLY])
+    ax.add_patch(PathPatch(MplPath(verts, codes), facecolor=color, edgecolor="none",
+                           alpha=alpha, zorder=1))
+
+
+def _spread(ys, gap, lo, hi):
+    """Push label heights (sorted top to bottom) at least gap apart inside [lo, hi]."""
+    out = []
+    for y in ys:
+        out.append(min(y, out[-1] - gap if out else hi))
+    for k in range(len(out) - 1, -1, -1):
+        out[k] = max(out[k], out[k + 1] + gap if k + 1 < len(out) else lo)
+    return out
+
+
+def _short_id(i):
+    return str(int(i.rsplit("S", 1)[1]))
+
+
+def fig_hierarchy():
+    """Levels 0-2 at every snapshot as nested bars (each child inside its
+    parent's span, height = node count on one scale for all snapshots),
+    with ribbons for the level-0 members each snapshot passes to the next."""
+    years = SNAPSHOT_CUTOFFS
+    nodes, children = {}, {}
+    for y in years:
+        h = json.loads((ROOT / "outputs" / "snapshots" / str(y) / "hierarchy.json").read_text(encoding="utf-8"))
+        nodes[y] = {sn["id"]: sn for sn in h["super_nodes"]}
+        children[y] = defaultdict(list)
+        for sn in sorted(h["super_nodes"], key=lambda s: s["id"]):
+            if sn["parent_id"]:
+                children[y][sn["parent_id"]].append(sn)
+    top = {y: {i: set(sn["member_ids"]) for i, sn in nodes[y].items() if sn["level"] == 0} for y in years}
+
+    flows = {}  # year -> {(id at year, id at next year): shared members}
+    for a, b in zip(years, years[1:]):
+        flows[a] = {(i, j): len(mi & mj) for i, mi in top[a].items()
+                    for j, mj in top[b].items() if mi & mj}
+
+    # hue for the level-0 ids alive at 3+ snapshots, gray for the rest
+    alive = Counter(i for y in years for i in top[y])
+    hued = sorted(sorted((i for i in alive if alive[i] >= 3), key=lambda i: -alive[i])[:len(SERIES)])
+    color = {i: SERIES[k] for k, i in enumerate(hued)}
+
+    # vertical order: hued ids in hue order, each gray id at the
+    # member-weighted mean position of the ids it exchanges members with
+    key = {i: float(k) for k, i in enumerate(hued)}
+    partners = defaultdict(Counter)
+    for a in flows:
+        for (i, j), n in flows[a].items():
+            if i != j:
+                partners[i][j] += n
+                partners[j][i] += n
+    for _ in range(5):
+        for i in sorted(alive):
+            known = {j: n for j, n in partners[i].items() if j in key}
+            if i not in color and known:
+                key[i] = sum(key[j] * n for j, n in known.items()) / sum(known.values())
+    order = {y: sorted(top[y], key=lambda i: (key.get(i, len(hued)), i)) for y in years}
+
+    pad = 60  # gap between level-0 blocks, in nodes
+    widths, gap = (0.32, 0.16, 0.16), 0.04
+    x0 = {y: 3.45 + 2.2 * c for c, y in enumerate(years)}
+
+    def bar_x(y, level):
+        return x0[y] + sum(widths[:level]) + gap * level
+
+    right = {y: bar_x(y, 2) + widths[2] for y in years}
+    height = {y: sum(map(len, top[y].values())) + pad * (len(top[y]) - 1) for y in years}
+    hmax = max(height.values())
+    span = {}
+    for y in years:
+        cursor = (hmax + height[y]) / 2
+        for i in order[y]:
+            span[(y, i)] = (cursor, cursor - len(top[y][i]))
+            cursor -= len(top[y][i]) + pad
+
+    fig_h, ax_frac = 9.6, 0.76
+    fig = plt.figure(figsize=(14, fig_h))
+    ax = fig.add_axes((0, 0.14, 1, ax_frac))
+    ax.set_xlim(0, 14)
+    ax.set_ylim(-0.01 * hmax, 1.01 * hmax)
+    ax.axis("off")
+    per_pt = 1.02 * hmax / (fig_h * ax_frac * 72)
+
+    def draw(y, sn, upper, base):
+        prev = years[years.index(y) - 1] if y != years[0] else None
+        fill = _pale(base) if prev and sn["id"] not in nodes[prev] else base
+        lvl, n = sn["level"], sn["member_count"]
+        ax.add_patch(Rectangle((bar_x(y, lvl), upper - n), widths[lvl], n, facecolor=fill,
+                               edgecolor="white", linewidth=(0.9, 0.5, 0.2)[lvl], zorder=2))
+        for ch in children[y][sn["id"]]:
+            draw(y, ch, upper, base)
+            upper -= ch["member_count"]
+
+    for y in years:
+        for i in order[y]:
+            upper, lower = span[(y, i)]
+            draw(y, nodes[y][i], upper, color.get(i, OTHER))
+            if upper - lower + pad > 10 * per_pt:  # chip may spill into the gaps, not onto a neighbour
+                ax.text(bar_x(y, 0) + widths[0] / 2, (upper + lower) / 2, _short_id(i), ha="center",
+                        va="center", fontsize=6.5, color=TEXT, zorder=3,
+                        bbox=dict(boxstyle="round,pad=0.15", fc="white", ec="none"))
+        ax.annotate(str(y), (x0[y] + (right[y] - x0[y]) / 2, 1), xycoords=("data", "axes fraction"),
+                    xytext=(0, 26), textcoords="offset points", ha="center", fontsize=11,
+                    fontweight="bold", color=TEXT)
+        ax.annotate(f"{len(set().union(*top[y].values())):,} nodes", (x0[y] + (right[y] - x0[y]) / 2, 1),
+                    xycoords=("data", "axes fraction"), xytext=(0, 14), textcoords="offset points",
+                    ha="center", fontsize=8.5, color=MUTED)
+        for lvl in range(3):
+            ax.annotate(f"L{lvl}", (bar_x(y, lvl) + widths[lvl] / 2, 1), xycoords=("data", "axes fraction"),
+                        xytext=(0, 2), textcoords="offset points", ha="center", fontsize=7, color=MUTED)
+
+    for a, b in zip(years, years[1:]):
+        rank_a = {i: k for k, i in enumerate(order[a])}
+        rank_b = {j: k for k, j in enumerate(order[b])}
+        out_top = {i: span[(a, i)][0] for i in order[a]}
+        in_top = {j: span[(b, j)][0] for j in order[b]}
+        src, dst = {}, {}
+        for (i, j), n in sorted(flows[a].items(), key=lambda f: (rank_a[f[0][0]], rank_b[f[0][1]])):
+            src[(i, j)] = (out_top[i], out_top[i] - n)
+            out_top[i] -= n
+        for (i, j), n in sorted(flows[a].items(), key=lambda f: (rank_b[f[0][1]], rank_a[f[0][0]])):
+            dst[(i, j)] = (in_top[j], in_top[j] - n)
+            in_top[j] -= n
+        for i, j in flows[a]:
+            _ribbon(ax, right[a], x0[b], src[(i, j)], dst[(i, j)], color.get(i, OTHER),
+                    0.5 if i == j else 0.18)
+
+    def side_labels(y, side):
+        ids = order[y]
+        centres = [sum(span[(y, i)]) / 2 for i in ids]
+        placed = _spread(centres, 11 * per_pt, 0, hmax)
+        edge = x0[y] if side == "left" else right[y]
+        sign = -1 if side == "left" else 1
+        for i, yc, yl in zip(ids, centres, placed):
+            text = f"{_short_id(i)}  {nodes[y][i]['label']}"
+            text = text if len(text) <= 52 else text[:51].rstrip() + "…"
+            ax.plot([edge, edge + sign * 0.06, edge + sign * 0.16], [yc, yc, yl],
+                    color=MUTED, linewidth=0.6, zorder=0)
+            ax.text(edge + sign * 0.2, yl, text, ha="right" if side == "left" else "left",
+                    va="center", fontsize=7.5, color=TEXT)
+
+    side_labels(years[0], "left")
+    side_labels(years[-1], "right")
+
+    between = [i for i in sorted(alive) if i not in top[years[0]] and i not in top[years[-1]]]
+    notes = []
+    for i in between:
+        seen = [y for y in years if i in top[y]]
+        when = str(seen[0]) if len(seen) == 1 else f"{seen[0]}–{seen[-1]}"
+        notes.append(f"{_short_id(i)} {nodes[seen[-1]][i]['label']} ({when})")
+
+    legend_style = dict(loc="lower left", frameon=False, fontsize=8.5, title_fontsize=8.5, alignment="left",
+                        handlelength=1.4, columnspacing=1.6)
+    fig.legend([Patch(fc=BLUE), Patch(fc=_pale(BLUE)), Patch(fc=OTHER)],
+               ["id carried over from the previous snapshot", "id born at this snapshot",
+                "level-0 id alive at only one or two snapshots"],
+               title="blocks (any level)", bbox_to_anchor=(0.012, 0.068), ncol=3, **legend_style)
+    fig.legend([Patch(fc=BLUE, alpha=0.5), Patch(fc=BLUE, alpha=0.18)],
+               ["staying in the same level-0 id", "moving to another level-0 id"],
+               title="ribbons (level-0 members passed to the next snapshot)", bbox_to_anchor=(0.6, 0.068),
+               ncol=2,
+               **legend_style)
+    fig.text(0.012, 0.985, "Levels 0–2 of the hierarchy across the four snapshots", fontsize=12.5,
+             color=TEXT, va="top")
+    fig.text(0.012, 0.02,
+             "Each column is one snapshot: level 0 (12 super-nodes), level 1 (50) and level 2 (200) side by side, "
+             "every child drawn inside its parent's span. Height is node count, on one scale for all four "
+             "snapshots (nodes only accumulate).\nRibbons carry each snapshot's level-0 members into the next, "
+             "and the rest of each block is new nodes. Numbers are level-0 ids (L0_S000nn) and labels are that "
+             "snapshot's; nothing in 2020 counts as born.\nLevel-0 ids alive only in between: "
+             + "; ".join(notes) + ".",
+             fontsize=8, color=MUTED, va="bottom", linespacing=1.5)
+    _save(fig, "hierarchy_across_snapshots")
+
+
 def main():
     metrics = json.loads((ROOT / "outputs" / "metrics.json").read_text(encoding="utf-8"))
     if "blind_eval" in metrics:
@@ -280,6 +479,7 @@ def main():
         fig_routing(metrics)
     if "structural_holdout" in metrics:
         fig_tradeoff(metrics)
+    fig_hierarchy()
     print(f"wrote figures to {OUT_DIR}")
 
 
