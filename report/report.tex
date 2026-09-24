@@ -4,8 +4,11 @@
 
 \usepackage[a4paper,top=1.7cm,bottom=1.9cm,left=1.9cm,right=1.9cm]{geometry}
 \usepackage{fontspec}
-\usepackage{libertinus}
 \usepackage{amsmath}
+\usepackage{unicode-math}
+\setmainfont{texgyretermes}[Extension=.otf, UprightFont=*-regular, BoldFont=*-bold,
+  ItalicFont=*-italic, BoldItalicFont=*-bolditalic]
+\setmathfont{texgyretermes-math.otf}
 \usepackage{microtype}
 \usepackage{xcolor}
 \usepackage{graphicx}
@@ -51,26 +54,23 @@
 \begin{center}
   {\LARGE\bfseries Multi-resolution semantic abstraction\\[2pt] over an evolving knowledge hypergraph\par}
   \vspace{6pt}
-  {\color{muted}Ilia Dzneladze \quad·\quad Intern assessment, Constructor Knowledge Labs \quad·\quad September 2026\par}
+  {\small\color{muted}Ilia Dzneladze \quad·\quad Intern assessment, Constructor Knowledge Labs \quad·\quad September 2026\par}
 \end{center}
-\vspace{-2pt}
 
-{\color{accent}\rule{\linewidth}{0.6pt}}
-\vspace{-6pt}
-\begin{quote}\small
+\noindent\begin{minipage}{\linewidth}
+{\color{accent}\hrule height 0.6pt}
+\vspace{6.5pt}
+{\small\leftskip=1.5em\rightskip=1.5em\noindent
 I build a three-level hierarchy of concept clusters (12, 50 and 200 groups) for each of four yearly
 snapshots of the TKH export and track it through time, using average linkage on one graph that blends an
 arity-weighted clique expansion of the hypergraph with a semantic nearest-neighbour graph. Most of my
 effort went into evaluating it without grading it by its own ruler. Levels 1 and 2 are coherent to a
 blind reader, a blind rater found none of 48 glosses wrong, and routing through the labels beats chance.
 Level 0 isn't shown to be coherent, change between snapshots isn't localised, and the hypergraph carries
-about 7\% of the affinity, not the 30\% its weight suggests.
-\end{quote}
-\vspace{-8pt}
-{\color{accent}\rule{\linewidth}{0.6pt}}
-
-Every follow-up experiment had its keep-or-discard rule written down before it ran, and I say below
-where a result went against me.
+about 7\% of the affinity, not the 30\% its weight suggests.\par}
+\vspace{5.5pt}
+{\color{accent}\hrule height 0.6pt}
+\end{minipage}
 
 \section{The data and its snapshots (T1)}
 
@@ -105,6 +105,7 @@ can pull in a node the corpus hasn't seen yet. I first claimed the labeller's in
 by construction, and it isn't (§\ref{sec:faith}).
 
 \section{Formal statement (Deliverable 0)}
+\label{sec:formal}
 
 \para{Construction.} For a snapshot, let $V$ be its concept nodes, $e_c \subseteq V$ the concept members
 of hyperedge $e$, $n_e = |e_c|$, and $x_i$ the unit-norm MPNet embedding of node $i$'s surface form.
@@ -142,6 +143,15 @@ entry 0.06 for $\tilde S$, 0.57 for $\tilde M$), so at $\alpha = 0.3$ structure 
 the affinity mass, not 30\%. It matters a little more than that, since 94\% of structural pairs
 are ones the $k$-NN graph never proposes, but the honest description of what ships is semantic
 nearest-neighbour clustering with the hypergraph as a tie-breaker.
+
+\para{Across snapshots.} Snapshots only add nodes ($V_t \subseteq V_{t+1}$) and each is clustered from
+scratch. A level-$k$ cluster $C$ at $t$ links to $\sigma(C) = \arg\max_D J(C, D)$ at $t{+}1$ if
+$J \ge \tau = 0.15$, where $J(C, D) = |C \cap D| \,/\, |C \cup (D \cap V_t)|$, so new nodes don't count
+against a match. A $D$ linked from one $C$ inherits its persistent id, from several it is a merge and keeps
+the largest one's id, and from none it is a birth. A $C$ with no link dies. A one-to-one link is a split if
+$C$ also reaches $\tau$ with another cluster, and otherwise stable, grow or shrink by $J$ and size change.
+Matching keeps each snapshot reproducible on its own, but nothing pushes the clustering toward
+stability, so P5 is measured, not enforced.
 
 \para{Complexity.} Building $S$ costs $\sum_e n_e^2$ (about 66k pairs at 2026), $M$ is a 15-neighbour
 search, and the heap-based merge is roughly $O(E \log E)$ in the stored affinities while neighbour lists
@@ -187,11 +197,10 @@ test found that the smoother option costs coherence on real data.
 \section{Time and hyperedge collapse (T3, T4)}
 \label{sec:time}
 
-\para{T3.} Each snapshot is clustered on its own and matched to the next by Jaccard overlap on the nodes
-present in both. Persistent ids carry forward, and the three transitions log 1,091 events in
-\code{temporal_events.json}: 414 births, 268 grows, 128 splits, 108 stable, 103 merges, 43 deaths and 27
-shrinks. Births dominate because the concept set grows fourfold. Matching keeps each snapshot
-reproducible on its own, at the cost of never pushing the clustering toward stability. Of the three
+\para{T3.} Snapshots are matched by the rule in §\ref{sec:formal}, and \code{temporal_events.json} holds
+1,091 events: 262 initial births at 2020, then 829 over the three transitions (268 grows, 152 births, 128
+splits, 108 stable, 103 merges, 43 deaths, 27 shrinks). 85 of those births are split pieces, logged from
+both sides. Of the three
 thresholds I set by feel, only the match threshold is sensitive: moving it from 0.10 to 0.20 takes deaths
 from 12 to 78 and splits from 192 to 84, so every event keeps its raw Jaccard for filtering.
 A static picture of levels 0--2 at all four snapshots, with the level-0 flows between them, is in
@@ -217,8 +226,9 @@ attempt failed the same way, so under the rule I had set it didn't ship.
 
 Measuring coherence with the MPNet embeddings that built the clusters would grade the method with its
 own ruler, so I measured it three other ways, from weakest to strongest. The first is TF-IDF over the same
-text, against a random-labels null. The clusters are far from chance ($z$ = 709, 864 and 1,424 by level),
-but this is the weakest check, because TF-IDF reads the same strings: 69\% of MPNet neighbour pairs share
+text, against a random-labels null. At 2026 the clusters score 4.3, 11 and 28 times the null mean by level,
+and none of 30 random clusterings of the same sizes reaches them, but this is the weakest check, because
+TF-IDF reads the same strings: 69\% of MPNet neighbour pairs share
 a TF-IDF term, against 7\% of random pairs. A degree- and arity-preserving shuffle of the hypergraph
 gets almost the same TF-IDF coherence ($z$ = 0.3, 0.4 and 2.9), which is what you'd expect when structure
 carries 6.6\% of the mass.
@@ -240,8 +250,9 @@ The ring marks the shipped $\alpha = 0.3$.}
 \end{figure}
 
 The third check is a blind intruder test in the style of \citet{chang2009}. A fresh LLM rater with no
-repo access, and a different model from the labeller, sees five members of a super-node plus one
-type-matched node from another level-0 branch, and picks the odd one out. Chance is 1 in 6. On null items
+repo access sees five members of a super-node plus one type-matched node from another level-0 branch, and
+picks the odd one out. The rater (Claude Opus 5.5) and the labeller (Claude Sonnet 5) are one model
+family and may share blind spots. Chance is 1 in 6. On null items
 built from random nodes it found the intruder once in 20, so it wasn't reading type or length. On real
 items it found it 17 of 23 times at level 2 and 14 of 24 at level 1, both well above chance, but only 4 of
 12 times at level 0 (\ci{14\%}{61\%}), which fails the rule I set (Figure~\ref{fig:blind}, left). My
@@ -317,11 +328,13 @@ which the corpus first saw in 2024.
 
 For each question, the drill-down routes through label and gloss text (the top 8 of 12 level-0 groups,
 then the top 8 of their level-1 children) and ranks the nodes in that pool; the flat baseline ranks all
-3,104 method-like nodes by cosine to the question. Ground-truth method names resolve to nodes by exact or
+3,104 method-like nodes by cosine to the question. Of the 18 questions (the brief says 17), I score
+the 14 of type A, which list expected methods. The 4 of type B and every \code{method_claims} entry stay
+unmapped, so supporting claims are unscored. Ground-truth method names resolve to nodes by exact or
 substring match. My first matcher let element nodes (``N'', ``S'', ``Si'') match names like
 ``physics-informed'', so a third of the answer key was chemical elements, and the numbers looked plausible
 the whole time. Requiring both sides of a substring match to be at least four characters leaves 12
-questions with a ground truth. Routing works: the pool keeps 58\% of ground-truth nodes while
+of the 14 with at least one matched node. Routing works: the pool keeps 58\% of ground-truth nodes while
 covering 24\% of candidates, a lift of 0.33 over a same-size random pool (\ci{0.04}{0.54}), and every
 budget clears chance. Routing on member centroids instead of labels doesn't (Figure~\ref{fig:stabrout}b),
 so the signal is in the labels. Ranking doesn't improve: recall@20 is 0.121 against flat's 0.119
@@ -338,7 +351,7 @@ the right region, and the ranking inside it is the weak part.
 \textbf{Verified}, each with a check or a number behind it & \textbf{Assumed or unresolved} \\
 \midrule
 Laminarity at every snapshot, by an exact validator & The two-stage alternative: argued, not built \\
-The UPGMA implementation, against scipy & Blind judgements from one LLM rater; no second rater, no human pass \\
+The UPGMA implementation, against scipy & Blind judgements from one LLM rater, of the labeller's model family; no second rater, no human pass \\
 Coherence against two nulls, held-out hyperedges and a blind intruder test & Why $\alpha$ near 0.3 works, as opposed to that it does \\
 Stability intervals by half-sampling, with the old estimator's bias pinned in a test & The temporal thresholds, set by feel; the match threshold is sensitive \\
 The NLI judge, against blind gloss ratings & Whether fixed cut sizes cause the global churn \\

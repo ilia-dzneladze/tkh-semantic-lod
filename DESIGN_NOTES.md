@@ -453,8 +453,12 @@ section 21 is a fourth.
 **TF-IDF against a random-labels null.** Coherence is the mean pairwise
 TF-IDF cosine among a cluster's members, weighted by cluster size. The
 number means nothing on its own, so it's compared with 30 random
-clusterings with the same cluster sizes and reported as a z-score. At
-2026 z is 709, 864 and 1,424 by level. Coherence rises from about 0.01 at
+clusterings with the same cluster sizes. At 2026 the real clusters score
+4.3, 11 and 28 times the null mean by level, and none of the 30 draws
+reaches them. `metrics.json` also has a z-score (709, 864 and 1,424),
+but I don't quote it: with 30 draws all you can really say is that the
+real value beats every one of them, and a z that size assumes a normal
+tail far past anything the draws measured. Coherence rises from about 0.01 at
 level 0 to 0.08 at level 2. That's expected, since small groups are easier
 to keep lexically tight, and it only means levels shouldn't be compared
 with each other, each only with its own null. Section 5 explains why
@@ -1031,7 +1035,8 @@ too.
 The rater saw only item ids and six strings. The answer key stayed in a
 separate folder until the ratings were in. The rater was a fresh Claude
 Code subagent on Opus, a different model from the Sonnet agents that
-wrote the labels, and its transcript shows one read of its own item file,
+wrote the labels, though the same family, so they may share blind spots.
+Its transcript shows one read of its own item file,
 then its answer. It's one LLM rater, with no second rater and no human
 pass, so there's no inter-rater agreement to report. That's the obvious
 next step if this mattered more.

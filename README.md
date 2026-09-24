@@ -28,7 +28,8 @@ order, stopping at the first failure. Results go to `outputs/` and
 figures to `outputs/figures/`.
 
 No GPU is needed. The first install takes about 15 minutes, mostly torch,
-and the pipeline about 30 minutes on a laptop CPU. The first run also
+and the pipeline 30 to 60 minutes on a laptop CPU. My clean run, from a
+folder with no environment to every output, took 72 minutes. The first run also
 downloads two models from Hugging Face, each pinned to a fixed commit:
 `sentence-transformers/all-mpnet-base-v2` (about 420MB, for clustering and
 retrieval) and `cross-encoder/nli-deberta-v3-base` (about 400MB, the NLI
@@ -156,7 +157,7 @@ clustering old labels can't land on new clusters (`DESIGN_NOTES.md`
 section 19).
 
 To rebuild the report after the figures, with any LaTeX setup that has
-XeTeX and the Libertinus fonts, e.g. [Tectonic](https://tectonic-typesetting.github.io):
+XeTeX and the TeX Gyre Termes fonts, e.g. [Tectonic](https://tectonic-typesetting.github.io):
 `tectonic -X compile report/report.tex --outdir .`
 
 ## Follow-up experiments
