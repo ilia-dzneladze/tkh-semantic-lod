@@ -18,18 +18,17 @@ faithfulness check holds out exactly the members the labeller didn't see.
 See DESIGN_NOTES.md section 24.
 """
 import argparse
-import json
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
-from tkh.io import load_tkh, build_all_snapshots, SNAPSHOT_CUTOFFS, DATA_PATH  # noqa: E402
+from tkh.io import load_tkh, build_all_snapshots, load_hierarchy, DATA_PATH, OUTPUTS  # noqa: E402
 from tkh.labeling import (  # noqa: E402
     write_labeling_input, write_labeller_request, validate_template, LABEL_PROMPT_TEMPLATE, TEMPLATE_FILE)
 
-SHIPPED = ROOT / "outputs" / "snapshots"
+SHIPPED = OUTPUTS / "snapshots"
 
 
 def main():
@@ -51,9 +50,9 @@ def main():
         out_root.mkdir(parents=True, exist_ok=True)
         (out_root / TEMPLATE_FILE).write_text(template, encoding="utf-8")
 
-    snapshots = build_all_snapshots(load_tkh(DATA_PATH), cutoffs=SNAPSHOT_CUTOFFS)
+    snapshots = build_all_snapshots(load_tkh(DATA_PATH))
     for year in sorted(snapshots):
-        hierarchy = json.loads((SHIPPED / str(year) / "hierarchy.json").read_text(encoding="utf-8"))
+        hierarchy = load_hierarchy(year)
         year_dir = out_root / str(year)
         year_dir.mkdir(parents=True, exist_ok=True)
         entries = write_labeling_input(hierarchy, snapshots[year], year, year_dir / "labeling_input.json",

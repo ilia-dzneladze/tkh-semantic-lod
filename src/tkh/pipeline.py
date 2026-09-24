@@ -1,8 +1,7 @@
-"""Glue: run T2's single-snapshot method at multiple levels, then hand the
-per-level label sequences to T3 (temporal.py) and T4 (collapse.py) to
-assemble the final per-snapshot, multi-level, temporally-tracked hierarchy.
+"""The whole method: cluster each snapshot into levels (T2), track the
+levels across snapshots (T3), collapse the hyperedges at each level (T4),
+and assemble hierarchy.json.
 """
-from collections import defaultdict
 
 import numpy as np
 import scipy.sparse as sp
@@ -51,14 +50,13 @@ def coarsen_one_level(snap, ids, emb, fine_labels, k_target, alpha=ALPHA, size_n
 
 def build_levels(snap, ids, emb, alpha=ALPHA, level_targets=LEVEL_TARGETS,
                  coarsening=COARSENING, A_sem=None):
-    """Laminar labels for every level. The finest level is always a cut of
-    the node-level dendrogram. With coarsening="dendrogram" the coarser
-    levels are cuts of that same dendrogram; with "multilevel" each coarser
-    level clusters the super-nodes of the level below via
-    coarsen_one_level. ids must be sorted(snap.concept_ids), row-aligned
-    with emb."""
-    A_struct, struct_ids, struct_stats = build_structural_affinity(snap, weighted=True)
-    assert struct_ids == list(ids), "ids must match build_structural_affinity's ordering"
+    """Labels for every level, finest last. The finest level is always a
+    cut of the node-level tree. With coarsening="dendrogram" the coarser
+    levels are cuts of the same tree; with "multilevel" each one clusters
+    the super-nodes of the level below (coarsen_one_level). ids must be
+    sorted(snap.concept_ids), row-aligned with emb."""
+    A_struct, struct_ids = build_structural_affinity(snap)
+    assert struct_ids == list(ids), "ids must be sorted(snap.concept_ids)"
     if A_sem is None:
         A_sem = semantic_knn_graph(emb, k=KNN_K)
     n = len(ids)
@@ -78,8 +76,7 @@ def build_levels(snap, ids, emb, alpha=ALPHA, level_targets=LEVEL_TARGETS,
         else:
             raise ValueError(f"unknown coarsening {coarsening!r}")
     return {"labels_by_level": dict(sorted(labels_by_level.items())),
-            "forced_by_level": dict(sorted(forced_by_level.items())),
-            "struct_stats": struct_stats, "n_sem_edges": A_sem.nnz}
+            "forced_by_level": dict(sorted(forced_by_level.items()))}
 
 
 def embed_concepts(snap, embedding_cache):
@@ -95,61 +92,44 @@ def embed_concepts(snap, embedding_cache):
 
 def run_single_snapshot(snap, embedding_cache, alpha=ALPHA, level_targets=LEVEL_TARGETS,
                         coarsening=COARSENING):
-    """Returns dict: ids, labels_by_level {level_idx: np.array},
-    forced_by_level, struct_stats, n_sem_edges."""
+    """{"ids", "labels_by_level", "forced_by_level"} for one snapshot."""
     ids, emb = embed_concepts(snap, embedding_cache)
-    out = build_levels(snap, ids, emb, alpha=alpha, level_targets=level_targets,
-                       coarsening=coarsening)
-    return {"ids": ids, **out}
+    return {"ids": ids, **build_levels(snap, ids, emb, alpha=alpha, level_targets=level_targets,
+                                       coarsening=coarsening)}
 
 
-def _laminar_parents(labels_by_level, ids):
-    """For each level > 0, map each local label to its coarser (level-1)
-    local label, verifying every member of a fine cluster agrees on the
-    same coarse parent (laminarity sanity check -- guaranteed by
-    construction since all cuts come from ONE dendrogram, but we assert it
-    to catch bugs)."""
-    parents = {}  # level_idx -> {fine_local_label: coarse_local_label}
-    n_levels = len(labels_by_level)
-    for level_idx in range(1, n_levels):
-        coarse_labels = labels_by_level[level_idx - 1]
-        fine_labels = labels_by_level[level_idx]
+def _laminar_parents(labels_by_level):
+    """{level: {label: parent label one level up}} for levels > 0. Raises
+    if a cluster's members disagree on their parent, which can't happen
+    for cuts of one tree but would catch a bug."""
+    parents = {}
+    for level_idx in range(1, len(labels_by_level)):
         mapping = {}
-        for fine_lab, coarse_lab in zip(fine_labels, coarse_labels):
-            fine_lab, coarse_lab = int(fine_lab), int(coarse_lab)
-            if fine_lab in mapping:
-                assert mapping[fine_lab] == coarse_lab, (
-                    f"laminarity violated at level {level_idx}: "
-                    f"local label {fine_lab} maps to two different parents")
-            else:
-                mapping[fine_lab] = coarse_lab
+        for fine, coarse in zip(labels_by_level[level_idx], labels_by_level[level_idx - 1]):
+            if mapping.setdefault(int(fine), int(coarse)) != int(coarse):
+                raise AssertionError(f"laminarity violated at level {level_idx}: "
+                                     f"label {int(fine)} has two parents")
         parents[level_idx] = mapping
     return parents
 
 
 def run_all_snapshots(snapshots_by_year, alpha=ALPHA, level_targets=LEVEL_TARGETS,
                       coarsening=COARSENING, embedding_cache=None):
-    """snapshots_by_year: {year: Snapshot}. Returns everything needed to
-    write hierarchy.json per year + one temporal_events.json."""
+    """Cluster every snapshot and track each level across them. Returns
+    what build_hierarchy_json and temporal_events.json need."""
     embedding_cache = {} if embedding_cache is None else embedding_cache
     years = sorted(snapshots_by_year)
     per_year = {}
     for year in years:
-        per_year[year] = run_single_snapshot(
-            snapshots_by_year[year], embedding_cache, alpha=alpha, level_targets=level_targets,
-            coarsening=coarsening)
-        per_year[year]["parents"] = _laminar_parents(per_year[year]["labels_by_level"], per_year[year]["ids"])
+        per_year[year] = run_single_snapshot(snapshots_by_year[year], embedding_cache, alpha=alpha,
+                                             level_targets=level_targets, coarsening=coarsening)
+        per_year[year]["parents"] = _laminar_parents(per_year[year]["labels_by_level"])
 
-    n_levels = len(level_targets)
-    persistent_by_level_year = {}
-    events_by_level = {}
-    for level_idx in range(n_levels):
+    persistent_by_level_year, events_by_level = {}, {}
+    for level_idx in range(len(level_targets)):
         labels_by_year = {y: (per_year[y]["labels_by_level"][level_idx], per_year[y]["ids"]) for y in years}
-        ids_by_year = {y: per_year[y]["ids"] for y in years}
-        persistent_by_year, events = track_across_snapshots(
-            labels_by_year, ids_by_year, prefix=f"L{level_idx}_")
-        persistent_by_level_year[level_idx] = persistent_by_year
-        events_by_level[level_idx] = events
+        persistent_by_level_year[level_idx], events_by_level[level_idx] = track_across_snapshots(
+            labels_by_year, prefix=f"L{level_idx}_")
 
     return {
         "years": years, "per_year": per_year, "level_targets": level_targets,
@@ -159,64 +139,38 @@ def run_all_snapshots(snapshots_by_year, alpha=ALPHA, level_targets=LEVEL_TARGET
 
 
 def build_hierarchy_json(result, year, snap):
-    """Assemble the final per-snapshot hierarchy.json structure: for each
-    level, for each super-node: persistent id, level, parent id, member ids,
-    plus the T4-collapsed coarse hyperedges for that level.
-
-    member_ids are raw concept node ids at every level, not child
-    super-node ids. Why: DESIGN_NOTES.md section 11."""
+    """The hierarchy.json for one snapshot: every super-node (persistent id,
+    level, parent id, member ids, empty label and gloss for T5) and each
+    level's T4-collapsed hyperedges. member_ids are concept node ids at
+    every level, not child super-node ids: DESIGN_NOTES.md section 11."""
     per_year = result["per_year"][year]
     ids = per_year["ids"]
-    level_targets = result["level_targets"]
-    n_levels = len(level_targets)
-
-    super_nodes = []
-    node_to_persistent = {}  # level_idx -> {node_id: persistent_id}, for building parent-of-raw-node at finest level
-    local_to_persistent = {}  # level_idx -> {local_label: persistent_id}
-
-    for level_idx in range(n_levels):
-        local_to_persistent[level_idx] = result["persistent_by_level_year"][level_idx][year]
-
-    for level_idx in range(n_levels):
-        labels = per_year["labels_by_level"][level_idx]
-        clusters = clusters_from_labels(labels, ids)  # local_label -> frozenset(node_ids)
-        node_to_persistent[level_idx] = {
-            nid: local_to_persistent[level_idx][lab]
-            for lab, members in clusters.items() for nid in members
-        }
-
-    for level_idx in range(n_levels):
+    super_nodes, node_to_persistent = [], {}
+    for level_idx in range(len(result["level_targets"])):
+        persistent = result["persistent_by_level_year"][level_idx][year]  # local label -> persistent id
         clusters = clusters_from_labels(per_year["labels_by_level"][level_idx], ids)
-        parents = per_year["parents"].get(level_idx)  # fine->coarse local label map, level_idx>0 only
-        for local_lab, members in clusters.items():
-            pid = local_to_persistent[level_idx][local_lab]
-            if level_idx == 0:
-                parent_id = None
-            else:
-                parent_local = parents[local_lab]
-                parent_id = local_to_persistent[level_idx - 1][parent_local]
-
-            member_ids = sorted(members)  # raw concept node ids, at every level
-
+        node_to_persistent[level_idx] = {nid: persistent[lab] for lab, members in clusters.items()
+                                         for nid in members}
+        for lab, members in clusters.items():
+            parent_id = (None if level_idx == 0 else
+                         result["persistent_by_level_year"][level_idx - 1][year][per_year["parents"][level_idx][lab]])
             super_nodes.append({
-                "id": pid, "level": level_idx, "parent_id": parent_id,
-                "member_ids": member_ids, "member_count": len(members),
-                "label": None, "gloss": None,  # filled in by T5
+                "id": persistent[lab], "level": level_idx, "parent_id": parent_id,
+                "member_ids": sorted(members), "member_count": len(members),
+                "label": None, "gloss": None,
             })
 
-    internal_stats_by_level, edge_summary_by_level = {}, {}
-    for level_idx in range(n_levels):
-        # T4 collapse applied directly to the RAW hyperedges against this
-        # level's node->persistent-supernode mapping (avoids compounding
-        # approximation from re-collapsing an already-collapsed level).
-        coarse_edges, internal_stats, edge_summary = build_coarse_hyperedges(
-            snap.hyperedges, node_to_persistent[level_idx], snap)
-        internal_stats_by_level[level_idx] = internal_stats
-        edge_summary_by_level[level_idx] = {"edges": coarse_edges, "summary": edge_summary}
+    # T4 applied to the original hyperedges at each level, not re-collapsed
+    # from the level below
+    edges_by_level, internal_by_level = {}, {}
+    for level_idx, mapping in node_to_persistent.items():
+        coarse_edges, internal_stats, summary = build_coarse_hyperedges(snap.hyperedges, mapping, snap)
+        edges_by_level[level_idx] = {"edges": coarse_edges, "summary": summary}
+        internal_by_level[level_idx] = internal_stats
 
     return {
         "year": year,
         "super_nodes": super_nodes,
-        "coarse_hyperedges_by_level": edge_summary_by_level,
-        "internal_stats_by_level": internal_stats_by_level,
+        "coarse_hyperedges_by_level": edges_by_level,
+        "internal_stats_by_level": internal_by_level,
     }

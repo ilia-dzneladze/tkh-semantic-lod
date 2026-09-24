@@ -36,7 +36,7 @@ def main():
     for year in sorted(snapshots):
         snap = snapshots[year]
         ids, emb = embed_concepts(snap, cache)
-        A_struct, struct_ids, _ = build_structural_affinity(snap, weighted=True)
+        A_struct, struct_ids = build_structural_affinity(snap)
         assert struct_ids == list(ids)
         A_sem = semantic_knn_graph(emb, k=KNN_K)
 

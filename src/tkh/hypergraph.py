@@ -1,108 +1,58 @@
 """Structural affinity from hyperedges (T2): a weighted clique expansion.
 
-This is a pairwise projection of the hypergraph, with each hyperedge's
-weight spread over its pairs so large hyperedges don't dominate.
-Weighting rationale: DESIGN_NOTES.md section 3.
-Naive-projection comparison rationale: DESIGN_NOTES.md section 4.
+Each hyperedge with k concept members adds 1/(k-1) to each of its pairs,
+so a big hyperedge counts for more than a small one, but linearly in k
+rather than quadratically. Why: DESIGN_NOTES.md sections 3 and 4.
 """
 from collections import defaultdict
-import numpy as np
+
 import scipy.sparse as sp
 
 
-def build_structural_affinity(snap, weighted=True):
-    """Sparse |concept_ids| x |concept_ids| structural affinity matrix.
-
-    weighted=True -> 1/(arity-1) per pair, arity counted over concept members.
-    weighted=False -> unweighted clique expansion (1.0 per pair), for comparison.
-    Every edge with at least 2 concept members contributes, restricted to
-    those members; article/author members are dropped from the edge.
-    """
-    ids = sorted(snap.concept_ids)
-    idx = {nid: i for i, nid in enumerate(ids)}
-    n = len(ids)
-
+def clique_expansion(groups, n, weights=None):
+    """Symmetric n x n sparse matrix where each group (a list of row
+    indices) adds weight/(k-1) to every pair of its k members. Groups with
+    fewer than 2 members add nothing. weights default to 1 per group."""
     pair_weight = defaultdict(float)
-    n_used_edges = 0
-    n_skipped_context_edges = 0
-    for e in snap.hyperedges:
-        members = [m for m in e.get("members", [])]
-        concept_members = [m for m in members if m in idx]
-        if len(concept_members) < 2:
+    for g, members in enumerate(groups):
+        k = len(members)
+        if k < 2:
             continue
-        if len(concept_members) != len(members):
-            n_skipped_context_edges += 1  # edge also touches article/author
-        arity = len(concept_members)
-        share = 1.0 / (arity - 1) if weighted else 1.0
-        n_used_edges += 1
-        for i in range(arity):
-            for j in range(i + 1, arity):
-                a, b = idx[concept_members[i]], idx[concept_members[j]]
-                if a > b:
-                    a, b = b, a
+        share = (1 if weights is None else weights[g]) / (k - 1)
+        for i in range(k):
+            for j in range(i + 1, k):
+                a, b = sorted((members[i], members[j]))
                 pair_weight[(a, b)] += share
-
-    if not pair_weight:
-        empty_stats = {
-            "n_concept_nodes": n, "n_used_edges": 0, "n_skipped_context_edges": 0,
-            "n_nonzero_pairs": 0, "density": 0.0,
-        }
-        return sp.csr_matrix((n, n)), ids, empty_stats
-
     rows, cols, vals = [], [], []
     for (a, b), w in pair_weight.items():
         rows += [a, b]
         cols += [b, a]
         vals += [w, w]
-    A = sp.csr_matrix((vals, (rows, cols)), shape=(n, n))
-    stats = {
-        "n_concept_nodes": n,
-        "n_used_edges": n_used_edges,
-        "n_skipped_context_edges": n_skipped_context_edges,
-        "n_nonzero_pairs": len(pair_weight),
-        "density": len(pair_weight) / (n * (n - 1) / 2) if n > 1 else 0.0,
-    }
-    return A, ids, stats
+    return sp.csr_matrix((vals, (rows, cols)), shape=(n, n))
 
 
-def projection_loss_report(snap):
-    """Compare weighted vs. unweighted clique expansion by how much pairwise
-    weight comes from high-arity (>10) hyperedges under each. Both are
-    projections; this measures weight distribution, not clustering quality.
-    See DESIGN_NOTES.md section 4."""
-    A_native, ids, stats_native = build_structural_affinity(snap, weighted=True)
-    A_naive, _, stats_naive = build_structural_affinity(snap, weighted=False)
+def concept_members(snap, edge):
+    """The edge's members that get clustered (article/author members dropped)."""
+    return [m for m in edge["members"] if m in snap.concept_ids]
 
-    # mass contributed by hyperedges of arity > 10, native vs naive
-    high_arity_native_mass = 0.0
-    high_arity_naive_mass = 0.0
-    total_native_mass = 0.0
-    total_naive_mass = 0.0
+
+def build_structural_affinity(snap):
+    """(A, ids): the clique expansion over the snapshot's concept nodes,
+    rows in sorted id order."""
+    ids = sorted(snap.concept_ids)
     idx = {nid: i for i, nid in enumerate(ids)}
-    for e in snap.hyperedges:
-        concept_members = [m for m in e.get("members", []) if m in idx]
-        arity = len(concept_members)
-        if arity < 2:
-            continue
-        n_pairs = arity * (arity - 1) / 2
-        naive_mass = n_pairs * 1.0
-        native_mass = n_pairs * (1.0 / (arity - 1))
-        total_naive_mass += naive_mass
-        total_native_mass += native_mass
-        if arity > 10:
-            high_arity_naive_mass += naive_mass
-            high_arity_native_mass += native_mass
+    groups = [[idx[m] for m in concept_members(snap, e)] for e in snap.hyperedges]
+    return clique_expansion(groups, len(ids)), ids
 
-    return {
-        "native_affinity_stats": stats_native,
-        "naive_affinity_stats": stats_naive,
-        "high_arity_share_of_total_mass_naive": (
-            high_arity_naive_mass / total_naive_mass if total_naive_mass else 0.0),
-        "high_arity_share_of_total_mass_native": (
-            high_arity_native_mass / total_native_mass if total_native_mass else 0.0),
-        "interpretation": (
-            "Under the unweighted clique expansion, hyperedges of arity>10 hold "
-            "most of the pairwise weight. The 1/(arity-1) weighting keeps each "
-            "hyperedge's total contribution linear in arity instead of quadratic."
-        ),
-    }
+
+def high_arity_weight_share(snap, min_arity=11):
+    """Share of all pair weight that comes from hyperedges with at least
+    min_arity concept members, as (unweighted, with the 1/(k-1) weighting).
+    An edge of k members carries k(k-1)/2 unweighted and k/2 weighted.
+    DESIGN_NOTES.md section 4."""
+    ks = [len(concept_members(snap, e)) for e in snap.hyperedges]
+    ks = [k for k in ks if k >= 2]
+    unweighted = [k * (k - 1) / 2 for k in ks]
+    weighted = [k / 2 for k in ks]
+    return (sum(u for u, k in zip(unweighted, ks) if k >= min_arity) / sum(unweighted),
+            sum(w for w, k in zip(weighted, ks) if k >= min_arity) / sum(weighted))

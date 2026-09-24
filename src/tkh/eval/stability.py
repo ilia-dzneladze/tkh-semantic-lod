@@ -1,20 +1,19 @@
-"""T6 stability: perturbation-based (rebuild after removing 10% of
-hyperedges, several seeds) and real cross-snapshot (from T3's persistent
-ids). Both reported as mean + CI, not a single point estimate, per the
-brief's instruction to not trust a lone number.
+"""T6 stability, both as a mean with a CI: rebuild after removing 10% of
+the hyperedges (several seeds), and agreement between consecutive
+snapshots on the nodes they share.
 """
 import dataclasses
+
 import numpy as np
-from scipy import stats as scipy_stats
 from sklearn.metrics import adjusted_rand_score
 
 from tkh.embeddings import semantic_knn_graph
+from tkh.eval.stats import mean_ci95
 
 
 def labels_from_hierarchy(hierarchy, level, ids):
-    """Persistent super-node id each node in `ids` belongs to at `level`,
-    used as the cluster "label" for ARI (arbitrary hashable labels are
-    fine for sklearn's adjusted_rand_score, they don't need to be ints)."""
+    """The super-node id each node in `ids` belongs to at `level` (None if
+    it's in none), to use as cluster labels for ARI."""
     node_to_pid = {}
     for sn in hierarchy["super_nodes"]:
         if sn["level"] != level:
@@ -34,30 +33,14 @@ def perturb_snapshot(snap, remove_frac=0.10, seed=0):
     return dataclasses.replace(snap, hyperedges=kept)
 
 
-def _mean_ci95(values):
-    arr = np.array(values, dtype=float)
-    mean = float(arr.mean())
-    if len(arr) < 2:
-        return mean, 0.0, [mean, mean]
-    std = float(arr.std(ddof=1))
-    sem = std / np.sqrt(len(arr))
-    if sem == 0:
-        ci = [mean, mean]
-    else:
-        lo, hi = scipy_stats.t.interval(0.95, len(arr) - 1, loc=mean, scale=sem)
-        ci = [float(lo), float(hi)]
-    return mean, std, ci
-
-
 def perturbation_stability(snap, embedding_cache, level_targets, alpha,
                             original_hierarchy, n_seeds=5, remove_frac=0.10,
                             base_seed=1000, coarsening="dendrogram"):
     """Rebuild the clustering n_seeds times, each time with remove_frac of
-    the snapshot's hyperedges dropped at random, and compare each rebuild
-    to the original via ARI. Node set is held fixed (only edges are
-    perturbed), so label arrays line up index-for-index with no need to
-    restrict to a common subset. Only the structural term is disturbed,
-    which makes this confounded with alpha: DESIGN_NOTES.md section 17."""
+    the hyperedges dropped at random, and compare each rebuild with the
+    original by ARI, per level. Only edges are removed, so the node set is
+    the same. Only the structural term is disturbed, which ties this
+    result to alpha: DESIGN_NOTES.md section 17."""
     from tkh.pipeline import build_levels, KNN_K
 
     ids = sorted(snap.concept_ids)
@@ -84,7 +67,7 @@ def perturbation_stability(snap, embedding_cache, level_targets, alpha,
 
     summary = {}
     for level_idx, aris in per_level_aris.items():
-        mean, std, ci = _mean_ci95(aris)
+        mean, std, ci = mean_ci95(aris)
         summary[level_idx] = {
             "mean_ari": mean, "std_ari": std, "ci95": ci,
             "values": aris, "n_seeds": len(aris),
@@ -111,14 +94,11 @@ def _half_sample_ari(labels0, labels1, rng, n_boot):
 
 
 def cross_snapshot_stability(hierarchies_by_year, n_levels, n_boot=1000, seed=0):
-    """ARI between each pair of consecutive snapshots, per level, restricted
-    to the node ids present in both (a node introduced at t+1 can't count
-    toward or against agreement it wasn't there to participate in).
-
-    CIs come from n_boot random halves of the shared nodes within each
-    transition, per transition and for the mean over transitions.
-    The older t-interval over the three transition values is kept as
-    ci95_t_over_transitions for comparison. See DESIGN_NOTES.md section 20."""
+    """ARI between consecutive snapshots, per level, on the nodes present in
+    both. CIs come from n_boot random halves of the shared nodes, per
+    transition and for the mean over transitions; the older t-interval
+    over the transition values is kept as ci95_t_over_transitions.
+    DESIGN_NOTES.md section 20."""
     years = sorted(hierarchies_by_year)
     transitions = list(zip(years[:-1], years[1:]))
     rng = np.random.default_rng(seed)
@@ -151,7 +131,7 @@ def cross_snapshot_stability(hierarchies_by_year, n_levels, n_boot=1000, seed=0)
 
     summary = {}
     for level_idx, aris in per_level.items():
-        mean, std, ci_t = _mean_ci95(aris)
+        mean, std, ci_t = mean_ci95(aris)
         summary[level_idx] = {
             "mean_ari": mean, "std_ari": std, "values": aris, "n_transitions": len(aris),
             "ci95_t_over_transitions": ci_t,

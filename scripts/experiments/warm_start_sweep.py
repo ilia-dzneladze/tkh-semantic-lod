@@ -1,20 +1,17 @@
-"""Warm-start check (DESIGN_NOTES.md sections 10 and 15): does biasing each snapshot's clustering toward the
-PREVIOUS snapshot's own level-2 (finest) partition, instead of clustering
-independently and matching after the fact, actually buy real cross-snapshot
-stability, without quietly hurting coherence?
+"""Warm-start check (DESIGN_NOTES.md sections 10 and 15): does pulling each
+snapshot's clustering toward the previous snapshot's level-2 partition
+buy real cross-snapshot stability, and what does it cost in coherence?
 
-A_final = (1-gamma)*A_task + gamma*A_prior, where A_task is the shipped
-alpha=0.3 struct+sem blend and A_prior(i,j) = 1 iff i, j were in the same
-level-2 cluster in the previous snapshot (0 for nodes absent from the
-previous snapshot, nothing to warm-start from). gamma=0 must reproduce the
-shipped hierarchy exactly. Snapshots are processed sequentially, each
-year's clustering depends on the previous year's own (possibly
-warm-started) output, unlike alpha_sweep.py where every year is
-independent. Writes outputs/warm_start_sweep.json.
+A = (1 - gamma) * A_task + gamma * A_prior, where A_task is the shipped
+alpha=0.3 blend and A_prior(i, j) = 1 if i and j shared a level-2 cluster
+in the previous snapshot (0 for nodes that weren't there). gamma=0 must
+reproduce the shipped hierarchy. Years run in order, since each depends
+on the previous year's (possibly warm-started) result. Writes
+outputs/warm_start_sweep.json.
 
 Usage:
-    python scripts/experiments/warm_start_sweep.py                # full gamma grid
-    python scripts/experiments/warm_start_sweep.py 0               # smoke test only
+    python scripts/experiments/warm_start_sweep.py      # full gamma grid
+    python scripts/experiments/warm_start_sweep.py 0    # smoke test only
 """
 import json
 import sys
@@ -95,7 +92,7 @@ def main():
     embedding_cache = {}
     for year in years:
         snap = snapshots[year]
-        A_struct, ids, struct_stats = build_structural_affinity(snap, weighted=True)
+        A_struct, ids = build_structural_affinity(snap)
         missing = [nid for nid in ids if nid not in embedding_cache]
         if missing:
             texts = [snap.nodes[nid]["surface_form"] or "" for nid in missing]

@@ -19,7 +19,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
-from tkh.io import SNAPSHOT_CUTOFFS  # noqa: E402
+from tkh.io import SNAPSHOT_CUTOFFS, OUTPUTS  # noqa: E402
 from tkh.replies import extract_json  # noqa: E402
 
 MAX_LABEL_WORDS, MAX_GLOSS_WORDS = 6, 25
@@ -48,7 +48,7 @@ def check_year(inputs, reply, year):
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("replies", type=Path, help="folder with labels_<year>.json replies")
-    ap.add_argument("--set", type=Path, default=ROOT / "outputs" / "snapshots",
+    ap.add_argument("--set", type=Path, default=OUTPUTS / "snapshots",
                     help="label set to write into (default: the shipped set)")
     args = ap.parse_args()
 

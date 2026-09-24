@@ -1,24 +1,14 @@
-"""Alpha ablation sweep (DESIGN_NOTES.md sections 7 and 15).
-
-Sweeps alpha across the structural/semantic split in 5% steps: 0.05
-through 0.95. Structural affinity, semantic embeddings, and the semantic
-k-NN graph don't depend on alpha at all, so each is built once per
-snapshot and reused for every value; only combine -> sparse_upgma -> cut
-actually reruns per alpha.
-
-Scores each value with coherence-vs-null and both stability measures,
-reusing tkh.eval.coherence / tkh.eval.stability exactly as t6_evaluate.py
-does, against a "lightweight" hierarchy dict that only carries the fields
-those functions actually read (level, id, member_ids) -- T4 collapse, T3
-persistent-id tracking, and T5 labels are all skipped here on purpose.
-Labels were hand-written once, for the alpha=0.5 hierarchy; faithfulness
-and the extrinsic eval both need gloss text, so this sweep doesn't touch
-either of them.
+"""Alpha sweep (DESIGN_NOTES.md sections 7 and 15): cluster every snapshot at
+alpha = 0.05, 0.10, ..., 0.95 and score each with coherence against the
+null and both stability measures. The structural and semantic graphs
+don't depend on alpha, so they're built once per snapshot. Labels,
+faithfulness and the extrinsic eval are left out, since they need glosses
+written for one specific hierarchy.
 
 Usage:
-    python scripts/experiments/alpha_sweep.py                  # full 19-value sweep
-    python scripts/experiments/alpha_sweep.py 0.5               # just alpha=0.5, for a smoke test
-    python scripts/experiments/alpha_sweep.py 0.05,0.5,0.95     # a specific subset
+    python scripts/experiments/alpha_sweep.py                  # all 19 values
+    python scripts/experiments/alpha_sweep.py 0.5              # one value, as a smoke test
+    python scripts/experiments/alpha_sweep.py 0.05,0.5,0.95    # a subset
 """
 import json
 import sys
@@ -50,9 +40,8 @@ def log(msg):
 
 
 def lightweight_hierarchy(ids, labels_by_level):
-    """super_nodes carrying only level/id/member_ids -- everything
-    coherence_vs_null, labels_from_hierarchy and cross_snapshot_stability
-    actually read. No T4 collapse, no persistent ids, no labels."""
+    """A hierarchy dict with only level, id and member_ids, which is all
+    the coherence and stability functions read."""
     super_nodes = []
     for level, labels in labels_by_level.items():
         clusters = defaultdict(list)
@@ -80,7 +69,7 @@ def main():
     embedding_cache = {}
     for year in years:
         snap = snapshots[year]
-        A_struct, ids, struct_stats = build_structural_affinity(snap, weighted=True)
+        A_struct, ids = build_structural_affinity(snap)
         missing = [nid for nid in ids if nid not in embedding_cache]
         if missing:
             texts = [snap.nodes[nid]["surface_form"] or "" for nid in missing]
@@ -96,7 +85,7 @@ def main():
             "snap": snap, "A_struct": A_struct, "A_sem": A_sem, "ids": ids,
             "X_tfidf": X_tfidf, "id_to_row": id_to_row,
         }
-        log(f"precompute done for {year} (n={len(ids)}, struct_nnz_pairs={struct_stats['n_nonzero_pairs']})")
+        log(f"precompute done for {year} (n={len(ids)}, struct_nnz_pairs={A_struct.nnz // 2})")
 
     results = {}
     for alpha in alphas:

@@ -43,7 +43,6 @@
 \fancyfoot[R]{\footnotesize\color{muted}\thepage}
 
 \newcommand{\code}[1]{\texttt{\small\detokenize{#1}}}
-\newcommand{\dn}[1]{\textcolor{muted}{\small DN\,§#1}}
 \newcommand{\para}[1]{\textbf{#1}\hspace{0.4em}}
 \newcommand{\ci}[2]{[#1,\,#2]}
 
@@ -70,18 +69,15 @@ about 7\% of the affinity, not the 30\% its weight suggests.
 \vspace{-8pt}
 {\color{accent}\rule{\linewidth}{0.6pt}}
 
-I designed the method and made the calls described here. A coding agent (Claude Code) wrote, ran and
-debugged most of the code under my direction, and \code{AI_USAGE.md} lists what it did. The reasoning
-behind each choice, with every number below in more detail, is in \code{DESIGN_NOTES.md}, cited as
-\dn{n}. Every follow-up experiment had its keep-or-discard rule written down before it ran \dn{15}, and
-I say below where a result went against me.
+Every follow-up experiment had its keep-or-discard rule written down before it ran, and I say below
+where a result went against me.
 
 \section{The data and its snapshots (T1)}
 
 The export has 5,798 nodes of 12 types and 1,429 hyperedges extracted from 52 papers on machine-learned
 interatomic potentials. I cut it by hyperedge year: the snapshot at $t$ keeps every edge dated $t$ or
 earlier and the nodes those edges reference. Articles and authors stay in as edge members but are never
-clustered, since neither is a concept \dn{1}.
+clustered, since neither is a concept.
 
 \begin{table}[h]
 \centering\small
@@ -125,7 +121,7 @@ smallest $d$, and level $k$ is the cut of the resulting dendrogram with $N_k$ gr
 $(N_0, N_1, N_2) = (12, 50, 200)$. $S$ is a weighted clique expansion: every member spreads one unit of
 weight over its co-members, so an edge of arity $n$ adds $n/2$ in total rather than $\binom{n}{2}$, and one
 65-concept table can't swamp the graph. With unit weights, edges above arity 10 would hold 94\% of the
-pairwise weight; with $1/(n-1)$ they hold 63\% \dn{3}.
+pairwise weight; with $1/(n-1)$ they hold 63\%.
 
 \para{A criterion, not an objective.} Average linkage is greedy and optimises nothing globally, so what
 the method satisfies is a criterion: at every step, merge the two groups with the highest mean affinity,
@@ -134,7 +130,7 @@ entries read as 0, merge heights never decrease, so every cut refines the one ab
 laminar by construction. Filling missing entries with anything more optimistic can cause inversions and
 break that silently. I checked the implementation instead of trusting it: on random sparse graphs it
 matches scipy's dense average linkage in merge heights and cuts, and the same test fails for the weighted
-variant (WPGMA), so it isn't passing trivially \dn{8}.
+variant (WPGMA), so it isn't passing trivially.
 
 \para{The trade-off, and the alternative I rejected.} One joint graph turns the balance between structure
 and meaning into a single number I can sweep, and lets a strong semantic tie override weak structure at
@@ -143,7 +139,7 @@ inside it: two groups on the same topic that happen to share no hyperedge could 
 top, and in a corpus of 52 papers that's the normal case. I argued this rather than built it, which is a
 gap. What I got wrong is what $\alpha$ measures. The normalised graphs sit on different scales (median
 entry 0.06 for $\tilde S$, 0.57 for $\tilde M$), so at $\alpha = 0.3$ structure carries \textbf{6.6\%} of
-the affinity mass, not 30\% \dn{17}. It matters a little more than that, since 94\% of structural pairs
+the affinity mass, not 30\%. It matters a little more than that, since 94\% of structural pairs
 are ones the $k$-NN graph never proposes, but the honest description of what ships is semantic
 nearest-neighbour clustering with the hypergraph as a tie-breaker.
 
@@ -171,22 +167,22 @@ P6 faithful labels & empirical, partial & 0 of 48 glosses rated wrong blind; lev
 
 \section{Where the method sits}
 
-The weighting comes from the work showing that hypergraph Laplacians reduce to clique and star
-expansions \citep{zhou2006,agarwal2006}. I borrow the arity-aware weights and skip the spectral step, so
-what I claim is a well-weighted projection, not a hypergraph-native method. For the hierarchy I chose
-plain agglomeration over principled hierarchical models. \citet{clauset2008} fit a dendrogram as a
-generative model and score it on held-out links, the logic of my held-out hyperedge test. Peixoto's
-nested block model \citep{peixoto2014} picks the number of groups per level from the data, which would
-remove the fixed cut sizes I suspect cause global churn but gives up the hard budget P2. I rejected
-hypergraph modularity \citep{kumar2020} because it doesn't yield a laminar family without repair.
-\citet{ruggeri2023} show hypergraph communities are hard to detect when pairs rarely recur across edges;
-here only 1.7\% of concept pairs recur across papers, which I think is why structure generalises weakly.
-\citet{loukas2019} coarsens pairwise graphs, so never has to decide what an edge spanning three groups
-becomes, the exact question T4 answers, and SHyPar \citep{sajadinia2024} argues that local coarsening
-heuristics like mine lose global structure, a plausible but untested reading of why my multilevel
-variant collapsed. For time, the event vocabulary is from \citet{greene2010}, and my scheme is what
-\citet{asgari2023} call No-Smoothing: cluster each snapshot, then match. They found it the least smooth
-option in most settings; my warm-start test found the smoother option costs coherence on real data.
+The weighting comes from work showing that hypergraph Laplacians reduce to clique and star expansions
+\citep{zhou2006,agarwal2006}. I use the arity-aware weights without the spectral step, so what I claim is
+a well-weighted projection, not a hypergraph-native method. For the hierarchy I chose plain agglomeration
+over principled hierarchical models. \citet{clauset2008} fit a dendrogram as a generative model and score
+it on held-out links, the same logic as my held-out hyperedge test. Peixoto's nested block model
+\citep{peixoto2014} picks the number of groups per level from the data. That would remove the fixed cut
+sizes I suspect cause global churn, but it gives up the hard budget P2. I rejected hypergraph modularity
+\citep{kumar2020} because it doesn't give a laminar family without repair. \citet{ruggeri2023} show
+hypergraph communities are hard to detect when pairs rarely recur across edges; here only 1.7\% of
+concept pairs recur across papers, which I think is why structure generalises weakly. \citet{loukas2019}
+coarsens pairwise graphs, so it never has to decide what an edge spanning three groups becomes, which is
+the question T4 answers. SHyPar \citep{sajadinia2024} argues that local coarsening heuristics like mine
+lose global structure, a plausible but untested reason my multilevel variant collapsed. For time, the
+event vocabulary is from \citet{greene2010}, and my scheme is what \citet{asgari2023} call No-Smoothing:
+cluster each snapshot, then match. They found it the least smooth option in most settings; my warm-start
+test found that the smoother option costs coherence on real data.
 
 \section{Time and hyperedge collapse (T3, T4)}
 \label{sec:time}
@@ -197,22 +193,22 @@ present in both. Persistent ids carry forward, and the three transitions log 1,0
 shrinks. Births dominate because the concept set grows fourfold. Matching keeps each snapshot
 reproducible on its own, at the cost of never pushing the clustering toward stability. Of the three
 thresholds I set by feel, only the match threshold is sensitive: moving it from 0.10 to 0.20 takes deaths
-from 12 to 78 and splits from 192 to 84 \dn{10}, so every event keeps its raw Jaccard for filtering.
+from 12 to 78 and splits from 192 to 84, so every event keeps its raw Jaccard for filtering.
 A static picture of levels 0--2 at all four snapshots, with the level-0 flows between them, is in
 \code{outputs/figures/hierarchy_across_snapshots.png}.
 
 \para{T4.} If all of a hyperedge's endpoints land in one super-node, the edge becomes internal and is kept
 as a count. If they land in two, it becomes a pairwise edge. If they land in three or more, it stays one
-$k$-ary edge rather than being exploded into $\binom{k}{2}$ pairs, which would inflate density and turn
-one asserted fact into many. Coarse edges over the same super-nodes merge into one weighted edge with a
-relation-type breakdown, which is what the rule loses: which original member sat in which original edge.
-At level 0 in 2026 the 1,429 edges collapse to 128 pairwise and 464 $k$-ary coarse edges (up to arity
-41), plus 7 internal, few because articles pass through as singletons. Exploding the $k$-ary ones would
-give 6,926 pairwise edges, about 15 per assertion. The rule runs at every level and is written to
-\code{hierarchy.json}, but the shipped levels are cuts of one dendrogram, so nothing reads it back, which
-falls short of the brief. The version that does use it, clustering each coarser level on the collapsed
-hypergraph below, lost a third or more of level-0 coherence and put about 40\% of nodes in one cluster.
-A size-normalised second attempt failed the same way, so under the rule I had set it didn't ship \dn{15}.
+$k$-ary edge; exploding it into $\binom{k}{2}$ pairs would inflate density and turn one asserted fact into
+many. Coarse edges over the same super-nodes merge into one weighted edge with a relation-type breakdown.
+What the rule loses is which original member sat in which original edge. At level 0 in 2026 the 1,429
+edges collapse to 128 pairwise and 464 $k$-ary coarse edges (up to arity 41), plus 7 internal ones, few
+because articles pass through as singletons. Exploding the $k$-ary ones would give 6,926 pairwise edges,
+about 15 per assertion. The rule runs at every level and is written to \code{hierarchy.json}, but the
+shipped levels are cuts of one dendrogram, so nothing reads it back. That falls short of the brief. The
+version that does use it clusters each coarser level on the collapsed hypergraph below. It lost a third
+or more of level-0 coherence and put about 40\% of nodes in one cluster, and a size-normalised second
+attempt failed the same way, so under the rule I had set it didn't ship.
 
 \section{Evaluation}
 
@@ -223,7 +219,7 @@ Measuring coherence with the MPNet embeddings that built the clusters would grad
 own ruler, so I measured it three other ways, from weakest to strongest. The first is TF-IDF over the same
 text, against a random-labels null. The clusters are far from chance ($z$ = 709, 864 and 1,424 by level),
 but this is the weakest check, because TF-IDF reads the same strings: 69\% of MPNet neighbour pairs share
-a TF-IDF term, against 7\% of random pairs \dn{5}. A degree- and arity-preserving shuffle of the hypergraph
+a TF-IDF term, against 7\% of random pairs. A degree- and arity-preserving shuffle of the hypergraph
 gets almost the same TF-IDF coherence ($z$ = 0.3, 0.4 and 2.9), which is what you'd expect when structure
 carries 6.6\% of the mass.
 
@@ -266,10 +262,10 @@ another cluster's (gray).}
 
 Rebuilding five times with 10\% of hyperedges removed gives ARI 0.58, 0.77 and 0.91 by level. I don't read
 that as robustness: the perturbation only touches the structural graph, so it rewards ignoring the
-hypergraph (0.75, 0.92 and 0.98 at $\alpha = 0.05$), and I partly chose $\alpha$ on it \dn{17}.
+hypergraph (0.75, 0.92 and 0.98 at $\alpha = 0.05$), and I partly chose $\alpha$ on it.
 Cross-snapshot ARI on shared nodes is 0.35, 0.45 and 0.65, with intervals from resampling half the shared
 nodes (Figure~\ref{fig:stabrout}a). My first interval resampled with replacement and came out entirely
-above its own estimate at level 2, because duplicated nodes add agreeing pairs \dn{20}. Per transition,
+above its own estimate at level 2, because duplicated nodes add agreeing pairs. Per transition,
 the level-1 intervals don't overlap: 0.52, then 0.37 over 2022 to 2024 as the corpus nearly doubled, then
 0.47. The transitions really differ, and the mean over three is only a summary.
 
@@ -280,7 +276,7 @@ Churn does follow the share of new \emph{semantic} neighbours at levels 1 and 2 
 but I found that only after the planned test failed, so it's a lead. My guess is that fixed cut sizes
 force distant clusters to merge whenever a new region needs room. A warm-started variant raised level-2
 cross-snapshot ARI from 0.65 to about 0.9 at a real but noisy coherence cost (level-2 $z$ 7\% to 18\%
-lower on average), so it didn't ship, though it came closer than I first reported \dn{10}.
+lower on average), so it didn't ship, though it came closer than I first reported.
 
 \begin{figure}[!t]
 \centering
@@ -303,7 +299,7 @@ lower on average), so it didn't ship, though it came closer than I first reporte
 The 248 labels and glosses cover levels 0 and 1; level 2 has none, which is short of P6's ``every
 super-node''. They were written by fresh LLM agents from a seeded sample of 25 members plus the type counts
 of all members, and the exact prompts are in \code{labeling_input.json}. An earlier set, written by agents
-that could see the question files, was replaced \dn{12}. The NLI check grades each gloss against up to 15
+that could see the question files, was replaced. The NLI check grades each gloss against up to 15
 members the labeller never saw, with another cluster's members as the control. Contradiction runs 5\% to
 14\% by snapshot (controls 45\% to 63\%), and ``not entailed'' runs 60\% to 79\%. I didn't know which of
 those was the over-claim rate, so I had a blind rater mark 72 items as accurate, vague or wrong, real and
@@ -325,7 +321,7 @@ then the top 8 of their level-1 children) and ranks the nodes in that pool; the 
 substring match. My first matcher let element nodes (``N'', ``S'', ``Si'') match names like
 ``physics-informed'', so a third of the answer key was chemical elements, and the numbers looked plausible
 the whole time. Requiring both sides of a substring match to be at least four characters leaves 12
-questions with a ground truth \dn{16}. Routing works: the pool keeps 58\% of ground-truth nodes while
+questions with a ground truth. Routing works: the pool keeps 58\% of ground-truth nodes while
 covering 24\% of candidates, a lift of 0.33 over a same-size random pool (\ci{0.04}{0.54}), and every
 budget clears chance. Routing on member centroids instead of labels doesn't (Figure~\ref{fig:stabrout}b),
 so the signal is in the labels. Ranking doesn't improve: recall@20 is 0.121 against flat's 0.119
@@ -357,8 +353,8 @@ A one-command rerun from a bare Python that reproduces all 45 outputs byte for b
 figure, building its own environment first. From a folder with no environment at all it reproduced all 45
 output files byte for byte against the published checksums in 72 minutes on a laptop CPU. The same text
 can embed differently in the last bits on other hardware, so I publish every model output from my run,
-and a different result elsewhere can be traced to the embeddings or to the code \dn{23}. A reproducer can
-also swap in their own labels and blind ratings and rerun the whole evaluation on them \dn{24}.
+and a different result elsewhere can be traced to the embeddings or to the code. A reproducer can
+also swap in their own labels and blind ratings and rerun the whole evaluation on them.
 
 \section{With four more weeks}
 

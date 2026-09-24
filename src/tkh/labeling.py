@@ -1,11 +1,14 @@
-"""T5: label + one-sentence gloss per super-node at levels 0-1.
+"""T5: the labelling prompts, and putting the written labels back on the
+hierarchy (a label and a one-sentence gloss per super-node, levels 0-1).
 
-This code makes no LLM API call. The labels were written by Claude Code
-sub-agents reading the dumped prompt files. Why, and how temporal honesty
-(P6) still holds: see DESIGN_NOTES.md section 12 and AI_USAGE.md.
+No LLM is called from here: the prompts are written to files and the
+replies imported. Why, and how temporal honesty (P6) still holds:
+DESIGN_NOTES.md section 12 and AI_USAGE.md.
 """
 import json
+import string
 import zlib
+from collections import Counter
 from pathlib import Path
 
 import numpy as np
@@ -42,13 +45,13 @@ LABELLER_SAMPLING = "random"  # "first" reproduces the v1 labels' input
 
 
 def labeller_sample_ids(member_ids, n=LABELLER_SAMPLE_N, sampling=LABELLER_SAMPLING):
-    """The member ids the labeller is shown. The faithfulness check
-    excludes exactly these, so this must stay the single definition of the
-    labeller's input, and a pure function of member_ids.
+    """The member ids the labeller is shown. The faithfulness check holds
+    out exactly the others, so this is the one definition of the
+    labeller's input, and it depends only on member_ids.
 
-    "random": n ids drawn with a seed derived from the member list itself.
-    "first": the first n sorted ids, which is type-biased because ids are
-    type-prefixed (used for the v1 labels). See DESIGN_NOTES.md section 12."""
+    "random": n ids drawn with a seed taken from the member list itself.
+    "first": the first n sorted ids (the v1 labels), which is biased by
+    type because ids start with their type. DESIGN_NOTES.md section 12."""
     ids = list(member_ids)
     if len(ids) <= n:
         return ids
@@ -66,10 +69,9 @@ TEMPLATE_FILE = "prompt_template.txt"  # inside a label-set directory
 
 
 def validate_template(text):
-    """A labelling prompt template: str.format placeholders drawn from
-    TEMPLATE_FIELDS, and it must show the members ({member_lines}).
-    Literal braces must be doubled. Raises ValueError otherwise."""
-    import string
+    """Check a prompt template: str.format placeholders from
+    TEMPLATE_FIELDS only, {member_lines} present, literal braces doubled.
+    Returns the text or raises ValueError."""
     try:
         fields = {f for _, f, _, _ in string.Formatter().parse(text) if f is not None}
     except ValueError as e:
@@ -90,36 +92,24 @@ def label_set_template(set_dir):
 
 
 def build_label_prompt(sn, snap, year, template=LABEL_PROMPT_TEMPLATE):
-    """The exact prompt the labeller sees for super-node sn. Also used as
-    the fingerprint that ties a written label to the members it was
-    written from (apply_labels_to_hierarchy)."""
-    raw_ids = sn["member_ids"]
-    type_counts = {}
-    for nid in raw_ids:
-        node = snap.nodes.get(nid)
-        if node is None:
-            continue
-        t = node.get("type")
-        type_counts[t] = type_counts.get(t, 0) + 1
-    sample_ids = labeller_sample_ids(raw_ids)
-    sample_lines = []
-    for nid in sample_ids:
-        node = snap.nodes.get(nid)
-        if node is None:
-            continue
-        sample_lines.append(f"  - {node.get('type')}: {node.get('surface_form')}")
+    """(prompt, type counts): the exact prompt the labeller sees for
+    super-node sn. The prompt also ties a written label to the members it
+    was written from (apply_labels_to_hierarchy)."""
+    member_ids = sn["member_ids"]
+    type_counts = Counter(snap.nodes[nid]["type"] for nid in member_ids)
+    sample_ids = labeller_sample_ids(member_ids)
+    member_lines = [f"  - {snap.nodes[nid]['type']}: {snap.nodes[nid]['surface_form']}" for nid in sample_ids]
     prompt = template.format(
-        year=year, sample_n=len(sample_ids), total_n=len(raw_ids),
-        type_line=", ".join(f"{t} {c}" for t, c in sorted(type_counts.items(), key=lambda kv: -kv[1])),
-        member_lines="\n".join(sample_lines),
+        year=year, sample_n=len(sample_ids), total_n=len(member_ids),
+        type_line=", ".join(f"{t} {c}" for t, c in type_counts.most_common()),
+        member_lines="\n".join(member_lines),
     )
-    return prompt, type_counts
+    return prompt, dict(type_counts)
 
 
 def write_labeling_input(hierarchy, snap, year, out_path, levels=(0, 1), template=LABEL_PROMPT_TEMPLATE):
-    """member_ids are raw concept node ids at every level (see
-    pipeline.build_hierarchy_json), so the labelling prompt can read them
-    directly -- no separate raw-member resolution needed."""
+    """One entry per super-node at `levels`, with its prompt and an empty
+    label and gloss, written to out_path."""
     entries = []
     for sn in hierarchy["super_nodes"]:
         if sn["level"] not in levels:
@@ -140,13 +130,12 @@ def apply_labels_to_hierarchy(hierarchy, labeled_entries_path, snap=None, year=N
                               template=LABEL_PROMPT_TEMPLATE):
     """Copy label and gloss onto the super-nodes they were written for.
 
-    An entry only applies if its super-node still has the same member
-    count and, when snap and year are given, the prompt rebuilt from the
-    current members (with the template the set was made with) is
-    identical to the one the label was written from.
-    Anything else is stale (same persistent id, different cluster) and is
-    skipped. See DESIGN_NOTES.md section 19.
-    Returns (hierarchy, n_applied, stale_super_node_ids)."""
+    An entry applies only if its super-node has the same member count and,
+    when snap and year are given, the prompt rebuilt from its current
+    members (with the set's template) is identical to the one the label
+    was written from. Otherwise it's stale (same id, different cluster)
+    and skipped. DESIGN_NOTES.md section 19.
+    Returns (hierarchy, n_applied, stale super-node ids)."""
     with open(labeled_entries_path, encoding="utf-8") as f:
         entries = json.load(f)
     by_id = {e["super_node_id"]: e for e in entries}

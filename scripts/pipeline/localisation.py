@@ -16,7 +16,7 @@ from scipy import stats
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
-from tkh.io import load_tkh, build_snapshot, DATA_PATH  # noqa: E402
+from tkh.io import load_tkh, build_snapshot, load_hierarchy, update_metrics, DATA_PATH, OUTPUTS  # noqa: E402
 from tkh.pipeline import embed_concepts, KNN_K  # noqa: E402
 from tkh.embeddings import semantic_knn_graph  # noqa: E402
 
@@ -26,9 +26,8 @@ N_BOOT = 2000
 
 
 def load_clusters(year):
-    h = json.loads((ROOT / "outputs" / "snapshots" / str(year) / "hierarchy.json").read_text(encoding="utf-8"))
     by_level = defaultdict(dict)
-    for sn in h["super_nodes"]:
+    for sn in load_hierarchy(year)["super_nodes"]:
         by_level[sn["level"]][sn["id"]] = set(sn["member_ids"])
     return by_level
 
@@ -137,11 +136,8 @@ def main():
               f"{s['mean_churn_high_exposure_quartile']:.2f}  localised={s['localised']}")
     out = {"years": YEARS, "min_size": MIN_SIZE, "n_boot": N_BOOT, "summary": summary,
            "rows": {lvl: rows for lvl, rows in rows_by_level.items()}}
-    (ROOT / "outputs" / "localisation.json").write_text(json.dumps(out, indent=2), encoding="utf-8")
-    metrics_path = ROOT / "outputs" / "metrics.json"
-    metrics = json.loads(metrics_path.read_text(encoding="utf-8"))
-    metrics["localisation"] = {k: v for k, v in out.items() if k != "rows"}
-    metrics_path.write_text(json.dumps(metrics, indent=2), encoding="utf-8")
+    (OUTPUTS / "localisation.json").write_text(json.dumps(out, indent=2), encoding="utf-8")
+    update_metrics("localisation", {k: v for k, v in out.items() if k != "rows"})
 
 
 if __name__ == "__main__":

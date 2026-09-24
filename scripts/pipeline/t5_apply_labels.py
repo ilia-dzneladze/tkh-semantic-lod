@@ -21,15 +21,13 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
-from tkh.io import load_tkh, build_snapshot, SNAPSHOT_CUTOFFS, DATA_PATH  # noqa: E402
+from tkh.io import load_tkh, build_snapshot, SNAPSHOT_CUTOFFS, DATA_PATH, OUTPUTS  # noqa: E402
 from tkh.labeling import apply_labels_to_hierarchy, label_set_template  # noqa: E402
-
-OUT_DIR = ROOT / "outputs"
 
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--labels", type=Path, default=OUT_DIR / "snapshots",
+    ap.add_argument("--labels", type=Path, default=OUTPUTS / "snapshots",
                     help="label set directory (default: the shipped set, outputs/snapshots)")
     args = ap.parse_args()
     try:
@@ -40,7 +38,7 @@ def main():
     data = load_tkh(DATA_PATH)
     problems = []
     for year in SNAPSHOT_CUTOFFS:
-        hpath = OUT_DIR / "snapshots" / str(year) / "hierarchy.json"
+        hpath = OUTPUTS / "snapshots" / str(year) / "hierarchy.json"
         labeled_path = args.labels / str(year) / "labeling_output.json"
 
         if not labeled_path.exists():

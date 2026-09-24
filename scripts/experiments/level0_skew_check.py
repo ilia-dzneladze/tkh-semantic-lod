@@ -1,10 +1,9 @@
-"""Level-0 size-skew check (DESIGN_NOTES.md section 15). Does the largest level-0 cluster move MORE under
-perturbation than its size alone would predict, or is it just as (un)stable
-as any cluster its size would be? Reuses the exact same perturbation
-methodology as the shipped stability number (perturb_snapshot, 5 seeds,
-base_seed=1000, remove_frac=0.10), but tracks each original cluster
-individually via best-Jaccard match instead of collapsing straight to a
-whole-partition ARI. Writes outputs/level0_skew_check.json.
+"""Level-0 size skew (DESIGN_NOTES.md section 15): does the largest level-0
+cluster move more under perturbation than its size alone predicts? Same
+perturbation as the shipped stability number (10% of edges, 5 seeds,
+base seed 1000), but each original cluster is followed on its own by its
+best Jaccard match instead of one whole-partition ARI. Writes
+outputs/level0_skew_check.json.
 """
 import json
 import sys
@@ -55,7 +54,7 @@ def main():
     print(f"[{time.time()-t0:.1f}s] {len(level0)} level-0 clusters, "
           f"sizes {sorted((sn['member_count'] for sn in level0), reverse=True)}")
 
-    A_struct0, ids, _ = build_structural_affinity(snap, weighted=True)
+    A_struct0, ids = build_structural_affinity(snap)
     texts = [snap.nodes[nid]["surface_form"] or "" for nid in ids]
     vecs = encode_semantic(texts, show_progress_bar=True)
     embedding_cache = dict(zip(ids, vecs))
@@ -67,7 +66,7 @@ def main():
 
     for s in range(N_SEEDS):
         pert = perturb_snapshot(snap, remove_frac=REMOVE_FRAC, seed=BASE_SEED + s)
-        A_struct, pert_ids, _ = build_structural_affinity(pert, weighted=True)
+        A_struct, pert_ids = build_structural_affinity(pert)
         assert pert_ids == ids, "perturbation must not change the node set"
 
         A_combined = combine_affinities(A_struct, A_sem, alpha=ALPHA)

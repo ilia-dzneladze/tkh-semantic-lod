@@ -16,8 +16,6 @@ file. See DESIGN_NOTES.md sections 21 and 22.
 """
 from collections import Counter
 
-import numpy as np
-
 from tkh.eval.stats import rate_with_ci, binomial_p_greater, cohen_kappa_ci
 
 GLOSS_RATINGS = ("accurate", "vague", "wrong")
@@ -164,14 +162,13 @@ def make_gloss_items(hierarchies_by_year, snaps, n_real, n_control, rng,
     members from the same snapshot. key[item_id]["premise"] is the exact
     NLI premise for those members, so the caller can run the NLI judge on
     identical inputs."""
-    from tkh.eval.faithfulness import held_out_member_ids, premise_member_forms
+    from tkh.eval.faithfulness import glossed_with_held_out, premise_member_forms, premise_from_forms
+    from tkh.labeling import LABELLER_SAMPLING
 
     raw = []
     for year in sorted(hierarchies_by_year):
         h, snap = hierarchies_by_year[year], snaps[year]
-        targets = [sn for sn in h["super_nodes"] if sn["level"] in levels and sn.get("gloss")]
-        held = {sn["id"]: held_out_member_ids(sn["member_ids"]) for sn in targets}
-        checkable = [sn for sn in targets if len(held[sn["id"]]) >= min_held_out]
+        _, held, checkable = glossed_with_held_out(h, levels, LABELLER_SAMPLING, min_held_out)
         real_idx = rng.choice(len(checkable), size=min(n_real, len(checkable)), replace=False)
         for i in real_idx:
             sn = checkable[i]
@@ -192,7 +189,7 @@ def make_gloss_items(hierarchies_by_year, snaps, n_real, n_control, rng,
         items.append({"item_id": item_id, "gloss": r["sn"]["gloss"], "members": r["forms"]})
         key[item_id] = {"kind": r["kind"], "year": r["year"], "level": r["sn"]["level"],
                         "super_node_id": r["sn"]["id"], "member_source_id": r["src"]["id"],
-                        "premise": "The cluster includes " + ", ".join(r["forms"]) + "."}
+                        "premise": premise_from_forms(r["forms"])}
     return items, key
 
 

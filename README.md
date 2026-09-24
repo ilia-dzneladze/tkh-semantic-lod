@@ -1,18 +1,17 @@
 # Multi-resolution semantic abstraction over the TKH hypergraph
 
 Intern-level assessment submission. The brief is
-`Intern_Multi_Resolution_Semantic_Abstraction_over_an_Evolving_Knowledge.md`,
-the write-up is `report.pdf` (LaTeX source in `report/report.tex`), the
-reasoning behind every non-obvious choice is in `DESIGN_NOTES.md`, and AI
-tool usage is in `AI_USAGE.md`.
+`Intern_Multi_Resolution_Semantic_Abstraction_over_an_Evolving_Knowledge.md`.
+The write-up is `report.pdf` (source in `report/report.tex`), the reasons
+behind each non-obvious choice are in `DESIGN_NOTES.md`, and AI tool use
+is in `AI_USAGE.md`.
 
 ![Levels 0-2 of the hierarchy at 2020, 2022, 2024 and 2026](outputs/figures/hierarchy_across_snapshots.png)
 
-The static overview of levels 0-2 across the four snapshots (optional
-deliverable 6). Each column is one snapshot, with its 12, 50 and 200
-super-nodes as nested bars, and the ribbons show where each level-0
-super-node's members sit at the next snapshot. It is drawn from the four
-`hierarchy.json` files by `scripts/pipeline/make_report_figures.py`.
+Levels 0-2 at each of the four snapshots (optional deliverable 6). Each
+column is one snapshot, with its 12, 50 and 200 super-nodes as nested
+bars. The ribbons show where each level-0 super-node's members end up at
+the next snapshot.
 
 ## Reproducing everything
 
@@ -24,33 +23,29 @@ python3.11 scripts/reproduce_all.py      # macOS / Linux
 ```
 
 It creates `.venv`, installs the pinned `requirements.txt` (CPU torch
-first on Linux), re-runs itself inside the venv, and then runs the whole
-pipeline in order, stopping at the first failure: T1 statistics, the
-hierarchies and temporal events, the labels, validation and unit tests,
-every evaluation, the blind-rating scores and the figures. Results land in
-`outputs/`, figures in `outputs/figures/`.
+first on Linux), restarts itself inside the venv and runs every step in
+order, stopping at the first failure. Results go to `outputs/` and
+figures to `outputs/figures/`.
 
-No GPU is needed. Installing takes about 15 minutes the first time, mostly
-torch, and the pipeline about 30 minutes on a laptop CPU. The first run
-also downloads two models from Hugging Face, each pinned to a fixed commit
-in the code: `sentence-transformers/all-mpnet-base-v2` (about 420MB,
-clustering and retrieval) and `cross-encoder/nli-deberta-v3-base` (about
-400MB, the NLI faithfulness judge). Later runs reuse the venv and skip
-installing. `--dry-run` prints the steps without running anything, and
-`--no-setup` uses whatever Python you run it with.
+No GPU is needed. The first install takes about 15 minutes, mostly torch,
+and the pipeline about 30 minutes on a laptop CPU. The first run also
+downloads two models from Hugging Face, each pinned to a fixed commit:
+`sentence-transformers/all-mpnet-base-v2` (about 420MB, for clustering and
+retrieval) and `cross-encoder/nli-deberta-v3-base` (about 400MB, the NLI
+judge). Later runs reuse the venv. `--dry-run` prints the steps without
+running them, and `--no-setup` uses whatever Python you run it with.
 
 ## Checking your results against mine
 
-Nothing here is trained. The method uses two frozen models pinned to exact
-commits, and everything after them is deterministic, so the only place a
-rerun on another machine can differ is in the models' outputs: the same
-text can embed differently in the last float bits depending on hardware,
-libraries and even batch composition (`DESIGN_NOTES.md` section 23).
+Nothing is trained. The two models are frozen and pinned, and everything
+after them is deterministic, so a rerun on another machine can only differ
+in the models' outputs: the same text can embed differently in the last
+float bits depending on hardware, libraries and even batch composition
+(`DESIGN_NOTES.md` section 23).
 
-Every model output from my run, plus a SHA-256 checksum of every result,
-is published as a public Hugging Face dataset,
-[iliadzneladze/tkh-multires-outputs](https://huggingface.co/datasets/iliadzneladze/tkh-multires-outputs).
-Download it into `release/`, then:
+Every model output from my run, and a SHA-256 checksum of every result,
+is in a public Hugging Face dataset,
+[iliadzneladze/tkh-multires-outputs](https://huggingface.co/datasets/iliadzneladze/tkh-multires-outputs):
 
 ```
 hf download iliadzneladze/tkh-multires-outputs --repo-type dataset --local-dir release
@@ -64,29 +59,28 @@ python scripts/verify_release.py compare-embeddings
 ```
 
 If the replay matches and your own run doesn't, the difference is in the
-model outputs, not the code, and `compare-embeddings` shows whether it's
-big enough to change any nearest neighbours. The release is built by
-recording a full run (`reproduce_all.py --record DIR`) and exporting it
-(`scripts/release/export_release.py DIR`), which refuses to write anything
-unless the recorded merge trees cut back into the shipped hierarchies
-exactly.
+model outputs, not the code. `compare-embeddings` shows whether it's big
+enough to change any nearest neighbours. The release comes from recording
+a full run (`reproduce_all.py --record DIR`) and exporting it
+(`scripts/release/export_release.py DIR`). The export refuses to write
+anything unless the recorded merge trees cut back into the shipped
+hierarchies exactly.
 
 ## Labels and blind ratings: the sample sets, or your own
 
 Two steps need an LLM or a person, so they can't be rerun bit for bit: the
 labels and glosses (T5) and the blind ratings (T6). The ones I used are
-checked in and are what a plain run uses:
+checked in, and a plain run uses them:
 
 - **sample label set**: `outputs/snapshots/<year>/labeling_output.json`,
   248 labels written by fresh agents with no repo access, from the prompts
-  in `labeling_input.json`. The first, superseded set is in
+  in `labeling_input.json`. The first, replaced set is in
   `outputs/labels_v1/`.
-- **sample rating set**: `outputs/blind_eval/`, the intruder and gloss
+- **sample rating set**: `outputs/blind_eval/`: the intruder and gloss
   packets, their answer keys, the exact rater prompts and the ratings
   (`*_ratings.json` records the rater model and its tool calls).
 
-To make your own, with any LLM or by hand, and with your own prompt if you
-like:
+To make your own, with any LLM or by hand, and your own prompt if you like:
 
 ```
 # 1. prompts for a new label set; --template is optional
@@ -110,18 +104,17 @@ A prompt template is a text file with placeholders from `{year}`,
 `{sample_n}`, `{total_n}`, `{type_line}` and `{member_lines}`. It must use
 `{member_lines}`, and literal braces must be doubled. Rater instruction
 files must contain `{n_items}`. The defaults are in `src/tkh/labeling.py`
-and `scripts/pipeline/blind_eval.py`. The imports check every reply (every item
-answered, word limits, valid answers) and write nothing if anything is
-wrong, and scoring refuses a rating set made for different labels than
-the ones applied. `--replay` doesn't combine with your own sets, because
-the recorded NLI outputs only cover my glosses. See `DESIGN_NOTES.md`
-section 24.
+and `scripts/pipeline/blind_eval.py`. The imports check every reply
+(every item answered, word limits, valid answers) and write nothing if
+anything is wrong, and scoring refuses ratings made for a different label
+set than the one applied. `--replay` doesn't work with your own sets,
+because the recorded NLI outputs only cover my glosses. See
+`DESIGN_NOTES.md` section 24.
 
 ## Running it by hand
 
-In the commands below, `python` means the venv's interpreter:
-`.venv\Scripts\python.exe` on Windows, `.venv/bin/python` on macOS and
-Linux (or activate the venv). Setup:
+Below, `python` means the venv's interpreter: `.venv\Scripts\python.exe`
+on Windows, `.venv/bin/python` on macOS and Linux. Setup:
 
 ```
 python3.11 -m venv .venv            # Windows without python on PATH: py -3.11 -m venv .venv
@@ -130,60 +123,58 @@ python -m pip install torch==2.14.0 --index-url https://download.pytorch.org/whl
 python -m pip install -r requirements.txt
 ```
 
-On Linux the PyPI wheel for `torch==2.14.0` pulls in the CUDA 13 toolkit
-and nvidia packages that `requirements.txt` doesn't pin, and the `+cpu`
-wheel satisfies the same pin without them. I checked the package metadata
-and the index, but I haven't run the Linux install end to end.
-`requirements.txt` is the full pinned set, resolved from the loose
-`requirements.in`.
+On Linux the PyPI wheel for `torch==2.14.0` pulls in CUDA packages that
+`requirements.txt` doesn't pin; the `+cpu` wheel meets the same pin
+without them. I checked the package metadata and the index, but I haven't
+run the Linux install end to end. `requirements.txt` is the full pinned
+set, resolved from the loose `requirements.in`.
 
 The steps `reproduce_all.py` runs, in order:
 
 ```
 python scripts/pipeline/t1_describe.py              # T1 snapshot statistics, seconds
-python scripts/pipeline/run_pipeline.py             # T2-T4: hierarchies + temporal events, 1.5-5 min
+python scripts/pipeline/run_pipeline.py             # T2-T4: hierarchies and temporal events, 1.5-5 min
 python scripts/pipeline/t5_apply_labels.py          # required: run_pipeline writes labels as null
 python scripts/pipeline/validate_hierarchy.py       # laminarity and id checks
 python -m pytest tests -q                           # unit tests
-
-python scripts/pipeline/t6_evaluate.py              # T6: fresh metrics.json, 15-20 min
-python scripts/pipeline/t6_extrinsic.py             # leave-one-out, routing, sweeps, ~5 min
+python scripts/pipeline/t6_evaluate.py              # T6 coherence, stability, faithfulness; fresh metrics.json, 15-20 min
+python scripts/pipeline/t6_extrinsic.py             # T6 extrinsic: drill-down, leave-one-out, routing, ~5 min
 python scripts/pipeline/hypergraph_shuffle_null.py  # degree/arity-preserving null, 4-10 min
 python scripts/pipeline/structural_holdout.py       # held-out hyperedges across alpha, 4-16 min
 python scripts/pipeline/localisation.py             # is change localised, ~3 min
-python scripts/pipeline/blind_eval.py score         # blind intruder + gloss ratings into metrics.json
+python scripts/pipeline/blind_eval.py score         # blind intruder and gloss ratings
 python scripts/pipeline/make_report_figures.py      # figures from metrics.json and the hierarchies
 ```
+
+`t6_evaluate.py` starts `metrics.json` from scratch and each later step
+adds its own section, so the order matters. Passing section names reruns
+only those, e.g. `python scripts/pipeline/t6_evaluate.py faithfulness`.
+`t5_apply_labels.py` only applies a label if the prompt rebuilt from the
+cluster's current members is identical to the one the label was written
+from, and stops with an error otherwise, so after a change to the
+clustering old labels can't land on new clusters (`DESIGN_NOTES.md`
+section 19).
 
 To rebuild the report after the figures, with any LaTeX setup that has
 XeTeX and the Libertinus fonts, e.g. [Tectonic](https://tectonic-typesetting.github.io):
 `tectonic -X compile report/report.tex --outdir .`
 
-`t5_apply_labels.py` applies a label only if the prompt rebuilt from the
-cluster's current members is identical to the prompt the label was written
-from, and stops with an error otherwise. So if you change the clustering
-(alpha, thresholds), old labels won't silently land on new clusters
-(`DESIGN_NOTES.md` section 19). A full `t6_evaluate.py` run starts
-`metrics.json` from scratch and every later step adds its own section,
-which is why the order matters. Passing section names reruns only those,
-e.g. `python scripts/pipeline/t6_evaluate.py faithfulness`.
-
 ## Follow-up experiments
 
-`scripts/experiments/` holds the follow-up experiments behind the
-decision rules in `DESIGN_NOTES.md` section 15: `alpha_sweep`,
-`level0_skew_check`, `temporal_threshold_sweep`, `warm_start_sweep`,
-`rerank_sweep`, `coarsening_compare`, `label_routing`, `pair_overlap`,
+`scripts/experiments/` holds the experiments behind the decision rules in
+`DESIGN_NOTES.md` section 15: `alpha_sweep`, `level0_skew_check`,
+`temporal_threshold_sweep`, `warm_start_sweep`, `rerank_sweep`,
+`coarsening_compare`, `label_routing`, `pair_overlap`,
 `affinity_mass_share` and `signal_overlap`. Each writes its own JSON in
 `outputs/` and none of them changes the shipped pipeline.
 `rerank_sweep.json` and the routing numbers in `coarsening_compare.json`
-predate the ground-truth matcher fix (section 16) and weren't regenerated.
-No conclusion rests on them.
+predate the ground-truth matcher fix (section 16) and weren't
+regenerated. No conclusion rests on them.
 
 ## Repo layout
 
 ```
-data/                 shipped TKH export, questions, ground truth
+data/                 the TKH export, questions, ground truth
 src/tkh/              the method: io, hypergraph, embeddings, cluster,
                       collapse, temporal, pipeline, labeling
 src/tkh/eval/         T6: coherence, stability, faithfulness, extrinsic,
@@ -198,8 +189,8 @@ outputs/              hierarchy.json and labels per snapshot,
                       experiment JSONs, figures/
 report.pdf            the write-up, built from report/report.tex
 DESIGN_NOTES.md       why each non-obvious choice was made
-AI_USAGE.md           AI tool usage disclosure
-requirements.in/.txt  loose and pinned dependency lists
+AI_USAGE.md           AI tool use
+requirements.in/.txt  loose and pinned dependencies
 ```
 
 ## Status
@@ -212,17 +203,17 @@ every budget; a one-command rerun reproduces every output byte for byte.
 Known gaps, each discussed in `DESIGN_NOTES.md`:
 
 - The structural term is a weighted clique expansion, and at alpha=0.3 it
-  carries about 7% of the affinity mass, not 30% (sections 3, 17).
+  carries about 7% of the affinity, not 30% (sections 3, 17).
 - The T4 collapse is applied at every level and written out, but the
-  shipped levels are cuts of one dendrogram, so it doesn't build them. The
+  shipped levels are cuts of one tree, so it doesn't build them. The
   variant where it does lost on coherence (sections 9, 15).
 - The perturbation stability test only removes hyperedges, so it rewards
   ignoring structure, and alpha was partly chosen on it (section 17).
-- Change between snapshots is not localised to where new hyperedges
+- Change between snapshots isn't localised to where new hyperedges
   landed (section 10), and the matching threshold is sensitive.
 - Snapshot membership follows the hyperedge year, so each early snapshot
-  holds a handful of nodes the corpus hadn't seen yet: temporal honesty of
-  the labeller's input is about 98%, not guaranteed (section 2).
+  holds a handful of nodes the corpus hadn't seen yet: the labeller's
+  input is temporally honest for about 98% of nodes, not all (section 2).
 - On recall@20, drill-down shows no detectable difference from flat at 12
   questions (sections 14, 16).
 - All blind judgements come from one LLM rater, with no second rater and

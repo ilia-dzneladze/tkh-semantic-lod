@@ -4,7 +4,7 @@ from types import SimpleNamespace
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
-from tkh.collapse import collapse_hyperedge, build_coarse_hyperedges, clique_explosion_comparison
+from tkh.collapse import collapse_hyperedge, build_coarse_hyperedges
 
 
 def _snap(node_ids):
@@ -77,13 +77,3 @@ def test_no_original_members_are_silently_dropped():
     total_members_seen = sum(coarse[0]["members"].count(m) for m in set(coarse[0]["members"]))
     assert total_members_seen == 4
 
-
-def test_clique_explosion_comparison_quantifies_blowup():
-    coarse_edges = [
-        {"arity": 5, "members": ["S1", "S2", "S3", "S4", "S5"]},
-        {"arity": 2, "members": ["S1", "S2"]},  # pairwise, ignored by this comparison
-    ]
-    result = clique_explosion_comparison(coarse_edges)
-    assert result["genuine_hyperedges_kept"] == 1
-    assert result["pairwise_edges_clique_alternative_would_add"] == 10  # C(5,2)
-    assert result["blowup_factor"] == 10.0

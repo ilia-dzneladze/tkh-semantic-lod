@@ -4,7 +4,8 @@
 build and the first follow-up experiments, on Opus 5 for the first review,
 the correctness fixes and the next experiments, and on Opus 5.5 for the
 last passes: closing the review, publishing the model outputs, the
-one-command reproduction and the documentation cleanup. The labels were
+one-command reproduction, the documentation cleanup, the LaTeX report,
+the visualisation and the simplification pass. The labels were
 written by Claude Code sub-agents on Sonnet 5 and the blind ratings by
 sub-agents on Opus 5.5, as described below.
 
@@ -16,42 +17,49 @@ agent did, what I accepted or changed, and what was checked before I
 trusted it. Entries are in the order they happened, so a later one
 sometimes corrects an earlier one, and where that happens it's noted.
 
+Prompts are quoted as I typed them, with spelling and grammar corrected
+and long ones abridged where marked. Where a prompt was short and leaned
+on the conversation so far, what it referred to follows it in brackets.
+
 ## Planning
 
-Prompt: "Read the .md file in the root folder outlining the task, explain
-what the task is about... Then scaffold a plan, what language to use, what
-dependencies, what would be the best way to implement the solution... if
-you need approval from me for design choices, ask, I will weigh the
-trade-offs."
+Prompt: "Read the .md file in the root folder that outlines the task and
+explain what the task is about... Then scaffold a plan: what language to
+use, what dependencies, and what would be the best way to implement the
+solution... If you need my approval for design choices, ask, and I will
+weigh the trade-offs."
 
-The agent read the brief and the data, proposed Python and a dependency
-list, and surfaced four decisions for me instead of picking them itself. I
+I set it up this way so the design decisions came back to me rather than
+being settled inside the code. The agent read the brief and the data,
+proposed Python and a dependency list, and surfaced four decisions. I
 chose a joint weighted affinity graph (`alpha * structural + (1-alpha) *
-semantic`), general-purpose MPNet over a domain-specific embedding, an LLM
-API for labelling, and an NLI model for the faithfulness check. I accepted
-the language and dependencies as proposed. I then asked whether API calls
-would cost money against my Pro subscription, confirmed they would, and
-switched labelling to the agent reading cluster contents directly.
+semantic`), which makes the balance between structure and meaning one
+parameter that can be swept (DESIGN_NOTES section 7), general-purpose
+MPNet over a domain-specific embedding, an LLM API for labelling, and an
+NLI model for the faithfulness check. I accepted the language and
+dependencies as proposed. Once I confirmed that API calls
+would be billed outside my subscription, I switched labelling to agents
+reading dumped cluster prompts (DESIGN_NOTES section 12).
 
-I set alpha to 0.5 as a placeholder and flagged it to revisit once the
-evaluation existed, since the right balance depends on how noisy the
-structure turns out to be. That ablation came later ("Alpha ablation and
-relabelling").
+I set alpha to 0.5 as a deliberate placeholder and flagged it for an
+ablation once the evaluation existed, since the right balance depends on
+how noisy the structure turns out to be. That ablation came later ("Alpha
+ablation and relabelling").
 
 ## Feasibility check
 
-Prompt: "Look over the plan, see if it's coherent and really doable
-according to my skills as a 3rd year cs student, and continue if you think
-this will land me the job."
+Prompt: "Look over the plan and see if it's coherent and really doable
+given my skills as a third-year CS student, and continue if you think it
+will land me the job."
 
 The agent's assessment was that most components assemble known library
 pieces, but the hypergraph affinity construction is graduate-level and I'd
-need to understand it rather than accept the formula. I went through it
-with the agent until I could restate why the 1/(arity-1) weighting is
-right. On its own initiative it also simplified the T6 null model to
-random labels instead of a degree-preserving hypergraph shuffle, which I
-accepted as a trade-off the brief allows. The shuffle null was built
-later.
+need to understand it rather than accept the formula. I worked through it
+with the agent until I could explain why the 1/(arity-1) weighting gives
+each hyperedge a total weight linear in its arity rather than quadratic.
+On its own initiative it also simplified the T6 null model to random
+labels instead of a degree-preserving hypergraph shuffle, which I accepted
+as a trade-off the brief allows. The shuffle null was built later.
 
 ## T1-T5 implementation
 
@@ -64,17 +72,17 @@ weighting (first described as Zhou et al.'s method, corrected in the final
 review to a weighted clique expansion), the sparse UPGMA, the T3 Jaccard
 matching and the T4 collapse rule.
 
-What I caught myself, by reading the generated `hierarchy.json` instead of
-trusting a clean run: a self-reference bug in the persistent-id scheme,
-and `member_ids` not matching the brief's own definition of a laminar
-partition. Both were fixed and re-checked with a validator script written
-for exactly this.
+What I caught myself, by auditing the generated `hierarchy.json` by hand
+instead of trusting a clean run: a self-reference bug in the persistent-id
+scheme, and `member_ids` not matching the brief's own definition of a
+laminar partition. Both were fixed and re-checked with a validator script
+written for exactly this.
 
 ## Code review pass
 
-Prompt: "Go over what's been written now. What the scripts do with the data
-and what we are getting ready for. And look at the logic, is it optimal and
-coherent?"
+Prompt: "Go over what's been written so far: what the scripts do with the
+data and what we are getting ready for. And look at the logic: is it
+optimal and coherent?"
 
 The agent re-read all eight source modules and reported six issues: dead
 code, an inconsistent stats dictionary, a docstring calling a union k-NN
@@ -88,7 +96,8 @@ depends on it.
 
 ## T5 labelling
 
-Prompt: "continue with T5 labeling."
+Prompt: "Continue with T5 labelling." [A label and a one-sentence gloss
+per super-node at levels 0 and 1, as the brief asks.]
 
 The agent dumped cluster member lists to files and labelled them with four
 parallel sub-agents, one per snapshot, from a fixed prompt template
@@ -100,17 +109,19 @@ access to the questions").
 
 ## T6 evaluation
 
-Prompt: "continue with T6 evaluation."
+Prompt: "Continue with T6 evaluation." [Coherence, stability,
+faithfulness and the extrinsic task.]
 
-Two first results I didn't accept. The NLI check returned "neutral" on
-nearly every pair, including obvious mismatches. That traced to bare short
-phrases giving the model too little context, and was fixed by building
-sentence-style premises from the members. (The premise also turned out to
-use a subset of the labeller's own input, which the final review caught.)
-The retrieval eval returned zero recall on every question. I didn't accept
-"the corpus is just this hard" without checking, and it was a real
-embedding problem, bare acronyms against sentence-long questions, fixed by
-enriching short names with their hyperedge neighbourhood.
+I rejected two first results rather than report them. The NLI check
+returned "neutral" on nearly every pair, including obvious mismatches.
+That traced to bare short phrases giving the model too little context, and
+was fixed by building sentence-style premises from the members. (The
+premise also turned out to use a subset of the labeller's own input, which
+the final review caught.) The retrieval eval returned zero recall on every
+question. I didn't accept "the corpus is just this hard" without checking,
+and it was a real embedding problem, bare acronyms against sentence-long
+questions, fixed by enriching short names with their hyperedge
+neighbourhood.
 
 For the drill-down branching factor I started at (3, 3), narrow on
 purpose. It came back at about half of flat's recall, which I read as a
@@ -120,7 +131,7 @@ about 16% of the candidates. That didn't survive later changes.
 
 ## T7 write-up
 
-Prompt: "continue with the T7 write-up."
+Prompt: "Continue with the T7 write-up."
 
 Figures are generated from `metrics.json`, not hand-copied numbers. I
 reviewed `report.md` against the metrics before treating it as final,
@@ -129,24 +140,24 @@ including the T4 collapse numbers against the current `hierarchy.json`.
 ## Alpha ablation and relabelling
 
 Prompt: "Okay, generate a plan for each fixable iteration, starting with
-alpha ablation, keep them in a seperate ignored file called FIXES.md, and
-if a fix will bring betterment then keep it and commit. generate the plan
-and start the alpha sweep: 5-95, 10-90, 15-85, ..., 95-5"
+the alpha ablation, and keep it in a separate ignored file called
+FIXES.md. If a fix brings an improvement, keep it and commit. Generate the
+plan and start the alpha sweep: 5-95, 10-90, 15-85, ..., 95-5."
 
-The agent wrote `scripts/experiments/alpha_sweep.py` (19 values, scored on coherence
-and stability only, the metrics that don't need labels). Before trusting a
-19-value run it smoke-tested alpha=0.5 alone, which reproduced the shipped
-numbers to the digit. The decision rule was written before the sweep in
-the private working file and is copied into `DESIGN_NOTES.md` section 15.
-Several values passed it. After seeing the results I added a stricter bar,
-beating 0.5 on each of the nine per-level numbers, and only 0.3 passed.
-That bar came after the results, so it's a robustness check, not the
-rule. The agent applied 0.3 to the real pipeline, not just the sweep's
-lightweight version, and reran the validator and tests.
+The agent wrote `scripts/experiments/alpha_sweep.py` (19 values, scored on
+coherence and stability only, the metrics that don't need labels). Before
+trusting a 19-value run it smoke-tested alpha=0.5 alone, which reproduced
+the shipped numbers to the digit. The decision rule was written before the
+sweep in the private working file and is copied into `DESIGN_NOTES.md`
+section 15. Several values passed it. After seeing the results I added a
+stricter bar, beating 0.5 on each of the nine per-level numbers, and only
+0.3 passed. That bar came after the results, so it's a robustness check,
+not the rule. The agent applied 0.3 to the real pipeline, not just the
+sweep's lightweight version, and reran the validator and tests.
 
-Prompt: "Okay, add this to the report.md as a finding, do the relabeling
-for 0.3 and see if the end result is really better with alpha equalling
-0.3 and also provide a logical justification for this in the report.md"
+Prompt: "Okay, add this to report.md as a finding, redo the labelling for
+0.3, see whether the end result is really better with alpha at 0.3, and
+give a logical justification for it in report.md."
 
 The clusters changed, so the agent relabelled all 248 from scratch the
 same way. I checked all four outputs with my own word-count script rather
@@ -157,33 +168,32 @@ re-swept and (8, 8) matched again.
 
 ## Beating flat, not just matching it
 
-Prompt: "Okay, now on to the next likely fix that will increase the
-retreival efficiency compares to baseline, it's really interesting that
-none of the last two could beat it, only match it. Try a new fix, test,
-and conclude"
+Prompt: "Okay, now on to the next likely fix that will improve retrieval
+compared to the baseline. It's really interesting that neither of the last
+two could beat it, only match it. Try a new fix, test it, and conclude."
 
-Before any code, I had the agent work out why no branching value could
-beat flat: drill-down ranks a subset of flat's pool with flat's own
-scoring function, so parity is the ceiling. It wrote
-`scripts/experiments/rerank_sweep.py` to blend each candidate's own score with its
-level-1 ancestor's label+gloss score, with the rule (beat flat outright at
-no more candidates than the (8, 8) pool) written down first. beta=0.6
-passed, recall 0.0423 against 0.0325, and the gain held against the full
-unrestricted pool too. I picked 0.6 over 1.0, which had slightly higher
-recall but worse precision and discards the node's own signal, and over a
-dip at 0.9 that looked like noise over 14 questions. The agent wired
-`beta` into `hierarchy_drilldown` and regenerated `metrics.json` through
-the real code path. The final review showed this whole gain came from one
-question after tuning on the test set.
+Before any code, I had the agent explain why no branching value could beat
+flat, rather than try more values: drill-down ranks a subset of flat's
+pool with flat's own scoring function, so parity is the ceiling. It wrote
+`scripts/experiments/rerank_sweep.py` to blend each candidate's own score
+with its level-1 ancestor's label+gloss score, with the rule (beat flat
+outright at no more candidates than the (8, 8) pool) written down first.
+beta=0.6 passed, recall 0.0423 against 0.0325, and the gain held against
+the full unrestricted pool too. I picked 0.6 over 1.0, which had slightly
+higher recall but worse precision and discards the node's own signal, and
+over a dip at 0.9 that looked like noise over 14 questions. The agent
+wired `beta` into `hierarchy_drilldown` and regenerated `metrics.json`
+through the real code path. The final review showed this whole gain came
+from one question after tuning on the test set.
 
 ## Final review and correctness fixes
 
 Tool: Claude Code on Opus 5.
 
-Prompt: "Look at my current version of the project. Do you think it is
+Prompt: "Look at the current version of my project. Do you think it is
 sufficient to land me the job? ... I want your honest opinion, and if you
-think we can iterate on some things, make some things better, than tell me
-what specifically and how. Be thorough"
+think we can iterate on some things and make them better, tell me
+specifically what and how. Be thorough."
 
 The agent read the brief, all source, the docs and `metrics.json`, and
 checked claims against the code instead of the docs. Where they disagreed:
@@ -206,7 +216,8 @@ checked claims against the code instead of the docs. Where they disagreed:
 It also measured that the (8, 8) drill-down pool held 80% of ground-truth
 nodes at 25% of candidates. That later turned out to depend on the labels.
 
-Prompt: "yes, start with the P0 fixes"
+Prompt: "Yes, start with the P0 fixes." [The review's highest-priority
+findings, mostly places where the code and the documents disagreed.]
 
 What the agent changed, all accepted:
 
@@ -236,22 +247,24 @@ sample was found and documented here but only fixed with the relabel.
 
 Tool: Claude Code on Opus 5.
 
-Prompt: "now start on P1, make T4 drive the coarser levels"
+Prompt: "Now start on P1: make T4 drive the coarser levels."
 
 The agent wrote the keep-or-discard rule into DESIGN_NOTES section 15
 before running anything, then implemented `coarsen_one_level` in
 `pipeline.py` and `coarse_structural_affinity` in `collapse.py`, and
 refactored clustering into one `build_levels` function shared by the
-pipeline and the perturbation check. `scripts/experiments/coarsening_compare.py` first
-checks that the refactored dendrogram path reproduces the shipped
-hierarchies exactly, which it does.
+pipeline and the perturbation check.
+`scripts/experiments/coarsening_compare.py` first checks that the
+refactored dendrogram path reproduces the shipped hierarchies exactly,
+which it does.
 
 The first variant failed the rule. The agent proposed one principled fix
 (size-normalised coarse affinity with count-weighted average linkage),
 wrote a second rule before running it, and noted it was chosen after
 seeing a failure. That failed too, so the pipeline stays on the dendrogram
-and the multilevel code stays in as a non-default option. I accepted
-stopping there instead of trying variants until one passed.
+and the multilevel code stays in as a non-default option. I held to
+stopping there rather than try variants until one passed, which would
+have fitted the method to the rule instead of testing it.
 
 The same script found that routing on member centroids instead of labels
 gives no lift over chance, so the 80%-at-25% routing result depends on
@@ -267,13 +280,16 @@ Tool: Claude Code on Opus 5 for setup and evaluation; four fresh Claude
 Code sub-agents on Sonnet 5, the same model as the original labels, for
 the labelling.
 
-Prompt: "start with step 1, the relabelling"
+Prompt: "Start with step 1, the relabelling." [Step 1 of the next three:
+relabel without access to the questions, re-evaluate the extrinsic task
+by leave-one-out, and test structure on held-out hyperedges.]
 
 The main agent had read the question files earlier in the session, so it
 didn't write labels itself and didn't use forked agents, which would
 inherit that context. It asked me how to run the labelling, and I chose
-fresh sub-agents. Before any new labels existed it wrote the decision rule
-into DESIGN_NOTES section 15, archived the first labels in
+fresh sub-agents, so the question files the main agent had read were never
+in the labellers' context. Before any new labels existed it wrote the
+decision rule into DESIGN_NOTES section 15, archived the first labels in
 `outputs/labels_v1/`, and measured their routing as a baseline.
 
 Code changes: `labeller_sample_ids` draws a seeded random sample
@@ -302,7 +318,8 @@ verdict held.)
 
 Tool: Claude Code on Opus 5.
 
-Prompt: "Continye with step 2"
+Prompt: "Continue with step 2." [Leave-one-out re-evaluation of the
+extrinsic task.]
 
 The agent wrote the rule into DESIGN_NOTES section 15 first, then added
 `leave_one_out_select` and `paired_comparison` to `eval/extrinsic.py`,
@@ -323,18 +340,20 @@ points, CI -25.9 to +0.7, same verdict.)
 
 Tool: Claude Code on Opus 5.
 
-Prompt: "continue with step 3"
+Prompt: "Continue with step 3." [Structural coherence on held-out
+hyperedges.]
 
 Rule first, into DESIGN_NOTES section 15. The agent found that every edge
 has a `provenance.article_id` and added whole-paper holdout as a stricter
 second scheme next to random-edge holdout, since edges from one paper are
 correlated. It added `heldout_edge_cohesion` to `eval/coherence.py` with
-two tests, wrote `scripts/pipeline/structural_holdout.py` (7 alphas, 2 schemes, 5
-seeds, TF-IDF coherence on the same clusterings) and a trade-off figure.
-After rendering the figure it replaced an alpha label that sat next to the
-wrong series with a ring on the shipped alpha. It also found alpha=1.0 is
-degenerate (about 1,100 forced merges, one cluster) and left it out of the
-figure with a note instead of reading it as "structure carries nothing".
+two tests, wrote `scripts/pipeline/structural_holdout.py` (7 alphas, 2
+schemes, 5 seeds, TF-IDF coherence on the same clusterings) and a
+trade-off figure. After rendering the figure it replaced an alpha label
+that sat next to the wrong series with a ring on the shipped alpha. It
+also found alpha=1.0 is degenerate (about 1,100 forced merges, one
+cluster) and left it out of the figure with a note instead of reading it
+as "structure carries nothing".
 
 Result under the rule: at alpha=0.3 structure earns its place only at
 level 0, most of its predictive power doesn't survive holding out whole
@@ -344,9 +363,9 @@ papers, and no alpha dominates 0.3. I kept alpha at 0.3.
 
 Tool: Claude Code on Opus 5.
 
-Prompt: "I got new literature under literature/new/, see if anything
-could be useful for our case from there and cite the most important
-ones, maybe there is something that can help more than the current stuff"
+Prompt: "I've put new literature under literature/new/. See if anything
+there could be useful for our case and cite the most important papers;
+maybe something can help more than the current sources."
 
 I collected the eight PDFs myself, using a search prompt the agent had
 written for another LLM. The agent extracted their text with PyMuPDF and
@@ -355,11 +374,11 @@ tied to one design choice: Ruggeri et al. (pair overlap and
 detectability), Ma et al. AdE (feature-aware clique expansion), Asgari et
 al. (No-Smoothing against smoothed dynamic community detection), SHyPar
 (local against spectral coarsening) and DeWolfe and Theberge (edge
-clustering, overlapping communities). It left out Gong et al., Kirkley
-and FeClustRE as less relevant. Since Ruggeri et al. make a testable
-claim, it wrote `scripts/experiments/pair_overlap.py` to count how often concept pairs
-recur across hyperedges and papers (1.7% across papers in 2026) and used
-that to explain the weak paper-level held-out result.
+clustering, overlapping communities). It left out Gong et al., Kirkley and
+FeClustRE as less relevant. Since Ruggeri et al. make a testable claim, it
+wrote `scripts/experiments/pair_overlap.py` to count how often concept
+pairs recur across hyperedges and papers (1.7% across papers in 2026) and
+used that to explain the weak paper-level held-out result.
 
 Two of its drafts claimed more than the data showed, and it fixed both
 before I saw them. One said held-out pairs were "covered by the same
@@ -373,27 +392,28 @@ verify published venues at this point.
 
 Tool: Claude Code on Opus 5.
 
-Prompt: "yes, start with the localisation test"
+Prompt: "Yes, start with the localisation test." [P5: is change between
+snapshots confined to where the corpus changed?]
 
 Rule first: per-cluster churn against the share of new hyperedges around
 the cluster, Spearman with a bootstrap CI, cluster size partialled out.
-Then `scripts/pipeline/localisation.py`, which reads the shipped hierarchies and
-doesn't depend on the section 10 event thresholds. The test failed at
-every level. Before writing that up, the agent broke the result down by
-transition and checked the exposure ranges to rule out a bug or a pooling
-artefact. It then added one exploratory measure after seeing the failure,
-the share of new nodes among an old node's k-NN neighbours, which does
-correlate with churn at levels 1 and 2. The docs label it post hoc, and
-the pre-registered verdict stands. The explanation that fixed cluster
-counts force global reshuffling is the agent's hypothesis and is marked
-untested.
+Then `scripts/pipeline/localisation.py`, which reads the shipped
+hierarchies and doesn't depend on the section 10 event thresholds. The
+test failed at every level. Before writing that up, the agent broke the
+result down by transition and checked the exposure ranges to rule out a
+bug or a pooling artefact. It then added one exploratory measure after
+seeing the failure, the share of new nodes among an old node's k-NN
+neighbours, which does correlate with churn at levels 1 and 2. The docs
+label it post hoc, and the pre-registered verdict stands. The explanation
+that fixed cluster counts force global reshuffling is the agent's
+hypothesis and is marked untested.
 
 ## UPGMA check, clean reproduction and stale-number pass
 
 Tool: Claude Code on Opus 5.
 
-Prompt: "continue with the original list of tasks so we finish first and
-then we can experiment"
+Prompt: "Continue with the original list of tasks, so we finish those first
+and then we can experiment."
 
 The agent added `tests/test_upgma_vs_scipy.py`, comparing `sparse_upgma`
 with scipy's dense average linkage on random graphs (merge heights, cuts,
@@ -457,8 +477,8 @@ Findings I acted on, and what I had it do:
   count rather than filter and relabel (section 2).
 - alpha isn't the mixing weight it reads as. It measured the structural
   share of the affinity mass, about 7% at alpha=0.3, and I had it write
-  `scripts/experiments/affinity_mass_share.py` so the number is reproducible (section
-  17).
+  `scripts/experiments/affinity_mass_share.py` so the number is
+  reproducible (section 17).
 - The perturbation stability measure only removes hyperedges, so it
   rewards ignoring the hypergraph, and alpha was partly selected on it.
   The agent re-read the sweep without it. 0.3 still wins, which I hadn't
@@ -486,7 +506,8 @@ section.
 Tool: Claude Code on Opus 5.5, same session. The blind raters were two
 further Claude Code subagents on Opus 5.5 (`claude-opus-5-5`).
 
-Prompt: "continuw with 6-11 tasks, end-to-end, test implementation"
+Prompt: "Continue with tasks 6-11, end to end, and test the
+implementation."
 
 The items were TF-IDF independence (6), validating the faithfulness judge
 (7), stale numbers (8), report format (9), reproducibility (10) and the
@@ -506,16 +527,16 @@ What it built, and what was checked:
   step. The Linux claim rests on the PyPI metadata for `torch==2.14.0` and
   the PyTorch CPU index listing `2.14.0+cpu`. Nobody ran a Linux install.
 - Cross-snapshot CIs (11). The agent's first replacement, a node bootstrap
-  with replacement, was wrong: the level-2 interval came out entirely above
-  the estimate (0.651 to 0.682 around 0.647). It diagnosed why (duplicated
-  nodes add same-cluster pairs, which drive ARI), switched to
+  with replacement, was wrong: the level-2 interval came out entirely
+  above the estimate (0.651 to 0.682 around 0.647). It diagnosed why
+  (duplicated nodes add same-cluster pairs, which drive ARI), switched to
   half-sampling without replacement, checked the half-sample mean matches
   the full ARI, and added a many-small-clusters test that the old
   estimator fails. I accepted it once every interval contained its
   estimate.
-- Coherence independence (6). `scripts/experiments/signal_overlap.py` makes the
-  TF-IDF/MPNet overlap reproducible, and the blind intruder test is in
-  `eval/blind.py` and `scripts/pipeline/blind_eval.py`.
+- Coherence independence (6). `scripts/experiments/signal_overlap.py`
+  makes the TF-IDF/MPNet overlap reproducible, and the blind intruder test
+  is in `eval/blind.py` and `scripts/pipeline/blind_eval.py`.
 - Faithfulness (7). Wilson CIs on every rate, a blind gloss rating
   compared with NLI on identical items, and a check against source-paper
   titles.
@@ -568,8 +589,8 @@ Tool: Claude Code on Opus 5.5, same session.
 
 Prompts: I asked whether the "weights generated at the end" could be
 uploaded to Hugging Face so a reproducer could check my results, then
-"yes go ahead, and then tell me commands to upload the embedding to
-huggingface".
+"Yes, go ahead, and then tell me the commands to upload the embeddings to
+Hugging Face."
 
 The agent first corrected my premise: nothing is trained, so there are no
 weights, and what varies between machines is the output of the two frozen
@@ -606,8 +627,8 @@ path hadn't changed, rewrote the script to take the folder as an argument,
 and reran. It stopped one replay run partway because the localisation fix
 had made it obsolete.
 
-I did the upload myself. The export it's derived from ships in this
-public repo anyway, so the dataset is public too
+I did the upload myself. The export it's derived from ships in this public
+repo anyway, so the dataset is public too
 (`iliadzneladze/tkh-multires-outputs`), and the agent switched its
 visibility at my request.
 
@@ -615,13 +636,13 @@ visibility at my request.
 
 Tool: Claude Code on Opus 5.5, same session.
 
-Prompt: "can we make a command that reproduces the whole experiment with
-just one commans, like one pass goes from nothing to the built hypegraph
-+ evaluation with all the pictures and everything" and "is there a way to
-have sample labels and blind rankings, the one that we built
+Prompts: "Can we make a single command that reproduces the whole
+experiment, one pass from nothing to the built hypergraph plus the
+evaluation, with all the figures and everything?" and "Is there a way to
+ship sample labels and blind ratings, the ones we built
 non-deterministically with the fresh agents, and also give the reproducer
-the freedom to make their own using a special prompt and customized
-arguments in the cli which point to those custom labels + blind rankings".
+the freedom to make their own with a custom prompt, with CLI arguments that
+point to those custom labels and blind ratings?"
 
 What the agent built. `scripts/reproduce_all.py` starts from a bare Python
 3.11: it creates `.venv`, installs the pinned requirements (CPU torch first
@@ -640,9 +661,9 @@ sample size stays fixed at 25.
 
 What was checked:
 
-- The shipped sets stay the default and byte-identical. The rebuilt
-  rating packets matched the shipped ones file for file, with a fresh NLI
-  run, and every output still matched the published checksums.
+- The shipped sets stay the default and byte-identical. The rebuilt rating
+  packets matched the shipped ones file for file, with a fresh NLI run,
+  and every output still matched the published checksums.
 - The custom workflow ran end to end in a scratch copy with a stand-in
   labeller and raters: a custom template, one fenced reply, 248 labels
   applied, new packets, scoring. The refusals worked: the shipped ratings
@@ -662,9 +683,9 @@ What was checked:
 
 Tool: Claude Code on Opus 5.5, same session.
 
-Prompt: "Could you clean up the repo, make it less messy, particularly the
-.md files inside git and the report, for the last step I will write the
-report by hand"
+Prompt: "Could you clean up the repo and make it less messy, particularly
+the .md files tracked in git and the report? For the last step I will
+write the report by hand."
 
 The tracked docs had grown by accretion, each pass adding "update"
 paragraphs on top of earlier ones. The agent rewrote `DESIGN_NOTES.md` to
@@ -685,7 +706,7 @@ validator were rerun afterwards.
 
 Tool: Claude Code on Opus 5.5, same session.
 
-Prompt: "Now, rewrite the report, in my voice, in LaTeX so it's pretty."
+Prompt: "Now rewrite the report in my voice, in LaTeX, so it's pretty."
 
 The agent wrote `report/report.tex` from scratch in my voice, using the
 previous `report.md` draft, `DESIGN_NOTES.md` and the output files as
@@ -696,9 +717,9 @@ image and looked at them, cut the text to fit the brief's 5-page limit
 (the first build was 7 pages), and fixed layout problems it saw: a
 justified table column with large gaps, and a legend and an α label
 overlapping data in Figure 1. For that it changed
-`scripts/pipeline/make_report_figures.py` to move the legend below the panels and
-to also write vector PDFs of every figure for the LaTeX build. The figure
-data didn't change.
+`scripts/pipeline/make_report_figures.py` to move the legend below the
+panels and to also write vector PDFs of every figure for the LaTeX build.
+The figure data didn't change.
 
 Two facts in the report are new rather than carried over, and the agent
 computed both from the shipped outputs: the T4 comparison (the 464 k-ary
@@ -714,8 +735,8 @@ about temporal honesty that could be read backwards.
 
 Tool: Claude Code on Opus 5.5, same session.
 
-Prompt: "Is the code readable and easy to understand and manuever through?
-maybe some file/folder management? I am really close to uploading"
+Prompt: "Is the code readable, easy to understand and easy to navigate?
+Maybe some file and folder management? I am really close to uploading."
 
 The agent reviewed the layout and code and reported what a reviewer would
 trip on, then asked how much to change so close to upload. I chose the
@@ -782,16 +803,98 @@ member overlap, not read from `temporal_events.json`, so the figure is a
 second view of the matching, not a check on it. The report still builds
 at five pages.
 
+## Simplification pass
+
+Tool: Claude Code on Opus 5.5, same session.
+
+Prompt: "Do one pass over the whole repo and simplify the language and
+the code. I don't want it to seem complex and convoluted, just straight
+to the point. Also make it more correct, because keeping things simple
+usually deals with a lot of the complexity."
+
+The agent read every module and script before changing anything, and
+held one constraint throughout: the 45 checksummed outputs and every
+recorded model call had to stay byte-identical, so each code change had
+to be a pure restructuring. What changed:
+
+- Duplication. The 1/(k-1) clique expansion was written out three times
+  (the fine-level affinity, the coarse affinity and the shuffle null) and
+  is now one function, `hypergraph.py`, `clique_expansion`.
+  `t6_evaluate.py` computed an extrinsic section that `t6_extrinsic.py`
+  overwrote one step later, so it now lives only in `t6_extrinsic.py`,
+  which also scores each drill-down setting once and reads the sweeps and
+  the shipped row from that grid instead of rerunning them in three loops.
+  Loading a hierarchy and replacing one section of `metrics.json` are
+  helpers in `tkh.io` instead of the same lines in six scripts, and the
+  t-interval helper that existed twice is in `eval/stats.py`.
+- Dead code. `projection_loss_report` (never run, although DESIGN_NOTES
+  quoted its numbers), `clique_explosion_comparison` and its test, an
+  unused table in `classify_events`, a redundant argument to
+  `track_across_snapshots` and statistics nothing read.
+- Correctness. The 94% and 63% in DESIGN_NOTES sections 3 and 4 are now
+  printed by `t1_describe.py`; before, no script produced them.
+  `export_release.py` would have checksummed the untracked figure PDFs on
+  a re-export, so a clean clone would fail verification; it now leaves
+  `outputs/figures/` out. `validate_hierarchy.py` also checks each child
+  sits exactly one level below its parent, and the agent confirmed it
+  flags a deliberately broken file. `t6_extrinsic.py` stops with an
+  instruction if labels are missing instead of quietly using fewer.
+  Lookups that fell back silently on data that's always present now index
+  directly, so a real gap would fail loudly.
+- Language. Docstrings say what the code does, with the reasons left in
+  DESIGN_NOTES. The README, DESIGN_NOTES and two paragraphs of the report
+  were tightened, with pointers updated to the new function names. The
+  release card template no longer asks people not to redistribute the
+  data, to match the public dataset.
+
+The experiment scripts only got docstring edits. They produced
+checksummed outputs that the pipeline doesn't regenerate, so a change to
+their logic couldn't be checked by a replay.
+
+Since the clique expansion is now one small function, the agent added
+four tests for it: the 1/(k-1) weights, articles and authors dropped
+from edges, and the high-arity share. Before, affinity construction had
+no direct test.
+
+Verification: pyflakes finds nothing, all 27 scripts import, and 64 tests
+pass (the removed function's test went, the four new ones came in). Before
+the full run, a replay of `run_pipeline.py` and `t5_apply_labels.py` gave
+byte-identical hierarchies, temporal events and T1 statistics, with all
+248 labels applying, so every labelling prompt is unchanged, and the
+rewritten `t6_extrinsic.py` gave a byte-identical `metrics.json`. Then a
+clean copy of exactly the files that would be pushed ran the whole
+pipeline on the published model outputs: all 12 steps passed in 16
+minutes, and all 45 outputs and all 37 release files matched the published
+checksums byte for byte. The report still builds at five pages. The card
+already on Hugging Face still has the old data paragraph; changing it
+means re-uploading its README and `SHA256SUMS.txt`, which hasn't been
+done.
+
+## Standalone report
+
+Tool: Claude Code on Opus 5.5, same session.
+
+Prompt (abridged): "Reword the report.pdf to not mention any outside
+sources except the cited ones, so no mentioning the design notes as a
+source. The design notes are there for readers of the source code...
+while the report.pdf is a standalone deliverable."
+
+The agent removed the report's 14 section citations to DESIGN_NOTES and
+the opening paragraph that pointed to DESIGN_NOTES and this file, so the
+report reads on its own. DESIGN_NOTES stays as background for readers of
+the code. Apart from that paragraph, no number or claim in the report
+changed, and it still builds at five pages.
+
 ## Verification, overall
 
-There are 61 unit tests now. They started at 16 (the T4 collapse rule, T3
+There are 64 unit tests now. They started at 16 (the T4 collapse rule, T3
 matching and the faithfulness held-out split) and grew with each pass:
 sparse UPGMA against scipy, held-out edge cohesion, the leave-one-out and
 paired statistics, the multilevel variants, the ground-truth matcher, the
 label staleness guard, the stability intervals, the blind packets and
-scoring, model-output record and replay, and custom label and rating
-sets. Affinity construction and the coherence null still have no direct
-tests. `scripts/pipeline/validate_hierarchy.py` checks the laminar-partition
+scoring, model-output record and replay, custom label and rating sets,
+and the clique expansion. The coherence null still has no direct test.
+`scripts/pipeline/validate_hierarchy.py` checks the laminar-partition
 property exactly on every snapshot. Both were rerun after every
 non-trivial change, including cosmetic ones. The strongest check is the
 last one: a from-nothing run that reproduced all 45 output files byte for

@@ -1,8 +1,9 @@
-"""Structure-side coherence with held-out hyperedges, traded off against
-TF-IDF coherence across alpha. Decision rule written before running:
+"""Does the structural term earn its place? Hold out 20% of the 2026
+hyperedges (random edges, or whole papers), cluster on the rest at each
+alpha, and check how often the held-out edges' members land together,
+against TF-IDF coherence. Decision rule written before running:
 DESIGN_NOTES.md section 15. Writes outputs/structural_holdout.json and
-copies the summary into outputs/metrics.json under "structural_holdout".
-Changes nothing in the shipped pipeline.
+the summary into metrics.json under "structural_holdout".
 """
 import dataclasses
 import json
@@ -11,15 +12,16 @@ import time
 from pathlib import Path
 
 import numpy as np
-from scipy import stats
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
-from tkh.io import load_tkh, build_snapshot, DATA_PATH  # noqa: E402
+from tkh.io import load_tkh, build_snapshot, update_metrics, DATA_PATH, OUTPUTS  # noqa: E402
 from tkh.pipeline import build_levels, embed_concepts, KNN_K, LEVEL_TARGETS, ALPHA  # noqa: E402
 from tkh.embeddings import semantic_knn_graph  # noqa: E402
-from tkh.eval.coherence import fit_tfidf, coherence_vs_null, heldout_edge_cohesion  # noqa: E402
+from tkh.hypergraph import concept_members  # noqa: E402
+from tkh.eval.coherence import fit_tfidf, coherence_vs_null, heldout_edge_cohesion, labels_as_hierarchy  # noqa: E402
+from tkh.eval.stats import mean_ci95  # noqa: E402
 
 YEAR = 2026
 ALPHAS = [0.0, 0.1, 0.2, 0.3, 0.5, 0.7, 1.0]
@@ -35,20 +37,17 @@ def log(msg):
 
 
 def mean_ci(values):
-    a = np.asarray(values, dtype=float)
-    m = float(a.mean())
-    if len(a) < 2 or a.std(ddof=1) == 0:
-        return m, [m, m]
-    lo, hi = stats.t.interval(0.95, len(a) - 1, loc=m, scale=a.std(ddof=1) / np.sqrt(len(a)))
-    return m, [float(lo), float(hi)]
+    mean, _, ci = mean_ci95(values)
+    return mean, ci
 
 
 def split(snap, scheme, seed):
-    """(training snapshot, held-out edges as concept-member lists)."""
+    """(training snapshot, held-out edges as concept-member lists). "edge"
+    holds out random edges with 2+ concept members; "paper" holds out
+    every edge from a random set of papers."""
     rng = np.random.default_rng(seed)
     edges = snap.hyperedges
-    qualifying = [i for i, e in enumerate(edges)
-                  if sum(m in snap.concept_ids for m in e["members"]) >= 2]
+    qualifying = [i for i, e in enumerate(edges) if len(concept_members(snap, e)) >= 2]
     if scheme == "edge":
         held = set(rng.choice(qualifying, size=round(HOLDOUT_FRAC * len(qualifying)), replace=False).tolist())
     else:
@@ -56,8 +55,8 @@ def split(snap, scheme, seed):
         chosen = set(rng.choice(papers, size=round(HOLDOUT_FRAC * len(papers)), replace=False).tolist())
         held = {i for i, e in enumerate(edges) if e["provenance"]["article_id"] in chosen}
     train = dataclasses.replace(snap, hyperedges=[e for i, e in enumerate(edges) if i not in held])
-    held_members = [[m for m in edges[i]["members"] if m in snap.concept_ids]
-                    for i in sorted(held) if i in set(qualifying)]
+    qualifying = set(qualifying)
+    held_members = [concept_members(snap, edges[i]) for i in sorted(held) if i in qualifying]
     return train, held_members
 
 
@@ -78,11 +77,7 @@ def main():
                                      coarsening="dendrogram", A_sem=A_sem)
                 for level, labels in built["labels_by_level"].items():
                     obs, exp, lift = heldout_edge_cohesion(labels, ids, held)
-                    clusters = {}
-                    for nid, lab in zip(ids, labels):
-                        clusters.setdefault(int(lab), []).append(nid)
-                    h = {"super_nodes": [{"id": str(k), "level": level, "member_ids": v}
-                                         for k, v in clusters.items()]}
+                    h = labels_as_hierarchy(labels, ids, level)
                     coh = coherence_vs_null(h, level, X, id_to_row, n_trials=NULL_TRIALS, seed=s)
                     runs.append({
                         "scheme": scheme, "seed": s, "alpha": alpha, "level": level,
@@ -91,13 +86,13 @@ def main():
                         "tfidf_observed": coh["observed_coherence"], "tfidf_null": coh["null_mean"],
                         "tfidf_ratio": coh["observed_coherence"] / coh["null_mean"],
                         "forced_merges": built["forced_by_level"][level],
-                        "max_cluster_share": max(len(v) for v in clusters.values()) / len(ids),
+                        "max_cluster_share": max(len(sn["member_ids"]) for sn in h["super_nodes"]) / len(ids),
                     })
             log(f"{scheme} seed {s} done ({len(held)} held-out edges)")
 
     def pick(scheme, alpha, level, key):
-        return [r[key] for r in sorted(runs, key=lambda r: r["seed"])
-                if r["scheme"] == scheme and r["alpha"] == alpha and r["level"] == level]
+        """One value per seed, in seed order."""
+        return [r[key] for r in runs if r["scheme"] == scheme and r["alpha"] == alpha and r["level"] == level]
 
     summary = {}
     for scheme in SCHEMES:
@@ -130,11 +125,8 @@ def main():
     out = {"year": YEAR, "alphas": ALPHAS, "schemes": SCHEMES, "n_seeds": N_SEEDS,
            "holdout_frac": HOLDOUT_FRAC, "shipped_alpha": ALPHA, "summary": summary,
            "structure_earns_its_place_by_level": structure_earns, "runs": runs}
-    (ROOT / "outputs" / "structural_holdout.json").write_text(json.dumps(out, indent=2), encoding="utf-8")
-    metrics_path = ROOT / "outputs" / "metrics.json"
-    metrics = json.loads(metrics_path.read_text(encoding="utf-8"))
-    metrics["structural_holdout"] = {k: v for k, v in out.items() if k != "runs"}
-    metrics_path.write_text(json.dumps(metrics, indent=2), encoding="utf-8")
+    (OUTPUTS / "structural_holdout.json").write_text(json.dumps(out, indent=2), encoding="utf-8")
+    update_metrics("structural_holdout", {k: v for k, v in out.items() if k != "runs"})
 
     for scheme in SCHEMES:
         for level in range(len(LEVEL_TARGETS)):

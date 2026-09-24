@@ -60,7 +60,5 @@ change the clusters.
 ## Data
 
 Derived from the TKH export (collection 10) that Constructor Knowledge
-Labs provided for the assessment. The files contain node ids and
-vectors, no text. But embeddings can be partly inverted, so treat them as
-derived data from that export, and don't redistribute them without the
-data owner's agreement.
+Labs provided for the assessment, which ships with the code repository.
+The files contain node ids and vectors, no text.

@@ -1,61 +1,68 @@
-"""T6 coherence, with the circularity trap neutralized.
+"""T6 coherence, measured with a signal the clustering never used.
 
-Clustering is driven by MPNet embeddings + hypergraph structure. Coherence
-here is measured with TF-IDF instead, a lexical signal never used to build
-the clusters, then compared against a random-labels null model so the
-number means something relative to chance. See DESIGN_NOTES.md section 13.
+Clusters are built from MPNet embeddings and hyperedges. Coherence here is
+TF-IDF similarity among a cluster's members, compared with the same
+number for random clusters of the same sizes. DESIGN_NOTES.md section 13.
 """
 import numpy as np
 from tkh.embeddings import encode_lexical_tfidf
 
 
 def fit_tfidf(snap):
+    """(X, ids, id_to_row): TF-IDF rows for the concept nodes, sorted by id."""
     ids = sorted(snap.concept_ids)
-    texts = [snap.nodes[nid]["surface_form"] or "" for nid in ids]
-    X = encode_lexical_tfidf(texts)  # sparse, L2-normalized rows
-    id_to_row = {nid: i for i, nid in enumerate(ids)}
-    return X, ids, id_to_row
+    X = encode_lexical_tfidf([snap.nodes[nid]["surface_form"] or "" for nid in ids])
+    return X, ids, {nid: i for i, nid in enumerate(ids)}
+
+
+def labels_as_hierarchy(labels, ids, level):
+    """A minimal hierarchy dict for one level of labels, so the coherence
+    functions can score a clustering that was never written out."""
+    clusters = {}
+    for nid, lab in zip(ids, labels):
+        clusters.setdefault(int(lab), []).append(nid)
+    return {"super_nodes": [{"id": str(lab), "level": level, "member_ids": members}
+                            for lab, members in clusters.items()]}
 
 
 def _mean_offdiag_similarity(X, rows):
+    """Mean cosine similarity over all pairs of distinct rows (None below 2)."""
     n = len(rows)
     if n < 2:
         return None
     sub = X[rows]
-    S = (sub @ sub.T)
-    total = S.sum()
-    diag = S.diagonal().sum()
-    denom = n * (n - 1)
-    return float((total - diag) / denom) if denom else None
+    S = sub @ sub.T
+    return float((S.sum() - S.diagonal().sum()) / (n * (n - 1)))
 
 
-def cluster_coherence(hierarchy, level, X, id_to_row, min_size=2):
-    """{super_node_id: coherence} for every super-node at `level` with at
-    least min_size members that are in the TF-IDF index (raw ids only,
-    context nodes aren't indexed and are skipped)."""
+def _member_rows(hierarchy, level, id_to_row):
+    """{super-node id: TF-IDF rows of its members} at `level`."""
+    return {sn["id"]: [id_to_row[nid] for nid in sn["member_ids"] if nid in id_to_row]
+            for sn in hierarchy["super_nodes"] if sn["level"] == level}
+
+
+def cluster_coherence(hierarchy, level, X, id_to_row):
+    """{super-node id: (coherence, n members scored)} at `level`, for
+    super-nodes with at least 2 members in the TF-IDF index."""
     out = {}
-    for sn in hierarchy["super_nodes"]:
-        if sn["level"] != level:
-            continue
-        rows = [id_to_row[nid] for nid in sn["member_ids"] if nid in id_to_row]
+    for sid, rows in _member_rows(hierarchy, level, id_to_row).items():
         c = _mean_offdiag_similarity(X, rows)
         if c is not None:
-            out[sn["id"]] = (c, len(rows))
+            out[sid] = (c, len(rows))
     return out
 
 
 def weighted_mean_coherence(coherence_by_id):
+    """Mean coherence weighted by cluster size (None if nothing scored)."""
     if not coherence_by_id:
         return None
     total_w = sum(w for _, w in coherence_by_id.values())
-    if total_w == 0:
-        return None
     return sum(c * w for c, w in coherence_by_id.values()) / total_w
 
 
 def random_labels_null(X, member_rows_by_cluster, n_trials=30, rng=None):
-    """Same cluster SIZES, node identities reshuffled at random. Returns
-    a list of n_trials weighted-mean-coherence values under this null."""
+    """Weighted mean coherence of n_trials random clusterings with the
+    same cluster sizes."""
     rng = rng or np.random.default_rng(0)
     all_rows = [r for rows in member_rows_by_cluster for r in rows]
     sizes = [len(rows) for rows in member_rows_by_cluster]
@@ -77,13 +84,8 @@ def random_labels_null(X, member_rows_by_cluster, n_trials=30, rng=None):
 def coherence_vs_null(hierarchy, level, X, id_to_row, n_trials=30, seed=0):
     coh = cluster_coherence(hierarchy, level, X, id_to_row)
     observed = weighted_mean_coherence(coh)
-    member_rows_by_cluster = []
-    for sn in hierarchy["super_nodes"]:
-        if sn["level"] != level:
-            continue
-        rows = [id_to_row[nid] for nid in sn["member_ids"] if nid in id_to_row]
-        if len(rows) >= 2:
-            member_rows_by_cluster.append(rows)
+    member_rows_by_cluster = [rows for rows in _member_rows(hierarchy, level, id_to_row).values()
+                              if len(rows) >= 2]
 
     null_vals = random_labels_null(X, member_rows_by_cluster, n_trials=n_trials,
                                     rng=np.random.default_rng(seed))

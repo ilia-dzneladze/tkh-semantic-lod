@@ -1,10 +1,7 @@
-"""Single-dendrogram vs multilevel (T4-driven) coarsening, on label-free
-metrics only. Decision rule written before running: DESIGN_NOTES.md
-section 15. Writes outputs/coarsening_compare.json; changes nothing in the
-shipped pipeline.
-
-Also checks that the refactored dendrogram path reproduces the shipped
-hierarchy.json member sets exactly before comparing anything.
+"""Single-tree cuts against multilevel (T4-driven) coarsening, on metrics
+that need no labels. Decision rule written before running: DESIGN_NOTES.md
+section 15. First checks that the dendrogram path reproduces the shipped
+hierarchy.json member sets exactly. Writes outputs/coarsening_compare.json.
 """
 import json
 import sys

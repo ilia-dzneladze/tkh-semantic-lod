@@ -1,9 +1,8 @@
-"""Threshold sensitivity (DESIGN_NOTES.md sections 10 and 15): how much do event counts (birth/death/merge/split/
-grow/shrink/stable) move as STABLE_JACCARD, MATCH_THRESHOLD, and
-SIZE_CHANGE_RATIO vary? T3 only rematches the already-computed per-snapshot
-clusterings, it doesn't re-embed or re-cluster, so this sweep just reloads
-each snapshot's hierarchy.json and reruns classify_events with different
-threshold globals -- no pipeline rebuild needed. Writes
+"""Threshold sensitivity (DESIGN_NOTES.md sections 10 and 15): how much do
+the event counts move as STABLE_JACCARD, MATCH_THRESHOLD and
+SIZE_CHANGE_RATIO change? Matching only reads the clusters, so this
+reloads each hierarchy.json and reruns classify_events with other
+thresholds; nothing is re-embedded or re-clustered. Writes
 outputs/temporal_threshold_sweep.json.
 """
 import json

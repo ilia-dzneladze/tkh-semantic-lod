@@ -1,20 +1,18 @@
-"""T6 label faithfulness: over-claim rate via NLI entailment.
+"""T6 label faithfulness: the over-claim rate, judged by an NLI model.
 
-Bare short surface_form phrases don't give the NLI model enough to work
-with (an off-the-shelf NLI model returns "neutral" on almost everything
-when the premise is a single noun phrase), so a sample of a cluster's
-members is aggregated into one natural-sentence premise.
+Each gloss is the hypothesis. The premise is one sentence listing a sample
+of the cluster's held-out members, the ones the labeller was never shown,
+so the gloss is graded on evidence it wasn't written from. Clusters with
+too few held-out members are skipped and counted.
 
-The premise is built only from HELD-OUT members, ones the labeller was
-not shown (see labeling.labeller_sample_ids), so the gloss is graded
-against evidence it wasn't written from. Clusters with too few held-out
-members are skipped and counted, not graded against the labeller's input.
-
-Over-claim is reported two ways: contradiction rate (gloss conflicts with
-the members) and not-entailed rate (members don't support the gloss). A
-negative control checks each gloss against a random OTHER cluster.
-See DESIGN_NOTES.md section 12.
+Over-claim is reported two ways: contradicted (the gloss conflicts with
+the members) and not entailed (the members don't support it). As a
+control, each gloss is also checked against a random other cluster.
+DESIGN_NOTES.md section 12.
 """
+import csv
+from collections import Counter
+
 import numpy as np
 
 from tkh.labeling import labeller_sample_ids, LABELLER_SAMPLING
@@ -53,43 +51,47 @@ def nli_labels(pairs):
 
 
 def held_out_member_ids(member_ids, sampling=LABELLER_SAMPLING):
+    """The members the labeller wasn't shown, in the original order."""
     shown = set(labeller_sample_ids(member_ids, sampling=sampling))
     return [nid for nid in member_ids if nid not in shown]
 
 
+def glossed_with_held_out(hierarchy, levels, sampling, min_held_out):
+    """(glossed super-nodes at `levels`, {id: held-out member ids}, the
+    ones with at least min_held_out held-out members)."""
+    targets = [sn for sn in hierarchy["super_nodes"] if sn["level"] in levels and sn.get("gloss")]
+    held_out = {sn["id"]: held_out_member_ids(sn["member_ids"], sampling) for sn in targets}
+    checkable = [sn for sn in targets if len(held_out[sn["id"]]) >= min_held_out]
+    return targets, held_out, checkable
+
+
 def premise_member_forms(snap, member_ids, max_members, rng):
     """Surface forms of a seeded random sample of up to max_members of
-    member_ids, in id order. Shared by the NLI premise and the blind
-    rating packet so both judge exactly the same members."""
+    member_ids, in id order. The NLI premise and the blind rating packet
+    both use this, so they judge exactly the same members."""
     ids = list(member_ids)
     if len(ids) > max_members:
         ids = [ids[i] for i in sorted(rng.choice(len(ids), size=max_members, replace=False))]
-    forms = []
-    for nid in ids:
-        node = snap.nodes.get(nid)
-        if node is not None and node.get("surface_form"):
-            forms.append(node["surface_form"])
-    return forms
+    return [snap.nodes[nid]["surface_form"] for nid in ids if snap.nodes[nid]["surface_form"]]
+
+
+def premise_from_forms(forms):
+    return "The cluster includes " + ", ".join(forms) + "."
 
 
 def build_premise(snap, member_ids, max_members, rng):
-    """Premise from a seeded random sample of up to max_members of member_ids."""
+    """The NLI premise for a sample of member_ids, or None if it'd be empty."""
     forms = premise_member_forms(snap, member_ids, max_members, rng)
-    if not forms:
-        return None
-    return "The cluster includes " + ", ".join(forms) + "."
+    return premise_from_forms(forms) if forms else None
 
 
 def check_hierarchy_faithfulness(hierarchy, snap, levels=(0, 1), max_members=15,
                                  min_held_out=5, seed=0, sampling=LABELLER_SAMPLING):
-    """sampling must match how the labels being checked were produced
-    (see labeling.labeller_sample_ids)."""
+    """NLI over-claim rates for every gloss at `levels`, real and control.
+    sampling must be the one the labels were written with
+    (labeling.labeller_sample_ids)."""
     rng = np.random.default_rng(seed)
-
-    targets = [sn for sn in hierarchy["super_nodes"]
-               if sn["level"] in levels and sn.get("gloss")]
-    held_out = {sn["id"]: held_out_member_ids(sn["member_ids"], sampling) for sn in targets}
-    checkable = [sn for sn in targets if len(held_out[sn["id"]]) >= min_held_out]
+    targets, held_out, checkable = glossed_with_held_out(hierarchy, levels, sampling, min_held_out)
     skipped = [sn["id"] for sn in targets if len(held_out[sn["id"]]) < min_held_out]
 
     pairs = []
@@ -129,10 +131,7 @@ def check_hierarchy_faithfulness(hierarchy, snap, levels=(0, 1), max_members=15,
         return rate_with_ci(sum(1 for m in items if pred(m["nli_label"])), len(items))["ci95"]
 
     def dist(items):
-        out = {}
-        for m in items:
-            out[m["nli_label"]] = out.get(m["nli_label"], 0) + 1
-        return out
+        return dict(Counter(m["nli_label"] for m in items))
 
     return {
         **base,
@@ -156,20 +155,17 @@ def check_hierarchy_faithfulness(hierarchy, snap, levels=(0, 1), max_members=15,
 
 def load_article_titles(path):
     """collection10_articles.csv -> {article id: title}."""
-    import csv
     with open(path, encoding="utf-8") as f:
         return {int(r["id"]): r["title"] for r in csv.DictReader(f)}
 
 
 def provenance_premise(snap, member_ids, titles, max_titles=5):
-    """Premise built from the titles of the papers the members were
-    extracted from (node provenance), not from the members' own text. The
-    most frequent source papers first, ties broken by article id."""
-    counts = {}
-    for nid in member_ids:
-        for aid in (snap.nodes.get(nid, {}).get("provenance") or {}).get("articles", []):
-            if aid in titles:
-                counts[aid] = counts.get(aid, 0) + 1
+    """Premise from the titles of the papers the members were extracted
+    from, not from the members' own text: the most frequent source papers
+    first, ties broken by article id."""
+    counts = Counter(aid for nid in member_ids
+                     for aid in (snap.nodes[nid].get("provenance") or {}).get("articles", [])
+                     if aid in titles)
     if not counts:
         return None
     top = sorted(counts, key=lambda a: (-counts[a], a))[:max_titles]
@@ -184,9 +180,7 @@ def check_provenance_faithfulness(hierarchy, snap, titles, levels=(0, 1), min_he
     clustering, so this grades the gloss against evidence independent of
     the surface forms. See DESIGN_NOTES.md section 22."""
     rng = np.random.default_rng(seed)
-    targets = [sn for sn in hierarchy["super_nodes"] if sn["level"] in levels and sn.get("gloss")]
-    held_out = {sn["id"]: held_out_member_ids(sn["member_ids"], sampling) for sn in targets}
-    checkable = [sn for sn in targets if len(held_out[sn["id"]]) >= min_held_out]
+    _, held_out, checkable = glossed_with_held_out(hierarchy, levels, sampling, min_held_out)
 
     pairs, meta = [], []
     for sn in checkable:

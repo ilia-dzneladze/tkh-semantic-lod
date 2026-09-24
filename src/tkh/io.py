@@ -1,4 +1,5 @@
-"""Load the TKH export and slice it into temporal snapshots (T1)."""
+"""Load the TKH export, slice it into temporal snapshots (T1), and read or
+update the shared output files."""
 import json
 from collections import Counter
 from dataclasses import dataclass, field
@@ -12,7 +13,9 @@ CONCEPT_TYPES = {
 CONTEXT_TYPES = {"article", "author"}
 
 SNAPSHOT_CUTOFFS = [2020, 2022, 2024, 2026]
-DATA_PATH = Path(__file__).resolve().parents[2] / "data" / "tkh_collection10.json"
+REPO = Path(__file__).resolve().parents[2]
+DATA_PATH = REPO / "data" / "tkh_collection10.json"
+OUTPUTS = REPO / "outputs"
 
 
 def load_tkh(path):
@@ -71,6 +74,18 @@ def build_snapshot(data, cutoff_year):
 
 def build_all_snapshots(data, cutoffs=SNAPSHOT_CUTOFFS):
     return {t: build_snapshot(data, t) for t in cutoffs}
+
+
+def load_hierarchy(year):
+    return json.loads((OUTPUTS / "snapshots" / str(year) / "hierarchy.json").read_text(encoding="utf-8"))
+
+
+def update_metrics(section, value):
+    """Replace one top-level section of outputs/metrics.json, keeping the rest."""
+    path = OUTPUTS / "metrics.json"
+    metrics = json.loads(path.read_text(encoding="utf-8"))
+    metrics[section] = value
+    path.write_text(json.dumps(metrics, indent=2), encoding="utf-8")
 
 
 def describe_snapshot(snap):

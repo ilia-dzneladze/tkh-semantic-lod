@@ -7,8 +7,9 @@ Usage: export_release.py RECORD_DIR [RELEASE_DIR]
 
 RECORD_DIR comes from `reproduce_all.py --record RECORD_DIR` on a clean
 tree, or is an existing release/model_outputs (to re-export after a
-commit, so environment.json names the right code). Everything below is read back through replay, so each vector is bit
-for bit the one the pipeline used. See DESIGN_NOTES.md section 23.
+commit, so environment.json names the right code). Everything is read
+back through replay, so each vector is bit for bit the one the pipeline
+used. See DESIGN_NOTES.md section 23.
 """
 import hashlib
 import json
@@ -34,13 +35,6 @@ def sha256(path):
         for chunk in iter(lambda: f.read(1 << 20), b""):
             h.update(chunk)
     return h.hexdigest()
-
-
-def _partition(labels, ids):
-    groups = {}
-    for nid, lab in zip(ids, labels):
-        groups.setdefault(int(lab), set()).add(nid)
-    return {frozenset(g) for g in groups.values()}
 
 
 def _versions():
@@ -72,8 +66,9 @@ def main():
                  f"recording isn't a single consistent run. Record again.")
     os.environ[ENV_VAR] = f"replay:{record}"
 
-    from tkh.io import load_tkh, build_all_snapshots, DATA_PATH
+    from tkh.io import load_tkh, build_all_snapshots, load_hierarchy, DATA_PATH
     from tkh.pipeline import embed_concepts, ALPHA, KNN_K, LEVEL_TARGETS
+    from tkh.temporal import clusters_from_labels
     from tkh.hypergraph import build_structural_affinity
     from tkh.embeddings import encode_semantic, semantic_knn_graph, _MODEL_NAME, _MODEL_REVISION
     from tkh.cluster import combine_affinities, sparse_upgma, cut_to_k_clusters
@@ -113,13 +108,13 @@ def main():
         snap = snaps[year]
         ids_y = sorted(snap.concept_ids)
         emb = np.stack([cache[n] for n in ids_y])
-        A_struct, _, _ = build_structural_affinity(snap, weighted=True)
+        A_struct, _ = build_structural_affinity(snap)
         Z, forced = sparse_upgma(combine_affinities(A_struct, semantic_knn_graph(emb, k=KNN_K), alpha=ALPHA),
                                  len(ids_y))
-        h = json.loads((ROOT / "outputs" / "snapshots" / str(year) / "hierarchy.json").read_text(encoding="utf-8"))
+        h = load_hierarchy(year)
         for level, k in enumerate(LEVEL_TARGETS):
             shipped = {frozenset(sn["member_ids"]) for sn in h["super_nodes"] if sn["level"] == level}
-            if _partition(cut_to_k_clusters(Z, len(ids_y), k), ids_y) != shipped:
+            if set(clusters_from_labels(cut_to_k_clusters(Z, len(ids_y), k), ids_y).values()) != shipped:
                 sys.exit(f"linkage for {year} doesn't cut into the shipped level-{level} partition; "
                          f"the outputs and the recording come from different runs")
         np.savez(release / f"linkage_{year}.npz", node_ids=np.array(ids_y), Z=Z, forced=forced)
@@ -147,9 +142,10 @@ def main():
         git_commit=env["git_commit"] + (" plus uncommitted changes" if env["git_dirty"] else "")),
         encoding="utf-8")
 
-    # figures are left out: matplotlib's PNG bytes aren't stable across versions
+    # figures are left out: matplotlib's output bytes aren't stable across
+    # versions, and the PDFs aren't in the repo at all
     listed = [(p, p.relative_to(ROOT)) for p in sorted((ROOT / "outputs").rglob("*"))
-              if p.is_file() and p.suffix != ".png"]
+              if p.is_file() and "figures" not in p.relative_to(ROOT / "outputs").parts]
     listed += [(p, Path("release") / p.relative_to(release)) for p in sorted(release.rglob("*"))
                if p.is_file() and p.name != "SHA256SUMS.txt"]
     lines = [f"{sha256(p)}  {rel.as_posix()}" for p, rel in listed]

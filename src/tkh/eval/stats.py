@@ -1,8 +1,23 @@
-"""Small statistics helpers shared by the faithfulness and blind-rating
-evaluations: Wilson intervals for rates, a one-sided binomial test against
-a chance rate, and Cohen's kappa with a bootstrap CI."""
+"""Small statistics helpers: a t-interval for a mean, Wilson intervals for
+rates, a one-sided binomial test against chance, and Cohen's kappa with a
+bootstrap CI."""
 import numpy as np
 from scipy import stats as scipy_stats
+
+
+def mean_ci95(values):
+    """(mean, sample std, 95% t-interval for the mean). With fewer than two
+    values, or no spread, the interval is just the mean."""
+    arr = np.array(values, dtype=float)
+    mean = float(arr.mean())
+    if len(arr) < 2:
+        return mean, 0.0, [mean, mean]
+    std = float(arr.std(ddof=1))
+    sem = std / np.sqrt(len(arr))
+    if sem == 0:
+        return mean, std, [mean, mean]
+    lo, hi = scipy_stats.t.interval(0.95, len(arr) - 1, loc=mean, scale=sem)
+    return mean, std, [float(lo), float(hi)]
 
 
 def wilson_ci(k, n, z=1.96):

@@ -1,36 +1,23 @@
-"""T4: hyper-edge collapse rule.
+"""T4: the hyperedge collapse rule.
 
-m = n (all endpoints in one super-node) -> internal, dropped from the
-coarse graph, counted as an internal-density stat instead.
-Spans exactly 2 super-nodes -> pairwise edge.
-Spans 3+ super-nodes -> stays a genuine hyperedge, not exploded into a
-clique of pairwise edges.
+Map each hyperedge's members to their super-nodes, then:
+  all in one super-node   -> internal: dropped, counted per super-node
+  exactly two super-nodes -> a pairwise edge
+  three or more           -> stays one hyperedge, not exploded into pairs
+Why, and what it loses: DESIGN_NOTES.md section 9.
 
-Full rationale and the clique-blowup numbers: DESIGN_NOTES.md section 9.
-
-Context nodes (article/author) pass through as singleton "super-nodes"
-identified by their own id, so collapse_hyperedge has one code path.
+Articles and authors aren't clustered, so they pass through as singleton
+super-nodes under their own id.
 """
 from collections import Counter, defaultdict
 
-
-def _full_mapping(mapping, snap):
-    """Extend a concept-node cluster mapping with identity entries for
-    context nodes (article/author), so every member id in a hyperedge has
-    a supernode to resolve to."""
-    full = dict(mapping)
-    for nid in snap.nodes:
-        if nid not in full:
-            full[nid] = nid
-    return full
+from tkh.hypergraph import clique_expansion
 
 
 def collapse_hyperedge(edge, mapping):
     members = edge.get("members", [])
-    targets = [mapping[m] for m in members]
-    counts = Counter(targets)
-    distinct = list(counts.keys())
-
+    counts = Counter(mapping[m] for m in members)
+    distinct = list(counts)
     if len(distinct) <= 1:
         return {
             "kind": "internal",
@@ -50,101 +37,45 @@ def collapse_hyperedge(edge, mapping):
 
 
 def build_coarse_hyperedges(hyperedges, mapping, snap):
-    """Apply collapse_hyperedge to every edge, aggregate duplicates (same
-    super-node-set from different original edges) into one weighted coarse
-    edge, and separately track per-super-node internal-edge statistics."""
-    full_mapping = _full_mapping(mapping, snap)
-
-    agg = defaultdict(lambda: {
-        "weight": 0, "source_edge_ids": [], "relation_type_counts": Counter(),
-        "total_original_arity": 0,
-    })
+    """Collapse every edge. Edges that land on the same set of super-nodes
+    merge into one coarse edge with a count (weight). Returns (coarse
+    edges, internal-edge stats per super-node, summary counts)."""
+    full_mapping = {nid: mapping.get(nid, nid) for nid in snap.nodes}
+    merged = defaultdict(lambda: {"weight": 0, "source_edge_ids": [], "relation_type_counts": Counter()})
     internal_stats = defaultdict(lambda: {"edge_count": 0, "member_count": 0})
 
     for e in hyperedges:
         result = collapse_hyperedge(e, full_mapping)
         if result["kind"] == "internal":
-            if result["supernode"] is None:
-                continue
-            s = internal_stats[result["supernode"]]
-            s["edge_count"] += 1
-            s["member_count"] += result["collapsed_member_count"]
+            if result["supernode"] is not None:
+                s = internal_stats[result["supernode"]]
+                s["edge_count"] += 1
+                s["member_count"] += result["collapsed_member_count"]
         else:
-            key = tuple(result["members"])
-            a = agg[key]
-            a["weight"] += 1
-            a["source_edge_ids"].append(result["source_edge_id"])
-            a["relation_type_counts"][result["relation_type"]] += 1
-            a["total_original_arity"] += result["original_arity"]
+            m = merged[tuple(result["members"])]
+            m["weight"] += 1
+            m["source_edge_ids"].append(result["source_edge_id"])
+            m["relation_type_counts"][result["relation_type"]] += 1
 
-    coarse_edges = []
-    for key, info in agg.items():
-        coarse_edges.append({
-            "members": list(key),
-            "arity": len(key),
-            "weight": info["weight"],
-            "source_edge_ids": info["source_edge_ids"],
-            "relation_type_counts": dict(info["relation_type_counts"]),
-        })
-
-    n_pairwise = sum(1 for c in coarse_edges if c["arity"] == 2)
-    n_hyper = sum(1 for c in coarse_edges if c["arity"] > 2)
-    n_internal_edges = sum(s["edge_count"] for s in internal_stats.values())
+    coarse_edges = [{"members": list(key), "arity": len(key), "weight": m["weight"],
+                     "source_edge_ids": m["source_edge_ids"],
+                     "relation_type_counts": dict(m["relation_type_counts"])}
+                    for key, m in merged.items()]
     summary = {
         "n_coarse_edges": len(coarse_edges),
-        "n_pairwise": n_pairwise,
-        "n_genuine_hyperedges": n_hyper,
-        "n_internal_edges_dropped": n_internal_edges,
+        "n_pairwise": sum(1 for c in coarse_edges if c["arity"] == 2),
+        "n_genuine_hyperedges": sum(1 for c in coarse_edges if c["arity"] > 2),
+        "n_internal_edges_dropped": sum(s["edge_count"] for s in internal_stats.values()),
         "n_original_edges": len(hyperedges),
     }
     return coarse_edges, dict(internal_stats), summary
 
 
 def coarse_structural_affinity(coarse_edges, super_ids):
-    """Structural affinity between super-nodes, computed from the output of
-    build_coarse_hyperedges. Each coarse edge is restricted to its
-    super-node members (context singletons dropped, as at the fine level),
-    and one spanning k super-nodes adds weight/(k-1) to each of its pairs.
-    Edges touching fewer than 2 super-nodes are internal and add nothing.
-    Returns a symmetric sparse matrix indexed like super_ids.
-    See DESIGN_NOTES.md section 9."""
-    import scipy.sparse as sp
-
+    """Structural affinity between super-nodes from the collapsed edges: the
+    same weighted clique expansion as at the fine level, over each coarse
+    edge's super-node members (context singletons dropped), scaled by the
+    edge's weight. Rows follow super_ids. DESIGN_NOTES.md section 9."""
     idx = {s: i for i, s in enumerate(super_ids)}
-    pair_weight = defaultdict(float)
-    for c in coarse_edges:
-        members = [idx[m] for m in c["members"] if m in idx]
-        k = len(members)
-        if k < 2:
-            continue
-        share = c["weight"] / (k - 1)
-        for i in range(k):
-            for j in range(i + 1, k):
-                a, b = sorted((members[i], members[j]))
-                pair_weight[(a, b)] += share
-    n = len(super_ids)
-    rows, cols, vals = [], [], []
-    for (a, b), w in pair_weight.items():
-        rows += [a, b]
-        cols += [b, a]
-        vals += [w, w]
-    return sp.csr_matrix((vals, (rows, cols)), shape=(n, n))
-
-
-def clique_explosion_comparison(coarse_edges):
-    """Pairwise edges a clique expansion would add vs. the 1 coarse
-    hyperedge kept per group. See DESIGN_NOTES.md section 9."""
-    total_clique_pairs = 0
-    total_native_edges = 0
-    for c in coarse_edges:
-        if c["arity"] > 2:
-            k = c["arity"]
-            total_clique_pairs += k * (k - 1) // 2
-            total_native_edges += 1
-    return {
-        "genuine_hyperedges_kept": total_native_edges,
-        "pairwise_edges_clique_alternative_would_add": total_clique_pairs,
-        "blowup_factor": (
-            total_clique_pairs / total_native_edges if total_native_edges else 0.0
-        ),
-    }
+    groups = [[idx[m] for m in c["members"] if m in idx] for c in coarse_edges]
+    return clique_expansion(groups, len(super_ids), weights=[c["weight"] for c in coarse_edges])

@@ -1,4 +1,7 @@
-"""T1: load the TKH export, slice into snapshots, print/save descriptive stats."""
+"""T1: slice the TKH export into snapshots and describe each one.
+Writes outputs/t1_snapshot_stats.json. Also prints how much of the pair
+weight comes from hyperedges with more than 10 concept members, with and
+without the 1/(k-1) weighting (DESIGN_NOTES.md sections 3 and 4)."""
 import json
 import sys
 from pathlib import Path
@@ -6,9 +9,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
-from tkh.io import load_tkh, build_all_snapshots, describe_snapshot, DATA_PATH  # noqa: E402
+from tkh.io import load_tkh, build_all_snapshots, describe_snapshot, DATA_PATH, OUTPUTS  # noqa: E402
+from tkh.hypergraph import high_arity_weight_share  # noqa: E402
 
-OUT_PATH = ROOT / "outputs" / "t1_snapshot_stats.json"
+OUT_PATH = OUTPUTS / "t1_snapshot_stats.json"
 
 
 def main():
@@ -39,6 +43,9 @@ def main():
         print(f"  nodes first seen after the cutoff, kept anyway: "
               f"{stats['n_nodes_first_seen_after_cutoff']} "
               f"({stats['n_concept_nodes_first_seen_after_cutoff']} concept nodes)")
+        unweighted, weighted = high_arity_weight_share(snap)
+        print(f"  pair weight from hyperedges with >10 concept members: "
+              f"{unweighted:.0%} unweighted, {weighted:.0%} with 1/(k-1)")
 
     OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUT_PATH.write_text(json.dumps(report, indent=2), encoding="utf-8")

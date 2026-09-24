@@ -31,13 +31,14 @@ import numpy as np
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
-from tkh.io import load_tkh, build_snapshot, SNAPSHOT_CUTOFFS, DATA_PATH  # noqa: E402
+from tkh.io import (  # noqa: E402
+    load_tkh, build_snapshot, load_hierarchy, update_metrics, SNAPSHOT_CUTOFFS, DATA_PATH, OUTPUTS)
 from tkh.eval.blind import (  # noqa: E402
     make_intruder_items, score_intruder, make_gloss_items, score_gloss_ratings,
     rating_reply_problems, glosses_not_applied)
 from tkh.replies import extract_json  # noqa: E402
 
-BLIND_DIR = ROOT / "outputs" / "blind_eval"
+BLIND_DIR = OUTPUTS / "blind_eval"
 INTRUDER_YEAR = 2026
 INTRUDER_PER_LEVEL = {0: 12, 1: 24, 2: 24}
 INTRUDER_NULL = 20
@@ -92,8 +93,7 @@ def make(out_dir, intruder_instructions=INTRUDER_INSTRUCTIONS, gloss_instruction
     out_dir.mkdir(parents=True, exist_ok=True)
     data = load_tkh(DATA_PATH)
     snaps = {y: build_snapshot(data, y) for y in SNAPSHOT_CUTOFFS}
-    hier = {y: json.loads((ROOT / "outputs" / "snapshots" / str(y) / "hierarchy.json").read_text(encoding="utf-8"))
-            for y in SNAPSHOT_CUTOFFS}
+    hier = {y: load_hierarchy(y) for y in SNAPSHOT_CUTOFFS}
 
     rng = np.random.default_rng(SEED)
     items, key = make_intruder_items(hier[INTRUDER_YEAR], snaps[INTRUDER_YEAR],
@@ -159,10 +159,8 @@ def import_ratings(ratings_dir, intruder_reply, gloss_reply, rater):
 def _check_labels_match(gloss_items):
     """Gloss ratings only mean something for the labels they were made
     from; every rated gloss must be one currently applied."""
-    applied = set()
-    for year in SNAPSHOT_CUTOFFS:
-        h = json.loads((ROOT / "outputs" / "snapshots" / str(year) / "hierarchy.json").read_text(encoding="utf-8"))
-        applied |= {sn["gloss"] for sn in h["super_nodes"] if sn.get("gloss")}
+    applied = {sn["gloss"] for year in SNAPSHOT_CUTOFFS for sn in load_hierarchy(year)["super_nodes"]
+               if sn.get("gloss")}
     foreign = glosses_not_applied(gloss_items, applied)
     if foreign:
         sys.exit(f"{len(foreign)} rated glosses aren't in the labels applied to hierarchy.json "
@@ -184,10 +182,7 @@ def score(ratings_dir=BLIND_DIR):
     if ratings_dir.resolve() != BLIND_DIR.resolve():
         out["ratings_dir"] = str(ratings_dir)
 
-    metrics_path = ROOT / "outputs" / "metrics.json"
-    metrics = json.loads(metrics_path.read_text(encoding="utf-8"))
-    metrics["blind_eval"] = out
-    metrics_path.write_text(json.dumps(metrics, indent=2), encoding="utf-8")
+    update_metrics("blind_eval", out)
 
     i = out["intruder"]
     print(f"intruder real {i['real']['k']}/{i['real']['n']} CI {np.round(i['real']['ci95'], 3).tolist()}, "
@@ -201,7 +196,7 @@ def score(ratings_dir=BLIND_DIR):
           f"CI {np.round(g['agreement_wrong_vs_contradiction']['ci95'], 2).tolist()}; "
           f"3-way {g['agreement_3way']['kappa']:.2f}; real NLI-not-entailed rated accurate "
           f"{g['real_nli_not_entailed_rated_accurate']['k']}/{g['real_nli_not_entailed_rated_accurate']['n']}")
-    print(f"wrote {metrics_path} [blind_eval]")
+    print("wrote outputs/metrics.json [blind_eval]")
 
 
 def _instructions(path, default):
