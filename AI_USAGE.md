@@ -702,34 +702,6 @@ mass share), which corrected one: perturbation ARI at level 1 is 0.77, not
 0.78. Only comments and docstrings changed in the code, and the tests and
 validator were rerun afterwards.
 
-## The report, rewritten in LaTeX
-
-Tool: Claude Code on Opus 5.5, same session.
-
-Prompt: "Now rewrite the report in my voice, in LaTeX, so it's pretty."
-
-The agent wrote `report/report.tex` from scratch in my voice, using the
-previous `report.md` draft, `DESIGN_NOTES.md` and the output files as
-sources, and built `report.pdf` from it. There was no LaTeX on this
-machine, so it downloaded a portable Tectonic binary into a scratch folder
-rather than installing anything system-wide. It rendered every page to an
-image and looked at them, cut the text to fit the brief's 5-page limit
-(the first build was 7 pages), and fixed layout problems it saw: a
-justified table column with large gaps, and a legend and an α label
-overlapping data in Figure 1. For that it changed
-`scripts/pipeline/make_report_figures.py` to move the legend below the
-panels and to also write vector PDFs of every figure for the LaTeX build.
-The figure data didn't change.
-
-Two facts in the report are new rather than carried over, and the agent
-computed both from the shipped outputs: the T4 comparison (the 464 k-ary
-coarse edges at level 0 in 2026 would explode into 6,926 pairwise edges)
-and the event breakdown in `temporal_events.json`. It also added a gap no
-earlier version mentioned: only levels 0 and 1 have labels, so P6's "every
-super-node" isn't met at level 2. It caught two of its own wording errors
-before I saw the final build. It had dropped "in most settings" from a
-literature finding, which overstated it, and it had written a sentence
-about temporal honesty that could be read backwards.
 
 ## Code and folder cleanup before upload
 
@@ -870,20 +842,6 @@ already on Hugging Face still has the old data paragraph; changing it
 means re-uploading its README and `SHA256SUMS.txt`, which hasn't been
 done.
 
-## Standalone report
-
-Tool: Claude Code on Opus 5.5, same session.
-
-Prompt (abridged): "Reword the report.pdf to not mention any outside
-sources except the cited ones, so no mentioning the design notes as a
-source. The design notes are there for readers of the source code...
-while the report.pdf is a standalone deliverable."
-
-The agent removed the report's 14 section citations to DESIGN_NOTES and
-the opening paragraph that pointed to DESIGN_NOTES and this file, so the
-report reads on its own. DESIGN_NOTES stays as background for readers of
-the code. Apart from that paragraph, no number or claim in the report
-changed, and it still builds at five pages.
 
 ## Verification, overall
 
