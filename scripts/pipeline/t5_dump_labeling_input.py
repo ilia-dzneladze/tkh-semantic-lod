@@ -22,14 +22,13 @@ import json
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
-from tkh.io import load_tkh, build_all_snapshots, SNAPSHOT_CUTOFFS  # noqa: E402
+from tkh.io import load_tkh, build_all_snapshots, SNAPSHOT_CUTOFFS, DATA_PATH  # noqa: E402
 from tkh.labeling import (  # noqa: E402
     write_labeling_input, write_labeller_request, validate_template, LABEL_PROMPT_TEMPLATE, TEMPLATE_FILE)
 
-DATA_PATH = ROOT / "data" / "tkh_collection10.json"
 SHIPPED = ROOT / "outputs" / "snapshots"
 
 
@@ -67,7 +66,7 @@ def main():
     if args.out:
         print(f"\nGive each <year>/labeller_request.md to your labeller, save each reply as "
               f"labels_<year>.json in one folder, then:\n"
-              f"  python scripts/t5_import_labels.py REPLY_FOLDER --set {args.out}")
+              f"  python scripts/pipeline/t5_import_labels.py REPLY_FOLDER --set {args.out}")
 
 
 if __name__ == "__main__":

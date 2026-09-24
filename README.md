@@ -40,10 +40,12 @@ text can embed differently in the last float bits depending on hardware,
 libraries and even batch composition (`DESIGN_NOTES.md` section 23).
 
 Every model output from my run, plus a SHA-256 checksum of every result,
-is published as a Hugging Face dataset. Download it into `release/`, then:
+is published as a public Hugging Face dataset,
+[iliadzneladze/tkh-multires-outputs](https://huggingface.co/datasets/iliadzneladze/tkh-multires-outputs).
+Download it into `release/`, then:
 
 ```
-hf download <owner>/<dataset> --repo-type dataset --local-dir release
+hf download iliadzneladze/tkh-multires-outputs --repo-type dataset --local-dir release
 
 # do my results follow from my model outputs? (replay, no model download)
 python scripts/reproduce_all.py --replay release/model_outputs
@@ -57,8 +59,9 @@ If the replay matches and your own run doesn't, the difference is in the
 model outputs, not the code, and `compare-embeddings` shows whether it's
 big enough to change any nearest neighbours. The release is built by
 recording a full run (`reproduce_all.py --record DIR`) and exporting it
-(`export_release.py DIR`), which refuses to write anything unless the
-recorded merge trees cut back into the shipped hierarchies exactly.
+(`scripts/release/export_release.py DIR`), which refuses to write anything
+unless the recorded merge trees cut back into the shipped hierarchies
+exactly.
 
 ## Labels and blind ratings: the sample sets, or your own
 
@@ -79,17 +82,17 @@ like:
 
 ```
 # 1. prompts for a new label set; --template is optional
-python scripts/t5_dump_labeling_input.py --out my_labels --template my_prompt.txt
+python scripts/pipeline/t5_dump_labeling_input.py --out my_labels --template my_prompt.txt
 #    give each my_labels/<year>/labeller_request.md to your labeller and
 #    save each reply as replies/labels_<year>.json (fenced JSON is fine)
-python scripts/t5_import_labels.py replies --set my_labels
-python scripts/t5_apply_labels.py --labels my_labels
+python scripts/pipeline/t5_import_labels.py replies --set my_labels
+python scripts/pipeline/t5_apply_labels.py --labels my_labels
 
 # 2. blind-rating packets for those labels; instruction files are optional
-python scripts/blind_eval.py make --out my_blind --intruder-instructions intr.txt --gloss-instructions gloss.txt
+python scripts/pipeline/blind_eval.py make --out my_blind --intruder-instructions intr.txt --gloss-instructions gloss.txt
 #    give my_blind/intruder_rater_prompt.md and gloss_rater_prompt.md to a
 #    rater who has NOT seen the labels, keys or repo; save the two replies
-python scripts/blind_eval.py import my_blind --intruder intruder_reply.txt --gloss gloss_reply.txt --rater "who rated"
+python scripts/pipeline/blind_eval.py import my_blind --intruder intruder_reply.txt --gloss gloss_reply.txt --rater "who rated"
 
 # 3. the whole run on your sets
 python scripts/reproduce_all.py --labels my_labels --blind my_blind
@@ -99,7 +102,7 @@ A prompt template is a text file with placeholders from `{year}`,
 `{sample_n}`, `{total_n}`, `{type_line}` and `{member_lines}`. It must use
 `{member_lines}`, and literal braces must be doubled. Rater instruction
 files must contain `{n_items}`. The defaults are in `src/tkh/labeling.py`
-and `scripts/blind_eval.py`. The imports check every reply (every item
+and `scripts/pipeline/blind_eval.py`. The imports check every reply (every item
 answered, word limits, valid answers) and write nothing if anything is
 wrong, and scoring refuses a rating set made for different labels than
 the ones applied. `--replay` doesn't combine with your own sets, because
@@ -129,19 +132,19 @@ and the index, but I haven't run the Linux install end to end.
 The steps `reproduce_all.py` runs, in order:
 
 ```
-python scripts/t1_describe.py              # T1 snapshot statistics, seconds
-python scripts/run_pipeline.py             # T2-T4: hierarchies + temporal events, 1.5-5 min
-python scripts/t5_apply_labels.py          # required: run_pipeline writes labels as null
-python scripts/validate_hierarchy.py       # laminarity and id checks
-python -m pytest tests -q                  # unit tests
+python scripts/pipeline/t1_describe.py              # T1 snapshot statistics, seconds
+python scripts/pipeline/run_pipeline.py             # T2-T4: hierarchies + temporal events, 1.5-5 min
+python scripts/pipeline/t5_apply_labels.py          # required: run_pipeline writes labels as null
+python scripts/pipeline/validate_hierarchy.py       # laminarity and id checks
+python -m pytest tests -q                           # unit tests
 
-python scripts/t6_evaluate.py              # T6: fresh metrics.json, 15-20 min
-python scripts/t6_patch_extrinsic.py       # leave-one-out, routing, sweeps, ~5 min
-python scripts/hypergraph_shuffle_null.py  # degree/arity-preserving null, 4-10 min
-python scripts/structural_holdout.py       # held-out hyperedges across alpha, 4-16 min
-python scripts/localisation.py             # is change localised, ~3 min
-python scripts/blind_eval.py score         # blind intruder + gloss ratings into metrics.json
-python scripts/make_report_figures.py      # figures from metrics.json
+python scripts/pipeline/t6_evaluate.py              # T6: fresh metrics.json, 15-20 min
+python scripts/pipeline/t6_extrinsic.py             # leave-one-out, routing, sweeps, ~5 min
+python scripts/pipeline/hypergraph_shuffle_null.py  # degree/arity-preserving null, 4-10 min
+python scripts/pipeline/structural_holdout.py       # held-out hyperedges across alpha, 4-16 min
+python scripts/pipeline/localisation.py             # is change localised, ~3 min
+python scripts/pipeline/blind_eval.py score         # blind intruder + gloss ratings into metrics.json
+python scripts/pipeline/make_report_figures.py      # figures from metrics.json
 ```
 
 To rebuild the report after the figures, with any LaTeX setup that has
@@ -155,11 +158,11 @@ from, and stops with an error otherwise. So if you change the clustering
 (`DESIGN_NOTES.md` section 19). A full `t6_evaluate.py` run starts
 `metrics.json` from scratch and every later step adds its own section,
 which is why the order matters. Passing section names reruns only those,
-e.g. `python scripts/t6_evaluate.py faithfulness`.
+e.g. `python scripts/pipeline/t6_evaluate.py faithfulness`.
 
 ## Follow-up experiments
 
-The other scripts in `scripts/` are the follow-up experiments behind the
+`scripts/experiments/` holds the follow-up experiments behind the
 decision rules in `DESIGN_NOTES.md` section 15: `alpha_sweep`,
 `level0_skew_check`, `temporal_threshold_sweep`, `warm_start_sweep`,
 `rerank_sweep`, `coarsening_compare`, `label_routing`, `pair_overlap`,
@@ -177,7 +180,10 @@ src/tkh/              the method: io, hypergraph, embeddings, cluster,
                       collapse, temporal, pipeline, labeling
 src/tkh/eval/         T6: coherence, stability, faithfulness, extrinsic,
                       blind judgements, shared statistics
-scripts/              runnable entry points
+scripts/              reproduce_all.py (the one command), verify_release.py
+  pipeline/           the steps reproduce_all.py runs, in order
+  experiments/        follow-up experiments (DESIGN_NOTES.md section 15)
+  release/            building the Hugging Face release
 tests/                unit tests
 outputs/              hierarchy.json and labels per snapshot,
                       temporal_events.json, metrics.json, blind_eval/,

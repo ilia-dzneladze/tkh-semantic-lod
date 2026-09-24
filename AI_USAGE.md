@@ -133,7 +133,7 @@ alpha ablation, keep them in a seperate ignored file called FIXES.md, and
 if a fix will bring betterment then keep it and commit. generate the plan
 and start the alpha sweep: 5-95, 10-90, 15-85, ..., 95-5"
 
-The agent wrote `scripts/alpha_sweep.py` (19 values, scored on coherence
+The agent wrote `scripts/experiments/alpha_sweep.py` (19 values, scored on coherence
 and stability only, the metrics that don't need labels). Before trusting a
 19-value run it smoke-tested alpha=0.5 alone, which reproduced the shipped
 numbers to the digit. The decision rule was written before the sweep in
@@ -165,7 +165,7 @@ and conclude"
 Before any code, I had the agent work out why no branching value could
 beat flat: drill-down ranks a subset of flat's pool with flat's own
 scoring function, so parity is the ceiling. It wrote
-`scripts/rerank_sweep.py` to blend each candidate's own score with its
+`scripts/experiments/rerank_sweep.py` to blend each candidate's own score with its
 level-1 ancestor's label+gloss score, with the rule (beat flat outright at
 no more candidates than the (8, 8) pool) written down first. beta=0.6
 passed, recall 0.0423 against 0.0325, and the gain held against the full
@@ -242,7 +242,7 @@ The agent wrote the keep-or-discard rule into DESIGN_NOTES section 15
 before running anything, then implemented `coarsen_one_level` in
 `pipeline.py` and `coarse_structural_affinity` in `collapse.py`, and
 refactored clustering into one `build_levels` function shared by the
-pipeline and the perturbation check. `scripts/coarsening_compare.py` first
+pipeline and the perturbation check. `scripts/experiments/coarsening_compare.py` first
 checks that the refactored dendrogram path reproduces the shipped
 hierarchies exactly, which it does.
 
@@ -308,7 +308,7 @@ The agent wrote the rule into DESIGN_NOTES section 15 first, then added
 `leave_one_out_select` and `paired_comparison` to `eval/extrinsic.py`,
 with four tests, one checking that a held-out question's own score can't
 influence the setting chosen for it. It extended
-`scripts/t6_patch_extrinsic.py` to write the leave-one-out result, the
+`scripts/pipeline/t6_extrinsic.py` to write the leave-one-out result, the
 in-sample comparison and the routing curves into `metrics.json`, and added
 a routing figure, checking its two colours with the dataviz skill's
 palette validator and looking at the rendered image before using it.
@@ -329,7 +329,7 @@ Rule first, into DESIGN_NOTES section 15. The agent found that every edge
 has a `provenance.article_id` and added whole-paper holdout as a stricter
 second scheme next to random-edge holdout, since edges from one paper are
 correlated. It added `heldout_edge_cohesion` to `eval/coherence.py` with
-two tests, wrote `scripts/structural_holdout.py` (7 alphas, 2 schemes, 5
+two tests, wrote `scripts/pipeline/structural_holdout.py` (7 alphas, 2 schemes, 5
 seeds, TF-IDF coherence on the same clusterings) and a trade-off figure.
 After rendering the figure it replaced an alpha label that sat next to the
 wrong series with a ring on the shipped alpha. It also found alpha=1.0 is
@@ -357,7 +357,7 @@ al. (No-Smoothing against smoothed dynamic community detection), SHyPar
 (local against spectral coarsening) and DeWolfe and Theberge (edge
 clustering, overlapping communities). It left out Gong et al., Kirkley
 and FeClustRE as less relevant. Since Ruggeri et al. make a testable
-claim, it wrote `scripts/pair_overlap.py` to count how often concept pairs
+claim, it wrote `scripts/experiments/pair_overlap.py` to count how often concept pairs
 recur across hyperedges and papers (1.7% across papers in 2026) and used
 that to explain the weak paper-level held-out result.
 
@@ -377,7 +377,7 @@ Prompt: "yes, start with the localisation test"
 
 Rule first: per-cluster churn against the share of new hyperedges around
 the cluster, Spearman with a bootstrap CI, cluster size partialled out.
-Then `scripts/localisation.py`, which reads the shipped hierarchies and
+Then `scripts/pipeline/localisation.py`, which reads the shipped hierarchies and
 doesn't depend on the section 10 event thresholds. The test failed at
 every level. Before writing that up, the agent broke the result down by
 transition and checked the exposure ranges to rule out a bug or a pooling
@@ -457,7 +457,7 @@ Findings I acted on, and what I had it do:
   count rather than filter and relabel (section 2).
 - alpha isn't the mixing weight it reads as. It measured the structural
   share of the affinity mass, about 7% at alpha=0.3, and I had it write
-  `scripts/affinity_mass_share.py` so the number is reproducible (section
+  `scripts/experiments/affinity_mass_share.py` so the number is reproducible (section
   17).
 - The perturbation stability measure only removes hyperedges, so it
   rewards ignoring the hypergraph, and alpha was partly selected on it.
@@ -513,9 +513,9 @@ What it built, and what was checked:
   the full ARI, and added a many-small-clusters test that the old
   estimator fails. I accepted it once every interval contained its
   estimate.
-- Coherence independence (6). `scripts/signal_overlap.py` makes the
+- Coherence independence (6). `scripts/experiments/signal_overlap.py` makes the
   TF-IDF/MPNet overlap reproducible, and the blind intruder test is in
-  `eval/blind.py` and `scripts/blind_eval.py`.
+  `eval/blind.py` and `scripts/pipeline/blind_eval.py`.
 - Faithfulness (7). Wilson CIs on every rate, a blind gloss rating
   compared with NLI on identical items, and a check against source-paper
   titles.
@@ -606,9 +606,10 @@ path hadn't changed, rewrote the script to take the folder as an argument,
 and reran. It stopped one replay run partway because the localisation fix
 had made it obsolete.
 
-I did the upload myself. Because the release is derived from
-Constructor's TKH export, the agent suggested a private dataset unless
-they agree otherwise.
+I did the upload myself. The export it's derived from ships in this
+public repo anyway, so the dataset is public too
+(`iliadzneladze/tkh-multires-outputs`), and the agent switched its
+visibility at my request.
 
 ## One-command reproduction, and custom label and rating sets
 
@@ -695,7 +696,7 @@ image and looked at them, cut the text to fit the brief's 5-page limit
 (the first build was 7 pages), and fixed layout problems it saw: a
 justified table column with large gaps, and a legend and an α label
 overlapping data in Figure 1. For that it changed
-`scripts/make_report_figures.py` to move the legend below the panels and
+`scripts/pipeline/make_report_figures.py` to move the legend below the panels and
 to also write vector PDFs of every figure for the LaTeX build. The figure
 data didn't change.
 
@@ -709,6 +710,42 @@ before I saw the final build. It had dropped "in most settings" from a
 literature finding, which overstated it, and it had written a sentence
 about temporal honesty that could be read backwards.
 
+## Code and folder cleanup before upload
+
+Tool: Claude Code on Opus 5.5, same session.
+
+Prompt: "Is the code readable and easy to understand and manuever through?
+maybe some file/folder management? I am really close to uploading"
+
+The agent reviewed the layout and code and reported what a reviewer would
+trip on, then asked how much to change so close to upload. I chose the
+cleanup plus a folder split. What it changed:
+
+- `scripts/` was one flat folder of 26 files. It is now `pipeline/` (the
+  steps `reproduce_all.py` runs), `experiments/` (the section 15 sweeps)
+  and `release/`. `reproduce_all.py` and `verify_release.py` stayed at the
+  top because the published Hugging Face card points at those paths.
+  `t6_patch_extrinsic.py` became `t6_extrinsic.py`, since it's a required
+  step and not a patch. Every path in the docs, the report source and the
+  code messages was updated, and a check confirmed every referenced script
+  path exists.
+- Settings that had been copied into scripts (`ALPHA`, `LEVEL_TARGETS`,
+  the k-NN size and the data path) are now imported from `src/tkh`, so
+  changing the pipeline can't leave an experiment on an old value. The
+  values were identical, so nothing about the results changed.
+- Dead code removed: `t2_build_hierarchy.py`, an early smoke test still on
+  alpha=0.5, and two functions in `eval/extrinsic.py` that nothing called.
+- The `.gitignore` had been ignoring itself, so the published repo had
+  none. It now holds only generic patterns, and the names of my private
+  working files moved to `.git/info/exclude`, which stays local.
+
+Verification: 61 tests pass, every script imports and resolves the repo
+root from its new location, and a full replay run in a clean copy of
+exactly the files that would be pushed reproduced all 45 outputs and all
+37 release files byte for byte against the published checksums. That run
+took 143 minutes of wall time, but the laptop was in standby for about two
+hours of it, according to the Windows power log.
+
 ## Verification, overall
 
 There are 61 unit tests now. They started at 16 (the T4 collapse rule, T3
@@ -718,7 +755,7 @@ paired statistics, the multilevel variants, the ground-truth matcher, the
 label staleness guard, the stability intervals, the blind packets and
 scoring, model-output record and replay, and custom label and rating
 sets. Affinity construction and the coherence null still have no direct
-tests. `scripts/validate_hierarchy.py` checks the laminar-partition
+tests. `scripts/pipeline/validate_hierarchy.py` checks the laminar-partition
 property exactly on every snapshot. Both were rerun after every
 non-trivial change, including cosmetic ones. The strongest check is the
 last one: a from-nothing run that reproduced all 45 output files byte for

@@ -18,14 +18,13 @@ import json
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
-from tkh.io import load_tkh, build_snapshot, SNAPSHOT_CUTOFFS  # noqa: E402
+from tkh.io import load_tkh, build_snapshot, SNAPSHOT_CUTOFFS, DATA_PATH  # noqa: E402
 from tkh.labeling import apply_labels_to_hierarchy, label_set_template  # noqa: E402
 
 OUT_DIR = ROOT / "outputs"
-DATA_PATH = ROOT / "data" / "tkh_collection10.json"
 
 
 def main():

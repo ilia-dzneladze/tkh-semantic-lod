@@ -13,10 +13,10 @@ from pathlib import Path
 import numpy as np
 from scipy import stats
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
-from tkh.io import load_tkh, build_snapshot  # noqa: E402
+from tkh.io import load_tkh, build_snapshot, DATA_PATH  # noqa: E402
 from tkh.pipeline import embed_concepts, KNN_K  # noqa: E402
 from tkh.embeddings import semantic_knn_graph  # noqa: E402
 
@@ -107,7 +107,7 @@ def summarise(rows, rng, key="exposure"):
 
 
 def main():
-    data = load_tkh(ROOT / "data" / "tkh_collection10.json")
+    data = load_tkh(DATA_PATH)
     snaps = {y: build_snapshot(data, y) for y in YEARS}
     clusters = {y: load_clusters(y) for y in YEARS}
     rng = np.random.default_rng(0)

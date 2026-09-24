@@ -9,10 +9,10 @@ from collections import defaultdict
 from itertools import combinations
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
-from tkh.io import load_tkh, build_snapshot  # noqa: E402
+from tkh.io import load_tkh, build_snapshot, DATA_PATH  # noqa: E402
 
 YEARS = [2020, 2022, 2024, 2026]
 
@@ -42,7 +42,7 @@ def pair_stats(snap):
 
 
 def main():
-    data = load_tkh(ROOT / "data" / "tkh_collection10.json")
+    data = load_tkh(DATA_PATH)
     out = {str(y): pair_stats(build_snapshot(data, y)) for y in YEARS}
     (ROOT / "outputs" / "pair_overlap.json").write_text(json.dumps(out, indent=2), encoding="utf-8")
     for y, s in out.items():

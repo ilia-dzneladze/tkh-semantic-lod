@@ -13,10 +13,10 @@ from pathlib import Path
 import numpy as np
 from scipy import stats
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
-from tkh.io import load_tkh, build_snapshot  # noqa: E402
+from tkh.io import load_tkh, build_snapshot, DATA_PATH  # noqa: E402
 from tkh.pipeline import build_levels, embed_concepts, KNN_K, LEVEL_TARGETS, ALPHA  # noqa: E402
 from tkh.embeddings import semantic_knn_graph  # noqa: E402
 from tkh.eval.coherence import fit_tfidf, coherence_vs_null, heldout_edge_cohesion  # noqa: E402
@@ -62,7 +62,7 @@ def split(snap, scheme, seed):
 
 
 def main():
-    snap = build_snapshot(load_tkh(ROOT / "data" / "tkh_collection10.json"), YEAR)
+    snap = build_snapshot(load_tkh(DATA_PATH), YEAR)
     cache = {}
     ids, emb = embed_concepts(snap, cache)
     A_sem = semantic_knn_graph(emb, k=KNN_K)

@@ -132,7 +132,7 @@ pretraining and no notion of synonymy.
 I first wrote that this made the check independent. It doesn't. TF-IDF
 reads the same surface forms MPNet does, and on short strings a shared
 word is most of what either model sees. Measured
-(`scripts/signal_overlap.py`, `outputs/signal_overlap.json`): 69% of the
+(`scripts/experiments/signal_overlap.py`, `outputs/signal_overlap.json`): 69% of the
 MPNet k-NN pairs at 2026 share at least one TF-IDF term, against 7% of
 random pairs, and a neighbour pair's mean TF-IDF cosine is 0.13 against
 0.003 (57% against 8% at 2020). So TF-IDF is a second view of the same
@@ -169,7 +169,7 @@ didn't build the two-stage version to compare, so that part is argued,
 not measured.
 
 alpha started at 0.5 as a placeholder. I swept 0.05 to 0.95 in steps of
-0.05 (`scripts/alpha_sweep.py`), scored on coherence against its null and
+0.05 (`scripts/experiments/alpha_sweep.py`), scored on coherence against its null and
 on both stability measures, the T6 metrics that don't need labels. 0.3 was
 the only value that beat 0.5 on every one of those at every level, so it
 became the default, and labels, faithfulness and the extrinsic eval were
@@ -296,7 +296,7 @@ Three thresholds decide how a match is read: STABLE_JACCARD=0.5,
 MATCH_THRESHOLD=0.15, SIZE_CHANGE_RATIO=0.2. I picked them by feel. Every
 event record keeps its raw Jaccard, so events can be filtered by
 confidence later instead of trusting the discrete label. The sweep
-(`scripts/temporal_threshold_sweep.py`, one threshold at a time, rerun on
+(`scripts/experiments/temporal_threshold_sweep.py`, one threshold at a time, rerun on
 the existing clusterings) says two of them are harmless: STABLE_JACCARD
 and SIZE_CHANGE_RATIO only move the stable/grow/shrink boundary,
 gradually, and never touch merge, split, birth or death. MATCH_THRESHOLD
@@ -316,7 +316,7 @@ split from the parent's side and as a birth or merge from the piece's
 side. The split event's `into` field lists every piece's persistent id so
 the two can be joined.
 
-**Warm start.** I built and tested it (`scripts/warm_start_sweep.py`, rule
+**Warm start.** I built and tested it (`scripts/experiments/warm_start_sweep.py`, rule
 in section 15). A third affinity term, `A_prior(i,j) = 1` iff i and j
 shared a level-2 cluster at the previous snapshot, is blended in as
 `(1-gamma)*A_task + gamma*A_prior` before UPGMA. That's what Asgari et al.
@@ -341,7 +341,7 @@ show is the coherence cost on real data.
 
 **Is change localised?** P5 asks that change between snapshots be
 localised to where the corpus changed. I tested it
-(`scripts/localisation.py`, rule in section 15) and it isn't, in the sense
+(`scripts/pipeline/localisation.py`, rule in section 15) and it isn't, in the sense
 I pre-registered. Per cluster, churn is 1 minus its best Jaccard at the
 next snapshot on shared nodes, and exposure is the share of hyperedges
 touching its members that are new. At no level does churn rise with
@@ -448,8 +448,8 @@ the blind rating: 0 of 48 real glosses rated wrong, upper bound 7%.
 
 ## 13. Coherence measured with a signal clustering never saw
 
-`eval/coherence.py`; `scripts/hypergraph_shuffle_null.py`,
-`scripts/structural_holdout.py`, `scripts/pair_overlap.py`.
+`eval/coherence.py`; `scripts/pipeline/hypergraph_shuffle_null.py`,
+`scripts/pipeline/structural_holdout.py`, `scripts/experiments/pair_overlap.py`.
 
 Three checks here, from weakest to strongest. The blind intruder test in
 section 21 is a fourth.
@@ -526,8 +526,8 @@ related by more than one paper.
 
 `eval/extrinsic.py`, `build_retrieval_texts`, `hierarchy_drilldown`,
 `routing_pool_recall`, `leave_one_out_select` and `paired_comparison`;
-`scripts/t6_patch_extrinsic.py`, `scripts/label_routing.py`,
-`scripts/rerank_sweep.py`.
+`scripts/pipeline/t6_extrinsic.py`, `scripts/experiments/label_routing.py`,
+`scripts/experiments/rerank_sweep.py`.
 
 **Retrieval text for short names.** The first drill-down run embedded each
 candidate by its bare surface form, as clustering does, and got zero hits
@@ -717,7 +717,7 @@ labels. *Result* (rerun after the section 16 fix): met. Lift 0.33 (CI 0.04
 to 0.54) against centroid routing's 0.06 (CI -0.04 to 0.17). The new labels
 replace the old ones.
 
-**Extrinsic re-evaluation** (`t6_patch_extrinsic.py`). The drill-down
+**Extrinsic re-evaluation** (`t6_extrinsic.py`). The drill-down
 settings have so far been picked on the same questions they're scored on.
 Now they're picked by leave-one-out: for each question, the setting with
 the best mean recall@20 on the others (ties go to fewer candidates, then
@@ -860,7 +860,7 @@ as anything.
 ## 17. What alpha actually weights
 
 `cluster.py`, `combine_affinities` and `_normalize_affinity`;
-`scripts/affinity_mass_share.py`, `outputs/affinity_mass_share.json`;
+`scripts/experiments/affinity_mass_share.py`, `outputs/affinity_mass_share.json`;
 `eval/stability.py`, `perturbation_stability`.
 
 I used to describe alpha=0.3 as "structure gets 30%, semantics 70%". That
@@ -939,7 +939,7 @@ so that's a claim about myself, not evidence.
 
 `embeddings.py` and `eval/faithfulness.py`, the pinned model revisions;
 `labeling.py`, `apply_labels_to_hierarchy` and `unlabelled_super_nodes`;
-`scripts/t5_apply_labels.py`, `scripts/t6_evaluate.py`.
+`scripts/pipeline/t5_apply_labels.py`, `scripts/pipeline/t6_evaluate.py`.
 
 Both Hugging Face models load at a fixed commit (the revision hashes in
 the two modules) rather than whatever the Hub serves on the day. The
@@ -1011,7 +1011,7 @@ anything.
 ## 21. Blind intruder test for coherence
 
 `eval/blind.py`, `make_intruder_items` and `score_intruder`;
-`scripts/blind_eval.py`; `outputs/blind_eval/`. Rule and full result in
+`scripts/pipeline/blind_eval.py`; `outputs/blind_eval/`. Rule and full result in
 section 15.
 
 The brief lists blind LLM or human judgement as one way to measure
@@ -1097,7 +1097,7 @@ either way, and keep it in the metrics without leaning on it.
 
 `model_outputs.py`; `embeddings.py`, `encode_semantic`;
 `eval/faithfulness.py`, `nli_labels`; `scripts/reproduce_all.py`,
-`scripts/export_release.py`, `scripts/verify_release.py`.
+`scripts/release/export_release.py`, `scripts/verify_release.py`.
 
 Nothing in this project is trained, so there are no weights to publish.
 The method is two frozen models pinned to exact Hub commits (section 19)
@@ -1152,7 +1152,7 @@ run on the reproducer's machine.
 `labeling.py`, `validate_template`, `label_set_template`,
 `write_labeller_request` and `apply_labels_to_hierarchy`; `replies.py`,
 `extract_json`; `eval/blind.py`, `rating_reply_problems` and
-`glosses_not_applied`; `scripts/t5_dump_labeling_input.py`,
+`glosses_not_applied`; `scripts/pipeline/t5_dump_labeling_input.py`,
 `t5_import_labels.py`, `t5_apply_labels.py`, `blind_eval.py` and
 `reproduce_all.py`.
 

@@ -1,7 +1,7 @@
 """Rerank check (DESIGN_NOTES.md sections 14 and 15): does blending a candidate's own cosine score with
 its level-1 ancestor's label+gloss cosine score let drill-down retrieval
 beat flat baseline (not just tie it)? Reuses the same embeddings/questions
-as t6_patch_extrinsic.py. Writes outputs/rerank_sweep.json.
+as t6_extrinsic.py. Writes outputs/rerank_sweep.json.
 """
 import csv
 import json
@@ -11,17 +11,16 @@ from pathlib import Path
 
 import numpy as np
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
-from tkh.io import load_tkh, build_snapshot  # noqa: E402
+from tkh.io import load_tkh, build_snapshot, DATA_PATH  # noqa: E402
 from tkh.embeddings import encode_semantic  # noqa: E402
 from tkh.eval.extrinsic import (  # noqa: E402
     METHOD_LIKE_TYPES, match_ground_truth_methods, flat_baseline,
     score_retrieval, build_retrieval_texts,
 )
 
-DATA_PATH = ROOT / "data" / "tkh_collection10.json"
 OUT_DIR = ROOT / "outputs"
 K = 20
 BETAS = [round(0.1 * i, 1) for i in range(11)]

@@ -16,10 +16,10 @@ from pathlib import Path
 
 import numpy as np
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
-from tkh.io import load_tkh, build_snapshot  # noqa: E402
+from tkh.io import load_tkh, build_snapshot, DATA_PATH  # noqa: E402
 from tkh.embeddings import encode_semantic  # noqa: E402
 from tkh.pipeline import embed_concepts  # noqa: E402
 from tkh.eval.extrinsic import (  # noqa: E402
@@ -29,7 +29,6 @@ from tkh.eval.extrinsic import (  # noqa: E402
     routing_pool_recall, centroid_vectors,
 )
 
-DATA_PATH = ROOT / "data" / "tkh_collection10.json"
 OUT_DIR = ROOT / "outputs"
 K = 20
 FINAL_B0, FINAL_B1 = 8, 8

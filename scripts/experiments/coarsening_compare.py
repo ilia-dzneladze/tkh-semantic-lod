@@ -13,10 +13,10 @@ from pathlib import Path
 
 import numpy as np
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
-from tkh.io import load_tkh, build_all_snapshots, SNAPSHOT_CUTOFFS  # noqa: E402
+from tkh.io import load_tkh, build_all_snapshots, SNAPSHOT_CUTOFFS, DATA_PATH  # noqa: E402
 from tkh.pipeline import (  # noqa: E402
     run_all_snapshots, build_hierarchy_json, embed_concepts, ALPHA, LEVEL_TARGETS)
 from tkh.embeddings import encode_semantic  # noqa: E402
@@ -50,7 +50,7 @@ def size_stats(h, n_levels):
 
 
 def main():
-    data = load_tkh(ROOT / "data" / "tkh_collection10.json")
+    data = load_tkh(DATA_PATH)
     snapshots = build_all_snapshots(data, cutoffs=SNAPSHOT_CUTOFFS)
     cache = {}
     for y in SNAPSHOT_CUTOFFS:

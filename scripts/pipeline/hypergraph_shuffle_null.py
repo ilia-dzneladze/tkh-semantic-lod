@@ -21,19 +21,17 @@ from pathlib import Path
 
 import numpy as np
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
-from tkh.io import load_tkh, build_snapshot  # noqa: E402
+from tkh.io import load_tkh, build_snapshot, DATA_PATH  # noqa: E402
+from tkh.pipeline import ALPHA, LEVEL_TARGETS, KNN_K  # noqa: E402
 from tkh.hypergraph import build_structural_affinity  # noqa: E402
 from tkh.embeddings import encode_semantic, semantic_knn_graph  # noqa: E402
 from tkh.cluster import combine_affinities, sparse_upgma, cut_to_k_clusters  # noqa: E402
 from tkh.eval.coherence import fit_tfidf, cluster_coherence, weighted_mean_coherence  # noqa: E402
 
-DATA_PATH = ROOT / "data" / "tkh_collection10.json"
 OUT_PATH = ROOT / "outputs" / "hypergraph_shuffle_null.json"
-ALPHA = 0.3
-LEVEL_TARGETS = [12, 50, 200]
 N_TRIALS = 20
 SWAP_MULTIPLIER = 10
 
@@ -107,7 +105,7 @@ def main():
     emb = encode_semantic(texts, show_progress_bar=True)
     embedding_cache = dict(zip(ids, emb))
     emb_matrix = np.stack([embedding_cache[nid] for nid in ids])
-    A_sem = semantic_knn_graph(emb_matrix, k=15)
+    A_sem = semantic_knn_graph(emb_matrix, k=KNN_K)
     log("semantic affinity built (reused across every trial, unaffected by hypergraph shuffle)")
 
     X, tfidf_ids, id_to_row = fit_tfidf(snap)

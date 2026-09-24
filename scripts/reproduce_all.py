@@ -73,18 +73,18 @@ def steps(args):
     labels = ["--labels", str(args.labels)] if args.labels else []
     blind = ["--dir", str(args.blind)] if args.blind else []
     return [
-        ["scripts/t1_describe.py"],
-        ["scripts/run_pipeline.py"],
-        ["scripts/t5_apply_labels.py", *labels],
-        ["scripts/validate_hierarchy.py"],
+        ["scripts/pipeline/t1_describe.py"],
+        ["scripts/pipeline/run_pipeline.py"],
+        ["scripts/pipeline/t5_apply_labels.py", *labels],
+        ["scripts/pipeline/validate_hierarchy.py"],
         ["-m", "pytest", "tests", "-q"],
-        ["scripts/t6_evaluate.py"],
-        ["scripts/t6_patch_extrinsic.py"],
-        ["scripts/hypergraph_shuffle_null.py"],
-        ["scripts/structural_holdout.py"],
-        ["scripts/localisation.py"],
-        ["scripts/blind_eval.py", "score", *blind],
-        ["scripts/make_report_figures.py"],
+        ["scripts/pipeline/t6_evaluate.py"],
+        ["scripts/pipeline/t6_extrinsic.py"],
+        ["scripts/pipeline/hypergraph_shuffle_null.py"],
+        ["scripts/pipeline/structural_holdout.py"],
+        ["scripts/pipeline/localisation.py"],
+        ["scripts/pipeline/blind_eval.py", "score", *blind],
+        ["scripts/pipeline/make_report_figures.py"],
     ]
 
 

@@ -12,7 +12,7 @@ import sys
 from pathlib import Path
 from collections import defaultdict
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 OUT_DIR = ROOT / "outputs" / "snapshots"
 
 

@@ -16,9 +16,9 @@ and the extrinsic eval both need gloss text, so this sweep doesn't touch
 either of them.
 
 Usage:
-    python scripts\\alpha_sweep.py                  # full 19-value sweep
-    python scripts\\alpha_sweep.py 0.5               # just alpha=0.5, for a smoke test
-    python scripts\\alpha_sweep.py 0.05,0.5,0.95     # a specific subset
+    python scripts/experiments/alpha_sweep.py                  # full 19-value sweep
+    python scripts/experiments/alpha_sweep.py 0.5               # just alpha=0.5, for a smoke test
+    python scripts/experiments/alpha_sweep.py 0.05,0.5,0.95     # a specific subset
 """
 import json
 import sys
@@ -28,19 +28,18 @@ from pathlib import Path
 
 import numpy as np
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
-from tkh.io import load_tkh, build_all_snapshots, SNAPSHOT_CUTOFFS  # noqa: E402
+from tkh.io import load_tkh, build_all_snapshots, SNAPSHOT_CUTOFFS, DATA_PATH  # noqa: E402
+from tkh.pipeline import LEVEL_TARGETS, KNN_K  # noqa: E402
 from tkh.hypergraph import build_structural_affinity  # noqa: E402
 from tkh.embeddings import encode_semantic, semantic_knn_graph, encode_lexical_tfidf  # noqa: E402
 from tkh.cluster import combine_affinities, sparse_upgma, cut_to_k_clusters  # noqa: E402
 from tkh.eval.coherence import coherence_vs_null  # noqa: E402
 from tkh.eval.stability import perturbation_stability, cross_snapshot_stability  # noqa: E402
 
-DATA_PATH = ROOT / "data" / "tkh_collection10.json"
 OUT_PATH = ROOT / "outputs" / "alpha_sweep.json"
-LEVEL_TARGETS = [12, 50, 200]
 DEFAULT_ALPHAS = [round(0.05 * i, 2) for i in range(1, 20)]  # 0.05 .. 0.95
 
 T0 = time.time()
@@ -89,7 +88,7 @@ def main():
             for nid, v in zip(missing, vecs):
                 embedding_cache[nid] = v
         emb = np.stack([embedding_cache[nid] for nid in ids])
-        A_sem = semantic_knn_graph(emb, k=15)
+        A_sem = semantic_knn_graph(emb, k=KNN_K)
         texts_ordered = [snap.nodes[nid]["surface_form"] or "" for nid in ids]
         X_tfidf = encode_lexical_tfidf(texts_ordered)
         id_to_row = {nid: i for i, nid in enumerate(ids)}

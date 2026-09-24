@@ -9,7 +9,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 OUT_DIR = ROOT / "outputs" / "figures"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 

@@ -103,6 +103,7 @@ def _cos_matrix(emb_matrix, query_vec):
 
 
 def flat_baseline(question_vec, node_ids, node_emb_matrix, k=20):
+    """Top-k node ids by cosine to the question, over every candidate."""
     sims = _cos_matrix(node_emb_matrix, question_vec)
     order = np.argsort(-sims)[:k]
     retrieved = [node_ids[i] for i in order]
@@ -126,6 +127,11 @@ def build_level1_ancestor_map(hierarchy):
 
 def hierarchy_drilldown(question_vec, hierarchy, label_gloss_ids, label_gloss_matrix,
                           node_emb_by_id, b0=3, b1=3, k=20, beta=0.0, node_to_level1=None):
+    """Coarse-to-fine retrieval: keep the b0 level-0 groups whose label+gloss
+    is closest to the question, then the b1 closest of their level-1
+    children, and rank the nodes under those by cosine, blended with the
+    node's level-1 ancestor score by weight beta. Returns (top-k ids, pool
+    size, counts of what was scored at each level)."""
     lg_sims = _cos_matrix(label_gloss_matrix, question_vec)
     lg_score = dict(zip(label_gloss_ids, lg_sims))
 
@@ -173,62 +179,6 @@ def score_retrieval(retrieved, gt_node_ids, k):
         "recall_at_k": hit / len(gt),
         "precision_at_k": hit / k if k else None,
         "n_gt": len(gt), "n_hit": hit,
-    }
-
-
-def run_extrinsic_eval(snap, hierarchy, questions, ground_truth, node_ids, node_emb_matrix,
-                        node_emb_by_id, label_gloss_ids, label_gloss_matrix,
-                        encode_fn, b0=3, b1=3, k=20):
-    results = []
-    for q in questions:
-        qid = q["question_id"]
-        gt = ground_truth.get(qid)
-        if gt is None or gt.get("type") != "A":
-            continue
-        expected = gt["expected_methods"]
-        matched = match_ground_truth_methods(snap, expected)
-        gt_node_ids = sorted({nid for m in matched.values() for nid in m["node_ids"]})
-        n_matched_terms = sum(1 for m in matched.values() if m["match_type"] != "none")
-
-        qvec = encode_fn([q["question"]])[0]
-
-        flat_retrieved, flat_n_scored = flat_baseline(qvec, node_ids, node_emb_matrix, k=k)
-        drill_retrieved, drill_n_scored, drill_detail = hierarchy_drilldown(
-            qvec, hierarchy, label_gloss_ids, label_gloss_matrix, node_emb_by_id,
-            b0=b0, b1=b1, k=k)
-
-        results.append({
-            "question_id": qid, "question": q["question"],
-            "n_expected_methods": len(expected),
-            "n_expected_methods_matched": n_matched_terms,
-            "n_gt_node_ids": len(gt_node_ids),
-            "flat": {**(score_retrieval(flat_retrieved, gt_node_ids, k) or {}),
-                     "n_candidates_scored": flat_n_scored},
-            "drilldown": {**(score_retrieval(drill_retrieved, gt_node_ids, k) or {}),
-                          "n_candidates_scored": drill_n_scored, **drill_detail},
-        })
-    return results
-
-
-def summarize_extrinsic(results):
-    def avg(key_path):
-        vals = []
-        for r in results:
-            d = r
-            for k in key_path:
-                d = d.get(k, {}) if isinstance(d, dict) else {}
-            if isinstance(d, (int, float)):
-                vals.append(d)
-        return float(np.mean(vals)) if vals else None
-
-    return {
-        "n_questions": len(results),
-        "flat_mean_recall_at_k": avg(["flat", "recall_at_k"]),
-        "flat_mean_precision_at_k": avg(["flat", "precision_at_k"]),
-        "flat_mean_candidates_scored": avg(["flat", "n_candidates_scored"]),
-        "drilldown_mean_recall_at_k": avg(["drilldown", "recall_at_k"]),
-        "drilldown_mean_precision_at_k": avg(["drilldown", "precision_at_k"]),
-        "drilldown_mean_candidates_scored": avg(["drilldown", "n_candidates_scored"]),
     }
 
 

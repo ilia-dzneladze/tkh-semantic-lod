@@ -14,10 +14,10 @@ import numpy as np
 import scipy.sparse as sp
 from scipy.stats import spearmanr
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
-from tkh.io import load_tkh, build_all_snapshots, SNAPSHOT_CUTOFFS  # noqa: E402
+from tkh.io import load_tkh, build_all_snapshots, SNAPSHOT_CUTOFFS, DATA_PATH  # noqa: E402
 from tkh.embeddings import semantic_knn_graph  # noqa: E402
 from tkh.pipeline import embed_concepts, KNN_K  # noqa: E402
 from tkh.eval.coherence import fit_tfidf  # noqa: E402
@@ -32,7 +32,7 @@ def _tfidf_cos(X, rows, cols):
 
 def main():
     t0 = time.time()
-    snapshots = build_all_snapshots(load_tkh(ROOT / "data" / "tkh_collection10.json"), SNAPSHOT_CUTOFFS)
+    snapshots = build_all_snapshots(load_tkh(DATA_PATH), SNAPSHOT_CUTOFFS)
     cache, out = {}, {}
     for year in sorted(snapshots):
         snap = snapshots[year]

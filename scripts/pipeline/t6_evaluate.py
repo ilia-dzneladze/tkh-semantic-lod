@@ -10,10 +10,11 @@ from pathlib import Path
 
 import numpy as np
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
-from tkh.io import load_tkh, build_snapshot, SNAPSHOT_CUTOFFS  # noqa: E402
+from tkh.io import load_tkh, build_snapshot, SNAPSHOT_CUTOFFS, DATA_PATH  # noqa: E402
+from tkh.pipeline import LEVEL_TARGETS, ALPHA  # noqa: E402
 from tkh.embeddings import encode_semantic  # noqa: E402
 from tkh.eval.coherence import fit_tfidf, coherence_vs_null  # noqa: E402
 from tkh.eval.stability import perturbation_stability, cross_snapshot_stability  # noqa: E402
@@ -26,9 +27,7 @@ from tkh.eval.extrinsic import (  # noqa: E402
     build_level1_ancestor_map,
 )
 
-DATA_PATH = ROOT / "data" / "tkh_collection10.json"
 OUT_DIR = ROOT / "outputs"
-LEVEL_TARGETS = [12, 50, 200]
 EXTRINSIC_K = 20
 # shipped drill-down setting: branching (b0, b1) and the ancestor-score
 # blend beta, both picked in-sample; see DESIGN_NOTES.md section 14
@@ -65,7 +64,7 @@ def run_stability(snapshots, hierarchies):
     cache = dict(zip(ids, vecs))
     log(f"perturbation embeddings ({year}) done")
 
-    pert = perturbation_stability(snap, cache, LEVEL_TARGETS, alpha=0.3,
+    pert = perturbation_stability(snap, cache, LEVEL_TARGETS, alpha=ALPHA,
                                    original_hierarchy=hierarchies[year],
                                    n_seeds=5, remove_frac=0.10)
     log("perturbation stability done")
@@ -186,7 +185,7 @@ def main():
         missing = {y: len(unlabelled_super_nodes(h)) for y, h in hierarchies.items()}
         if any(missing.values()):
             sys.exit(f"hierarchy.json has unlabelled level-0/1 super-nodes {missing}. "
-                     f"run_pipeline.py writes labels as null; run scripts/t5_apply_labels.py first.")
+                     f"run_pipeline.py writes labels as null; run scripts/pipeline/t5_apply_labels.py first.")
 
     metrics_path = OUT_DIR / "metrics.json"
     metrics = {}

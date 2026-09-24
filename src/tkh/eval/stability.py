@@ -58,7 +58,7 @@ def perturbation_stability(snap, embedding_cache, level_targets, alpha,
     perturbed), so label arrays line up index-for-index with no need to
     restrict to a common subset. Only the structural term is disturbed,
     which makes this confounded with alpha: DESIGN_NOTES.md section 17."""
-    from tkh.pipeline import build_levels
+    from tkh.pipeline import build_levels, KNN_K
 
     ids = sorted(snap.concept_ids)
     original_labels = {
@@ -67,7 +67,7 @@ def perturbation_stability(snap, embedding_cache, level_targets, alpha,
     }
 
     emb = np.stack([embedding_cache[nid] for nid in ids])
-    A_sem = semantic_knn_graph(emb, k=15)  # unaffected by edge removal, computed once
+    A_sem = semantic_knn_graph(emb, k=KNN_K)  # unaffected by edge removal, computed once
 
     per_level_aris = {level_idx: [] for level_idx in range(len(level_targets))}
     n_forced_by_seed = []

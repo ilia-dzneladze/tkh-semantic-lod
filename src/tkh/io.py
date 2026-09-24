@@ -2,6 +2,7 @@
 import json
 from collections import Counter
 from dataclasses import dataclass, field
+from pathlib import Path
 
 # see DESIGN_NOTES.md section 1: which node types get clustered
 CONCEPT_TYPES = {
@@ -11,6 +12,7 @@ CONCEPT_TYPES = {
 CONTEXT_TYPES = {"article", "author"}
 
 SNAPSHOT_CUTOFFS = [2020, 2022, 2024, 2026]
+DATA_PATH = Path(__file__).resolve().parents[2] / "data" / "tkh_collection10.json"
 
 
 def load_tkh(path):

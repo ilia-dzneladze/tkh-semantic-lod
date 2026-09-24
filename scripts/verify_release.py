@@ -60,7 +60,7 @@ def checksums(sums_path):
 def compare_embeddings(release_dir):
     if os.environ.get(ENV_VAR):
         sys.exit(f"unset {ENV_VAR}: this compares the real model's output with the published one")
-    from tkh.io import load_tkh, build_all_snapshots
+    from tkh.io import load_tkh, build_all_snapshots, DATA_PATH
     from tkh.pipeline import embed_concepts, KNN_K
     from tkh.embeddings import semantic_knn_graph
 
@@ -68,7 +68,7 @@ def compare_embeddings(release_dir):
     pub_ids = [str(x) for x in pub["node_ids"]]
     pub_emb = pub["embeddings"]
 
-    snaps = build_all_snapshots(load_tkh(ROOT / "data" / "tkh_collection10.json"))
+    snaps = build_all_snapshots(load_tkh(DATA_PATH))
     cache = {}
     for year in sorted(snaps):
         embed_concepts(snaps[year], cache)

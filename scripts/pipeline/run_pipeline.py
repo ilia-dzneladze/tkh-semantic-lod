@@ -8,13 +8,12 @@ import sys
 import time
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
-from tkh.io import load_tkh, build_all_snapshots, SNAPSHOT_CUTOFFS  # noqa: E402
+from tkh.io import load_tkh, build_all_snapshots, SNAPSHOT_CUTOFFS, DATA_PATH  # noqa: E402
 from tkh.pipeline import run_all_snapshots, build_hierarchy_json  # noqa: E402
 
-DATA_PATH = ROOT / "data" / "tkh_collection10.json"
 OUT_DIR = ROOT / "outputs"
 
 

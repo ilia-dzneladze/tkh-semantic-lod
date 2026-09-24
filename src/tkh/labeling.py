@@ -189,7 +189,7 @@ Reply with ONLY a JSON array, one object per item, covering all {n} items:
 def write_labeller_request(entries, year, out_path):
     """One markdown file holding every prompt for a snapshot plus the reply
     format, ready to give to any LLM or human labeller. Save the reply as
-    labels_<year>.json and import it with scripts/t5_import_labels.py."""
+    labels_<year>.json and import it with scripts/pipeline/t5_import_labels.py."""
     parts = [REQUEST_HEADER.format(n=len(entries), year=year)]
     for e in entries:
         parts.append(f"=== item {e['super_node_id']} ===\n{e['prompt']}")

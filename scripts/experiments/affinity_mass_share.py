@@ -13,10 +13,10 @@ from pathlib import Path
 
 import numpy as np
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
-from tkh.io import load_tkh, build_all_snapshots, SNAPSHOT_CUTOFFS  # noqa: E402
+from tkh.io import load_tkh, build_all_snapshots, SNAPSHOT_CUTOFFS, DATA_PATH  # noqa: E402
 from tkh.hypergraph import build_structural_affinity  # noqa: E402
 from tkh.embeddings import semantic_knn_graph  # noqa: E402
 from tkh.cluster import combine_affinities  # noqa: E402
@@ -28,7 +28,7 @@ OUT_PATH = ROOT / "outputs" / "affinity_mass_share.json"
 
 def main():
     t0 = time.time()
-    data = load_tkh(ROOT / "data" / "tkh_collection10.json")
+    data = load_tkh(DATA_PATH)
     snapshots = build_all_snapshots(data, cutoffs=SNAPSHOT_CUTOFFS)
     cache = {}
     out = {}

@@ -22,12 +22,10 @@ from pathlib import Path
 
 import numpy as np
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
 from tkh.model_outputs import ENV_VAR  # noqa: E402
-
-DATA_PATH = ROOT / "data" / "tkh_collection10.json"
 
 
 def sha256(path):
@@ -74,7 +72,7 @@ def main():
                  f"recording isn't a single consistent run. Record again.")
     os.environ[ENV_VAR] = f"replay:{record}"
 
-    from tkh.io import load_tkh, build_all_snapshots
+    from tkh.io import load_tkh, build_all_snapshots, DATA_PATH
     from tkh.pipeline import embed_concepts, ALPHA, KNN_K, LEVEL_TARGETS
     from tkh.hypergraph import build_structural_affinity
     from tkh.embeddings import encode_semantic, semantic_knn_graph, _MODEL_NAME, _MODEL_REVISION
@@ -141,7 +139,7 @@ def main():
     }
     (release / "environment.json").write_text(json.dumps(env, indent=2), encoding="utf-8")
 
-    card = (ROOT / "scripts" / "release_card.md").read_text(encoding="utf-8")
+    card = (Path(__file__).resolve().parent / "release_card.md").read_text(encoding="utf-8")
     (release / "README.md").write_text(card.format(
         n_embed=n_embed, n_nli=n_nli, n_nodes=len(ids), n_method=len(method_ids),
         platform=env["platform"], python=env["python"], torch=env["packages"]["torch"],

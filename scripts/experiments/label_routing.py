@@ -14,10 +14,10 @@ from pathlib import Path
 
 import numpy as np
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
-from tkh.io import load_tkh, build_snapshot  # noqa: E402
+from tkh.io import load_tkh, build_snapshot, DATA_PATH  # noqa: E402
 from tkh.pipeline import embed_concepts  # noqa: E402
 from tkh.embeddings import encode_semantic  # noqa: E402
 from tkh.labeling import apply_labels_to_hierarchy  # noqa: E402
@@ -33,7 +33,7 @@ def main():
     if len(sys.argv) not in (2, 3):
         sys.exit("usage: label_routing.py TAG [LABELS_DIR]")
     tag = sys.argv[1]
-    snap = build_snapshot(load_tkh(ROOT / "data" / "tkh_collection10.json"), YEAR)
+    snap = build_snapshot(load_tkh(DATA_PATH), YEAR)
     h = json.loads((ROOT / "outputs" / "snapshots" / str(YEAR) / "hierarchy.json").read_text(encoding="utf-8"))
     if len(sys.argv) == 3:
         labels_path = Path(sys.argv[2]) / str(YEAR) / "labeling_output.json"

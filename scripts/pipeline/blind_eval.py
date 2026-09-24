@@ -28,16 +28,15 @@ from pathlib import Path
 
 import numpy as np
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
-from tkh.io import load_tkh, build_snapshot, SNAPSHOT_CUTOFFS  # noqa: E402
+from tkh.io import load_tkh, build_snapshot, SNAPSHOT_CUTOFFS, DATA_PATH  # noqa: E402
 from tkh.eval.blind import (  # noqa: E402
     make_intruder_items, score_intruder, make_gloss_items, score_gloss_ratings,
     rating_reply_problems, glosses_not_applied)
 from tkh.replies import extract_json  # noqa: E402
 
-DATA_PATH = ROOT / "data" / "tkh_collection10.json"
 BLIND_DIR = ROOT / "outputs" / "blind_eval"
 INTRUDER_YEAR = 2026
 INTRUDER_PER_LEVEL = {0: 12, 1: 24, 2: 24}

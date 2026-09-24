@@ -13,18 +13,17 @@ from pathlib import Path
 
 import numpy as np
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
-from tkh.io import load_tkh, build_snapshot  # noqa: E402
+from tkh.io import load_tkh, build_snapshot, DATA_PATH  # noqa: E402
+from tkh.pipeline import ALPHA, KNN_K  # noqa: E402
 from tkh.hypergraph import build_structural_affinity  # noqa: E402
 from tkh.embeddings import encode_semantic, semantic_knn_graph  # noqa: E402
 from tkh.cluster import combine_affinities, sparse_upgma, cut_to_k_clusters  # noqa: E402
 from tkh.eval.stability import perturb_snapshot  # noqa: E402
 
-DATA_PATH = ROOT / "data" / "tkh_collection10.json"
 OUT_DIR = ROOT / "outputs"
-ALPHA = 0.3
 LEVEL0_K = 12
 N_SEEDS = 5
 BASE_SEED = 1000
@@ -61,7 +60,7 @@ def main():
     vecs = encode_semantic(texts, show_progress_bar=True)
     embedding_cache = dict(zip(ids, vecs))
     emb = np.stack([embedding_cache[nid] for nid in ids])
-    A_sem = semantic_knn_graph(emb, k=15)
+    A_sem = semantic_knn_graph(emb, k=KNN_K)
     print(f"[{time.time()-t0:.1f}s] embeddings + structural affinity done")
 
     jaccards_by_cluster = {sn["id"]: [] for sn in level0}
