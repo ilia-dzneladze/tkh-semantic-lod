@@ -6,15 +6,30 @@ here by section number. Where I got something wrong along the way, the
 section says so briefly and then gives the current state. The full history
 is in `AI_USAGE.md` and git.
 
+This file is long, and most of it is detail behind a sentence in the
+report. If you only have time for a few sections, read these, roughly in
+the order of the brief's grading:
+
+- 7 and 17: how structure and meaning are combined, and why alpha=0.3
+  turned out to give structure about 7% of the say
+- 8: why average linkage with missing entries read as 0 is laminar by
+  construction, and the test that checks it against scipy
+- 13 and 21: how coherence is measured without the embedding that built
+  the clusters, and the blind intruder test
+- 22 and 25: label faithfulness, the blind gloss ratings, and the
+  temporal honesty audit
+- 9: the T4 collapse rule, and why the shipped levels don't use it
+- 10: temporal matching, and why change isn't localised
+
 Sections are numbered in the order things came up, not by topic:
 
 - data and snapshots: 1, 2
 - building the hierarchy: 3, 4, 6, 7, 8, 17
 - collapse, output format and time: 9, 10, 11
-- labels: 12
+- labels: 12, 25
 - evaluation: 5 and 13 (coherence), 21 (blind intruder test), 20
   (stability intervals), 22 (faithfulness), 14 and 16 (extrinsic)
-- decision rules written before each experiment: 15, 18
+- decision rules written before each experiment: 15, 18, 25
 - reproducibility: 19, 23, 24
 
 ## 1. Which node types get clustered
@@ -63,7 +78,9 @@ hyperedges that reference nodes outside the snapshot, and the collapse
 rule would need a policy for half-present edges that I'd rather not invent
 in a hurry. It would also change the clustering, so all 248 labels and
 everything downstream would have to be redone. So the labeller's input is
-temporally honest for about 98% of nodes, not by guarantee.
+temporally honest for about 98% of nodes, not by guarantee. Section 25
+counts what reached the labels: 5 of 186 early labels name something
+the corpus hadn't seen yet, all of them through this route.
 
 Every node in this export is referenced by at least one edge (the 2026
 snapshot holds all 5,798), so no node drops out of a snapshot unnoticed.
@@ -1216,3 +1233,72 @@ a code fence the way chat models often send it. That tests the plumbing
 (custom template, 248 labels imported and applied, packets rebuilt for
 them, ratings imported and scored, both refusals), not the quality of
 anyone's labels.
+
+## 25. Auditing the labels for temporal honesty
+
+`scripts/experiments/temporal_honesty_audit.py`, `main`.
+
+Section 2 says the labeller's input is temporally honest for about 98% of
+nodes, and backs that with one example I happened to notice. That's a
+count of inputs, not of outputs, and one example isn't a rate. So I
+audited every level-0 and level-1 label at 2020, 2022 and 2024, 186 in
+all. 2026 can't fail, since nothing in the export is first seen after it.
+
+A label is flagged if its label or gloss names, as a whole word and
+ignoring case, the surface form of something the corpus first saw after
+the snapshot year. I check two sources. The first is the labeller's own
+input: sampled members whose `first_seen_year` is after t. The second is
+the whole export: any surface form whose earliest `first_seen_year`, over
+every node that carries it, is after t. That one catches a labeller
+bringing in a name from its own knowledge that the corpus only meets
+later. Surface forms under four characters are skipped, for the same
+reason as the matcher fix in section 16. Every flag gets read by hand
+and marked a real leak (the label says something about a thing the corpus
+hadn't seen yet) or a false alarm (a generic word that happens to match).
+
+I wrote the rule down before running it. If real leaks are at most 2% of
+the 186 labels, I report the measured count in place of the single
+example and change nothing else. If there are more, the report says
+temporal honesty fails measurably, and the fix (drop future-seen members
+from the labeller's sample and relabel) becomes the first thing on the
+four-week list. Either way I also report how many labeller inputs held a
+future-seen node at all, so the leak rate can be read against the
+exposure.
+
+What the audit can't see is a paraphrase: a gloss that describes a later
+idea without naming it. It's a floor on the leak rate, not the rate.
+
+*Result* (`outputs/temporal_honesty_audit.json`). 94 of the 186 labels
+were flagged, on 154 matches. 76 of those matches were backed by a
+sampled member the corpus had already seen, a longer surface form
+containing the term, so the corpus did know the thing by t. The other
+78 were read one by one, and the verdicts are listed in the script
+(`REAL_LEAKS`). Nearly all are field vocabulary whose standalone node happens
+to be dated late ("materials" is first a node of its own in 2026), or
+names the corpus had seen earlier under another spelling (MPNN from 2017,
+ACE, LightGBM as "Light Gradient-Boosting Machine").
+
+Five labels are real leaks, 2.7% (Wilson 95% interval 1.2% to 6.1%):
+DeePMD-kit and OC20 at 2020, the EquiformerV2 one I already knew about,
+OC20/OC22 at 2022, and Togo Database with the CSP Blind Test at 2022.
+None are at 2024. That's over the 2% I set, so by my own rule temporal
+honesty fails measurably, and I say so in the report. The fix goes first
+on the four-week list.
+
+All five come from the same place: a node first seen after t that sat in
+the labeller's sample, e.g. "DeePMD-kit v2" (first seen 2023) behind the
+2020 label's "DeePMD-kit". I found no case of the labeller bringing a
+later name in from its own knowledge, though the check can't see
+paraphrase. 32 labeller inputs held a future-seen node, and 5 of those
+labels leaked it (16%, 7% to 32%). So the problem is the snapshot
+membership from section 2, not the labeller disobeying the prompt, and
+dropping future-seen members from the labeller's sample would fix it
+without touching the clustering, though every early label would have to
+be written again. The prompt did tell the labeller not to use anything
+unknown by the snapshot year, but it had no way to know which members
+were from later.
+
+The whole-export source is noisy. I kept it because it's the only thing
+that found three of the five. The "labeller input" source only matches
+a future node's whole surface form, and "DeePMD-kit v2" never appears
+whole in a gloss.
