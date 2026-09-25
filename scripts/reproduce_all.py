@@ -22,6 +22,9 @@ Options:
   --no-setup       use the current Python as it is; don't touch .venv
   --dry-run        print the steps and settings, run nothing, install nothing
 
+The TKH export isn't in the repo. Unzip the data.zip that came with the
+brief into data/ first (see the README).
+
 Everything lands in outputs/ (figures in outputs/figures/). Afterwards,
 `python scripts/verify_release.py checksums` compares the results with the
 published ones. See DESIGN_NOTES.md sections 23 and 24.
@@ -42,6 +45,27 @@ REQUIREMENTS = ROOT / "requirements.txt"
 MARKER = VENV / ".tkh-installed"
 ENV_VAR = "TKH_MODEL_OUTPUTS"  # same as tkh.model_outputs.ENV_VAR
 TORCH_CPU = ["torch==2.14.0", "--index-url", "https://download.pytorch.org/whl/cpu"]
+# SHA-256 of the data files my results came from
+DATA_FILES = {
+    "tkh_collection10.json": "5cc507de0432c111c2bbbc5b50899f952fd24f515313c7c4e99450d8d0211b3b",
+    "questions.csv": "ad75e968e83c7afa5cb4048b3b792c85b0125c6535105ef3830310092bf3c326",
+    "ground_truth.json": "ea4987e1e77931902c9907f44172b59f1f3d24a78cacf83bfd29149994f7b88a",
+    "collection10_articles.csv": "64b52a7bfdf6379647be299661e0465977374e1001a045d89bbb82eebb77abdc",
+}
+
+
+def check_data():
+    """Stop if a data file is missing; warn if one differs from mine."""
+    data = ROOT / "data"
+    missing = [name for name in DATA_FILES if not (data / name).is_file()]
+    if missing:
+        sys.exit(f"missing in {data}: {', '.join(missing)}\n"
+                 "The TKH export isn't in the repo. Unzip the data.zip that came with the brief "
+                 "into data/ so those files sit directly inside it (see the README).")
+    for name, want in DATA_FILES.items():
+        if hashlib.sha256((data / name).read_bytes()).hexdigest() != want:
+            print(f"warning: data/{name} differs from the file my results came from "
+                  f"(line endings alone can do this); outputs may not match the checksums", flush=True)
 
 
 def venv_python():
@@ -99,6 +123,7 @@ def main():
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
 
+    check_data()
     if not (args.no_setup or args.dry_run) and ensure_environment():
         # hand over to the venv's Python with the same arguments
         sys.exit(subprocess.run([str(venv_python()), str(Path(__file__).resolve()), *sys.argv[1:]]).returncode)

@@ -19,6 +19,9 @@ OUTPUTS = REPO / "outputs"
 
 
 def load_tkh(path):
+    if not Path(path).is_file():
+        raise FileNotFoundError(f"{path} not found. The TKH export isn't in the repo: unzip the "
+                                "data.zip that came with the brief into data/ (see the README).")
     with open(path, encoding="utf-8") as f:
         return json.load(f)
 

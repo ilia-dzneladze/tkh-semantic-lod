@@ -21,6 +21,25 @@ Prompts are quoted as I typed them, with spelling and grammar corrected
 and long ones abridged where marked. Where a prompt was short and leaned
 on the conversation so far, what it referred to follows it in brackets.
 
+**Summary.** One row per phase, in order. The sections below have the
+prompts and the detail.
+
+| Phase | What the agent did | What I accepted or changed | How it was checked |
+|---|---|---|---|
+| Planning, feasibility | Proposed Python, dependencies and four design decisions | Chose the joint affinity graph, MPNet, NLI; moved labelling from an API to agents | I worked through the 1/(k-1) weighting until I could explain it |
+| T1-T5 build | Wrote the modules and the pipeline | Caught an id self-reference bug and wrong `member_ids` by reading `hierarchy.json` | Validator script written for it |
+| Code review, T5, T6, T7 | Six code fixes, first labels by sub-agents, first metrics, first report | Rejected two first results (NLI all "neutral", zero recall) rather than report them | Both traced to causes; numbers unchanged by the cosmetic fixes |
+| Alpha sweep, reranking | 19-value alpha sweep; rerank sweep | Took alpha=0.3; the rerank gain later turned out to be one question | Rules written first; smoke test reproduced shipped numbers |
+| Review on Opus 5 | Found six places where code and docs disagreed | Had all fixed | 16 tests, validator |
+| Multilevel T4 | Built T4-driven coarser levels, two variants | Both failed the rule written first, so they didn't ship | Refactor reproduced shipped hierarchies exactly |
+| Relabelling, leave-one-out, held-out edges | Fresh labellers without the questions; LOO extrinsic; structural holdout | Accepted the new labels; kept alpha=0.3 | Read the sub-agents' tool logs; rules written first |
+| Literature, localisation | Read 8 PDFs and cited 5; tested whether change is localised | It isn't, and the report says so | Two overclaims in its own drafts fixed |
+| Clean reproduction, skeptical review | UPGMA-vs-scipy test; clean runs; found the element-matcher bug, temporal leak and the 7% structural share | Acted on five findings; disagreed that TF-IDF coherence is worthless | 36 tests; clean `git archive` rerun |
+| Items 6-11 | Blind intruder and gloss raters, CIs, NLI check, 5-page report | Rejected its first bootstrap CI (interval above its own estimate) | 49 tests; citations checked by web search |
+| Release, one-command run | Record and replay of model outputs, Hugging Face release, `reproduce_all.py`, custom label sets | I uploaded the dataset | 45 outputs byte for byte from a bare folder in 72 min |
+| Cleanups, figure, simplification | Rewrote docs, split `scripts/`, drew the levels 0-2 figure, removed duplication | Chose how much to change before upload | 64 tests; replay byte-identical |
+| Final touch-ups | Graded the repo against the brief; temporal honesty audit; level-0 table in the report; this summary | Took three of its five suggestions | Rule written first; report rebuilt at 5 pages |
+
 ## Planning
 
 Prompt: "Read the .md file in the root folder that outlines the task and
@@ -627,8 +646,9 @@ path hadn't changed, rewrote the script to take the folder as an argument,
 and reran. It stopped one replay run partway because the localisation fix
 had made it obsolete.
 
-I did the upload myself. The export it's derived from ships in this public
-repo anyway, so the dataset is public too
+I did the upload myself. The export it's derived from shipped in this
+public repo at the time (it was taken out later, see "Final touch-ups"),
+so the dataset is public too
 (`iliadzneladze/tkh-multires-outputs`), and the agent switched its
 visibility at my request.
 
@@ -841,6 +861,71 @@ checksums byte for byte. The report still builds at five pages. The card
 already on Hugging Face still has the old data paragraph; changing it
 means re-uploading its README and `SHA256SUMS.txt`, which hasn't been
 done.
+
+## Final touch-ups
+
+Tool: Claude Code on Opus 5.5, a new session.
+
+Prompts: "Do a full pass through the repo, using the selected file as a
+grading metric. How much out of 100 would you write me on this
+assignment, would you hire me as an intern and what would you do as last
+touch-up steps. I have a couple hours of work left on this thing before
+submission" [the selected file was the brief], then "do 2, 3 and 4".
+
+The agent read the brief, the report source, the core modules and the
+docs, ran the tests and the validator, and gave a per-criterion estimate.
+It put the biggest loss on T4, since the brief says the collapse rule
+must be used by the method and the shipped levels don't use it. It
+suggested five touch-ups. I took three: a table of the actual level-0
+labels in the report, a count of temporal leaks in the labels in place of
+the single EquiformerV2 example, and this summary table plus a reading
+guide at the top of DESIGN_NOTES. I left out changing the method this
+late, and it pointed out that anything touching the clustering would
+invalidate the labels and blind ratings.
+
+The temporal honesty audit (`scripts/experiments/temporal_honesty_audit.py`,
+DESIGN_NOTES section 25). The agent wrote the rule into DESIGN_NOTES
+before running anything, with a 2% bar. The first run flagged 94 of 186
+labels, nearly all on field vocabulary. It then added a check for
+whether a sampled member the corpus had already seen contained the term,
+which cleared 76 of the 154 matches. It read the other 78 itself and
+listed seven matches in five labels as real leaks, checking each against
+the members the labeller was actually shown. For example, the 2020
+"DeePMD-kit" traces to a sampled "DeePMD-kit v2" first seen in 2023, and
+the 2022 "MPNN" is a false alarm because the corpus had MPNN from 2017.
+The verdicts are a list in the script, so the numbers regenerate, but
+they're the agent's reading, not mine. 5 of 186 is over the 2% bar, so
+the report now says this part of P6 fails.
+
+The report. The agent added the level-0 table and the audit result, and
+cut elsewhere to stay at five pages. It rebuilt the PDF with Tectonic and
+looked at every page. One shell edit went wrong: a sed meant to fix table
+row endings also matched dollar signs and corrupted the maths throughout
+`report.tex`. The agent caught it in its own check of the file, restored
+it from git (it had been clean before this session) and redid the edits
+with exact string replacement.
+
+Verification: the audit's summary and intervals come from its JSON; the
+five leaking labels were checked against their labeller inputs; the
+report builds at five pages with no LaTeX warnings; 64 tests still pass.
+No pipeline code and no checksummed output changed. The audit writes one
+new file, `outputs/temporal_honesty_audit.json`, which isn't in the
+published checksums.
+
+Prompts: "Should I just get rid of the data from the repo?", then "make
+the repo public, just get rid of the data, and put in readme on how to
+reproduce. Keep huggingface cause its whatever". The agent recommended
+making the repo private instead, to keep one-command reproduction, and I
+chose a public repo without the data. It checked that the repo was
+already public and pointed out that the data stays in the git history,
+since removing it now only affects later commits. It removed `data/`
+from the repo (the local copy stays, ignored), added the unzip step to
+the README, and made `reproduce_all.py` stop with that instruction if a
+data file is missing. It also warns if a file's SHA-256 differs from
+mine. `load_tkh` gives the same instruction when a single script is run.
+Checked by moving `data/` aside: both the one command and a single
+pipeline step stop with the message, and with the data back the dry run
+and the tests pass.
 
 
 ## Verification, overall

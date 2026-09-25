@@ -13,9 +13,28 @@ column is one snapshot, with its 12, 50 and 200 super-nodes as nested
 bars. The ribbons show where each level-0 super-node's members end up at
 the next snapshot.
 
+## Getting the data
+
+The TKH export isn't in this repo. It's the `data.zip` that comes with the
+brief (Option A). Unzip it into `data/` so the four files sit directly
+inside it:
+
+```
+data/tkh_collection10.json
+data/questions.csv
+data/ground_truth.json
+data/collection10_articles.csv
+```
+
+`reproduce_all.py` stops with a message if any of them is missing, and
+warns if one differs from the file my results came from. The SHA-256 of
+each is in `DATA_FILES` in `scripts/reproduce_all.py`, if you want to
+check by hand. A difference in line endings alone would trigger the
+warning.
+
 ## Reproducing everything
 
-One command, from a fresh clone, with any Python 3.11:
+One command, from a fresh clone with the data in place, with any Python 3.11:
 
 ```
 py -3.11 scripts/reproduce_all.py        # Windows
@@ -166,7 +185,8 @@ XeTeX and the TeX Gyre Termes fonts, e.g. [Tectonic](https://tectonic-typesettin
 `DESIGN_NOTES.md` section 15: `alpha_sweep`, `level0_skew_check`,
 `temporal_threshold_sweep`, `warm_start_sweep`, `rerank_sweep`,
 `coarsening_compare`, `label_routing`, `pair_overlap`,
-`affinity_mass_share` and `signal_overlap`. Each writes its own JSON in
+`affinity_mass_share` and `signal_overlap`, plus `temporal_honesty_audit`
+(section 25). Each writes its own JSON in
 `outputs/` and none of them changes the shipped pipeline.
 `rerank_sweep.json` and the routing numbers in `coarsening_compare.json`
 predate the ground-truth matcher fix (section 16) and weren't
@@ -175,7 +195,8 @@ regenerated. No conclusion rests on them.
 ## Repo layout
 
 ```
-data/                 the TKH export, questions, ground truth
+data/                 the TKH export, questions, ground truth (not in the
+                      repo; unzip data.zip here)
 src/tkh/              the method: io, hypergraph, embeddings, cluster,
                       collapse, temporal, pipeline, labeling
 src/tkh/eval/         T6: coherence, stability, faithfulness, extrinsic,
@@ -213,8 +234,8 @@ Known gaps, each discussed in `DESIGN_NOTES.md`:
 - Change between snapshots isn't localised to where new hyperedges
   landed (section 10), and the matching threshold is sensitive.
 - Snapshot membership follows the hyperedge year, so each early snapshot
-  holds a handful of nodes the corpus hadn't seen yet: the labeller's
-  input is temporally honest for about 98% of nodes, not all (section 2).
+  holds a handful of nodes the corpus hadn't seen yet, and 5 of the 186
+  labels at 2020-2024 name one of them (sections 2, 25).
 - On recall@20, drill-down shows no detectable difference from flat at 12
   questions (sections 14, 16).
 - All blind judgements come from one LLM rater, with no second rater and

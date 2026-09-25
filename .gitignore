@@ -14,3 +14,6 @@ outputs/figures/*.pdf
 
 # the Hugging Face release, downloaded or exported locally
 release/
+
+# the TKH export ships with the brief as data.zip, not with this repo
+data/
